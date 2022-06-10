@@ -1,4 +1,1268 @@
-awd
-awd
-awd
-awd
+-----------
+MINISHELL
+-----------
+
+[Indice]
+
+	• Basics
+	• Deve implementar
+	• Redireções
+	• Pipes
+	• Env Vars
+	• Interactive
+	• Advices
+	• Notas
+	• Functions:
+		○ readline
+		○ add_history
+		○ rl_clear_history
+		○ rl_on_new_line
+		○ rl_replace_line
+		○ rl_redisplay
+		○ printf
+		○ malloc
+		○ free
+		○ write
+		○ access
+		○ open
+		○ read
+		○ close
+		○ fork
+		○ wait
+		○ waitpid
+		○ wait3
+		○ wait4
+		○ signal
+		○ sigaction
+		○ kill
+		○ exit
+		○ getcwd
+		○ chdir
+		○ stat
+		○ lstat
+		○ fstat
+		○ unlink
+		○ execve
+		○ dup
+		○ dup2
+		○ pipe
+		○ opendir
+		○ readdir
+		○ closedir
+		○ strerror
+		○ perror
+		○ isatty
+		○ ttyname
+		○ ttyslot
+		○ ioctl
+		○ getenv
+		○ tcsetattr
+		○ tcgetattr
+		○ tgetent
+		○ tgetflag
+		○ tgetnum
+		○ tgetstr
+		○ tgoto
+		○ tputs
+
+--------------------------------------------------------------------------
+
+[Basics]
+
+	Não interpretar quotes não fechadas.
+	
+	Não interpretar caracters especiais não especificos, como: " \ " or " ; ".
+	
+	Não utilizar mais que uma variavel global.
+	
+	Mostrar o prompt quando se espera por um novo command.
+	
+	Ter um working history.
+	
+	Procurar e executar o executavel certo. (baseado na variavel PATH, ou utilizando relative path or absolute path).
+
+[Deve implementar]
+
+	echo -n
+	cd
+	pwd
+	export
+	unset
+	env
+	exit
+	
+	(cd -> with only a relative or absolute path)
+	
+	
+" ' " inibir toda interpretação de uma seqüência de caracteres.
+" " " inibe todas as interpretações de uma sequência de caracteres, exceto " $ ".
+
+[Redireções]
+
+	"  < " redireção de input.
+	
+	"  > " redireção de output.
+	
+	" << " read input of source até uma linha contendo apenas o delimitador. Não é necessário atualizar o histórico!
+	
+	" >> " redireção de output com o append mode.
+	
+[Pipes " | "]
+
+	Output de cada command in the pipeline é connectado via pipe para o input do proximo command.
+	
+[Environment variables] ($ followed by characters)
+
+	Devem expandir para os valores delas.
+	
+	" $? " deve expandir para o proximo exit status da mais recente execução de primeiro plano da pipeline.
+
+[Interactive]
+
+	" ctrl-C ", " ctrl-D " e " ctrl-\ " deve funcionar como no bash normal.
+
+	" ctrl-C " print new prompt on newline.
+	
+	" ctrl-D " exit shell (throw an EOF).
+	
+	" ctrl-\ " do nothing.
+
+
+[Advices]
+
+	Readline function can produce some leak you don’t need to fix this.
+	
+	But beware your own code should not produce leaks.
+	
+	You should limit yourself to the subject description.
+	
+	Anything not asked is not required.
+	
+	For every point, if you have any doubt take bash as a reference.
+	
+	Libft and Makefile -> yes.
+
+
+[Notas]
+
+	Estando em WSL, executei, para ober a library o seguinte command: sudo apt-get install libreadline-dev
+		
+	Adicionei as tasks do .vscode: " -L/usr/include " e " -lreadline "
+		
+	Search about execve(), referiram essa função no discord da 42lisboa, e disseram que so era possivel executar coisas como o /bin/ls atraves dele, some references:
+	
+		" Maybe, by default the PATH variable is /bin/ which explains why we need to do ./a.out to execute a local executable (with just a.out bash will go on bin look for a a.out executable) "
+	
+		" Execve("./a.out", args, env); "
+		
+	Singleton, metodo de funcionamento equivalente a uma variavel global:
+		
+		https://pt.wikipedia.org/wiki/Singleton
+	
+	Bash Manual:
+	
+		https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.pdf
+		
+		
+	Notion:
+	
+		https://www.notion.so/MINISHELL-d75578fa4a6a42f4b666905d4fb45c89
+		
+	
+	AST Viewer:
+		
+		https://ast-viewer.datacamp.com/editor?code=echo%20alo%20%3E%20aqui.txt%20bla%20bla%20%3E%3E%20alo.txt%20test%20%7C%20wc%20%7C%20ls%20%3E%20aqui.txt&start=NA&grammar=shell
+	
+	GH that obeys the order of proceedings pretty nicely:
+		
+		https://github.com/Swoorup/mysh
+	
+	Solid start:
+	
+		https://www.cs.purdue.edu/homes/grr/SystemsProgrammingBook/Book/Chapter5-WritingYourOwnShell.pdf
+		
+	Understand the shell syntax:
+	
+		https://pubs.opengroup.org/onlinepubs/009695399/utilities/xcu_chap02.html
+		
+	
+	Pipes, forks, dups:
+	
+		http://www.rozmichelle.com/pipes-forks-dups/
+	
+	
+	
+	
+
+
+[Functions]
+	
+	readline
+	
+		Libs
+	
+			#include <stdio.h>
+			#include <readline/readline.h>
+			#include <readline/history.h>
+			
+			
+		Prototipo
+			
+			char *readline (const char *prompt);
+	
+	
+		Info
+	
+			Read a line from the terminal and return it, using prompt as a prompt.
+				
+			The line returned is allocated with malloc(3).
+				
+	       The caller must free it when finished.
+		
+			The line returned has the final newline removed, so only the text of the line remains.
+	
+	
+		Return
+		
+			Retorna o texto da linha lida.
+			
+			Se a string for vazia, retorna uma linha em branco.
+			
+			Se EOF é encontrado e a linha estar vazia, é retornado NULL.
+			
+			Se EOF é encontrado e a linha não estar vazia, é retornado uma nova linha.
+	
+	
+	add_history
+	
+		Libs
+	
+			#include <stdio.h>
+			#include <readline/readline.h>
+			#include <readline/history.h>
+			
+			
+		Prototipo
+			
+			void rl_history(const char *);
+	
+	
+		Info
+	
+			Adiciona o que recebe como parametro ao historico.
+	
+		Return
+		
+			nada
+	
+	
+	rl_clear_history
+	
+	
+		Libs
+	
+			#include <stdio.h>
+			#include <readline/readline.h>
+			#include <readline/history.h>
+			
+			
+		Prototipo
+			
+			void rl_clear_history(void);
+	
+	
+		Info
+	
+			Limpa o historico de commands executados.
+	
+		Return
+		
+			nada.
+	
+	
+	rl_on_new_line
+	
+		Libs
+	
+			#include <stdio.h>
+			#include <readline/readline.h>
+			#include <readline/history.h>
+			
+			
+		Prototipo
+			
+			int rl_on_new_line(void);
+	
+	
+		Info
+	
+			(not sure)
+			De alguma forma, avisa que mudamos para uma nova linha, com o conteudo da variavel rl_line_buffer, sendo então possivel, mostrar esse conteudo, executado rl_redisplay.
+	
+		Return
+		
+			(I dont know, maybe the success of the function)
+	
+	
+	
+	rl_replace_line
+	
+	
+		Libs
+	
+			#include <stdio.h>
+			#include <readline/readline.h>
+			#include <readline/history.h>
+			
+			
+		Prototipo
+			
+			int rl_replace_line(void);
+	
+	
+		Info
+	
+			(not sure)
+			Faz o mesmo que rl_on_new_line, com a possibilidade de modificarmos o conteudo na variavel rl_line_buffer.
+	
+		Return
+		
+			(I dont know, maybe the sucess of the function runtime)
+	
+	
+	
+	
+	rl_redisplay
+	
+	
+		Libs
+	
+			#include <stdio.h>
+			#include <readline/readline.h>
+			#include <readline/history.h>
+			
+			
+		Prototipo
+			
+			void rl_redisplay(void);
+	
+	
+		Info
+	
+			(not sure)
+			Basicamente mostra o conteudo da variavel rl_line_buffer, mas necessita de antes, ser-se executado, rl_on_new_line ou rl_replace_line.
+	
+		Return
+		
+			nada.
+	
+	
+	printf
+	
+	
+	
+	
+	
+	
+	malloc
+	
+	
+	
+	
+	
+	
+	free
+	
+	
+	
+	
+	
+	
+	write
+	
+	
+	
+	
+	
+	
+	access
+	
+	
+		Libs
+
+			#include <unistd.h>
+			
+			
+		Prototipo
+			
+			int access(const char *pathname, int mode);
+	
+	
+		Info
+	
+			Checks if the calling process can access the file pathname.
+			
+			The mode specifies the accessibility check(s) to be performed, exemples: F_OK, R_OK, W_OK, X_OK.
+			
+		Return
+		
+			On success (all requested permissions granted), zero is returned. 
+			
+			On error (at least one bit in mode asked for a permission that is denied, or some other error occurred), -1 is returned, and errno is set appropriately.
+	
+	
+	
+	
+	open
+	
+	
+	
+	
+	
+	
+	read
+	
+	
+	
+	
+	
+	
+	close
+	
+	
+	
+	
+	
+	
+	fork
+	
+	
+		Libs
+	
+			#include 
+			
+		Prototipo
+			
+			void Function(void);
+	
+	
+		Info
+	
+			
+	
+		Return
+		
+			nada.
+	
+	
+	
+	
+	wait
+	
+	
+		Libs
+	
+			#include 
+			
+		Prototipo
+			
+			void Function(void);
+	
+	
+		Info
+	
+			
+	
+		Return
+		
+			nada.
+	
+	
+	
+	
+	waitpid
+	
+	
+		Libs
+	
+			#include 
+			
+		Prototipo
+			
+			void Function(void);
+	
+	
+		Info
+	
+			
+	
+		Return
+		
+			nada.
+	
+	
+	
+	
+	wait3
+	
+	
+		Libs
+	
+			#include 
+			
+		Prototipo
+			
+			void Function(void);
+	
+	
+		Info
+	
+			
+	
+		Return
+		
+			nada.
+	
+	
+	
+	
+	wait4
+	
+	
+		Libs
+	
+			#include 
+			
+		Prototipo
+			
+			void Function(void);
+	
+	
+		Info
+	
+			
+	
+		Return
+		
+			nada.
+	
+	
+	
+	
+	signal
+	
+	
+		Libs
+	
+			#include 
+			
+		Prototipo
+			
+			void Function(void);
+	
+	
+		Info
+	
+			
+	
+		Return
+		
+			nada.
+	
+	
+	
+	
+	sigaction
+	
+		Libs
+	
+			#include 
+			
+		Prototipo
+			
+			void Function(void);
+	
+	
+		Info
+	
+			
+	
+		Return
+		
+			nada.
+	
+	
+	
+	
+	
+	kill
+	
+	
+		Libs
+	
+			#include 
+			
+		Prototipo
+			
+			void Function(void);
+	
+	
+		Info
+	
+			
+	
+		Return
+		
+			nada.
+	
+	
+	
+	
+	exit
+	
+	
+		Libs
+	
+			#include 
+			
+		Prototipo
+			
+			void Function(void);
+	
+	
+		Info
+	
+			
+	
+		Return
+		
+			nada.
+	
+	
+	
+	
+	getcwd
+	
+	
+		Libs
+	
+			#include <unistd.h>
+			
+		Prototipo
+			
+			char *getcwd(char *buf, size_t size);
+	
+	
+		Info
+	
+			Function copies an absolute pathname of the current working directory to the array pointed to by buf, which is of length size.
+			
+	
+		Return
+		
+			On success, return a pointer to a string containing the pathname of the current working directory.  
+			
+			On failure, return NULL, and errno is set to indicate the error.  
+	
+	
+	
+	
+	chdir
+	
+	
+		Libs
+	
+			#include <unistd.h>
+			
+		Prototipo
+			
+			int chdir(const char *path);
+	
+	
+		Info
+	
+			Changes the current working directory of the calling process to the directory specified in path.
+			
+	
+		Return
+		
+			On success, zero is returned.  
+			
+			On error, -1 is returned and errno is set to indicate the error.
+			
+	
+	
+	
+	
+	stat
+	
+		Libs
+	
+			#include 
+			
+		Prototipo
+			
+			void Function(void);
+	
+	
+		Info
+	
+			
+	
+		Return
+		
+			nada.
+	
+	
+	
+	
+	lstat
+	
+	
+		Libs
+	
+			#include 
+			
+		Prototipo
+			
+			void Function(void);
+	
+	
+		Info
+	
+			
+	
+		Return
+		
+			nada.
+	
+	
+	
+	fstat
+	
+		Libs
+	
+			#include 
+			
+		Prototipo
+			
+			void Function(void);
+	
+	
+		Info
+	
+			
+	
+		Return
+		
+			nada.
+	
+	
+	
+	
+	unlink
+	
+		Libs
+	
+			#include 
+			
+		Prototipo
+			
+			void Function(void);
+	
+	
+		Info
+	
+			
+	
+		Return
+		
+			nada.
+	
+	
+	
+	
+	execve
+	
+	
+		Libs
+	
+			#include <unistd.h>
+			
+		Prototipo
+			
+			int execve(const char *pathname, char *const argv[], char *const envp[]);
+			
+	
+	
+		Info
+	
+			
+	
+		Return
+		
+			nada.
+	
+	
+	
+	dup
+	
+	
+		Libs
+	
+			#include 
+			
+		Prototipo
+			
+			void Function(void);
+	
+	
+		Info
+	
+			
+	
+		Return
+		
+			nada.
+	
+	
+	
+	dup2
+	
+		Libs
+	
+			#include 
+			
+		Prototipo
+			
+			void Function(void);
+	
+	
+		Info
+	
+			
+	
+		Return
+		
+			nada.
+	
+	
+	
+	
+	pipe
+	
+	
+		Libs
+	
+			#include 
+			
+		Prototipo
+			
+			void Function(void);
+	
+	
+		Info
+	
+			
+	
+		Return
+		
+			nada.
+	
+	
+	
+	opendir
+	
+		Libs
+	
+			#include 
+			
+		Prototipo
+			
+			void Function(void);
+	
+	
+		Info
+	
+			
+	
+		Return
+		
+			nada.
+	
+	
+	
+	
+	readdir
+	
+		Libs
+	
+			#include 
+			
+		Prototipo
+			
+			void Function(void);
+	
+	
+		Info
+	
+			
+	
+		Return
+		
+			nada.
+	
+	
+	
+	
+	closedir
+	
+	
+		Libs
+	
+			#include 
+			
+		Prototipo
+			
+			void Function(void);
+	
+	
+		Info
+	
+			
+	
+		Return
+		
+			nada.
+	
+	
+	
+	strerror
+	
+		Libs
+	
+			#include 
+			
+		Prototipo
+			
+			void Function(void);
+	
+	
+		Info
+	
+			
+	
+		Return
+		
+			nada.
+	
+	
+	
+	
+	perror
+	
+		
+		Libs
+	
+			#include 
+			
+		Prototipo
+			
+			void Function(void);
+	
+	
+		Info
+	
+			
+	
+		Return
+		
+			nada.
+	
+	
+	
+	isatty
+	
+		Libs
+	
+			#include 
+			
+		Prototipo
+			
+			void Function(void);
+	
+	
+		Info
+	
+			
+	
+		Return
+		
+			nada.
+		
+	
+	
+	
+	ttyname
+	
+		Libs
+	
+			#include 
+			
+		Prototipo
+			
+			void Function(void);
+	
+	
+		Info
+	
+			
+	
+		Return
+		
+			nada.
+	
+	
+	
+	
+	ttyslot
+	
+		Libs
+	
+			#include 
+			
+		Prototipo
+			
+			void Function(void);
+	
+	
+		Info
+	
+			
+	
+		Return
+		
+			nada.
+	
+	
+	
+	
+	ioctl
+	
+	
+		Libs
+	
+			#include 
+			
+		Prototipo
+			
+			void Function(void);
+	
+	
+		Info
+	
+			
+	
+		Return
+		
+			nada.
+	
+	
+	
+	getenv
+	
+	
+		Libs
+	
+			#include <stdlib.h>
+			
+		Prototipo
+			
+			char *getenv(const char *name)
+	
+	
+		Info
+	
+			Searches for the environment string pointed to by name and returns the associated value to the string.
+	
+		Return
+		
+			Returns a string with the value of the requested environment variable. 
+			
+			Returns NULL if that environment variable does not exist.
+	
+	
+	
+	tcsetattr
+	
+		Libs
+	
+			#include 
+			
+		Prototipo
+			
+			void Function(void);
+	
+	
+		Info
+	
+			
+	
+		Return
+		
+			nada.
+	
+	
+	
+	
+	tcgetattr
+	
+		Libs
+	
+			#include 
+			
+		Prototipo
+			
+			void Function(void);
+	
+	
+		Info
+	
+			
+	
+		Return
+		
+			nada.
+	
+	
+	
+	
+	tgetent
+	
+	
+		Libs
+	
+			#include 
+			
+		Prototipo
+			
+			void Function(void);
+	
+	
+		Info
+	
+			
+	
+		Return
+		
+			nada.
+	
+	
+	
+	tgetflag
+	
+	
+		Libs
+	
+			#include 
+			
+		Prototipo
+			
+			void Function(void);
+	
+	
+		Info
+	
+			
+	
+		Return
+		
+			nada.
+	
+	
+	
+	tgetnum
+	
+	
+		Libs
+	
+			#include 
+			
+		Prototipo
+			
+			void Function(void);
+	
+	
+		Info
+	
+			
+	
+		Return
+		
+			nada.
+	
+	
+	
+	tgetstr
+	
+	
+		Libs
+	
+			#include 
+			
+		Prototipo
+			
+			void Function(void);
+	
+	
+		Info
+	
+			
+	
+		Return
+		
+			nada.
+	
+	
+	
+	tgoto
+	
+		Libs
+	
+			#include 
+			
+		Prototipo
+			
+			void Function(void);
+	
+	
+		Info
+	
+			
+	
+		Return
+		
+			nada.
+	
+	
+	
+	
+	tputs
+	
+		
+		Libs
+	
+			#include 
+			
+		Prototipo
+			
+			void Function(void);
+	
+	
+		Info
+	
+			
+	
+		Return
+		
+			nada.
