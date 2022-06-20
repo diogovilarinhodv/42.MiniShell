@@ -1,0 +1,11 @@
+{
+	"files.associations": {
+		"functions.h": "c",
+		"readline.h": "c",
+		"history.h": "c",
+		"minishell.h": "c",
+		"chardefs.h": "c",
+		"rlstdc.h": "c",
+		"rltypedefs.h": "c"
+	}
+}
