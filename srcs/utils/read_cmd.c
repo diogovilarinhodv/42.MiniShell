@@ -12,15 +12,14 @@
 
 #include "../../incs/minishell.h"
 
-void	read_input(t_data *data)
+void	read_cmd(t_data *data)
 {
-	data->input.line = readinput(BCYN "➜  " BGRN "MiniShell:" RST);
+	data->input.line = readline(BCYN "➜  " BGRN "MiniShell:" RST);
 	if (data->input.line == NULL)
 		input_invalid(data);
 	if (*data->input.line)
 		add_history(data->input.line);
 	organize_line(data);
 	builtins(data);
-	if (data->input.line != NULL)
-		free(data->input.line);
+	freedom(data);
 }

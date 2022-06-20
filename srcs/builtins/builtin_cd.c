@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtin_cd.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 16:56:20 by dpestana          #+#    #+#             */
-/*   Updated: 2022/06/19 17:01:16 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/06/20 20:54:44 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,12 @@
 
 void builtin_cd(t_data *data)
 {
-	int		inc;
 	int		success;
 
-	inc = 0;
-	while (*(data->cmd + inc) == ' ')
-		inc++;
-	if (*(data->cmd + inc) == 'c')
-		inc++;
+	if (data->input.qty_args == 1)
+		success = chdir(*data->input.args);
 	else
-		return ;
-	if (*(data->cmd + inc) == 'd')
-		inc++;
-	else
-		return ;
-	while (*(data->cmd + inc) == ' ')
-		inc++;
-	if (*(data->cmd + inc) == '\0')
-		success = chdir("");
-	else
-		success = chdir((data->cmd + inc));
+		success = chdir("..");
 	if (success < 0)
 		printf("error!\n");
 	if (data->pwd != NULL)
