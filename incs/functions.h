@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 15:36:15 by dpestana          #+#    #+#             */
-/*   Updated: 2022/06/21 19:07:13 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/06/21 19:27:20 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	freedom_input(t_data *data);
 
 // ERRORS
 void	input_invalid(t_data *data);
+char	*get_env_value(t_data *data, char *name);
 void	env_empty(void);
 
 // LIBFT
