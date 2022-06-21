@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 16:56:20 by dpestana          #+#    #+#             */
-/*   Updated: 2022/06/20 20:54:44 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/06/21 17:13:12 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void builtin_cd(t_data *data)
 	if (data->input.qty_args == 1)
 		success = chdir(*data->input.args);
 	else
-		success = chdir("..");
+		success = chdir("");
 	if (success < 0)
 		printf("error!\n");
 	if (data->pwd != NULL)

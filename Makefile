@@ -67,6 +67,8 @@ folders:
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/errors
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/libft
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/utils
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/freedom
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/inicialize
 					$(CREATE_FOLDER) $(LIB_FOLDER)
 
 # Build Project

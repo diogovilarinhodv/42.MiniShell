@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   builtins.c                                         :+:      :+:    :+:   */
+/*   env_var.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/18 16:56:20 by dpestana          #+#    #+#             */
-/*   Updated: 2022/06/21 18:15:23 by dpestana         ###   ########.fr       */
+/*   Created: 2022/06/21 18:06:45 by dpestana          #+#    #+#             */
+/*   Updated: 2022/06/21 18:52:52 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-void builtins(t_data *data)
+void	env_var(t_data *data)
 {
-	if (ft_strncmp(data->input.cmd, "pwd", 3) == 0 && data->input.qty_args == 0)
-		builtin_pwd(data);
-	if (ft_strncmp(data->input.cmd, "cd", 2) == 0)
-		builtin_cd(data);
-	if (data->input.qty_args == 0)
-		env_var(data);
+	int	inc;
+
+	inc = 0;
+	while (inc < data->env.qty)
+	{
+		if (ft_strncmp((data->input.cmd + 1), *(data->env.name + inc), ft_strlen(data->input.cmd) - 1) == 0)
+			printf("%s\n", *(data->env.value + inc));
+		inc++;
+	}
 }
