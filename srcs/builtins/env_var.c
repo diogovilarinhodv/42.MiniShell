@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 18:06:45 by dpestana          #+#    #+#             */
-/*   Updated: 2022/06/21 19:19:52 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/06/21 19:21:50 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,12 @@ void	env_var(t_data *data)
 	inc = 0;
 	while (inc < data->env.qty)
 	{
-		if (ft_strncmp((data->input.cmd + 1), *(data->env.name + inc), ft_strlen(data->input.cmd) - 1) == 0 && ft_strlen((data->input.cmd + 1)) == ft_strlen(*(data->env.name + inc)))
-			printf("%s\n", *(data->env.value + inc));
+		if (ft_strlen((data->input.cmd + 1)) == ft_strlen(*(data->env.name + inc)))
+			if (ft_strncmp((data->input.cmd + 1), *(data->env.name + inc), ft_strlen(data->input.cmd) - 1) == 0)
+			{
+				printf("%s\n", *(data->env.value + inc));
+				break;
+			}
 		inc++;
 	}
 }
