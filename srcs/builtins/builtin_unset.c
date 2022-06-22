@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   builtin_unset.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/15 18:07:09 by dpestana          #+#    #+#             */
-/*   Updated: 2022/06/22 14:33:35 by dpestana         ###   ########.fr       */
+/*   Created: 2022/06/22 14:37:58 by dpestana          #+#    #+#             */
+/*   Updated: 2022/06/22 15:31:13 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/minishell.h"
+#include "../../incs/minishell.h"
 
-int	main(int argc, char **argv, char **env)
+void	builtin_unset(t_data *data)
 {
-	t_data	data;
-
-	inicialize(&data, argc, argv, env);
-	while (1)
-		read_cmd(&data);
-	end_program(&data);
-	return (0);
+	unset_env(data, *data->input.args);
 }

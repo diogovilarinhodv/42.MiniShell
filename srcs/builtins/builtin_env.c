@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   builtin_env.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/15 18:07:09 by dpestana          #+#    #+#             */
-/*   Updated: 2022/06/22 14:33:35 by dpestana         ###   ########.fr       */
+/*   Created: 2022/06/22 14:22:40 by dpestana          #+#    #+#             */
+/*   Updated: 2022/06/22 14:29:03 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/minishell.h"
+#include "../../incs/minishell.h"
 
-int	main(int argc, char **argv, char **env)
+void	builtin_env(t_data *data)
 {
-	t_data	data;
+	int	inc;
 
-	inicialize(&data, argc, argv, env);
-	while (1)
-		read_cmd(&data);
-	end_program(&data);
-	return (0);
+	inc = 0;
+	while (inc < data->env.qty)
+	{
+		printf("%s=%s\n", *(data->env.name + inc), *(data->env.value + inc));
+		inc++;
+	}
 }

@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/15 18:07:09 by dpestana          #+#    #+#             */
-/*   Updated: 2022/06/22 14:33:35 by dpestana         ###   ########.fr       */
+/*   Created: 2022/06/22 14:47:20 by dpestana          #+#    #+#             */
+/*   Updated: 2022/06/22 14:47:29 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/minishell.h"
+#include "../../incs/minishell.h"
 
-int	main(int argc, char **argv, char **env)
+char	*ft_strdup(const char *s)
 {
-	t_data	data;
+	char	*p;
+	int		cnt;
 
-	inicialize(&data, argc, argv, env);
-	while (1)
-		read_cmd(&data);
-	end_program(&data);
-	return (0);
+	p = (char *)malloc(ft_strlen(s) + 1);
+	cnt = 0;
+	if (p == NULL)
+		return (NULL);
+	while (*(s + cnt) != '\0')
+	{
+		*(p + cnt) = *(s + cnt);
+		cnt++;
+	}
+	*(p + cnt) = '\0';
+	return (p);
 }
