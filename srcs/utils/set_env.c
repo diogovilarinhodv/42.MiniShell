@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 18:42:00 by dpestana          #+#    #+#             */
-/*   Updated: 2022/06/23 20:39:04 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/06/24 19:04:28 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	set_env(t_data *data, char *name, char *value)
 	tmp_name = malloc(sizeof(char **) * data->env.qty);
 	tmp_value = malloc(sizeof(char **) * data->env.qty);
 	inc = 0;
-	while (inc < data->env.qty - 1)
+	while (inc < data->env.qty - 2)
 	{
 		*(tmp_name + inc) = *(data->env.name + inc);
 		*(tmp_value + inc) = *(data->env.value + inc);
@@ -44,6 +44,8 @@ void	set_env(t_data *data, char *name, char *value)
 	}
 	*(tmp_name + inc) = ft_strdup(name);
 	*(tmp_value + inc) = ft_strdup(value);
+	*(tmp_name + inc + 1) = *(data->env.name + inc);
+	*(tmp_value + inc + 1) = *(data->env.value + inc);
 	free(data->env.name);
 	free(data->env.value);
 	data->env.name = tmp_name;
