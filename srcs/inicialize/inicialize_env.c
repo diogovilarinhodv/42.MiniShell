@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   inicialize_env.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 18:27:08 by dpestana          #+#    #+#             */
-/*   Updated: 2022/06/21 19:17:30 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/06/28 14:31:55 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	inicialize_env(t_data *data, char **env)
 		inc++;
 	data->env.name = malloc(sizeof(char **) * inc);
 	data->env.value = malloc(sizeof(char **) * inc);
-	inc = 0;
 	while (*(env + data->env.qty) != NULL)
 	{
 		inc = 0;
