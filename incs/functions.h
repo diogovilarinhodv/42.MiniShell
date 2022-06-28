@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   functions.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 15:36:15 by dpestana          #+#    #+#             */
-/*   Updated: 2022/06/23 20:21:08 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/06/27 18:50:26 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,12 @@ void	read_cmd(t_data *data);
 void	organize_line(t_data *data);
 void	end_program(t_data *data);
 
-
-
 // BUILTINS
 void	builtins(t_data *data);
 void 	builtin_cd(t_data *data);
 void	builtin_pwd(t_data *data);
 void	builtin_env(t_data *data);
+void	builtin_echo(t_data *data);
 void	builtin_unset(t_data *data);
 void	builtin_export(t_data *data);
 void	env_var(t_data *data);
