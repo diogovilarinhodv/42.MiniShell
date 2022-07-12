@@ -14,12 +14,15 @@
 
 void	read_cmd(t_data *data)
 {
+	printf("awd");
 	data->input.line = readline(BCYN "➜  " BGRN "MiniShell:" RST);
 	if (data->input.line == NULL)
 		input_invalid(data);
 	if (*data->input.line)
+	{
 		add_history(data->input.line);
-	organize_line(data);
-	builtins(data);
+		organize_line(data);
+		builtins(data);
+	}
 	freedom(data);
 }

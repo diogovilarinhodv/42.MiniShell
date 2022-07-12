@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 16:56:20 by dpestana          #+#    #+#             */
-/*   Updated: 2022/06/28 06:57:32 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/07/08 18:19:56 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void builtins(t_data *data)
 {
 	int	len;
 
+	if (data->input.cmd == NULL)
+		return ;
 	len = ft_strlen(data->input.cmd);
 	if (ft_strncmp(data->input.cmd, "echo", len) == 0)
 		builtin_echo(data);
