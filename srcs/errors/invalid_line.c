@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cmd_invalid.c                                      :+:      :+:    :+:   */
+/*   input_invalid.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 18:12:12 by dpestana          #+#    #+#             */
-/*   Updated: 2022/06/20 16:51:37 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/07/12 19:14:08 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-void	input_invalid(t_data *data)
+void	invalid_line(t_data *data)
 {
 	printf("Error\n");
 	freedom(data);

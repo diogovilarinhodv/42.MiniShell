@@ -6,16 +6,18 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 15:36:15 by dpestana          #+#    #+#             */
-/*   Updated: 2022/07/12 17:50:55 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/07/12 19:22:43 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FUNCTIONS_H
 # define FUNCTIONS_H
 
-// UTILS
+// INICIALIZE
 void	inicialize(t_data *data, int argc, char **argv, char **env);
 void	inicialize_env(t_data *data, char **env);
+
+// UTILS
 void	read_cmd(t_data *data);
 void	organize_line(t_data *data);
 void	execute_line(t_data *data);
@@ -38,11 +40,13 @@ void	freedom_env(t_data *data);
 void	freedom_input(t_data *data);
 
 // ERRORS
-void	input_invalid(t_data *data);
+void	invalid_line(t_data *data);
+void	env_empty(void);
+
+// ENV VAR HANDLER
 char	*get_env_value(t_data *data, char *name);
 void	set_env(t_data *data, char *name, char *value);
 void	unset_env(t_data *data, char *name);
-void	env_empty(void);
 
 // LIBFT
 size_t	ft_strlen(const char *s);

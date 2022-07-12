@@ -16,7 +16,7 @@ void	read_cmd(t_data *data)
 {
 	data->input.line = readline(BCYN "➜  " BGRN "MiniShell:" RST);
 	if (data->input.line == NULL)
-		input_invalid(data);
+		invalid_line(data);
 	if (*data->input.line)
 	{
 		add_history(data->input.line);
