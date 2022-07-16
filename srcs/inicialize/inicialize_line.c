@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   inicialize_line.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/15 18:07:09 by dpestana          #+#    #+#             */
-/*   Updated: 2022/07/13 14:40:06 by dpestana         ###   ########.fr       */
+/*   Created: 2022/07/13 14:39:16 by dpestana          #+#    #+#             */
+/*   Updated: 2022/07/16 18:13:27 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/minishell.h"
+#include "../../incs/minishell.h"
 
-int	main(int argc, char **argv, char **env)
+void	inicialize_line(t_data *data)
 {
-	t_data	data;
-
-	inicialize(&data, argc, argv, env);
-	while (1)
-		read_line(&data);
-	end_program(&data);
-	return (0);
+	data->input.line = NULL;
+	data->input.cmd = NULL;
+	data->input.args = NULL;
+	data->input.qty_args = 0;
+	data->pwd = NULL;
 }

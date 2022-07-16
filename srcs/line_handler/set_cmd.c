@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_input.c                                         :+:      :+:    :+:   */
+/*   set_cmd.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/15 18:07:05 by dpestana          #+#    #+#             */
-/*   Updated: 2022/06/18 16:58:10 by dpestana         ###   ########.fr       */
+/*   Created: 2022/07/16 15:56:16 by dpestana          #+#    #+#             */
+/*   Updated: 2022/07/16 15:56:32 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-void	read_cmd(t_data *data)
+void	set_cmd(t_data *data, int *have_cmd, int pos_beg, int pos_end)
 {
-	data->input.line = readline(BCYN "➜  " BGRN "MiniShell:" RST);
-	if (data->input.line == NULL)
-		invalid_line(data);
-	if (*data->input.line)
-	{
-		add_history(data->input.line);
-		organize_line(data);
-		execute_line(data);
-	}
-	freedom(data);
+	data->input.cmd = ft_substr(data->input.line, pos_beg, pos_end - pos_beg);
+	*have_cmd = 1;
 }

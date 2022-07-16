@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 15:36:15 by dpestana          #+#    #+#             */
-/*   Updated: 2022/07/12 19:22:43 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/07/16 18:13:36 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,17 @@
 // INICIALIZE
 void	inicialize(t_data *data, int argc, char **argv, char **env);
 void	inicialize_env(t_data *data, char **env);
+void	inicialize_line(t_data *data);
 
 // UTILS
-void	read_cmd(t_data *data);
-void	organize_line(t_data *data);
-void	execute_line(t_data *data);
 void	end_program(t_data *data);
+
+// LINE HANDLER
+void	read_line(t_data *data);
+void	organize_line(t_data *data);
+void	set_args(t_data *data, int pos_beg, int pos_end);
+void	set_cmd(t_data *data, int *have_cmd, int pos_beg, int pos_end);
+void	execute_line(t_data *data);
 
 // BUILTINS
 int		builtins(t_data *data);
