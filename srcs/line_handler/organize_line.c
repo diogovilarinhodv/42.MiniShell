@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 17:18:01 by dpestana          #+#    #+#             */
-/*   Updated: 2022/07/16 16:40:30 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/07/20 18:27:44 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,12 @@ void	organize_line(t_data *data)
 		pos_beg = get_str_pos_beg(data, &inc);
 		pos_end = get_str_pos_end(data, &inc);
 		if (pos_beg == pos_end)
-			break;
+			break ;
 		if (is_cmd == 0)
 			set_cmd(data, &is_cmd, pos_beg, pos_end);
 		else
 			set_args(data, pos_beg, pos_end);
 		if (*(data->input.line + inc) == '\0')
-			break;
+			break ;
 	}
 }

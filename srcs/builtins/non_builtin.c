@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 17:01:54 by dpestana          #+#    #+#             */
-/*   Updated: 2022/07/16 17:00:38 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/07/20 22:25:26 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static	void	inicialize_non_builtin(t_data *data, char **cmd, char ***args)
 {
 	int		inc;
-	
+
 	*cmd = ft_strjoin("/bin/", data->input.cmd);
 	*args = malloc(sizeof(char **) * (data->input.qty_args + 1));
 	inc = 0;
@@ -55,7 +55,7 @@ void	non_builtin(t_data *data)
 {
 	char	*cmd;
 	char	**args;
-	
+
 	cmd = NULL;
 	args = NULL;
 	inicialize_non_builtin(data, &cmd, &args);

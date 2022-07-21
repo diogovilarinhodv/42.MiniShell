@@ -7,6 +7,8 @@
 		"chardefs.h": "c",
 		"rlstdc.h": "c",
 		"rltypedefs.h": "c",
-		"typeinfo": "c"
+		"typeinfo": "c",
+		"unistd.h": "c",
+		"type_traits": "c"
 	}
 }

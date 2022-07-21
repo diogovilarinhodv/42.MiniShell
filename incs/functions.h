@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 15:36:15 by dpestana          #+#    #+#             */
-/*   Updated: 2022/07/16 18:13:36 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/07/20 18:25:52 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	execute_line(t_data *data);
 
 // BUILTINS
 int		builtins(t_data *data);
-void 	builtin_cd(t_data *data);
+void	builtin_cd(t_data *data);
 void	builtin_pwd(t_data *data);
 void	builtin_env(t_data *data);
 void	builtin_echo(t_data *data);
@@ -50,6 +50,7 @@ void	env_empty(void);
 
 // ENV VAR HANDLER
 char	*get_env_value(t_data *data, char *name);
+int		get_env_idx(t_data *data, char *name);
 void	set_env(t_data *data, char *name, char *value);
 void	unset_env(t_data *data, char *name);
 

@@ -6,16 +6,16 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 16:56:20 by dpestana          #+#    #+#             */
-/*   Updated: 2022/07/12 17:06:47 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/07/20 18:28:25 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-void execute_line(t_data *data)
+void	execute_line(t_data *data)
 {
 	int	is_builtin;
-	
+
 	if (data->input.cmd == NULL)
 		return ;
 	is_builtin = builtins(data);

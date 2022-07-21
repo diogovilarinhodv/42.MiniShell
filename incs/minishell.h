@@ -1,5 +1,5 @@
 #ifndef MINISHELL_H
-#define MINISHELL_H
+# define MINISHELL_H
 
 # include <unistd.h>    			// read, write & usleep
 # include <stdlib.h>    			// malloc, free & exit
@@ -10,7 +10,6 @@
 
 # include <readline/readline.h>
 # include <readline/history.h>
-
 
 # include <dirent.h>
 # include <sys/wait.h>
@@ -28,5 +27,6 @@
 # define CONTINUE		0
 # define END			1
 
+# define NOT_FOUND		-1
 
 #endif

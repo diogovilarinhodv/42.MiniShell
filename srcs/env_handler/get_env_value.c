@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_env_value.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 19:24:48 by dpestana          #+#    #+#             */
-/*   Updated: 2022/06/22 14:43:59 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/07/20 22:23:07 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ char	*get_env_value(t_data *data, char *name)
 				return (*(data->env.value + inc));
 		inc++;
 	}
-	return NULL;
+	return (NULL);
 }

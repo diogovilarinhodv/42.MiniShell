@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 18:27:08 by dpestana          #+#    #+#             */
-/*   Updated: 2022/06/28 14:31:55 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/07/20 18:34:33 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 
 void	inicialize_env(t_data *data, char **env)
 {
-	int	inc;
+	int		inc;
+	int		len;
+	char	*str;
 
-	data->env.qty = 0;
 	inc = 0;
+	data->env.qty = 0;
 	while (*(env + inc) != NULL)
 		inc++;
 	data->env.name = malloc(sizeof(char **) * inc);
@@ -27,8 +29,10 @@ void	inicialize_env(t_data *data, char **env)
 		inc = 0;
 		while (*(*(env + data->env.qty) + inc) != '=')
 			inc++;
-		*(data->env.name + data->env.qty) = ft_substr(*(env + data->env.qty), 0, inc);
-		*(data->env.value + data->env.qty) = ft_substr(*(env + data->env.qty), inc + 1, ft_strlen(*(env + data->env.qty)) - (inc + 1));
+		len = ft_strlen(*(env + data->env.qty)) - (inc + 1);
+		str = *(env + data->env.qty);
+		*(data->env.name + data->env.qty) = ft_substr(str, 0, inc);
+		*(data->env.value + data->env.qty) = ft_substr(str, inc + 1, len);
 		data->env.qty++;
 	}
 }
