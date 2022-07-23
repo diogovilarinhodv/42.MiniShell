@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 17:01:54 by dpestana          #+#    #+#             */
-/*   Updated: 2022/07/22 16:50:23 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/07/23 16:29:56 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,11 @@ static	void	execute_non_builtin(char *cmd, char **args)
 	id = fork();
 	if (id == 0)
 	{
-		printf("lol\n");
 		if (execve(cmd, args, NULL) == -1)
 			kill(getpid(), SIGKILL);
 	}
 	if (id != 0)
 		wait(0);
-	printf("dota\n");
 }
 
 static	void	freedom_non_builtin(char *cmd, char **args)
