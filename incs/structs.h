@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 15:12:28 by dpestana          #+#    #+#             */
-/*   Updated: 2022/07/20 18:26:36 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/07/22 12:13:43 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ typedef struct s_data
 {
 	t_input_line	input;
 	t_env_var		env;
-	char			*pwd;
 
 }	t_data;
 

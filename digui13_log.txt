@@ -10,20 +10,12 @@ GERAL
 
 BUILTINS
 {
-	Quando executo, pwd pwd, mostra msg de error e executa normal, apenas devia mostrar msg de erro.
-
 	builtin_cd.c chdir function receber return e ver se tudo correu bem.
 }
 
 ENVs Vars
 {
 	Actualizar '_' env var quando um command é executado
-
-	Remover a minha var PWD e utilizar a PWD do env var
-	{
-		Actualizar Env Var PWD em builtin_cd.c.
-		Actualizar Env Var PWD em builtin_pwd.c.
-	}
 }
 
 ERROR HANDLING
@@ -37,3 +29,5 @@ ERROR HANDLING
 
 	Checkar quantos types de variaveis que eu liberto, e analizar se vale a pena criar uma função para o fazer, podendo assim simplificar e reduzir linhas nas functions.
 }
+
+
