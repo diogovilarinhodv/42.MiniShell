@@ -5,3 +5,11 @@ Some informations:
 		O pwd utilizado é o /bin/pwd, não é o mesmo que no bash, em que o pwd executado é o de builtin da shell.
 
 		Ao seja, há algumas diferenças, como as menssagens de error em caso da seguinte execução: pwd pwd.
+
+	[_ ENV VAR]
+
+		Em Bash Mode, esta variavel de ambiente, fica sempre em ultimo.
+
+		Mas sem estar em Bash Mode, não fica nessa posição.
+
+		O meu codigo está programado para por esta env var na ultima posição, que supostamente é codigo a mais desnecessario.
