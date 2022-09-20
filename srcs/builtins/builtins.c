@@ -17,21 +17,21 @@ int	builtins(t_data *data)
 	int	len;
 	int	qty_args;
 
-	len = ft_strlen(data->input.cmd);
-	qty_args = data->input.qty_args;
-	if (ft_strncmp(data->input.cmd, "echo", len) == 0)
+	len = ft_strlen(data->lst_cmd->cmd);
+	qty_args = data->lst_cmd->qty_args;
+	if (ft_strncmp(data->lst_cmd->cmd, "echo", len) == 0)
 		builtin_echo(data);
-	else if (ft_strncmp(data->input.cmd, "cd", len) == 0)
+	else if (ft_strncmp(data->lst_cmd->cmd, "cd", len) == 0)
 		builtin_cd(data);
-	else if (ft_strncmp(data->input.cmd, "pwd", len) == 0 && qty_args == 0)
+	else if (ft_strncmp(data->lst_cmd->cmd, "pwd", len) == 0 && qty_args == 0)
 		builtin_pwd(data);
-	else if (ft_strncmp(data->input.cmd, "export", len) == 0 && qty_args == 1)
+	else if (ft_strncmp(data->lst_cmd->cmd, "export", len) == 0 && qty_args == 1)
 		builtin_export(data);
-	else if (ft_strncmp(data->input.cmd, "unset", len) == 0 && qty_args == 1)
+	else if (ft_strncmp(data->lst_cmd->cmd, "unset", len) == 0 && qty_args == 1)
 		builtin_unset(data);
-	else if (ft_strncmp(data->input.cmd, "env", len) == 0 && qty_args == 0)
+	else if (ft_strncmp(data->lst_cmd->cmd, "env", len) == 0 && qty_args == 0)
 		builtin_env(data);
-	else if (ft_strncmp(data->input.cmd, "exit", len) == 0 && qty_args == 0)
+	else if (ft_strncmp(data->lst_cmd->cmd, "exit", len) == 0 && qty_args == 0)
 		end_program(data);
 	else
 		return (NO);

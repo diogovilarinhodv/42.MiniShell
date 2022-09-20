@@ -16,7 +16,7 @@
 // INICIALIZE
 void	inicialize(t_data *data, int argc, char **argv, char **env);
 void	inicialize_env(t_data *data, char **env);
-void	inicialize_line(t_data *data);
+void	inicialize_lst_cmd(t_data *data);
 
 // UTILS
 void	end_program(t_data *data);
@@ -40,9 +40,9 @@ void	env_var(t_data *data);
 void	non_builtin(t_data *data);
 
 // FREE
-void	freedom(t_data *data);
+void	freedom(t_data *data, int status);
 void	freedom_env(t_data *data);
-void	freedom_input(t_data *data);
+void	freedom_lst_cmd(t_data *data);
 
 // ERRORS
 void	invalid_line(t_data *data);

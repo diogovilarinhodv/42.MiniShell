@@ -14,5 +14,5 @@
 
 void	builtin_unset(t_data *data)
 {
-	unset_env(data, *data->input.args);
+	unset_env(data, *data->lst_cmd->args);
 }

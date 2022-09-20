@@ -14,6 +14,6 @@
 
 void	end_program(t_data *data)
 {
-	freedom(data);
+	freedom(data, FREEDOM_ALL);
 	exit(0);
 }

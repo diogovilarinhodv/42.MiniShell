@@ -14,9 +14,9 @@
 
 static	int	have_newline_builtin_echo(t_data *data, int *y)
 {
-	if (data->input.qty_args > 1)
+	if (data->lst_cmd->qty_args > 1)
 	{
-		if (ft_strncmp(*data->input.args, "-n", ft_strlen(*data->input.args)) == 0)
+		if (ft_strncmp(*data->lst_cmd->args, "-n", ft_strlen(*data->lst_cmd->args)) == 0)
 		{
 			(*y)++;
 			return (NO);
@@ -30,14 +30,14 @@ static	void	print_env_value(t_data *data, int y, int x, int beg_pos)
 	char	*str;
 	char	*env_val;
 
-	str = ft_substr(*(data->input.args + y), beg_pos, x - beg_pos);
+	str = ft_substr(*(data->lst_cmd->args + y), beg_pos, x - beg_pos);
 	env_val = get_env_value(data, str);
 	free(str);
 	if (env_val != NULL)
 	{
 		printf("%s", env_val);
-		if (y + 1 < data->input.qty_args)
-			if (*(*(data->input.args + y) + x) != '$')
+		if (y + 1 < data->lst_cmd->qty_args)
+			if (*(*(data->lst_cmd->args + y) + x) != '$')
 				printf(" ");
 	}
 }
@@ -46,10 +46,10 @@ static	void	print_args(t_data *data, int y, int x, int beg_pos)
 {
 	char	*str;
 
-	str = ft_substr(*(data->input.args + y), beg_pos, x - beg_pos);
+	str = ft_substr(*(data->lst_cmd->args + y), beg_pos, x - beg_pos);
 	printf("%s", str);
-	if (y + 1 < data->input.qty_args)
-		if (*(*(data->input.args + y) + x) != '$')
+	if (y + 1 < data->lst_cmd->qty_args)
+		if (*(*(data->lst_cmd->args + y) + x) != '$')
 			printf(" ");
 	free(str);
 }
@@ -61,9 +61,9 @@ static	void	execute_builtin_echo(t_data *data, int y, int x)
 
 	count = 0;
 	beg_pos = 0;
-	while (*(*(data->input.args + y) + x) != '\0')
+	while (*(*(data->lst_cmd->args + y) + x) != '\0')
 	{
-		if (*(*(data->input.args + y) + x) == '$')
+		if (*(*(data->lst_cmd->args + y) + x) == '$')
 		{
 			if (x > 0 && count == 0)
 				print_args(data, y, x, beg_pos);
@@ -89,7 +89,7 @@ void	builtin_echo(t_data *data)
 	x = 0;
 	y = 0;
 	has_newline = have_newline_builtin_echo(data, &y);
-	while (y < data->input.qty_args)
+	while (y < data->lst_cmd->qty_args)
 	{
 		execute_builtin_echo(data, y, x);
 		y++;

@@ -16,15 +16,15 @@ static	void	inicialize_non_builtin(t_data *data, char **cmd, char ***args)
 {
 	int		inc;
 
-	*cmd = ft_strjoin("/bin/", data->input.cmd);
-	*args = malloc(sizeof(char **) * (data->input.qty_args + 1));
+	*cmd = ft_strjoin("/bin/", data->lst_cmd->cmd);
+	*args = malloc(sizeof(char **) * (data->lst_cmd->qty_args + 1));
 	inc = 0;
-	while (inc < data->input.qty_args + 1)
+	while (inc < data->lst_cmd->qty_args + 1)
 	{
 		if (inc == 0)
 			**args = *cmd;
 		else
-			*(*args + inc) = *(data->input.args + inc - 1);
+			*(*args + inc) = *(data->lst_cmd->args + inc - 1);
 		inc++;
 	}
 }

@@ -15,6 +15,6 @@
 void	invalid_line(t_data *data)
 {
 	printf("Error\n");
-	freedom(data);
+	freedom(data, FREEDOM_ALL);
 	exit(1);
 }

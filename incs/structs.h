@@ -16,14 +16,13 @@
 //     -----------     
 //        INPUT         
 //     -----------     
-typedef struct s_input_line
+typedef struct s_lst_cmd
 {
-	char	*line;
 	char	*cmd;
 	char	**args;
 	int		qty_args;
 
-}	t_input_line;
+}	t_lst_cmd;
 
 //     -----------     
 //        ENV VAR         
@@ -41,7 +40,8 @@ typedef struct s_env_var
 //     -----------     
 typedef struct s_data
 {
-	t_input_line	input;
+	char			*line;
+	t_lst_cmd		*lst_cmd;
 	t_env_var		env;
 
 }	t_data;

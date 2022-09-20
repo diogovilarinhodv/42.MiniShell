@@ -29,4 +29,10 @@
 
 # define NOT_FOUND		-1
 
+// FREEDOM STATUS
+# define FREEDOM_ALL        0
+# define FREEDOM_LST_CMD    1
+# define FREEDOM_ENV        2
+# define FREEDOM_LINE       3
+
 #endif

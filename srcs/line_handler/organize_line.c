@@ -14,14 +14,14 @@
 
 static	int	get_str_pos_beg(t_data *data, int *inc)
 {
-	while (*(data->input.line + *inc) == ' ')
+	while (*(data->line + *inc) == ' ')
 		(*inc)++;
 	return (*inc);
 }
 
 static	int	get_str_pos_end(t_data *data, int *inc)
 {
-	while (*(data->input.line + *inc) != ' ' && *(data->input.line + *inc) != '\0')
+	while (*(data->line + *inc) != ' ' && *(data->line + *inc) != '\0')
 		(*inc)++;
 	return (*inc);
 }
@@ -38,6 +38,7 @@ void	organize_line(t_data *data)
 	while (1)
 	{
 		pos_beg = get_str_pos_beg(data, &inc);
+		// find '|'
 		pos_end = get_str_pos_end(data, &inc);
 		if (pos_beg == pos_end)
 			break ;
@@ -45,7 +46,7 @@ void	organize_line(t_data *data)
 			set_cmd(data, &is_cmd, pos_beg, pos_end);
 		else
 			set_args(data, pos_beg, pos_end);
-		if (*(data->input.line + inc) == '\0')
+		if (*(data->line + inc) == '\0')
 			break ;
 	}
 }

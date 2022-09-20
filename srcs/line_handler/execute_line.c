@@ -16,7 +16,7 @@ void	execute_line(t_data *data)
 {
 	int	is_builtin;
 
-	if (data->input.cmd == NULL)
+	if (data->lst_cmd->cmd == NULL)
 		return ;
 	is_builtin = builtins(data);
 	if (is_builtin == NO)

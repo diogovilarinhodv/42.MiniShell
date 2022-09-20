@@ -12,8 +12,16 @@
 
 #include "../../incs/minishell.h"
 
-void	freedom(t_data *data)
+void	freedom(t_data *data, int status)
 {
-	freedom_input(data);
-	freedom_env(data);
+	if (status == FREEDOM_LINE || status == FREEDOM_ALL)
+	{
+		if (data->line != NULL)
+			free(data->line);
+		data->line = NULL;
+	}
+	if (status == FREEDOM_LST_CMD || status == FREEDOM_ALL)
+		freedom_lst_cmd(data);
+	if (status == FREEDOM_ENV || status == FREEDOM_ALL)
+		freedom_env(data);
 }

@@ -18,6 +18,7 @@ void	inicialize(t_data *data, int argc, char **argv, char **env)
 	(void) argv;
 	if (env == NULL)
 		env_empty();
+	data->line = NULL;
 	inicialize_env(data, env);
-	inicialize_line(data);
+	inicialize_lst_cmd(data);
 }

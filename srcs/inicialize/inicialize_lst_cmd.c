@@ -12,10 +12,7 @@
 
 #include "../../incs/minishell.h"
 
-void	inicialize_line(t_data *data)
+void	inicialize_lst_cmd(t_data *data)
 {
-	data->input.line = NULL;
-	data->input.cmd = NULL;
-	data->input.args = NULL;
-	data->input.qty_args = 0;
+	data->lst_cmd = NULL;
 }

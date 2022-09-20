@@ -14,14 +14,15 @@
 
 void	read_line(t_data *data)
 {
-	data->input.line = readline(BCYN "➜  " BGRN "MiniShell:" RST);
-	if (data->input.line == NULL)
+	data->line = readline(BCYN "➜  " BGRN "MiniShell:" RST);
+	if (data->line == NULL)
 		invalid_line(data);
-	if (*data->input.line)
+	if (*data->line)
 	{
-		add_history(data->input.line);
+		add_history(data->line);
 		organize_line(data);
 		execute_line(data);
 	}
-	freedom_input(data);
+	freedom(data, FREEDOM_LST_CMD);
+	freedom(data, FREEDOM_LINE);
 }

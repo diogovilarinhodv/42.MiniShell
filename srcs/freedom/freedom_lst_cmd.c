@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   freedom_input.c                                    :+:      :+:    :+:   */
+/*   freedom_lst_cmd->c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,27 +12,24 @@
 
 #include "../../incs/minishell.h"
 
-void	freedom_input(t_data *data)
+void	freedom_lst_cmd(t_data *data)
 {
 	int	inc;
 
-	if (data->input.line != NULL)
-		free(data->input.line);
-	if (data->input.cmd != NULL)
-		free(data->input.cmd);
-	if (data->input.args != NULL)
+	if (data->lst_cmd->cmd != NULL)
+		free(data->lst_cmd->cmd);
+	if (data->lst_cmd->args != NULL)
 	{
 		inc = 0;
-		while (inc < data->input.qty_args)
+		while (inc < data->lst_cmd->qty_args)
 		{
-			if ((data->input.args + inc) != NULL)
-				free(*(data->input.args + inc));
+			if ((data->lst_cmd->args + inc) != NULL)
+				free(*(data->lst_cmd->args + inc));
 			inc++;
 		}
-		free(data->input.args);
+		free(data->lst_cmd->args);
 	}
-	data->input.line = NULL;
-	data->input.cmd = NULL;
-	data->input.args = NULL;
-	data->input.qty_args = 0;
+	data->lst_cmd->cmd = NULL;
+	data->lst_cmd->args = NULL;
+	data->lst_cmd->qty_args = 0;
 }

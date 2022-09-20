@@ -14,6 +14,6 @@
 
 void	set_cmd(t_data *data, int *have_cmd, int pos_beg, int pos_end)
 {
-	data->input.cmd = ft_substr(data->input.line, pos_beg, pos_end - pos_beg);
+	data->lst_cmd->cmd = ft_substr(data->line, pos_beg, pos_end - pos_beg);
 	*have_cmd = 1;
 }
