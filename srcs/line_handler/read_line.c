@@ -23,5 +23,5 @@ void	read_line(t_data *data)
 		organize_line(data);
 		execute_line(data);
 	}
-	freedom(data);
+	freedom_input(data);
 }

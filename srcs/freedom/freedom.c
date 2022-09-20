@@ -12,9 +12,8 @@
 
 #include "../../incs/minishell.h"
 
-//freedom_env(data);
-
 void	freedom(t_data *data)
 {
 	freedom_input(data);
+	freedom_env(data);
 }
