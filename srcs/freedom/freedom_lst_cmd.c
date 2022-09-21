@@ -32,4 +32,5 @@ void	freedom_lst_cmd(t_data *data)
 	data->lst_cmd->cmd = NULL;
 	data->lst_cmd->args = NULL;
 	data->lst_cmd->qty_args = 0;
+	data->qty_pipes = 0;
 }

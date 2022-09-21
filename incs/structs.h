@@ -43,6 +43,7 @@ typedef struct s_data
 	char			*line;
 	t_lst_cmd		*lst_cmd;
 	t_env_var		env;
+	int				qty_pipes;
 
 }	t_data;
 

@@ -24,4 +24,10 @@ void	freedom(t_data *data, int status)
 		freedom_lst_cmd(data);
 	if (status == FREEDOM_ENV || status == FREEDOM_ALL)
 		freedom_env(data);
+	if (status == FREEDOM_ALL)
+	{
+		if (data->lst_cmd != NULL)
+			free(data->lst_cmd);
+		data->lst_cmd = NULL;
+	}
 }

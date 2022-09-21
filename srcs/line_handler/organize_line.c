@@ -21,7 +21,7 @@ static	int	get_str_pos_beg(t_data *data, int *inc)
 
 static	int	get_str_pos_end(t_data *data, int *inc)
 {
-	while (*(data->line + *inc) != ' ' && *(data->line + *inc) != '\0')
+	while (*(data->line + *inc) != ' ' && *(data->line + *inc) != '\0' && *(data->line + *inc) != '|')
 		(*inc)++;
 	return (*inc);
 }
@@ -37,8 +37,14 @@ void	organize_line(t_data *data)
 	is_cmd = 0;
 	while (1)
 	{
+		if (*(data->line + inc) == '|')
+		{
+			data->qty_pipes++;
+			inicialize_lst_cmd(data);
+			is_cmd = 0;
+			inc++;
+		}
 		pos_beg = get_str_pos_beg(data, &inc);
-		// find '|'
 		pos_end = get_str_pos_end(data, &inc);
 		if (pos_beg == pos_end)
 			break ;

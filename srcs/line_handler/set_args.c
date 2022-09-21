@@ -14,8 +14,8 @@
 
 static	void	add_first_arg(t_data *data, char *arg)
 {
-	data->lst_cmd->args = malloc(sizeof(char **) * data->lst_cmd->qty_args);
-	*data->lst_cmd->args = arg;
+	(data->lst_cmd + data->qty_pipes)->args = malloc(sizeof(char **) * (data->lst_cmd + data->qty_pipes)->qty_args);
+	*(data->lst_cmd + data->qty_pipes)->args = arg;
 }
 
 static	void	add_other_arg(t_data *data, char *arg)
@@ -24,24 +24,24 @@ static	void	add_other_arg(t_data *data, char *arg)
 	char	**clone;
 
 	inc = 0;
-	clone = malloc(sizeof(char **) * data->lst_cmd->qty_args);
-	while (inc < data->lst_cmd->qty_args - 1)
+	clone = malloc(sizeof(char **) * (data->lst_cmd + data->qty_pipes)->qty_args);
+	while (inc < (data->lst_cmd + data->qty_pipes)->qty_args - 1)
 	{
-		*(clone + inc) = *(data->lst_cmd->args + inc);
+		*(clone + inc) = *((data->lst_cmd + data->qty_pipes)->args + inc);
 		inc++;
 	}
 	*(clone + inc) = arg;
-	free(data->lst_cmd->args);
-	data->lst_cmd->args = clone;
+	free((data->lst_cmd + data->qty_pipes)->args);
+	(data->lst_cmd + data->qty_pipes)->args = clone;
 }
 
 void	set_args(t_data *data, int pos_beg, int pos_end)
 {
 	char	*arg;
 
-	data->lst_cmd->qty_args++;
+	(data->lst_cmd + data->qty_pipes)->qty_args++;
 	arg = ft_substr(data->line, pos_beg, pos_end - pos_beg);
-	if (data->lst_cmd->args == NULL)
+	if ((data->lst_cmd + data->qty_pipes)->args == NULL)
 		add_first_arg(data, arg);
 	else
 		add_other_arg(data, arg);
