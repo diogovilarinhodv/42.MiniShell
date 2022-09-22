@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 16:56:20 by dpestana          #+#    #+#             */
-/*   Updated: 2022/09/22 11:57:10 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/09/22 16:05:11 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	execute_input(t_data *data)
 
 	if (data->line.cmd == NULL)
 		return ;
-	is_builtin = builtins(data);
+	/*is_builtin = builtins(data);
 	if (is_builtin == NO)
-		non_builtin(data);
+		non_builtin(data);*/
 }
