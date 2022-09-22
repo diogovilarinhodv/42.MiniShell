@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   inicialize.c                                       :+:      :+:    :+:   */
+/*   set_cmd.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/04 14:19:50 by dpestana          #+#    #+#             */
-/*   Updated: 2022/09/22 11:22:32 by dpestana         ###   ########.fr       */
+/*   Created: 2022/07/16 15:56:16 by dpestana          #+#    #+#             */
+/*   Updated: 2022/07/16 15:56:32 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-void	inicialize(t_data *data, int argc, char **argv, char **env)
+void	set_cmd(t_data *data, int *have_cmd, int pos_beg, int pos_end)
 {
-	(void) argc;
-	(void) argv;
-	if (env == NULL)
-		env_empty();
-	data->input = NULL;
-	inicialize_env(data, env);
-	inicialize_line(data);
-	inicialize_cmd(data);
+	(data->line.cmd + data->line.qty_pipes)->cmd = ft_substr(data->input, pos_beg, pos_end - pos_beg);
+	*have_cmd = 1;
 }

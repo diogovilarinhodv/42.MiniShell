@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_cmd.c                                          :+:      :+:    :+:   */
+/*   freedom_input.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/16 15:56:16 by dpestana          #+#    #+#             */
-/*   Updated: 2022/07/16 15:56:32 by dpestana         ###   ########.fr       */
+/*   Created: 2022/09/22 11:46:37 by dpestana          #+#    #+#             */
+/*   Updated: 2022/09/22 11:47:01 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-void	set_cmd(t_data *data, int *have_cmd, int pos_beg, int pos_end)
+void	freedom_input(t_data *data)
 {
-	(data->lst_cmd + data->qty_pipes)->cmd = ft_substr(data->line, pos_beg, pos_end - pos_beg);
-	*have_cmd = 1;
+    if (data->input != NULL)
+        free(data->input);
+    data->input = NULL;
 }

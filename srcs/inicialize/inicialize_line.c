@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   execute_line.c                                     :+:      :+:    :+:   */
+/*   inicialize_line.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/18 16:56:20 by dpestana          #+#    #+#             */
-/*   Updated: 2022/07/22 16:32:58 by dpestana         ###   ########.fr       */
+/*   Created: 2022/09/22 11:21:05 by dpestana          #+#    #+#             */
+/*   Updated: 2022/09/22 11:22:03 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-void	execute_line(t_data *data)
+void	inicialize_line(t_data *data)
 {
-	int	is_builtin;
-
-	if (data->lst_cmd->cmd == NULL)
-		return ;
-	is_builtin = builtins(data);
-	if (is_builtin == NO)
-		non_builtin(data);
+    data->line.qty_pipes = 0;
 }

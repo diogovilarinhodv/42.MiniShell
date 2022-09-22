@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   freedom.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 17:07:39 by dpestana          #+#    #+#             */
-/*   Updated: 2022/07/22 13:20:44 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/09/22 11:47:12 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,12 @@
 
 void	freedom(t_data *data, int status)
 {
-	if (status == FREEDOM_LINE || status == FREEDOM_ALL)
-	{
-		if (data->line != NULL)
-			free(data->line);
-		data->line = NULL;
-	}
-	if (status == FREEDOM_LST_CMD || status == FREEDOM_ALL)
-		freedom_lst_cmd(data);
+	if (status == FREEDOM_INPUT || status == FREEDOM_ALL)
+		freedom_input(data);
 	if (status == FREEDOM_ENV || status == FREEDOM_ALL)
 		freedom_env(data);
-	if (status == FREEDOM_ALL)
-	{
-		if (data->lst_cmd != NULL)
-			free(data->lst_cmd);
-		data->lst_cmd = NULL;
-	}
+	if (status == FREEDOM_CMD || status == FREEDOM_ALL)
+		freedom_cmd(data);
+	if (status == FREEDOM_LINE || status == FREEDOM_ALL)
+		freedom_line(data);
 }

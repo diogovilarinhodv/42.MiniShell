@@ -31,8 +31,9 @@
 
 // FREEDOM STATUS
 # define FREEDOM_ALL        0
-# define FREEDOM_LST_CMD    1
+# define FREEDOM_INPUT      1
 # define FREEDOM_ENV        2
-# define FREEDOM_LINE       3
+# define FREEDOM_CMD        3
+# define FREEDOM_LINE       4
 
 #endif

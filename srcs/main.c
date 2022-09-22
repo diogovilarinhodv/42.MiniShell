@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 18:07:09 by dpestana          #+#    #+#             */
-/*   Updated: 2022/07/22 16:33:05 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/09/22 12:10:21 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(int argc, char **argv, char **env)
 
 	inicialize(&data, argc, argv, env);
 	while (1)
-		read_line(&data);
+		read_input(&data);
 	end_program(&data);
 	return (0);
 }

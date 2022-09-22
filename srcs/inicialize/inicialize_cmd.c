@@ -12,36 +12,33 @@
 
 #include "../../incs/minishell.h"
 
-static void	increase_lst_cmd(t_data *data)
+static void	increase_basic_cmd(t_data *data)
 {
-	int			inc;
-	t_lst_cmd	*clone;
+	int		inc;
+	t_cmd	*clone;
 
 	inc = 0;
-	clone = malloc(sizeof(t_lst_cmd) * (data->qty_pipes + 1));
-	while (inc < data->qty_pipes)
+	clone = malloc(sizeof(t_cmd) * (data->line.qty_pipes + 1));
+	while (inc < data->line.qty_pipes)
 	{
-		(clone + inc)->cmd = (data->lst_cmd + inc)->cmd;
-		(clone + inc)->args = (data->lst_cmd + inc)->args;
-		(clone + inc)->qty_args = (data->lst_cmd + inc)->qty_args;
+		(clone + inc)->token = (data->line.cmd + inc)->token;
+		(clone + inc)->qty = (data->line.cmd + inc)->qty;
 		inc++;
 	}
-	(clone + inc)->cmd = NULL;
-	(clone + inc)->args = NULL;
-	(clone + inc)->qty_args = 0;
-	free(data->lst_cmd);
-	data->lst_cmd = clone;
+	(clone + inc)->token = NULL;
+	(clone + inc)->qty = 0;
+	free(data->line.cmd);
+	data->line.cmd = clone;
 }
 
-void	inicialize_lst_cmd(t_data *data)
+void	inicialize_cmd(t_data *data)
 {
-	if (data->qty_pipes > 0)
-		increase_lst_cmd(data);
+	if (data->line.qty_pipes > 0 && data->line.cmd != NULL)
+		increase_basic_cmd(data);
 	else
 	{
-		data->lst_cmd = malloc(sizeof(t_lst_cmd) * 1);
-		data->lst_cmd->cmd = NULL;
-		data->lst_cmd->args = NULL;
-		data->lst_cmd ->qty_args = 0;
+		data->line.cmd = malloc(sizeof(t_cmd) * 1);
+		data->line.cmd->token = NULL;
+		data->line.cmd->qty = 0;
 	}
 }

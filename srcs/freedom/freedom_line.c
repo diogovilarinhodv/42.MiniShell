@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   invalid_line.c                                     :+:      :+:    :+:   */
+/*   freedom_line.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/15 18:12:12 by dpestana          #+#    #+#             */
-/*   Updated: 2022/07/20 22:22:37 by dpestana         ###   ########.fr       */
+/*   Created: 2022/09/22 11:24:02 by dpestana          #+#    #+#             */
+/*   Updated: 2022/09/22 11:46:44 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-void	invalid_line(t_data *data)
+void	freedom_line(t_data *data)
 {
-	printf("Error\n");
-	freedom(data, FREEDOM_ALL);
-	exit(1);
+    if (data->line.cmd != NULL)
+	  	free(data->line.cmd);
+    data->line.qty_pipes = 0;
 }

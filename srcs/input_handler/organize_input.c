@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   organize_line.c                                    :+:      :+:    :+:   */
+/*   organize_input.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 17:18:01 by dpestana          #+#    #+#             */
-/*   Updated: 2022/07/20 18:27:44 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/09/22 11:56:59 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 
 static	int	get_str_pos_beg(t_data *data, int *inc)
 {
-	while (*(data->line + *inc) == ' ')
+	while (*(data->input + *inc) == ' ')
 		(*inc)++;
 	return (*inc);
 }
 
 static	int	get_str_pos_end(t_data *data, int *inc)
 {
-	while (*(data->line + *inc) != ' ' && *(data->line + *inc) != '\0' && *(data->line + *inc) != '|')
+	while (*(data->input + *inc) != ' ' && *(data->input + *inc) != '\0' && *(data->input + *inc) != '|')
 		(*inc)++;
 	return (*inc);
 }
 
-void	organize_line(t_data *data)
+void	organize_input(t_data *data)
 {
 	int		inc;
 	int		is_cmd;
@@ -37,9 +37,9 @@ void	organize_line(t_data *data)
 	is_cmd = 0;
 	while (1)
 	{
-		if (*(data->line + inc) == '|')
+		if (*(data->input + inc) == '|')
 		{
-			data->qty_pipes++;
+			data->line.qty_pipes++;
 			inicialize_lst_cmd(data);
 			is_cmd = 0;
 			inc++;
@@ -52,7 +52,7 @@ void	organize_line(t_data *data)
 			set_cmd(data, &is_cmd, pos_beg, pos_end);
 		else
 			set_args(data, pos_beg, pos_end);
-		if (*(data->line + inc) == '\0')
+		if (*(data->input + inc) == '\0')
 			break ;
 	}
 }

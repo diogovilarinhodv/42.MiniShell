@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   functions.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 15:36:15 by dpestana          #+#    #+#             */
-/*   Updated: 2022/07/22 16:33:13 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/09/22 11:56:25 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,21 @@
 // INICIALIZE
 void	inicialize(t_data *data, int argc, char **argv, char **env);
 void	inicialize_env(t_data *data, char **env);
-void	inicialize_lst_cmd(t_data *data);
+void	inicialize_line(t_data *data);
+void	inicialize_cmd(t_data *data);
 
 // UTILS
 void	end_program(t_data *data);
 
+// INPUT HANDLER
+void	read_input(t_data *data);
+void	organize_input(t_data *data);
+void	execute_input(t_data *data);
+
 // LINE HANDLER
-void	read_line(t_data *data);
-void	organize_line(t_data *data);
 void	set_args(t_data *data, int pos_beg, int pos_end);
 void	set_cmd(t_data *data, int *have_cmd, int pos_beg, int pos_end);
-void	execute_line(t_data *data);
+
 
 // BUILTINS
 int		builtins(t_data *data);
@@ -42,10 +46,12 @@ void	non_builtin(t_data *data);
 // FREE
 void	freedom(t_data *data, int status);
 void	freedom_env(t_data *data);
-void	freedom_lst_cmd(t_data *data);
+void	freedom_cmd(t_data *data);
+void	freedom_input(t_data *data);
+void	freedom_line(t_data *data);
 
 // ERRORS
-void	invalid_line(t_data *data);
+void	invalid_input(t_data *data);
 void	env_empty(void);
 
 // ENV VAR HANDLER

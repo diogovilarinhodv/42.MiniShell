@@ -26,11 +26,11 @@ static	char	*set_name_builtin_export(t_data *data, int *inc)
 {
 	char	*env_name;
 
-	while (*(*data->lst_cmd->args + *inc) != '=' && *(*data->lst_cmd->args + *inc) != '\0')
+	while (*(*data->line.cmd->token + *inc) != '=' && *(*data->line.cmd->token + *inc) != '\0')
 		(*inc)++;
-	if (*(*data->lst_cmd->args + *inc) == '\0')
+	if (*(*data->line.cmd->token + *inc) == '\0')
 		return (NULL);
-	env_name = ft_substr(*data->lst_cmd->args, 0, *inc);
+	env_name = ft_substr(*data->line.cmd->token, 0, *inc);
 	return (env_name);
 }
 
@@ -46,12 +46,12 @@ static	char	*set_value_builtin_export(t_data *data, int inc)
 	char	*env_value;
 	int		len;
 
-	len = ft_strlen(*data->lst_cmd->args);
-	if (*(*data->lst_cmd->args + inc + 1) == '\"'
-		 && *(*data->lst_cmd->args + len - 1) == '\"')
-		env_value = ft_substr(*data->lst_cmd->args, inc + 2, len - (inc + 3));
+	len = ft_strlen(*data->line.cmd->token);
+	if (*(*data->line.cmd->token + inc + 1) == '\"'
+		 && *(*data->line.cmd->token + len - 1) == '\"')
+		env_value = ft_substr(*data->line.cmd->token, inc + 2, len - (inc + 3));
 	else
-		env_value = ft_substr(*data->lst_cmd->args, inc + 1, len - (inc + 1));
+		env_value = ft_substr(*data->line.cmd->token, inc + 1, len - (inc + 1));
 	return (env_value);
 }
 

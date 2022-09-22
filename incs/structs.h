@@ -14,17 +14,6 @@
 # define STRUCTS_H
 
 //     -----------     
-//        INPUT         
-//     -----------     
-typedef struct s_lst_cmd
-{
-	char	*cmd;
-	char	**args;
-	int		qty_args;
-
-}	t_lst_cmd;
-
-//     -----------     
 //        ENV VAR         
 //     -----------     
 typedef struct s_env_var
@@ -36,14 +25,33 @@ typedef struct s_env_var
 }	t_env_var;
 
 //     -----------     
+//        CMD        
+//     -----------   
+typedef struct s_cmd
+{
+	char	**token;
+	int		qty;
+
+}	t_cmd;
+
+//     -----------     
+//        LINE        
+//     -----------     
+typedef struct s_line
+{
+	t_cmd			*cmd;
+	int				qty_pipes;
+
+}	t_line;
+
+//     -----------     
 //        DATA         
 //     -----------     
 typedef struct s_data
 {
-	char			*line;
-	t_lst_cmd		*lst_cmd;
+	char			*input;
+	t_line			line;
 	t_env_var		env;
-	int				qty_pipes;
 
 }	t_data;
 

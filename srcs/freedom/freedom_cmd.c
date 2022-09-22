@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   inicialize.c                                       :+:      :+:    :+:   */
+/*   freedom_lst_cmd->c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/04 14:19:50 by dpestana          #+#    #+#             */
-/*   Updated: 2022/09/22 11:22:32 by dpestana         ###   ########.fr       */
+/*   Created: 2022/06/21 19:03:20 by dpestana          #+#    #+#             */
+/*   Updated: 2022/06/21 19:08:06 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-void	inicialize(t_data *data, int argc, char **argv, char **env)
+void	freedom_cmd(t_data *data)
 {
-	(void) argc;
-	(void) argv;
-	if (env == NULL)
-		env_empty();
-	data->input = NULL;
-	inicialize_env(data, env);
-	inicialize_line(data);
-	inicialize_cmd(data);
+	if (data->line.cmd->token != NULL)
+	{
+		while (data->line.cmd->qty > 0)
+		{
+			if ((data->line.cmd->token + (data->line.cmd->qty - 1)) != NULL)
+				free(*(data->line.cmd->token + (data->line.cmd->qty - 1)));
+			data->line.cmd->qty--;
+		}
+		free(data->line.cmd->token);
+	}
 }

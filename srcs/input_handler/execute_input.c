@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   inicialize.c                                       :+:      :+:    :+:   */
+/*   execute_input.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/04 14:19:50 by dpestana          #+#    #+#             */
-/*   Updated: 2022/09/22 11:22:32 by dpestana         ###   ########.fr       */
+/*   Created: 2022/06/18 16:56:20 by dpestana          #+#    #+#             */
+/*   Updated: 2022/09/22 11:57:10 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-void	inicialize(t_data *data, int argc, char **argv, char **env)
+void	execute_input(t_data *data)
 {
-	(void) argc;
-	(void) argv;
-	if (env == NULL)
-		env_empty();
-	data->input = NULL;
-	inicialize_env(data, env);
-	inicialize_line(data);
-	inicialize_cmd(data);
+	int	is_builtin;
+
+	if (data->line.cmd == NULL)
+		return ;
+	is_builtin = builtins(data);
+	if (is_builtin == NO)
+		non_builtin(data);
 }

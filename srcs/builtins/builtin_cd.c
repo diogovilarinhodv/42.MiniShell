@@ -17,8 +17,8 @@ void	builtin_cd(t_data *data)
 	char	*env_value;
 	char	*pwd;
 
-	if (data->lst_cmd->qty_args == 1)
-		chdir(*data->lst_cmd->args);
+	if (data->line.cmd->qty == 1)
+		chdir(*data->line.cmd->token);
 	else
 	{
 		env_value = get_env_value(data, "HOME");
