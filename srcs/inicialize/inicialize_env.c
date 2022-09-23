@@ -6,13 +6,13 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 18:27:08 by dpestana          #+#    #+#             */
-/*   Updated: 2022/09/23 10:01:50 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/09/23 11:12:42 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-static void	set_env(t_data *data, char **env)
+static void	set_env_lst(t_data *data, char **env)
 {
 	int		inc;
 	int		len;
@@ -41,6 +41,6 @@ void	inicialize_env(t_data *data, char **env)
 	data->env.name = malloc(sizeof(char **) * data->env.qty);
 	data->env.value = malloc(sizeof(char **) * data->env.qty);
 	while (data->env.qty > 0)
-		set_env(data, env);
+		set_env_lst(data, env);
 	data->env.qty = env_qty;
 }

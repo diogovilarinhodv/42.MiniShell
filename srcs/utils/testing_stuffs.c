@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 10:04:23 by dpestana          #+#    #+#             */
-/*   Updated: 2022/09/23 10:04:53 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/09/23 11:45:40 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,10 @@ void	testing_stuffs(t_data *data)
 			{
 				while (inc < data->line.qty_pipes + 1 && *(data->line.cmd + inc)->token != NULL)
 				{
-					printf("\n\n\n%s\n\n\n", *(data->line.cmd + inc)->token);
+					printf("\n%s\n", *(data->line.cmd + inc)->token);
 					inc++;
 				}
+				printf ("\n");
 			}
 		}
 	}

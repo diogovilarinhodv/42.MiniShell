@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 15:36:15 by dpestana          #+#    #+#             */
-/*   Updated: 2022/09/23 10:38:00 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/09/23 11:13:02 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 void	inicialize(t_data *data, int argc, char **argv, char **env);
 void	inicialize_env(t_data *data, char **env);
 void	inicialize_line(t_data *data);
+void	inicialize_input(t_data *data);
 
 // UTILS
 void	add_cmd(t_data *data);
