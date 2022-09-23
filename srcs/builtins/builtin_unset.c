@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 14:37:58 by dpestana          #+#    #+#             */
-/*   Updated: 2022/09/23 14:53:42 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/09/23 16:02:55 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	builtin_unset(t_data *data)
 {
-	unset_env(data, *data->tmp.cmd->token);
+	unset_env(data, *(data->tmp.cmd->token + 1));
 }

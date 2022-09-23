@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 17:01:54 by dpestana          #+#    #+#             */
-/*   Updated: 2022/09/23 15:07:04 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/09/23 15:53:51 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,7 @@ static	void	execute_non_builtin(char *cmd, t_data *data)
 void	non_builtin(t_data *data)
 {
 	char	*cmd;
-	char	**args;
 
-	cmd = NULL;
-	args = NULL;
 	cmd = ft_strjoin("/bin/", *data->tmp.cmd->token);
 	execute_non_builtin(cmd, data);
 	if (cmd != NULL)

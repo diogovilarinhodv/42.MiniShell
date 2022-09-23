@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 16:04:38 by dpestana          #+#    #+#             */
-/*   Updated: 2022/09/23 15:23:00 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/09/23 15:59:28 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 int	builtins(t_data *data)
 {
 	int	len;
-
-	
 
 	len = ft_strlen(*data->tmp.cmd->token);
 	if (ft_strncmp(*data->tmp.cmd->token, "echo", len) == 0 && len == (int)ft_strlen("echo"))

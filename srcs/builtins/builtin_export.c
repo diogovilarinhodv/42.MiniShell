@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 18:41:17 by dpestana          #+#    #+#             */
-/*   Updated: 2022/09/23 14:53:48 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/09/23 15:58:49 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ static	char	*set_name_builtin_export(t_data *data, int *inc)
 {
 	char	*env_name;
 
-	while (*(*data->tmp.cmd->token + *inc) != '=' && *(*data->tmp.cmd->token + *inc) != '\0')
+	while (*(*(data->tmp.cmd->token + 1) + *inc) != '=' && *(*(data->tmp.cmd->token + 1) + *inc) != '\0')
 		(*inc)++;
-	if (*(*data->tmp.cmd->token + *inc) == '\0')
+	if (*(*(data->tmp.cmd->token + 1) + *inc) == '\0')
 		return (NULL);
-	env_name = ft_substr(*data->tmp.cmd->token, 0, *inc);
+	env_name = ft_substr(*(data->tmp.cmd->token + 1) , 0, *inc);
 	return (env_name);
 }
 
@@ -46,12 +46,12 @@ static	char	*set_value_builtin_export(t_data *data, int inc)
 	char	*env_value;
 	int		len;
 
-	len = ft_strlen(*data->tmp.cmd->token);
-	if (*(*data->tmp.cmd->token + inc + 1) == '\"'
-		 && *(*data->tmp.cmd->token + len - 1) == '\"')
-		env_value = ft_substr(*data->tmp.cmd->token, inc + 2, len - (inc + 3));
+	len = ft_strlen(*(data->tmp.cmd->token + 1));
+	if (*(*(data->tmp.cmd->token + 1) + inc + 1) == '\"'
+		 && *(*(data->tmp.cmd->token + 1) + len - 1) == '\"')
+		env_value = ft_substr(*(data->tmp.cmd->token + 1), inc + 2, len - (inc + 3));
 	else
-		env_value = ft_substr(*data->tmp.cmd->token, inc + 1, len - (inc + 1));
+		env_value = ft_substr(*(data->tmp.cmd->token + 1), inc + 1, len - (inc + 1));
 	return (env_value);
 }
 

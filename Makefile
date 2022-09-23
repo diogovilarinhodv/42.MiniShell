@@ -8,7 +8,7 @@
 NAME						=	minishell
 
 # Compiler
-Compile						=	clang -Wall -Wextra -Werror -fsanitize=address
+Compile						=	gcc -Wall -Wextra -Werror -fsanitize=address
 
 # Flags for Compiler
 O_FLAG 						=	-o

@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 17:18:01 by dpestana          #+#    #+#             */
-/*   Updated: 2022/09/23 14:57:57 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/09/23 16:06:39 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,9 @@ int	organize_input(t_data *data)
 			return (FAIL);
 		if (*(data->input + inc) == '\0')
 			return (SUCCESS);
+		
 	}
 	if (has_pipe > 0 || data->line.cmd == NULL)
-		return (FAIL);
+			return (FAIL);
+	return (SUCCESS);
 }
