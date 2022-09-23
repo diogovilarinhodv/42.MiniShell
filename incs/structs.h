@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 15:12:28 by dpestana          #+#    #+#             */
-/*   Updated: 2022/07/22 12:13:43 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/09/23 14:55:22 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,16 @@ typedef struct s_line
 
 }	t_line;
 
+//		--------
+//		TMP VARS
+//		--------
+typedef struct s_tmp_vars
+{
+	t_cmd	*cmd;
+
+}	t_tmp_vars;
+
+
 //     -----------     
 //        DATA         
 //     -----------     
@@ -52,6 +62,7 @@ typedef struct s_data
 	char			*input;
 	t_line			line;
 	t_env_var		env;
+	t_tmp_vars		tmp;
 
 }	t_data;
 

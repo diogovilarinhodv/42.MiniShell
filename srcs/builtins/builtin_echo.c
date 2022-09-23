@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   builtin_echo.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 18:48:56 by dpestana          #+#    #+#             */
-/*   Updated: 2022/07/21 00:47:30 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/09/23 14:48:24 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-static	int	have_newline_builtin_echo(t_data *data, int *y)
+static	int	has_newline_func(t_data *data, int *y)
 {
-	if (data->line.cmd->qty > 1)
+	if (data->tmp.cmd->qty > 1)
 	{
-		if (ft_strncmp(*data->line.cmd->token, "-n", ft_strlen(*data->line.cmd->token)) == 0)
+		if (ft_strncmp(*data->tmp.cmd->token, "-n", ft_strlen(*data->tmp.cmd->token)) == 0)
 		{
 			(*y)++;
 			return (NO);
@@ -30,28 +30,32 @@ static	void	print_env_value(t_data *data, int y, int x, int beg_pos)
 	char	*str;
 	char	*env_val;
 
-	str = ft_substr(*(data->line.cmd->token + y), beg_pos, x - beg_pos);
+	str = ft_substr(*(data->tmp.cmd->token + y), beg_pos, x - beg_pos);
 	env_val = get_env_value(data, str);
 	free(str);
 	if (env_val != NULL)
 	{
 		printf("%s", env_val);
-		if (y + 1 < data->line.cmd->qty)
-			if (*(*(data->line.cmd->token + y) + x) != '$')
+		if (y + 1 < data->tmp.cmd->qty)
+			if (*(*(data->tmp.cmd->token + y) + x) != '$')
 				printf(" ");
 	}
 }
 
-static	void	print_args(t_data *data, int y, int x, int beg_pos)
+static	void	print_str(t_data *data, int y, int x, int beg_pos)
 {
 	char	*str;
 
-	str = ft_substr(*(data->line.cmd->token + y), beg_pos, x - beg_pos);
+	str = ft_substr(*(data->tmp.cmd->token + y), beg_pos, x - beg_pos);
 	printf("%s", str);
-	if (y + 1 < data->line.cmd->qty)
-		if (*(*(data->line.cmd->token + y) + x) != '$')
+	if (y + 1 < data->tmp.cmd->qty)
+		if (*(*(data->tmp.cmd->token + y) + x) != '$')
 			printf(" ");
-	free(str);
+	if (str != NULL)
+	{
+		free(str);
+		str = NULL;
+	}
 }
 
 static	void	execute_builtin_echo(t_data *data, int y, int x)
@@ -61,12 +65,12 @@ static	void	execute_builtin_echo(t_data *data, int y, int x)
 
 	count = 0;
 	beg_pos = 0;
-	while (*(*(data->line.cmd->token + y) + x) != '\0')
+	while (*(*(data->tmp.cmd->token + y) + x) != '\0')
 	{
-		if (*(*(data->line.cmd->token + y) + x) == '$')
+		if (*(*(data->tmp.cmd->token + y) + x) == '$')
 		{
 			if (x > 0 && count == 0)
-				print_args(data, y, x, beg_pos);
+				print_str(data, y, x, beg_pos);
 			else if (x > 0)
 				print_env_value(data, y, x, beg_pos);
 			count++;
@@ -75,7 +79,7 @@ static	void	execute_builtin_echo(t_data *data, int y, int x)
 		x++;
 	}
 	if (count == 0)
-		print_args(data, y, x, beg_pos);
+		print_str(data, y, x, beg_pos);
 	if (count > 0)
 		print_env_value(data, y, x, beg_pos);
 }
@@ -87,9 +91,9 @@ void	builtin_echo(t_data *data)
 	int		has_newline;
 
 	x = 0;
-	y = 0;
-	has_newline = have_newline_builtin_echo(data, &y);
-	while (y < data->line.cmd->qty)
+	y = 1;
+	has_newline = has_newline_func(data, &y);
+	while (y < data->tmp.cmd->qty)
 	{
 		execute_builtin_echo(data, y, x);
 		y++;

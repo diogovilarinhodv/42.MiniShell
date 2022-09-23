@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 15:36:15 by dpestana          #+#    #+#             */
-/*   Updated: 2022/09/23 11:13:02 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/09/23 14:20:14 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	end_program(t_data *data);
 
 // INPUT HANDLER
 void	read_input(t_data *data);
-void	organize_input(t_data *data);
+int     organize_input(t_data *data);
 void	execute_input(t_data *data);
 void	set_cmd(t_data *data, int has_pipe, int pos_beg, int pos_end);
 

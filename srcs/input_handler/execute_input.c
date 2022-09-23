@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 16:56:20 by dpestana          #+#    #+#             */
-/*   Updated: 2022/09/23 09:09:09 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/09/23 15:15:21 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,15 @@
 
 void	execute_input(t_data *data)
 {
-	int	is_builtin;
-
-	return ;
-	if (data->line.cmd == NULL)
-		return ;
-	is_builtin = builtins(data);
-	if (is_builtin == NO)
-		non_builtin(data);
+	int	inc;
+	
+	inc = 0;
+	while (inc <= data->line.qty_pipes)
+	{
+		data->tmp.cmd = (data->line.cmd + inc);
+		if (builtins(data) == NO)
+			non_builtin(data);
+		inc++;
+	}
+	data->tmp.cmd = NULL;
 }

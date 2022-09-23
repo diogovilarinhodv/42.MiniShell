@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 17:18:01 by dpestana          #+#    #+#             */
-/*   Updated: 2022/09/23 11:57:09 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/09/23 14:57:57 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static	int	get_token_pos_end(t_data *data, int *inc)
 	return (*inc);
 }
 
-void	organize_input(t_data *data)
+int	organize_input(t_data *data)
 {
 	int		inc;
 	int		has_pipe;
@@ -34,7 +34,7 @@ void	organize_input(t_data *data)
 			inc++;
 		pos_beg = inc;
 		pos_end = get_token_pos_end(data, &inc);
-		printf ("%c - %c - %c <> %d - %d - %d <> %d\n", *(data->input + pos_beg),  *(data->input + pos_end), *(data->input + inc), pos_beg, pos_end, inc, has_pipe);
+		//printf ("%c - %c - %c <;> %d - %d - %d <;> %d\n", *(data->input + pos_beg),  *(data->input + pos_end), *(data->input + inc), pos_beg, pos_end, inc, has_pipe);
 		if (!(pos_beg == pos_end && *(data->input + inc) == '|'))
 		{
 			set_cmd(data, has_pipe, pos_beg, pos_end);
@@ -46,8 +46,10 @@ void	organize_input(t_data *data)
 			inc++;
 		}
 		if (has_pipe > 1)
-			break ;
+			return (FAIL);
 		if (*(data->input + inc) == '\0')
-			break ;
+			return (SUCCESS);
 	}
+	if (has_pipe > 0 || data->line.cmd == NULL)
+		return (FAIL);
 }

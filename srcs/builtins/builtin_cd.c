@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtin_cd.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 16:56:20 by dpestana          #+#    #+#             */
-/*   Updated: 2022/07/22 13:19:09 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/09/23 15:01:22 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	builtin_cd(t_data *data)
 	char	*env_value;
 	char	*pwd;
 
-	if (data->line.cmd->qty == 1)
-		chdir(*data->line.cmd->token);
+	if (data->tmp.cmd->qty == 2)
+		chdir(*(data->tmp.cmd->token + 1));
 	else
 	{
 		env_value = get_env_value(data, "HOME");
