@@ -69,7 +69,7 @@ folders:
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/utils
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/freedom
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/inicialize
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/line_handler
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/input_handler
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/env_handler
 					$(CREATE_FOLDER) $(LIB_FOLDER)
 

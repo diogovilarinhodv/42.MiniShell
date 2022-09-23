@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 16:15:15 by dpestana          #+#    #+#             */
-/*   Updated: 2022/09/22 16:02:27 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/09/23 10:58:47 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,10 @@ void	set_cmd(t_data *data, int has_pipe, int pos_beg, int pos_end)
 {
 	char	*cmd;
 
-	if (has_pipe == 1)
+	if (has_pipe > 0)
 	{
 		data->line.qty_pipes++;
-		inicialize_cmd(data);
+		add_cmd(data);
 	}
 	cmd = ft_substr(data->input, pos_beg, pos_end - pos_beg);
 	(data->line.cmd + data->line.qty_pipes)->qty++;

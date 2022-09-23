@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 15:36:15 by dpestana          #+#    #+#             */
-/*   Updated: 2022/09/22 16:01:29 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/09/23 10:38:00 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,10 @@
 void	inicialize(t_data *data, int argc, char **argv, char **env);
 void	inicialize_env(t_data *data, char **env);
 void	inicialize_line(t_data *data);
-void	inicialize_cmd(t_data *data);
 
 // UTILS
+void	add_cmd(t_data *data);
+void	testing_stuffs(t_data *data);
 void	end_program(t_data *data);
 
 // INPUT HANDLER
@@ -43,7 +44,6 @@ void	non_builtin(t_data *data);
 // FREE
 void	freedom(t_data *data, int status);
 void	freedom_env(t_data *data);
-void	freedom_cmd(t_data *data);
 void	freedom_input(t_data *data);
 void	freedom_line(t_data *data);
 
@@ -63,5 +63,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strdup(const char *s);
 char	*ft_strjoin(char const *s1, char const *s2);
+int		ft_isspace(int c);
 
 #endif

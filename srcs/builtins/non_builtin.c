@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   non_builtin.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 17:01:54 by dpestana          #+#    #+#             */
-/*   Updated: 2022/07/23 16:29:56 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/09/23 09:12:06 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static	void	inicialize_non_builtin(t_data *data, char **cmd, char ***args)
 {
 	int		inc;
 
-	*cmd = ft_strjoin("/bin/", data->line.basic_cmdcmd);
+	*cmd = ft_strjoin("/bin/", *data->line.cmd->token);
 	*args = malloc(sizeof(char **) * (data->line.cmd->qty + 1));
 	inc = 0;
 	while (inc < data->line.cmd->qty + 1)
