@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 17:18:01 by dpestana          #+#    #+#             */
-/*   Updated: 2022/09/23 16:06:39 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/09/23 16:09:22 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ int	organize_input(t_data *data)
 			inc++;
 		pos_beg = inc;
 		pos_end = get_token_pos_end(data, &inc);
-		//printf ("%c - %c - %c <;> %d - %d - %d <;> %d\n", *(data->input + pos_beg),  *(data->input + pos_end), *(data->input + inc), pos_beg, pos_end, inc, has_pipe);
 		if (!(pos_beg == pos_end && *(data->input + inc) == '|'))
 		{
 			set_cmd(data, has_pipe, pos_beg, pos_end);
