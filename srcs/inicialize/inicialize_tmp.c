@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   inicialize.c                                       :+:      :+:    :+:   */
+/*   inicialize_tmp.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/04 14:19:50 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/03 10:32:52 by dpestana         ###   ########.fr       */
+/*   Created: 2022/10/03 10:32:26 by dpestana          #+#    #+#             */
+/*   Updated: 2022/10/03 10:33:22 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-void	inicialize(t_data *data, int argc, char **argv, char **env)
+void	inicialize_tmp(t_data *data)
 {
-	(void) argc;
-	(void) argv;
-	data->tmp.cmd = NULL;
-	inicialize_env(data, env);
-	inicialize_input(data);
-	inicialize_line(data);
-	inicialize_tmp(data);
-	pipe(data->tmp.fd);
+    data->tmp.cmd = NULL;
+	data->tmp.idx = 0;
+	data->tmp.pid = NULL;
+	data->tmp.fd = malloc(sizeof(int) * 2);
 }
