@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtin_echo.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 18:48:56 by dpestana          #+#    #+#             */
-/*   Updated: 2022/09/23 14:48:24 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/05 13:01:54 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,11 @@ static	void	print_env_value(t_data *data, int y, int x, int beg_pos)
 
 	str = ft_substr(*(data->tmp.cmd->token + y), beg_pos, x - beg_pos);
 	env_val = get_env_value(data, str);
-	free(str);
+	if (str != NULL)
+	{
+		free(str);
+		str = NULL;
+	}
 	if (env_val != NULL)
 	{
 		printf("%s", env_val);

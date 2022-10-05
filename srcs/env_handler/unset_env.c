@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   unset_env.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 14:43:51 by dpestana          #+#    #+#             */
-/*   Updated: 2022/09/23 16:03:41 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/05 13:04:15 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,15 @@
 static	void	shorten_unset_env(t_data *data, int inc)
 {
 	if (*(data->env.name + inc) != NULL)
+	{
 		free(*(data->env.name + inc));
+		*(data->env.name + inc) = NULL;
+	}
 	if (*(data->env.value + inc) != NULL)
+	{
 		free(*(data->env.value + inc));
+		*(data->env.value + inc) = NULL;
+	}
 	while (inc + 1 < data->env.qty)
 	{
 		*(data->env.value + inc) = *(data->env.value + inc + 1);
@@ -43,9 +49,15 @@ static	void	realloc_unset_env(t_data *data)
 		inc++;
 	}
 	if (data->env.name != NULL)
+	{
 		free(data->env.name);
+		data->env.name = NULL;
+	}
 	if (data->env.value != NULL)
+	{
 		free(data->env.value);
+		data->env.value = NULL;
+	}
 	data->env.name = tmp_name;
 	data->env.value = tmp_value;
 }

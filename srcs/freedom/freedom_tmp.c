@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 12:02:08 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/04 12:32:50 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/05 13:17:34 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,7 @@
 void	freedom_tmp(t_data *data)
 {
 	if (data->tmp.cmd != NULL)
-	{
-		free(data->tmp.cmd);
 		data->tmp.cmd = NULL;
-	}
 	if (data->tmp.pid != NULL)
 	{
 		free(data->tmp.pid);

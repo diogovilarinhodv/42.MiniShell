@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_cmd.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 16:15:15 by dpestana          #+#    #+#             */
-/*   Updated: 2022/09/23 13:43:47 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/05 13:07:24 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ static void	add_other_cmd(t_data *data, char *cmd)
 		inc++;
 	}
 	*(clone + inc) = cmd;
-	free((data->line.cmd + data->line.qty_pipes)->token);
+	if ((data->line.cmd + data->line.qty_pipes)->token != NULL)
+		free((data->line.cmd + data->line.qty_pipes)->token);
 	(data->line.cmd + data->line.qty_pipes)->token = clone;
 }
 

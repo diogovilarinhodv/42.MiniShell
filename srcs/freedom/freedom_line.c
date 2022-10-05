@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   freedom_line.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 11:24:02 by dpestana          #+#    #+#             */
-/*   Updated: 2022/09/23 11:24:02 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/05 13:15:13 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,11 @@ static void	freedom_cmd(t_data *data)
 			}
 			data->line.cmd->qty--;
 		}
-		free(data->line.cmd->token);
-		data->line.cmd->token = NULL;
+		if (data->line.cmd->token != NULL)
+		{
+			free(data->line.cmd->token);
+			data->line.cmd->token = NULL;
+		}
 	}
 }
 

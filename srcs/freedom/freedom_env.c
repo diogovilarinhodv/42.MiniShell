@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   freedom_env.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 19:04:09 by dpestana          #+#    #+#             */
-/*   Updated: 2022/09/23 11:37:36 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/05 13:05:40 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,11 @@ static	void	freedom_name_env(t_data *data)
 		}
 		inc++;
 	}
-	free(data->env.name);
-	data->env.name = NULL;
+	if (data->env.name != NULL)
+	{
+		free(data->env.name);
+		data->env.name = NULL;
+	}
 }
 
 static	void	freedom_value_env(t_data *data)
@@ -44,8 +47,11 @@ static	void	freedom_value_env(t_data *data)
 		}
 		inc++;
 	}
-	free(data->env.value);
-	data->env.value = NULL;
+	if (data->env.value != NULL)
+	{
+		free(data->env.value);
+		data->env.value = NULL;
+	}
 }
 
 void	freedom_env(t_data *data)
