@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   functions.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 15:36:15 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/03 10:44:30 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/04 12:05:48 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void	freedom(t_data *data, int status);
 void	freedom_env(t_data *data);
 void	freedom_input(t_data *data);
 void	freedom_line(t_data *data);
+void	freedom_tmp(t_data *data);
 
 // ERRORS
 void	invalid_input(t_data *data);

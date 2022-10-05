@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   inicialize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 14:19:50 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/03 10:32:52 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/04 12:04:52 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,4 @@ void	inicialize(t_data *data, int argc, char **argv, char **env)
 	inicialize_input(data);
 	inicialize_line(data);
 	inicialize_tmp(data);
-	pipe(data->tmp.fd);
 }

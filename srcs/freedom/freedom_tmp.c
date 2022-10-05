@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_input.c                                       :+:      :+:    :+:   */
+/*   freedom_tmp.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/20 18:27:18 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/04 12:58:08 by dpestana         ###   ########.fr       */
+/*   Created: 2022/10/04 12:02:08 by dpestana          #+#    #+#             */
+/*   Updated: 2022/10/04 12:32:50 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-void	read_input(t_data *data)
+void	freedom_tmp(t_data *data)
 {
-	data->input = readline(BCYN "➜  " BGRN "MiniShell:" RST);
-	if (data->input == NULL)
-		invalid_input(data);
-	if (*data->input)
+	if (data->tmp.cmd != NULL)
 	{
-		add_history(data->input);
-		if (organize_input(data) == SUCCESS)
-			execute_input(data);
+		free(data->tmp.cmd);
+		data->tmp.cmd = NULL;
 	}
-	//testing_stuffs(data);
-	freedom(data, FREEDOM_INPUT);
-	freedom(data, FREEDOM_LINE);
-	freedom_tmp(data);
-	inicialize_line(data);
-	inicialize_tmp(data);
+	if (data->tmp.pid != NULL)
+	{
+		free(data->tmp.pid);
+		data->tmp.pid = NULL;
+	}
+	if (data->tmp.fd != NULL)
+	{
+		free(data->tmp.fd);
+		data->tmp.fd = NULL;
+	}
+	data->tmp.idx = 0;
 }

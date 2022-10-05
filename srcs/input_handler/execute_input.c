@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   execute_input.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 16:56:20 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/03 11:16:32 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/04 12:57:44 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,11 @@ static void	execute_input_clean(t_data *data)
 	inc = 0;
 	close(data->tmp.fd[0]);
 	close(data->tmp.fd[1]);
-	while (inc < data->line.qty_pipes)
+	while (inc <= data->line.qty_pipes)
 	{
 		waitpid(*(data->tmp.pid + inc), NULL, 0);
 		inc++;
 	}
-	if (data->tmp.pid != NULL)
-	{
-		free(data->tmp.pid);
-		data->tmp.pid = NULL;
-	}
-	data->tmp.pid = NULL;
-	data->tmp.idx = 0;
-	data->tmp.cmd = NULL;
 }
 
 void	execute_input(t_data *data)
