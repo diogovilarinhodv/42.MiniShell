@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   organize_input.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 17:18:01 by dpestana          #+#    #+#             */
-/*   Updated: 2022/09/23 16:09:22 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/05 20:39:52 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ int	organize_input(t_data *data)
 			return (FAIL);
 		if (*(data->input + inc) == '\0')
 			return (SUCCESS);
-		
 	}
 	if (has_pipe > 0 || data->line.cmd == NULL)
 			return (FAIL);

@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 18:27:18 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/04 12:58:08 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/05 17:18:21 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	read_input(t_data *data)
 		if (organize_input(data) == SUCCESS)
 			execute_input(data);
 	}
-	//testing_stuffs(data);
+	testing_stuffs(data);
 	freedom(data, FREEDOM_INPUT);
 	freedom(data, FREEDOM_LINE);
 	freedom_tmp(data);

@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 18:48:56 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/05 13:01:54 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/05 17:39:02 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static	int	has_newline_func(t_data *data, int *y)
 {
-	if (data->tmp.cmd->qty > 1)
+	if (data->tmp.cmd->qty_tkn > 1)
 	{
 		if (ft_strncmp(*data->tmp.cmd->token, "-n", ft_strlen(*data->tmp.cmd->token)) == 0)
 		{
@@ -40,7 +40,7 @@ static	void	print_env_value(t_data *data, int y, int x, int beg_pos)
 	if (env_val != NULL)
 	{
 		printf("%s", env_val);
-		if (y + 1 < data->tmp.cmd->qty)
+		if (y + 1 < data->tmp.cmd->qty_tkn)
 			if (*(*(data->tmp.cmd->token + y) + x) != '$')
 				printf(" ");
 	}
@@ -52,7 +52,7 @@ static	void	print_str(t_data *data, int y, int x, int beg_pos)
 
 	str = ft_substr(*(data->tmp.cmd->token + y), beg_pos, x - beg_pos);
 	printf("%s", str);
-	if (y + 1 < data->tmp.cmd->qty)
+	if (y + 1 < data->tmp.cmd->qty_tkn)
 		if (*(*(data->tmp.cmd->token + y) + x) != '$')
 			printf(" ");
 	if (str != NULL)
@@ -97,7 +97,7 @@ void	builtin_echo(t_data *data)
 	x = 0;
 	y = 1;
 	has_newline = has_newline_func(data, &y);
-	while (y < data->tmp.cmd->qty)
+	while (y < data->tmp.cmd->qty_tkn)
 	{
 		execute_builtin_echo(data, y, x);
 		y++;

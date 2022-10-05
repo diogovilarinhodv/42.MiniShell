@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 11:24:02 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/05 13:15:13 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/05 18:16:01 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,19 @@
 
 static void	freedom_cmd(t_data *data)
 {
+	while (data->line.cmd->qty_tkn > 0)
+	{
+		if ((data->line.cmd->token + (data->line.cmd->qty_tkn - 1)) != NULL)
+		{
+			free(*(data->line.cmd->token + (data->line.cmd->qty_tkn - 1)));
+			*(data->line.cmd->token + (data->line.cmd->qty_tkn - 1)) = NULL;
+		}
+		data->line.cmd->qty_tkn--;
+	}
 	if (data->line.cmd->token != NULL)
 	{
-		while (data->line.cmd->qty > 0)
-		{
-			if ((data->line.cmd->token + (data->line.cmd->qty - 1)) != NULL)
-			{
-				free(*(data->line.cmd->token + (data->line.cmd->qty - 1)));
-				*(data->line.cmd->token + (data->line.cmd->qty - 1)) = NULL;
-			}
-			data->line.cmd->qty--;
-		}
-		if (data->line.cmd->token != NULL)
-		{
-			free(data->line.cmd->token);
-			data->line.cmd->token = NULL;
-		}
+		free(data->line.cmd->token);
+		data->line.cmd->token = NULL;
 	}
 }
 

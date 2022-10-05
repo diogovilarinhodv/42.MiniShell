@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 17:01:54 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/04 12:31:42 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/05 17:13:22 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,29 @@
 static void	fd_non_builtin(t_data *data)
 {
 	if (data->tmp.idx < data->line.qty_pipes && data->line.qty_pipes > 0 && data->tmp.idx == 0)
+	{
+		//printf("1\n");
 		dup2(data->tmp.fd[1], STDOUT_FILENO);
+	}
 	else if (data->tmp.idx < data->line.qty_pipes && data->line.qty_pipes > 0)
 	{
+		//printf("2\n");
 		dup2(data->tmp.fd[0], STDIN_FILENO);
 		dup2(data->tmp.fd[1], STDOUT_FILENO);
 	}
 	else if (data->tmp.idx == data->line.qty_pipes && data->line.qty_pipes > 0)
+	{
+		//printf("3\n");
 		dup2(data->tmp.fd[0], STDIN_FILENO);
+	}
 }
 
 static	void execute_non_builtin(char *cmd, t_data *data)
 {
 	close(data->tmp.fd[0]);
 	close(data->tmp.fd[1]);
+	if (data->line.qty_pipes > 0 && data->tmp.idx > 0)
+		waitpid(*(data->tmp.pid + data->tmp.idx-1), NULL, 0);
 	if (execve(cmd, data->tmp.cmd->token, NULL) == -1)
 		kill(getpid(), SIGKILL);
 }

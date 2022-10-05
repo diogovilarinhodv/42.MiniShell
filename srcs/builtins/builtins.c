@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtins.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 16:04:38 by dpestana          #+#    #+#             */
-/*   Updated: 2022/09/23 16:17:55 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/05 17:50:01 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,15 @@ int	builtins(t_data *data)
 		builtin_echo(data);
 	else if (ft_strncmp(*data->tmp.cmd->token, "cd", len) == 0 && len == (int)ft_strlen("cd"))
 		builtin_cd(data);
-	else if (ft_strncmp(*data->tmp.cmd->token, "pwd", len) == 0 && len == (int)ft_strlen("pwd") && data->tmp.cmd->qty == 1)
+	else if (ft_strncmp(*data->tmp.cmd->token, "pwd", len) == 0 && len == (int)ft_strlen("pwd") && data->tmp.cmd->qty_tkn == 1)
 		builtin_pwd(data);
-	else if (ft_strncmp(*data->tmp.cmd->token, "export", len) == 0 && len == (int)ft_strlen("export") && data->tmp.cmd->qty == 2)
+	else if (ft_strncmp(*data->tmp.cmd->token, "export", len) == 0 && len == (int)ft_strlen("export") && data->tmp.cmd->qty_tkn == 2)
 		builtin_export(data);
-	else if (ft_strncmp(*data->tmp.cmd->token, "unset", len) == 0 && len == (int)ft_strlen("unset") && data->tmp.cmd->qty == 2)
+	else if (ft_strncmp(*data->tmp.cmd->token, "unset", len) == 0 && len == (int)ft_strlen("unset") && data->tmp.cmd->qty_tkn == 2)
 		builtin_unset(data);
-	else if (ft_strncmp(*data->tmp.cmd->token, "env", len) == 0 && len == (int)ft_strlen("env") && data->tmp.cmd->qty == 1)
+	else if (ft_strncmp(*data->tmp.cmd->token, "env", len) == 0 && len == (int)ft_strlen("env") && data->tmp.cmd->qty_tkn == 1)
 		builtin_env(data);
-	else if (ft_strncmp(*data->tmp.cmd->token, "exit", len) == 0 && len == (int)ft_strlen("exit") && data->tmp.cmd->qty == 1)
+	else if (ft_strncmp(*data->tmp.cmd->token, "exit", len) == 0 && len == (int)ft_strlen("exit") && data->tmp.cmd->qty_tkn == 1)
 		end_program(data);
 	else
 		return (NO);

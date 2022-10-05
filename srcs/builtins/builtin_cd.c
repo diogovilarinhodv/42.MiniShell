@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 16:56:20 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/05 13:01:32 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/05 17:38:47 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	builtin_cd(t_data *data)
 	char	*env_value;
 	char	*pwd;
 
-	if (data->tmp.cmd->qty == 2)
+	if (data->tmp.cmd->qty_tkn == 2)
 		chdir(*(data->tmp.cmd->token + 1));
 	else
 	{

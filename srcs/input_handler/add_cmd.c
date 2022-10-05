@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 09:44:51 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/05 13:07:45 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/05 17:49:59 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ void	add_cmd(t_data *data)
 	while (inc < data->line.qty_pipes)
 	{
 		(clone + inc)->token = (data->line.cmd + inc)->token;
-		(clone + inc)->qty = (data->line.cmd + inc)->qty;
+		(clone + inc)->qty_tkn = (data->line.cmd + inc)->qty_tkn;
 		inc++;
 	}
 	(clone + inc)->token = NULL;
-	(clone + inc)->qty = 0;
+	(clone + inc)->qty_tkn = 0;
 	if (data->line.cmd != NULL)
 		free(data->line.cmd);
 	data->line.cmd = clone;

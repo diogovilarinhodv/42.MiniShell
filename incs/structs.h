@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 15:12:28 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/03 10:31:21 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/05 17:50:40 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct s_env_var
 typedef struct s_cmd
 {
 	char	**token;
-	int		qty;
+	int		qty_tkn;
 
 }	t_cmd;
 
@@ -40,6 +40,7 @@ typedef struct s_cmd
 typedef struct s_line
 {
 	t_cmd			*cmd;
+	int				qty_cmd;
 	int				qty_pipes;
 
 }	t_line;
