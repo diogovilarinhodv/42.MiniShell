@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   functions.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 15:36:15 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/04 12:05:48 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/06 11:39:36 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,24 @@ void	inicialize_line(t_data *data);
 void	inicialize_input(t_data *data);
 void	inicialize_tmp(t_data *data);
 
+// CHECKS_INPUT
+int     check_input(t_data *data);
+void    skip_initial_spaces(t_data *data);
+int     invalid_input_check(t_data *data);
+int     unsupported_char(t_data *data);
+int     invalid_quotes(t_data *data);
+int     invalid_initial_char(t_data *data, char c);
+int     invalid_end_char(t_data *data, char c);
+int     invalid_sequence(t_data *data, char *c);
+
+
 // UTILS
 void	add_cmd(t_data *data);
 void	testing_stuffs(t_data *data);
 void	end_program(t_data *data);
 
 // INPUT HANDLER
-void	read_input(t_data *data);
+void	handle_input(t_data *data);
 int     organize_input(t_data *data);
 void	execute_input(t_data *data);
 void	set_cmd(t_data *data, int has_pipe, int pos_beg, int pos_end);

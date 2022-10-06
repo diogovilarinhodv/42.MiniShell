@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   skip_initial_spaces.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/15 18:07:09 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/06 10:25:31 by dpestana         ###   ########.fr       */
+/*   Created: 2022/10/06 10:30:47 by dpestana          #+#    #+#             */
+/*   Updated: 2022/10/06 10:54:08 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/minishell.h"
+#include "../../incs/minishell.h"
 
-int	main(int argc, char **argv, char **env)
+void    skip_initial_spaces(t_data *data)
 {
-	t_data	data;
+    int     inc;
+    char    *clone;
 
-	inicialize(&data, argc, argv, env);
-	while (1)
-	{
-		data.input = readline(BCYN "➜  " BGRN "MiniShell:" RST);
-		add_history(data.input);
-		if (check_input(&data) == SUCCESS)
-			handle_input(&data);
-		freedom(&data, FREEDOM_INPUT);
-		inicialize_line(&data);
-	}
-	end_program(&data);
-	return (0);
+    inc = 0;
+    while((data->input + inc) != NULL)
+    {
+        if (ft_isspace(*(data->input + inc)) == 0)
+            break;
+        inc++;
+    }
+    clone = ft_strdup(data->input + inc);
+    free(data->input);
+    data->input = clone;
 }
