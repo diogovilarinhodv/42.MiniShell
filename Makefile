@@ -71,6 +71,7 @@ folders:
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/inicialize
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/input_handler
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/env_handler
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/checks_input
 					$(CREATE_FOLDER) $(LIB_FOLDER)
 
 # Build Project

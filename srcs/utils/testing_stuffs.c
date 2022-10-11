@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 10:04:23 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/05 20:42:29 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/11 15:35:30 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,18 @@ void	testing_stuffs(t_data *data)
 		return ;
 	if (data->line.cmd->token == NULL)
 		return ;
+	printf("qty cmd: %d", data->line.qty_cmd);
 	while (inc_cmd < data->line.qty_cmd)
 	{
 		while (inc_tkn < (data->line.cmd + inc_cmd)->qty_tkn)
-			printf("\n%s|\n", *((data->line.cmd + inc_cmd)->token + inc_tkn++));
+		{
+			printf("\n%s|\n", *((data->line.cmd + inc_cmd)->token + inc_tkn));
+			inc_tkn++;
+		}
+		printf("qty tkn: %d", (data->line.cmd + inc_cmd)->qty_tkn);
 		inc_tkn = 0;
-		inc_cmd++;
 		if (inc_cmd + 1 == data->line.qty_cmd)
 			printf ("\n");
+		inc_cmd++;
 	}
 }

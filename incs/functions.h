@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   functions.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 15:36:15 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/06 11:39:36 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/11 15:50:56 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,17 @@ void	inicialize_input(t_data *data);
 void	inicialize_tmp(t_data *data);
 
 // CHECKS_INPUT
-int     check_input(t_data *data);
-void    skip_initial_spaces(t_data *data);
+int     checks_input(t_data *data);
+void    skip_spaces(t_data *data);
+
+/*
 int     invalid_input_check(t_data *data);
 int     unsupported_char(t_data *data);
 int     invalid_quotes(t_data *data);
 int     invalid_initial_char(t_data *data, char c);
 int     invalid_end_char(t_data *data, char c);
 int     invalid_sequence(t_data *data, char *c);
-
+*/
 
 // UTILS
 void	add_cmd(t_data *data);
@@ -76,6 +78,7 @@ size_t	ft_strlen(const char *s);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strdup(const char *s);
+char	*ft_strndup(const char *s, int qty);
 char	*ft_strjoin(char const *s1, char const *s2);
 int		ft_isspace(int c);
 

@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 17:01:54 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/05 17:13:22 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/11 14:32:33 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,20 @@ static	void execute_non_builtin(char *cmd, t_data *data)
 	close(data->tmp.fd[1]);
 	if (data->line.qty_pipes > 0 && data->tmp.idx > 0)
 		waitpid(*(data->tmp.pid + data->tmp.idx-1), NULL, 0);
+
+
+/*	int inc = 0;
+	while (inc < data->line.cmd->qty_tkn)
+	{
+		printf("%s\n", *(data->tmp.cmd->token + inc));
+		inc++;
+	}
+	free(data->tmp.cmd->token);
+	data->tmp.cmd->token = malloc(sizeof(char **) * 3);
+	*data->tmp.cmd->token = "ls";
+	*(data->tmp.cmd->token + 1) = "-a";
+	*(data->tmp.cmd->token + 2) = NULL;
+*/
 	if (execve(cmd, data->tmp.cmd->token, NULL) == -1)
 		kill(getpid(), SIGKILL);
 }
