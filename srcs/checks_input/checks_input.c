@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checks_input.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 09:24:20 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/06 11:08:56 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/10 14:30:57 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	checks_input(t_data *data)
     skip_initial_spaces(data);
     if (*data->input == '\0')
         return (FAIL);
-    if (invalid_char(data) == FAIL)
+    if (invalid_input_check(data) == FAIL)
         return (FAIL);
     if (unsupported_char(data) == FAIL)
         return (FAIL);
