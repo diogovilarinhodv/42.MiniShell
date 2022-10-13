@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   process_execute.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/15 18:07:09 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/12 19:21:24 by dpestana         ###   ########.fr       */
+/*   Created: 2022/10/12 18:15:10 by dpestana          #+#    #+#             */
+/*   Updated: 2022/10/12 20:11:38 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/minishell.h"
+#include "../../incs/minishell.h"
 
-int	main(int argc, char **argv, char **env)
+void	process_execute(t_data *data)
 {
-	t_data	data;
-
-	inicialize(&data, argc, argv, env);
-	while (1)
+	data->tmp.pid = malloc(sizeof(int) * data->line.qty_cmd);
+	while (data->tmp.idx < data->line.qty_cmd)
 	{
-		data.input = readline(BCYN "➜  " BGRN "MiniShell:" RST);
-		add_history(data.input);
-		if (checks_input(&data) == SUCCESS)
-			handle_input(&data);
-		free_input(&data);
+		*(data->tmp.pid + data->tmp.idx) = fork();
+		children_process(data);
+		data->tmp.idx++;
 	}
-	end_program(&data, SUCCESS);
-	return (0);
 }

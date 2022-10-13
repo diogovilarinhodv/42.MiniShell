@@ -63,15 +63,17 @@ all:				$(NAME)
 folders:				
 					$(CREATE_FOLDER) $(OBJ_FOLDER)
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/builtins
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/errors
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/libft
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/utils
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/freedom
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/inicialize
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/input_handler
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/env_handler
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/checks_input
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/1.inicialize
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/2.checks_input
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/3.input_handler
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/4.organize
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/5.execute
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/6.builtins
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/7.env_handler
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/8.utils
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/9.libft
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/10.errors
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/11.free
 					$(CREATE_FOLDER) $(LIB_FOLDER)
 
 # Build Project

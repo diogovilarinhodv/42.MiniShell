@@ -6,74 +6,74 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 15:36:15 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/11 15:50:56 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/13 20:15:37 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FUNCTIONS_H
 # define FUNCTIONS_H
 
-// INICIALIZE
+// 1.INICIALIZE
 void	inicialize(t_data *data, int argc, char **argv, char **env);
 void	inicialize_env(t_data *data, char **env);
 void	inicialize_line(t_data *data);
 void	inicialize_input(t_data *data);
 void	inicialize_tmp(t_data *data);
+void	inicialize_pipes(t_data *data);
 
-// CHECKS_INPUT
+// 2.CHECKS_INPUT
 int     checks_input(t_data *data);
-void    skip_spaces(t_data *data);
+int		first_check(t_data *data);
+void    remove_spaces(t_data *data);
+int		second_check(t_data *data);
 
-/*
-int     invalid_input_check(t_data *data);
-int     unsupported_char(t_data *data);
-int     invalid_quotes(t_data *data);
-int     invalid_initial_char(t_data *data, char c);
-int     invalid_end_char(t_data *data, char c);
-int     invalid_sequence(t_data *data, char *c);
-*/
-
-// UTILS
-void	add_cmd(t_data *data);
-void	testing_stuffs(t_data *data);
-void	end_program(t_data *data);
-
-// INPUT HANDLER
+// 3.INPUT HANDLER
 void	handle_input(t_data *data);
-int     organize_input(t_data *data);
-void	execute_input(t_data *data);
-void	set_cmd(t_data *data, int has_pipe, int pos_beg, int pos_end);
+void	organize(t_data *data);
+void	execute(t_data *data);
 
+// 4.ORGANIZE
+void	set_token(t_data *data, int *inc, int *pos_beg, int *pos_end);
+void	get_token_pos_begin(t_data *data, int *inc);
+void	get_token_pos_end(t_data *data, int *inc);
+void	create_token(t_data *data, int pos_beg, int pos_end, char **token);
+int		is_pipe(char *token);
+void	add_cmd(t_data *data);
+void	add_first_cmd(t_data *data);
+void	add_another_cmd(t_data *data);
+void	add_token(t_data *data, char *token);
+void	add_first_token(t_data *data, char *token);
+void	add_another_token(t_data *data, char *token);
 
-// BUILTINS
+// 5.EXECUTES
+void	process_execute(t_data *data);
+void	children_process(t_data *data);
 int		builtins(t_data *data);
+void	non_builtin(t_data *data);
+void	set_dup2(t_data *data);
+void	set_absolute_path(t_data *data);
+
+// 6.BUILTINS
 void	builtin_cd(t_data *data);
 void	builtin_pwd(t_data *data);
 void	builtin_env(t_data *data);
 void	builtin_echo(t_data *data);
 void	builtin_unset(t_data *data);
 void	builtin_export(t_data *data);
-void	env_var(t_data *data);
-void	non_builtin(t_data *data);
 
-// FREE
-void	freedom(t_data *data, int status);
-void	freedom_env(t_data *data);
-void	freedom_input(t_data *data);
-void	freedom_line(t_data *data);
-void	freedom_tmp(t_data *data);
-
-// ERRORS
-void	invalid_input(t_data *data);
-void	env_empty(void);
-
-// ENV VAR HANDLER
+// 7.ENV_HANDLER
 char	*get_env_value(t_data *data, char *name);
 int		get_env_idx(t_data *data, char *name);
 void	set_env(t_data *data, char *name, char *value);
 void	unset_env(t_data *data, char *name);
 
-// LIBFT
+// 8.UTILS
+void	close_fds(t_data *data);
+void	wait_processes(t_data *data);
+void	testing_stuffs(t_data *data);
+void	end_program(t_data *data, int status);
+
+// 9.LIBFT
 size_t	ft_strlen(const char *s);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
@@ -81,5 +81,15 @@ char	*ft_strdup(const char *s);
 char	*ft_strndup(const char *s, int qty);
 char	*ft_strjoin(char const *s1, char const *s2);
 int		ft_isspace(int c);
+
+// 10.ERRORS
+void	invalid_input(t_data *data);
+void	env_empty(void);
+
+// 11.FREE
+void	free_env(t_data *data);
+void	free_input(t_data *data);
+void	free_line(t_data *data);
+void	free_tmp(t_data *data);
 
 #endif

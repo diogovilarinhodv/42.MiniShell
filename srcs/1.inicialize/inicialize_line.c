@@ -1,30 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   inicialize_line.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/15 18:07:09 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/12 19:21:24 by dpestana         ###   ########.fr       */
+/*   Created: 2022/09/22 11:21:05 by dpestana          #+#    #+#             */
+/*   Updated: 2022/10/13 19:58:23 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/minishell.h"
+#include "../../incs/minishell.h"
 
-int	main(int argc, char **argv, char **env)
+void	inicialize_line(t_data *data)
 {
-	t_data	data;
-
-	inicialize(&data, argc, argv, env);
-	while (1)
-	{
-		data.input = readline(BCYN "➜  " BGRN "MiniShell:" RST);
-		add_history(data.input);
-		if (checks_input(&data) == SUCCESS)
-			handle_input(&data);
-		free_input(&data);
-	}
-	end_program(&data, SUCCESS);
-	return (0);
+    data->line.cmd = NULL;
+	data->line.qty_cmd = 0;
+    data->line.qty_pipes = 0;
 }

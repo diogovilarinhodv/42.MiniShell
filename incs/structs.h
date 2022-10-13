@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 15:12:28 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/05 17:50:40 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/12 13:52:38 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ typedef struct s_tmp_vars
 {
 	t_cmd	*cmd;
 	int		idx;
-	int		*fd;
+	int		**fd;
 	int		*pid;
 
 }	t_tmp_vars;

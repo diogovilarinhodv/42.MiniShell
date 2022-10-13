@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   wait_processes.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/15 18:07:09 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/12 19:21:24 by dpestana         ###   ########.fr       */
+/*   Created: 2022/10/12 18:11:54 by dpestana          #+#    #+#             */
+/*   Updated: 2022/10/12 18:12:04 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/minishell.h"
+#include "../../incs/minishell.h"
 
-int	main(int argc, char **argv, char **env)
+void	wait_processes(t_data *data)
 {
-	t_data	data;
+	int	inc;
 
-	inicialize(&data, argc, argv, env);
-	while (1)
+	inc = 0;
+	while (inc < data->line.qty_cmd)
 	{
-		data.input = readline(BCYN "➜  " BGRN "MiniShell:" RST);
-		add_history(data.input);
-		if (checks_input(&data) == SUCCESS)
-			handle_input(&data);
-		free_input(&data);
+		waitpid(*(data->tmp.pid + inc), NULL, 0);
+		inc++;
 	}
-	end_program(&data, SUCCESS);
-	return (0);
 }

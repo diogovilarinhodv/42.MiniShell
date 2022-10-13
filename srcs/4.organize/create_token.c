@@ -1,30 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   create_token.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/15 18:07:09 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/12 19:21:24 by dpestana         ###   ########.fr       */
+/*   Created: 2022/10/13 17:57:13 by dpestana          #+#    #+#             */
+/*   Updated: 2022/10/13 20:15:28 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/minishell.h"
+#include "../../incs/minishell.h"
 
-int	main(int argc, char **argv, char **env)
+void	create_token(t_data *data, int pos_beg, int pos_end, char **token)
 {
-	t_data	data;
-
-	inicialize(&data, argc, argv, env);
-	while (1)
-	{
-		data.input = readline(BCYN "➜  " BGRN "MiniShell:" RST);
-		add_history(data.input);
-		if (checks_input(&data) == SUCCESS)
-			handle_input(&data);
-		free_input(&data);
-	}
-	end_program(&data, SUCCESS);
-	return (0);
+	*token = ft_substr(data->input, pos_beg, pos_end - pos_beg);
 }

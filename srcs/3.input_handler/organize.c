@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   organize.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/15 18:07:09 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/12 19:21:24 by dpestana         ###   ########.fr       */
+/*   Created: 2022/06/19 17:18:01 by dpestana          #+#    #+#             */
+/*   Updated: 2022/10/13 22:25:49 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/minishell.h"
+#include "../../incs/minishell.h"
 
-int	main(int argc, char **argv, char **env)
+void	organize(t_data *data)
 {
-	t_data	data;
+	int		inc;
+	int		pos_beg;
+	int		pos_end;
+	char	*token;
 
-	inicialize(&data, argc, argv, env);
-	while (1)
+	inc = 0;
+	while (*(data->input + inc) != '\0')
 	{
-		data.input = readline(BCYN "➜  " BGRN "MiniShell:" RST);
-		add_history(data.input);
-		if (checks_input(&data) == SUCCESS)
-			handle_input(&data);
-		free_input(&data);
+		set_token(data, &inc, &pos_beg, &pos_end);
+		create_token(data, pos_beg, pos_end, &token);
+		if (is_pipe(token) == YES)
+			add_cmd(data);
+		else
+			add_token(data, token);
+		printf("%s\n", token);
 	}
-	end_program(&data, SUCCESS);
-	return (0);
+	testing_stuffs(data);
 }
