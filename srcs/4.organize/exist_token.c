@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   add_token.c                                        :+:      :+:    :+:   */
+/*   exist_token.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/13 17:27:29 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/14 20:48:58 by dpestana         ###   ########.fr       */
+/*   Created: 2022/10/14 16:00:01 by dpestana          #+#    #+#             */
+/*   Updated: 2022/10/14 16:01:39 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-void	add_token(t_data *data, char *token)
+int	exist_token(t_data *data, int inc, int pos_beg, int pos_end)
 {
-	if ((data->line.cmd + data->line.qty_cmd - 1)->qty_tkn == 0)
-		add_first_token(data, token);
-	else
-		add_another_token(data, token);
-	(data->line.cmd + data->line.qty_cmd - 1)->qty_tkn++;
+	if (*(data->input + inc) == '\0' && pos_beg == pos_end)
+		return (END);
+	return (CONTINUE);
 }

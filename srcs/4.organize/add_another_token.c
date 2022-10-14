@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 10:05:24 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/13 20:28:30 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/14 19:49:10 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	add_another_token(t_data *data, char *token)
 
 	inc = 0;
 	clone = malloc(sizeof(char **) * ((data->line.cmd + data->line.qty_cmd - 1)->qty_tkn + 2));
-	while (inc < (data->line.cmd + data->line.qty_cmd - 1)->qty_tkn - 1)
+	while (inc < (data->line.cmd + data->line.qty_cmd - 1)->qty_tkn)
 	{
 		*(clone + inc) = *((data->line.cmd + data->line.qty_cmd - 1)->token + inc);
 		inc++;

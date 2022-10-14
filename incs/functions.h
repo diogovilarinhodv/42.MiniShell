@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 15:36:15 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/13 20:15:37 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/14 19:24:33 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,13 @@ void	organize(t_data *data);
 void	execute(t_data *data);
 
 // 4.ORGANIZE
-void	set_token(t_data *data, int *inc, int *pos_beg, int *pos_end);
+void	get_tokens(t_data *data, int *inc, int *pos_beg, int *pos_end);
 void	get_token_pos_begin(t_data *data, int *inc);
 void	get_token_pos_end(t_data *data, int *inc);
+int		exist_token(t_data *data, int inc, int pos_beg, int pos_end);
 void	create_token(t_data *data, int pos_beg, int pos_end, char **token);
 int		is_pipe(char *token);
+int		is_first_cmd(t_data *data);
 void	add_cmd(t_data *data);
 void	add_first_cmd(t_data *data);
 void	add_another_cmd(t_data *data);

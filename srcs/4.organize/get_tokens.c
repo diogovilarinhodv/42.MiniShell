@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   add_token.c                                        :+:      :+:    :+:   */
+/*   get_tokens.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/13 17:27:29 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/14 20:48:58 by dpestana         ###   ########.fr       */
+/*   Created: 2022/10/13 11:13:53 by dpestana          #+#    #+#             */
+/*   Updated: 2022/10/14 15:59:18 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-void	add_token(t_data *data, char *token)
+void	get_tokens(t_data *data, int *inc, int *pos_beg, int *pos_end)
 {
-	if ((data->line.cmd + data->line.qty_cmd - 1)->qty_tkn == 0)
-		add_first_token(data, token);
-	else
-		add_another_token(data, token);
-	(data->line.cmd + data->line.qty_cmd - 1)->qty_tkn++;
+	get_token_pos_begin(data, inc);
+	*pos_beg = *inc;
+	get_token_pos_end(data, inc);
+	*pos_end = *inc;
+	if (*(data->input + *inc) != '\0')
+		(*inc)++;
 }

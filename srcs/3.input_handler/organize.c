@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 17:18:01 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/13 22:25:49 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/14 21:00:44 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,16 @@ void	organize(t_data *data)
 	inc = 0;
 	while (*(data->input + inc) != '\0')
 	{
-		set_token(data, &inc, &pos_beg, &pos_end);
+		get_tokens(data, &inc, &pos_beg, &pos_end);
+		if (exist_token(data, inc, pos_beg, pos_end) == END)
+			break ;
 		create_token(data, pos_beg, pos_end, &token);
 		if (is_pipe(token) == YES)
+			data->line.qty_pipes++;
+		if (is_first_cmd(data) == YES || is_pipe(token) == YES)
 			add_cmd(data);
-		else
+		if (is_pipe(token) == NO)
 			add_token(data, token);
-		printf("%s\n", token);
 	}
 	testing_stuffs(data);
 }
