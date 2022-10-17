@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 15:36:15 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/17 13:25:59 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/17 14:12:55 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void	set_absolute_path(t_data *data);
 int     token_has_cipher(t_data *data, int inc);
 void	replace_env_var(t_data *data, int inc);
 int     token_has_tilde(t_data *data, int inc);
+void	replace_home_dir(t_data *data, int inc);
 int     token_has_quotes(t_data *data, int inc);
 void	remove_quotes(t_data *data, int inc);
 
