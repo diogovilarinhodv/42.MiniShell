@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 18:48:56 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/17 12:30:29 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/17 13:19:45 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ void	builtin_echo(t_data *data)
 	while (y < data->tmp.cmd->qty_tkn)
 	{
 		printf("%s", *(data->tmp.cmd->token + y));
+		if (y + 1 < data->tmp.cmd->qty_tkn)
+			printf(" ");
 		y++;
 	}
 	if (has_newline == YES)

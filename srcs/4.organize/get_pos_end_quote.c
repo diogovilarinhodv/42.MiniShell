@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_tokens.c                                       :+:      :+:    :+:   */
+/*   get_pos_end_quote.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/13 11:13:53 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/17 13:43:41 by dpestana         ###   ########.fr       */
+/*   Created: 2022/10/17 13:25:40 by dpestana          #+#    #+#             */
+/*   Updated: 2022/10/17 13:45:18 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-void	get_tokens(t_data *data, int *inc, int *pos_beg, int *pos_end)
+void     get_pos_end_quote(t_data *data, int *inc)
 {
-	get_token_pos_begin(data, inc);
-	*pos_beg = *inc;
-	if (is_quote(data, inc) == YES)
-		get_pos_end_quote(data, inc);
-	else
-		get_token_pos_end(data, inc);
-	*pos_end = *inc;
-	if (*(data->input + *inc) != '\0')
-		(*inc)++;
+    if (*(data->input + *inc) == '"')
+    {
+        (*inc)++;
+        while (*(data->input + *inc) != '"')
+            (*inc)++;
+        (*inc)++;
+    }
+    else if(*(data->input + *inc) == '\'')
+    {
+        (*inc)++;
+        while (*(data->input + *inc) != '\'')
+            (*inc)++;
+        (*inc)++;
+    }
 }

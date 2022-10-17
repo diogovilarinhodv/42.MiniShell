@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_end_pos_token.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 10:07:30 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/14 15:52:24 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/17 13:21:22 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

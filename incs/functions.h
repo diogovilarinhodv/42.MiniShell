@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 15:36:15 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/17 12:24:50 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/17 13:25:59 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ void	execute(t_data *data);
 // 4.ORGANIZE
 void	get_tokens(t_data *data, int *inc, int *pos_beg, int *pos_end);
 void	get_token_pos_begin(t_data *data, int *inc);
+int     is_quote(t_data *data, int *inc);
+void    get_pos_end_quote(t_data *data, int *inc);
 void	get_token_pos_end(t_data *data, int *inc);
 int		exist_token(t_data *data, int inc, int pos_beg, int pos_end);
 void	create_token(t_data *data, int pos_beg, int pos_end, char **token);
