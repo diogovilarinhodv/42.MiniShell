@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   token_has_quotes.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/15 18:07:09 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/16 11:02:43 by dpestana         ###   ########.fr       */
+/*   Created: 2022/10/16 10:57:55 by dpestana          #+#    #+#             */
+/*   Updated: 2022/10/16 19:48:41 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/minishell.h"
+#include "../../incs/minishell.h"
 
-int	main(int argc, char **argv, char **env)
+int	token_has_quotes(t_data *data, int pos_beg, int pos_end)
 {
-	t_data	data;
-
-	inicialize(&data, argc, argv, env);
-	while (1)
-	{
-		data.input = readline(BCYN "➜  " BGRN "MiniShell:" RST);
-		add_history(data.input);
-		if (checks_input(&data) == SUCCESS)
-			handle_input(&data);
-		free_input(&data);
-	}
-	end_program(&data, SUCCESS);
-	return (0);
+	if (*(data->input + pos_beg) == '"' && *(data->input + pos_end - 1) == '"')
+		return (YES);
+	if (*(data->input + pos_beg) == '\'' && *(data->input + pos_end - 1) == '\'')
+		return (YES);
+	return (NO);
 }

@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 15:12:28 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/12 13:52:38 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/16 20:01:15 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ typedef struct s_tmp_vars
 	int		idx;
 	int		**fd;
 	int		*pid;
+	int		**token_had_quotes;
 
 }	t_tmp_vars;
 

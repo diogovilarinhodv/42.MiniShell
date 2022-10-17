@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   remove_quotes.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/15 18:07:09 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/16 11:02:43 by dpestana         ###   ########.fr       */
+/*   Created: 2022/10/16 11:01:08 by dpestana          #+#    #+#             */
+/*   Updated: 2022/10/16 21:34:46 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/minishell.h"
+#include "../../incs/minishell.h"
 
-int	main(int argc, char **argv, char **env)
+void	remove_quotes(t_data *data, int *pos_beg, int *pos_end)
 {
-	t_data	data;
-
-	inicialize(&data, argc, argv, env);
-	while (1)
+	if (*(data->input + *pos_beg) == '"' && *(data->input + *pos_end - 1) == '"')
 	{
-		data.input = readline(BCYN "➜  " BGRN "MiniShell:" RST);
-		add_history(data.input);
-		if (checks_input(&data) == SUCCESS)
-			handle_input(&data);
-		free_input(&data);
+		(*pos_beg)++;
+		(*pos_end)--;
 	}
-	end_program(&data, SUCCESS);
-	return (0);
+	if (*(data->input + *pos_beg) == '\'' && *(data->input + *pos_end - 1) == '\'')
+	{
+		(*pos_beg)++;
+		(*pos_end)--;
+	}
 }
