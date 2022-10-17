@@ -1,30 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   replace_tokens.c                                   :+:      :+:    :+:   */
+/*   token_has_tilde.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/17 10:11:59 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/17 12:22:29 by dpestana         ###   ########.fr       */
+/*   Created: 2022/10/17 12:21:33 by dpestana          #+#    #+#             */
+/*   Updated: 2022/10/17 12:24:36 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-void	replace_tokens(t_data *data)
+int token_has_tilde(t_data *data, int inc)
 {
-    int     inc;
-
-    inc = 0;
-    while(inc < data->tmp.cmd->qty_tkn)
-    {
-        if (token_has_cipher(data, inc) == YES)
-            replace_env_var(data, inc);
-       // if (token_has_tilde(data, inc) == YES)
-         //   replace_home_dir(data, inc);
-	    if(token_has_quotes(data, inc) == YES)
-		    remove_quotes(data, inc);
-        inc++;
-    }
+    if (*(*(data->tmp.cmd->token + inc)) == '~')
+        return (YES);
+    return (NO);
 }

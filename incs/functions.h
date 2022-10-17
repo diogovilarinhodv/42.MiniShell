@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 15:36:15 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/17 11:08:12 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/17 12:24:50 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,9 @@ void	set_dup2(t_data *data);
 void	set_absolute_path(t_data *data);
 
 // 5.5 REPLACE_TOKENS
-int     token_is_special(t_data *data, int inc);
-void	set_token_had_quotes(t_data *data, int inc);
+int     token_has_cipher(t_data *data, int inc);
+void	replace_env_var(t_data *data, int inc);
+int     token_has_tilde(t_data *data, int inc);
 int     token_has_quotes(t_data *data, int inc);
 void	remove_quotes(t_data *data, int inc);
 

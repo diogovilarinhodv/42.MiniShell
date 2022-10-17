@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   replace_tokens.c                                   :+:      :+:    :+:   */
+/*   replace_env_var.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/17 10:11:59 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/17 12:22:29 by dpestana         ###   ########.fr       */
+/*   Created: 2022/10/17 12:09:47 by dpestana          #+#    #+#             */
+/*   Updated: 2022/10/17 12:16:51 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-void	replace_tokens(t_data *data)
+void	replace_env_var(t_data *data, int inc)
 {
-    int     inc;
+	char	*str;
+	char	*env_val;
+    char    *token;
 
-    inc = 0;
-    while(inc < data->tmp.cmd->qty_tkn)
-    {
-        if (token_has_cipher(data, inc) == YES)
-            replace_env_var(data, inc);
-       // if (token_has_tilde(data, inc) == YES)
-         //   replace_home_dir(data, inc);
-	    if(token_has_quotes(data, inc) == YES)
-		    remove_quotes(data, inc);
-        inc++;
-    }
+	str = ft_strdup((*(data->tmp.cmd->token + inc) + 1));
+	env_val = get_env_value(data, str);
+	if (str != NULL)
+	{
+		free(str);
+		str = NULL;
+	}
+	if (env_val != NULL)
+	{
+        token = ft_strdup(env_val);
+        free(*(data->tmp.cmd->token + inc));
+        *(data->tmp.cmd->token + inc) = token;
+	}
 }
