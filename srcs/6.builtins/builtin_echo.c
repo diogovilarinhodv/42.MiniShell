@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtin_echo.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 18:48:56 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/05 17:39:02 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/17 09:55:41 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static	int	has_newline_func(t_data *data, int *y)
 {
 	if (data->tmp.cmd->qty_tkn > 1)
 	{
-		if (ft_strncmp(*data->tmp.cmd->token, "-n", ft_strlen(*data->tmp.cmd->token)) == 0)
+		if (ft_strcmp(*data->tmp.cmd->token, "-n") == 0)
 		{
 			(*y)++;
 			return (NO);

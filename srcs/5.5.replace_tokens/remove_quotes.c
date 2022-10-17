@@ -3,25 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   remove_quotes.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 11:01:08 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/16 21:34:46 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/17 11:22:52 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-void	remove_quotes(t_data *data, int *pos_beg, int *pos_end)
+void	remove_quotes(t_data *data, int inc)
 {
-	if (*(data->input + *pos_beg) == '"' && *(data->input + *pos_end - 1) == '"')
-	{
-		(*pos_beg)++;
-		(*pos_end)--;
-	}
-	if (*(data->input + *pos_beg) == '\'' && *(data->input + *pos_end - 1) == '\'')
-	{
-		(*pos_beg)++;
-		(*pos_end)--;
-	}
+	char	*token;
+
+	token = ft_strndup((*(data->tmp.cmd->token + inc) + 1), ft_strlen(*(data->tmp.cmd->token + inc)) - 2);
+	free(*(data->tmp.cmd->token + inc));
+	*(data->tmp.cmd->token + inc) = token;
 }

@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   token_has_quotes.c                                 :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/16 10:57:55 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/16 19:48:41 by dpestana         ###   ########.fr       */
+/*   Created: 2022/10/17 09:39:59 by dpestana          #+#    #+#             */
+/*   Updated: 2022/10/17 09:47:33 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-int	token_has_quotes(t_data *data, int pos_beg, int pos_end)
+int	ft_strcmp(char *s1, char *s2)
 {
-	if (*(data->input + pos_beg) == '"' && *(data->input + pos_end - 1) == '"')
-		return (YES);
-	if (*(data->input + pos_beg) == '\'' && *(data->input + pos_end - 1) == '\'')
-		return (YES);
-	return (NO);
+	int	inc;
+	
+	inc = 0;
+	while (*(s1 + inc) != '\0' && *(s2 + inc) != '\0')
+	{
+		if (*(s1 + inc) != *(s2 + inc))
+			return (*(s1 + inc) - *(s2 + inc));
+		inc++;
+	}
+	return (0);
 }

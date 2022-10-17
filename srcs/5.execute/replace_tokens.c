@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   children_process.c                                 :+:      :+:    :+:   */
+/*   replace_tokens.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/12 19:24:06 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/17 10:12:59 by dpestana         ###   ########.fr       */
+/*   Created: 2022/10/17 10:11:59 by dpestana          #+#    #+#             */
+/*   Updated: 2022/10/17 11:09:19 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-void	children_process(t_data *data)
+void	replace_tokens(t_data *data)
 {
-	if (*(data->tmp.pid + data->tmp.idx) == 0)
-	{
-		data->tmp.cmd = (data->line.cmd + data->tmp.idx);
-		replace_tokens(data);
-		if (builtins(data) == NO)
-			non_builtin(data);
-	}
+    int     inc;
+
+    inc = 0;
+    while(inc < data->tmp.cmd->qty_tkn)
+    {
+       // if (token_is_special(data, inc) == YES)
+	    if(token_has_quotes(data, inc) == YES)
+		    remove_quotes(data, inc);
+        inc++;
+    }
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   functions.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 15:36:15 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/16 20:03:44 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/17 11:08:12 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,6 @@ void	get_tokens(t_data *data, int *inc, int *pos_beg, int *pos_end);
 void	get_token_pos_begin(t_data *data, int *inc);
 void	get_token_pos_end(t_data *data, int *inc);
 int		exist_token(t_data *data, int inc, int pos_beg, int pos_end);
-void	set_token_had_quotes(t_data *data);
-int		token_has_quotes(t_data *data, int pos_beg, int pos_end);
-void	remove_quotes(t_data *data, int *pos_beg, int *pos_end);
 void	create_token(t_data *data, int pos_beg, int pos_end, char **token);
 int		is_pipe(char *token);
 int		is_first_cmd(t_data *data);
@@ -53,10 +50,18 @@ void	add_another_token(t_data *data, char *token);
 // 5.EXECUTES
 void	process_execute(t_data *data);
 void	children_process(t_data *data);
+void	replace_tokens(t_data *data);
 int		builtins(t_data *data);
 void	non_builtin(t_data *data);
 void	set_dup2(t_data *data);
 void	set_absolute_path(t_data *data);
+
+// 5.5 REPLACE_TOKENS
+int     token_is_special(t_data *data, int inc);
+void	set_token_had_quotes(t_data *data, int inc);
+int     token_has_quotes(t_data *data, int inc);
+void	remove_quotes(t_data *data, int inc);
+
 
 // 6.BUILTINS
 void	builtin_cd(t_data *data);
@@ -81,6 +86,7 @@ void	end_program(t_data *data, int status);
 // 9.LIBFT
 size_t	ft_strlen(const char *s);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
+int     ft_strcmp(char *s1, char *s2);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strdup(const char *s);
 char	*ft_strndup(const char *s, int qty);

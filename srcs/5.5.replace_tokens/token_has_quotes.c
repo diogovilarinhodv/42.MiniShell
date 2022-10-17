@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   children_process.c                                 :+:      :+:    :+:   */
+/*   token_has_quotes.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/12 19:24:06 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/17 10:12:59 by dpestana         ###   ########.fr       */
+/*   Created: 2022/10/16 10:57:55 by dpestana          #+#    #+#             */
+/*   Updated: 2022/10/17 11:21:49 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-void	children_process(t_data *data)
+int	token_has_quotes(t_data *data, int inc)
 {
-	if (*(data->tmp.pid + data->tmp.idx) == 0)
-	{
-		data->tmp.cmd = (data->line.cmd + data->tmp.idx);
-		replace_tokens(data);
-		if (builtins(data) == NO)
-			non_builtin(data);
-	}
+	int	len;
+
+	len = ft_strlen(*(data->tmp.cmd->token + inc));
+	if (*(*(data->tmp.cmd->token + inc)) == '"' && *(*(data->tmp.cmd->token + inc) + len - 1) == '"')
+		return (YES);
+	if (*(*(data->tmp.cmd->token + inc)) == '\'' && *(*(data->tmp.cmd->token + inc) + len - 1) == '\'')
+		return (YES);
+	return (NO);
 }
