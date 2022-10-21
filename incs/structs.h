@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 15:12:28 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/21 11:35:54 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/21 13:40:03 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ typedef struct s_input
 typedef struct s_data
 {
 	t_input			input;
-	t_table			table;
+	t_table			*table;
 	t_env_var		env;
 	t_tmp_vars		tmp;
 

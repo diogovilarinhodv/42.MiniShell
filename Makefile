@@ -66,16 +66,16 @@ folders:
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/1.inicialize
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/2.checks_input
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/3.input_handler
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/4.organize
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/4.organize2
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/5.execute
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/5.5.replace_tokens
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/6.builtins
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/7.env_handler
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/8.utils
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/9.libft
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/10.errors
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/11.free
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/4.set_tokens
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/5.token_creation
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/6.replace_tokens
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/7.execute
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/8.builtins
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/9.env_handler
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/10.utils
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/11.libft
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/12.errors
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/13.free
 					$(CREATE_FOLDER) $(LIB_FOLDER)
 
 # Build Project

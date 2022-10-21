@@ -6,22 +6,11 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 17:18:01 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/21 12:40:12 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/21 13:55:46 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
-
-static int	is_token_delimiter(char *token)
-{
-	if (*token == ';')
-		return (YES);
-	if (*token == '|')
-		return (YES);
-	if (*token == '&')
-		return (YES);
-	return (NO);
-}
 
 void	organize(t_data *data)
 {
@@ -35,10 +24,12 @@ void	organize(t_data *data)
 		if (exist_token(data, pos_beg, pos_end) == END)
 			break ;
 		create_token(data, pos_beg, pos_end, &token);
-		if (is_token_delimiter(token) == YES)
-		{
-			
-		}
+		if (is_cmd_delimiter(token) == NO)
+			add_token_to_cmd(data);
+		if (is_cmd_delimiter(token) == YES)
+			add_cmd_to_table(data);
+		if (is_table_delimiter(token) == YES)
+			add_table_to_data(data);
 		/*
 		if (is_pipe(token) == YES)
 			data->table.qty_pipes++;

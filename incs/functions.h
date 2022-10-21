@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 15:36:15 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/21 12:08:44 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/21 13:48:26 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,18 @@ void	handle_input(t_data *data);
 void	organize(t_data *data);
 void	execute(t_data *data);
 
-// 4.ORGANIZE
+// 4.TOKEN_CREATION
 void	get_tokens(t_data *data, int *pos_beg, int *pos_end);
 void	get_token_pos_begin(t_data *data);
 int     is_quote(t_data *data);
-void    get_pos_end_quote(t_data *data);
+void    get_quote_pos_end(t_data *data);
 void	get_token_pos_end(t_data *data);
 int		exist_token(t_data *data, int pos_beg, int pos_end);
 void	create_token(t_data *data, int pos_beg, int pos_end, char **token);
+
+int		is_cmd_delimiter(char *token);
+int		is_table_delimiter(char *token);
+
 int		is_pipe(char *token);
 int		is_first_cmd(t_data *data);
 void	add_cmd(t_data *data);
