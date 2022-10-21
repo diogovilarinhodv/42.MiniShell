@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_dup2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 19:45:56 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/14 21:02:09 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/21 11:44:55 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 void	set_dup2(t_data *data)
 {
-	if (data->tmp.idx < data->line.qty_pipes && data->line.qty_pipes > 0 && data->tmp.idx == 0)
+	if (data->tmp.idx < data->table.qty_pipes && data->table.qty_pipes > 0 && data->tmp.idx == 0)
 	{
 		dup2(data->tmp.fd[data->tmp.idx][1], STDOUT_FILENO);
 	}
-	else if (data->tmp.idx < data->line.qty_pipes && data->line.qty_pipes > 0)
+	else if (data->tmp.idx < data->table.qty_pipes && data->table.qty_pipes > 0)
 	{
 		dup2(data->tmp.fd[data->tmp.idx - 1][0], STDIN_FILENO);
 		dup2(data->tmp.fd[data->tmp.idx][1], STDOUT_FILENO);
 	}
-	else if (data->tmp.idx == data->line.qty_pipes && data->line.qty_pipes > 0)
+	else if (data->tmp.idx == data->table.qty_pipes && data->table.qty_pipes > 0)
 	{
 		dup2(data->tmp.fd[data->tmp.idx - 1][0], STDIN_FILENO);
 	}

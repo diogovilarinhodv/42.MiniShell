@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   first_check.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 19:36:49 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/12 19:39:31 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/21 11:13:01 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	first_check(t_data *data)
 {
-    if (data->input == NULL)
+    if (data->input.line == NULL)
 		return (FAIL);
-    if (*data->input == '\0')
+    if (*data->input.line == '\0')
         return (FAIL);
 	 return (SUCCESS);
 }

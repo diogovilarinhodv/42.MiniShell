@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 15:12:28 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/17 09:37:03 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/21 11:35:54 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,15 @@ typedef struct s_cmd
 }	t_cmd;
 
 //     -----------     
-//        LINE        
+//        TABLE        
 //     -----------     
-typedef struct s_line
+typedef struct s_table
 {
 	t_cmd			*cmd;
 	int				qty_cmd;
 	int				qty_pipes;
 
-}	t_line;
+}	t_table;
 
 //		--------
 //		TMP VARS
@@ -57,14 +57,24 @@ typedef struct s_tmp_vars
 
 }	t_tmp_vars;
 
+//		--------
+//		 INPUT
+//		--------
+typedef struct s_input
+{
+	char	*line;
+	int		idx;
+
+}	t_input;
+
 
 //     -----------     
 //        DATA         
 //     -----------     
 typedef struct s_data
 {
-	char			*input;
-	t_line			line;
+	t_input			input;
+	t_table			table;
 	t_env_var		env;
 	t_tmp_vars		tmp;
 

@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 15:36:15 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/17 14:12:55 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/21 12:08:44 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	inicialize_pipes(t_data *data);
 // 2.CHECKS_INPUT
 int     checks_input(t_data *data);
 int		first_check(t_data *data);
-void    remove_spaces(t_data *data);
+void    remove_spaces_bysides(t_data *data);
 int		second_check(t_data *data);
 
 // 3.INPUT HANDLER
@@ -33,12 +33,12 @@ void	organize(t_data *data);
 void	execute(t_data *data);
 
 // 4.ORGANIZE
-void	get_tokens(t_data *data, int *inc, int *pos_beg, int *pos_end);
-void	get_token_pos_begin(t_data *data, int *inc);
-int     is_quote(t_data *data, int *inc);
-void    get_pos_end_quote(t_data *data, int *inc);
-void	get_token_pos_end(t_data *data, int *inc);
-int		exist_token(t_data *data, int inc, int pos_beg, int pos_end);
+void	get_tokens(t_data *data, int *pos_beg, int *pos_end);
+void	get_token_pos_begin(t_data *data);
+int     is_quote(t_data *data);
+void    get_pos_end_quote(t_data *data);
+void	get_token_pos_end(t_data *data);
+int		exist_token(t_data *data, int pos_beg, int pos_end);
 void	create_token(t_data *data, int pos_beg, int pos_end, char **token);
 int		is_pipe(char *token);
 int		is_first_cmd(t_data *data);
@@ -48,6 +48,9 @@ void	add_another_cmd(t_data *data);
 void	add_token(t_data *data, char *token);
 void	add_first_token(t_data *data, char *token);
 void	add_another_token(t_data *data, char *token);
+
+// 4.ORGANIZE 2
+void	organize2(t_data *data);
 
 // 5.EXECUTES
 void	process_execute(t_data *data);

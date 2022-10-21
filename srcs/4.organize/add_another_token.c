@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   add_another_token.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 10:05:24 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/14 19:49:10 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/21 11:44:55 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,15 @@ void	add_another_token(t_data *data, char *token)
 	char	**clone;
 
 	inc = 0;
-	clone = malloc(sizeof(char **) * ((data->line.cmd + data->line.qty_cmd - 1)->qty_tkn + 2));
-	while (inc < (data->line.cmd + data->line.qty_cmd - 1)->qty_tkn)
+	clone = malloc(sizeof(char **) * ((data->table.cmd + data->table.qty_cmd - 1)->qty_tkn + 2));
+	while (inc < (data->table.cmd + data->table.qty_cmd - 1)->qty_tkn)
 	{
-		*(clone + inc) = *((data->line.cmd + data->line.qty_cmd - 1)->token + inc);
+		*(clone + inc) = *((data->table.cmd + data->table.qty_cmd - 1)->token + inc);
 		inc++;
 	}
 	*(clone + inc) = token;
 	*(clone + inc + 1) = NULL;
-	if ((data->line.cmd + data->line.qty_cmd - 1)->token != NULL)
-		free((data->line.cmd + data->line.qty_cmd - 1)->token);
-	(data->line.cmd + data->line.qty_cmd - 1)->token = clone;
+	if ((data->table.cmd + data->table.qty_cmd - 1)->token != NULL)
+		free((data->table.cmd + data->table.qty_cmd - 1)->token);
+	(data->table.cmd + data->table.qty_cmd - 1)->token = clone;
 }

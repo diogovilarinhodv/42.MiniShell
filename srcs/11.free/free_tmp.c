@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_tmp.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 12:02:08 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/12 18:24:36 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/21 11:44:55 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	free_tmp(t_data *data)
 	}
 	if (data->tmp.fd != NULL)
 	{
-		while (inc < data->line.qty_cmd)
+		while (inc < data->table.qty_cmd)
 		{
 			if (*(data->tmp.fd + inc) != NULL)
 			{

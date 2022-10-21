@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create_token.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 17:57:13 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/14 15:53:50 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/21 12:10:13 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	create_token(t_data *data, int pos_beg, int pos_end, char **token)
 {
-	*token = ft_substr(data->input, pos_beg, pos_end - pos_beg);
+	*token = ft_substr(data->input.line, pos_beg, pos_end - pos_beg);
 }

@@ -67,6 +67,7 @@ folders:
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/2.checks_input
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/3.input_handler
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/4.organize
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/4.organize2
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/5.execute
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/5.5.replace_tokens
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/6.builtins
