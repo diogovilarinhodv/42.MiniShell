@@ -66,8 +66,8 @@ folders:
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/1.inicialize
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/2.checks_input
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/3.input_handler
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/4.set_tokens
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/5.token_creation
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/4.token_creation
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/5.set_tokens
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/6.replace_tokens
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/7.execute
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/8.builtins
