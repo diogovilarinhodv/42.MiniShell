@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 11:24:02 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/21 11:44:55 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/22 13:12:06 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,29 @@
 
 static void	free_cmd(t_data *data)
 {
-	while (data->table.cmd->qty_tkn > 0)
+	while (data->store.table->cmd->qty_tkn > 0)
 	{
-		if ((data->table.cmd->token + (data->table.cmd->qty_tkn - 1)) != NULL)
+		if ((data->store.table->cmd->token + (data->store.table->cmd->qty_tkn - 1)) != NULL)
 		{
-			free(*(data->table.cmd->token + (data->table.cmd->qty_tkn - 1)));
-			*(data->table.cmd->token + (data->table.cmd->qty_tkn - 1)) = NULL;
+			free(*(data->store.table->cmd->token + (data->store.table->cmd->qty_tkn - 1)));
+			*(data->store.table->cmd->token + (data->store.table->cmd->qty_tkn - 1)) = NULL;
 		}
-		data->table.cmd->qty_tkn--;
+		data->store.table->cmd->qty_tkn--;
 	}
-	if (data->table.cmd->token != NULL)
+	if (data->store.table->cmd->token != NULL)
 	{
-		free(data->table.cmd->token);
-		data->table.cmd->token = NULL;
+		free(data->store.table->cmd->token);
+		data->store.table->cmd->token = NULL;
 	}
 }
 
 void	free_line(t_data *data)
 {
-    if (data->table.cmd != NULL)
+    if (data->store.table->cmd != NULL)
     {
         free_cmd(data);
-	  	free(data->table.cmd);
-		data->table.cmd = NULL;
+	  	free(data->store.table->cmd);
+		data->store.table->cmd = NULL;
     }
-    data->table.qty_pipes = 0;
+    data->store.table->qty_pipes = 0;
 }

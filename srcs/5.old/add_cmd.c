@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   add_first_token.c                                  :+:      :+:    :+:   */
+/*   add_cmd.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/13 10:04:47 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/21 11:44:55 by dpestana         ###   ########.fr       */
+/*   Created: 2022/09/23 09:44:51 by dpestana          #+#    #+#             */
+/*   Updated: 2022/10/22 13:10:39 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-void	add_first_token(t_data *data, char *token)
+void	add_cmd(t_data *data)
 {
-	(data->table.cmd + data->table.qty_cmd - 1)->token = malloc(sizeof(char **) * ((data->table.cmd + data->table.qty_cmd - 1)->qty_tkn + 2));
-	*(data->table.cmd + data->table.qty_cmd - 1)->token = token;
-	*((data->table.cmd + data->table.qty_cmd - 1)->token + 1) = NULL;
+	if (data->store.table->qty_cmd == 0)
+		add_first_cmd(data);
+	else
+		add_another_cmd(data);
+	data->store.table->qty_cmd++;
+	
 }

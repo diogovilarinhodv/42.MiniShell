@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 15:36:15 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/21 13:48:26 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/22 12:29:51 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,16 @@ void	get_token_pos_end(t_data *data);
 int		exist_token(t_data *data, int pos_beg, int pos_end);
 void	create_token(t_data *data, int pos_beg, int pos_end, char **token);
 
+
+// 5.SET_TOKENS
 int		is_cmd_delimiter(char *token);
 int		is_table_delimiter(char *token);
+void	add_token_to_cmd(t_data *data, char *token, t_cmd *cmd);
+void	add_cmd_to_table(t_data *data, t_cmd *cmd, t_table *table);
+void	add_table_to_data(t_data *data, t_table *table);
 
+
+// 5.OLD
 int		is_pipe(char *token);
 int		is_first_cmd(t_data *data);
 void	add_cmd(t_data *data);
@@ -53,19 +60,7 @@ void	add_token(t_data *data, char *token);
 void	add_first_token(t_data *data, char *token);
 void	add_another_token(t_data *data, char *token);
 
-// 4.ORGANIZE 2
-void	organize2(t_data *data);
-
-// 5.EXECUTES
-void	process_execute(t_data *data);
-void	children_process(t_data *data);
-void	replace_tokens(t_data *data);
-int		builtins(t_data *data);
-void	non_builtin(t_data *data);
-void	set_dup2(t_data *data);
-void	set_absolute_path(t_data *data);
-
-// 5.5 REPLACE_TOKENS
+// 6.REPLACE_TOKENS
 int     token_has_cipher(t_data *data, int inc);
 void	replace_env_var(t_data *data, int inc);
 int     token_has_tilde(t_data *data, int inc);
@@ -74,7 +69,16 @@ int     token_has_quotes(t_data *data, int inc);
 void	remove_quotes(t_data *data, int inc);
 
 
-// 6.BUILTINS
+// 7.EXECUTES
+void	process_execute(t_data *data);
+void	children_process(t_data *data);
+void	replace_tokens(t_data *data);
+int		builtins(t_data *data);
+void	non_builtin(t_data *data);
+void	set_dup2(t_data *data);
+void	set_absolute_path(t_data *data);
+
+// 8.BUILTINS
 void	builtin_cd(t_data *data);
 void	builtin_pwd(t_data *data);
 void	builtin_env(t_data *data);
@@ -82,19 +86,19 @@ void	builtin_echo(t_data *data);
 void	builtin_unset(t_data *data);
 void	builtin_export(t_data *data);
 
-// 7.ENV_HANDLER
+// 9.ENV_HANDLER
 char	*get_env_value(t_data *data, char *name);
 int		get_env_idx(t_data *data, char *name);
 void	set_env(t_data *data, char *name, char *value);
 void	unset_env(t_data *data, char *name);
 
-// 8.UTILS
+// 10.UTILS
 void	close_fds(t_data *data);
 void	wait_processes(t_data *data);
 void	testing_stuffs(t_data *data);
 void	end_program(t_data *data, int status);
 
-// 9.LIBFT
+// 11.LIBFT
 size_t	ft_strlen(const char *s);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 int     ft_strcmp(char *s1, char *s2);
@@ -104,11 +108,11 @@ char	*ft_strndup(const char *s, int qty);
 char	*ft_strjoin(char const *s1, char const *s2);
 int		ft_isspace(int c);
 
-// 10.ERRORS
+// 12.ERRORS
 void	invalid_input(t_data *data);
 void	env_empty(void);
 
-// 11.FREE
+// 13.FREE
 void	free_env(t_data *data);
 void	free_input(t_data *data);
 void	free_line(t_data *data);

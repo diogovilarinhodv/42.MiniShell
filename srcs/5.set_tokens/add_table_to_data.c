@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   add_cmd.c                                          :+:      :+:    :+:   */
+/*   add_table_to_data.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/23 09:44:51 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/21 11:44:55 by dpestana         ###   ########.fr       */
+/*   Created: 2022/10/22 11:40:27 by dpestana          #+#    #+#             */
+/*   Updated: 2022/10/22 12:57:35 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-void	add_cmd(t_data *data)
+void	add_table_to_data(t_data *data, t_table *table)
 {
-	if (data->table.qty_cmd == 0)
-		add_first_cmd(data);
-	else
-		add_another_cmd(data);
-	data->table.qty_cmd++;
+	data->store.table = table;
 }

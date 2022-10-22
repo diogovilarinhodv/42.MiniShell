@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   wait_processes.c                                   :+:      :+:    :+:   */
+/*   add_cmd_to_table.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/12 18:11:54 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/22 13:10:39 by dpestana         ###   ########.fr       */
+/*   Created: 2022/10/22 11:39:44 by dpestana          #+#    #+#             */
+/*   Updated: 2022/10/22 12:59:59 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-void	wait_processes(t_data *data)
+void	add_cmd_to_table(t_data *data, t_cmd *cmd, t_table *table)
 {
-	int	inc;
-
-	inc = 0;
-	while (inc < data->store.table->qty_cmd)
+	if (table == NULL)
 	{
-		waitpid(*(data->tmp.pid + inc), NULL, 0);
-		inc++;
+		table = malloc(sizeof(t_table) * 1);
+		table->cmd = &cmd;
+		table->qty_cmd = 1;
+	}
+	else
+	{
+		*(table->cmd + table->qty_cmd) = &cmd;
+		table->qty_cmd++;
 	}
 }

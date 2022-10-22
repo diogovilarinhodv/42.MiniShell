@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_first_cmd.c                                     :+:      :+:    :+:   */
+/*   add_token_to_cmd.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/14 19:23:14 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/21 11:44:55 by dpestana         ###   ########.fr       */
+/*   Created: 2022/10/22 11:39:01 by dpestana          #+#    #+#             */
+/*   Updated: 2022/10/22 13:11:43 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-int	is_first_cmd(t_data *data)
+void	add_token_to_cmd(t_data *data, char *token, t_cmd *cmd)
 {
-	if (data->table.qty_cmd == 0)
-		return (YES);
-	return (NO);
+	if (cmd == NULL)
+	{
+		cmd = malloc(sizeof(t_cmd) * 1);
+		*cmd->token = token;
+		cmd->qty_tkn = 1;data->store.table->cmd
+	}
+	else
+	{
+		*(cmd->token + cmd->qty_tkn) = token;
+		cmd->qty_tkn++;
+	}
 }
