@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   functions.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 15:36:15 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/22 12:29:51 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/23 20:23:50 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,18 +44,20 @@ void	create_token(t_data *data, int pos_beg, int pos_end, char **token);
 
 // 5.SET_TOKENS
 int		is_cmd_delimiter(char *token);
+int		is_first_table(t_data *data);
+void	add_first_table(t_data *data);
+int		is_first_cmd(t_data *data);
+void	add_first_cmd(t_data *data);
 int		is_table_delimiter(char *token);
-void	add_token_to_cmd(t_data *data, char *token, t_cmd *cmd);
-void	add_cmd_to_table(t_data *data, t_cmd *cmd, t_table *table);
-void	add_table_to_data(t_data *data, t_table *table);
+void	add_another_cmd(t_data *data);
+void	add_another_table(t_data *data);
+
 
 
 // 5.OLD
+
 int		is_pipe(char *token);
-int		is_first_cmd(t_data *data);
 void	add_cmd(t_data *data);
-void	add_first_cmd(t_data *data);
-void	add_another_cmd(t_data *data);
 void	add_token(t_data *data, char *token);
 void	add_first_token(t_data *data, char *token);
 void	add_another_token(t_data *data, char *token);

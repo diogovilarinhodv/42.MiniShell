@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   add_first_cmd.c                                    :+:      :+:    :+:   */
+/*   is_first_table.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/13 19:46:53 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/22 13:11:43 by dpestana         ###   ########.fr       */
+/*   Created: 2022/10/23 20:19:05 by dpestana          #+#    #+#             */
+/*   Updated: 2022/10/23 20:20:03 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-void	add_first_cmd(t_data *data)
+int	is_first_table(t_data *data)
 {
-	data->store.table->cmd = malloc(sizeof(t_cmd) * (data->store.table->qty_cmd + 1));
-	data->store.table->cmd->token = NULL;
-	data->store.table->cmd->qty_tkn = 0;
+	if (data->store.qty_tbl == 0)
+		return (YES);
+	return (NO);
 }

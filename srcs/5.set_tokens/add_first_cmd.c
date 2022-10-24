@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   add_table_to_data.c                                :+:      :+:    :+:   */
+/*   add_first_cmd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/22 11:40:27 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/22 12:57:35 by dpestana         ###   ########.fr       */
+/*   Created: 2022/10/13 19:46:53 by dpestana          #+#    #+#             */
+/*   Updated: 2022/10/23 19:56:14 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-void	add_table_to_data(t_data *data, t_table *table)
+void	add_first_cmd(t_data *data)
 {
-	data->store.table = table;
+	data->store.table->cmd = malloc(sizeof(t_cmd) * (data->store.table->qty_cmd + 1));
+	data->store.table->cmd->token = NULL;
+	data->store.table->cmd->qty_tkn = 0;
 }
