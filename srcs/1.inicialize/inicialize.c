@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   inicialize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 14:19:50 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/05 13:17:27 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/24 13:57:18 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,6 @@ void	inicialize(t_data *data, int argc, char **argv, char **env)
 	(void) argv;
 	inicialize_env(data, env);
 	inicialize_input(data);
-	inicialize_line(data);
+	inicialize_table(data);
 	inicialize_tmp(data);
 }

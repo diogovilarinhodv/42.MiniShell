@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 15:12:28 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/22 13:05:19 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/24 13:59:56 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,6 @@ typedef struct s_env_var
 	int				qty;
 
 }	t_env_var;
-
-//		--------
-//		TMP VARS
-//		--------
-typedef struct s_tmp_vars
-{
-	t_cmd			*cmd;
-	int				idx;
-	int				**fd;
-	int				*pid;
-
-}	t_tmp_vars;
 
 //		--------
 //		 INPUT
@@ -76,6 +64,18 @@ typedef struct s_storage
 	int				qty_tbl;
 
 }	t_storage;
+
+//		--------
+//		  TMP
+//		--------
+typedef struct s_tmp_vars
+{
+	t_cmd			*cmd;
+	int				idx;
+	int				**fd;
+	int				*pid;
+
+}	t_tmp_vars;
 
 //     -----------     
 //        DATA         

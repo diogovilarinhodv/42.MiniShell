@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   organize.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 17:18:01 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/23 21:12:47 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/24 15:22:05 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,10 @@ void	organize(t_data *data)
 	int		pos_beg;
 	int		pos_end;
 	char	*token;
-	t_cmd	cmd;
-	t_table	table;
 
 	while (*(data->input.line + data->input.idx) != '\0')
 	{
-		get_tokens(data, pos_beg, pos_end);
+		get_tokens(data, &pos_beg, &pos_end);
 		if (exist_token(data, pos_beg, pos_end) == END)
 			break ;
 		create_token(data, pos_beg, pos_end, &token);

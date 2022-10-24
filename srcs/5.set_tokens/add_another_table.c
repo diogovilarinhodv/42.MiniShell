@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   add_another_table.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 20:15:34 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/23 20:17:09 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/24 13:37:23 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,5 @@ void	add_another_table(t_data *data)
 	if (data->store.table != NULL)
 		free(data->store.table);
 	data->store.table = clone;
+	data->store.qty_tbl++;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   is_first_cmd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 19:23:14 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/23 20:19:28 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/24 13:50:35 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 int	is_first_cmd(t_data *data)
 {
-	if (data->store.table->qty_cmd == 0)
+	if (data->store.qty_tbl == 0)
+		return (YES);
+	if ((data->store.table + data->store.qty_tbl - 1)->qty_cmd == 0)
 		return (YES);
 	return (NO);
 }

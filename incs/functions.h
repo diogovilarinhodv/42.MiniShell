@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   functions.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 15:36:15 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/23 20:23:50 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/24 15:23:18 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 // 1.INICIALIZE
 void	inicialize(t_data *data, int argc, char **argv, char **env);
 void	inicialize_env(t_data *data, char **env);
-void	inicialize_line(t_data *data);
+void	inicialize_table(t_data *data);
 void	inicialize_input(t_data *data);
 void	inicialize_tmp(t_data *data);
 void	inicialize_pipes(t_data *data);
@@ -117,7 +117,7 @@ void	env_empty(void);
 // 13.FREE
 void	free_env(t_data *data);
 void	free_input(t_data *data);
-void	free_line(t_data *data);
+void	free_table(t_data *data);
 void	free_tmp(t_data *data);
 
 #endif

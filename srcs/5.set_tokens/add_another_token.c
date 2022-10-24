@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 10:05:24 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/22 13:11:43 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/24 13:33:16 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,15 @@ void	add_another_token(t_data *data, char *token)
 	char	**clone;
 
 	inc = 0;
-	clone = malloc(sizeof(char **) * ((data->store.table->cmd + data->store.table->qty_cmd - 1)->qty_tkn + 2));
-	while (inc < (data->store.table->cmd + data->store.table->qty_cmd - 1)->qty_tkn)
+	clone = malloc(sizeof(char **) * (((data->store.table + data->store.qty_tbl - 1)->cmd + data->store.table->qty_cmd - 1)->qty_tkn + 2));
+	while (inc < ((data->store.table + data->store.qty_tbl - 1)->cmd + data->store.table->qty_cmd - 1)->qty_tkn)
 	{
-		*(clone + inc) = *((data->store.table->cmd + data->store.table->qty_cmd - 1)->token + inc);
+		*(clone + inc) = *(((data->store.table + data->store.qty_tbl - 1)->cmd + data->store.table->qty_cmd - 1)->token + inc);
 		inc++;
 	}
 	*(clone + inc) = token;
 	*(clone + inc + 1) = NULL;
-	if ((data->store.table->cmd + data->store.table->qty_cmd - 1)->token != NULL)
-		free((data->store.table->cmd + data->store.table->qty_cmd - 1)->token);
-	(data->store.table->cmd + data->store.table->qty_cmd - 1)->token = clone;
+	if (((data->store.table + data->store.qty_tbl - 1)->cmd + data->store.table->qty_cmd - 1)->token != NULL)
+		free(((data->store.table + data->store.qty_tbl - 1)->cmd + data->store.table->qty_cmd - 1)->token);
+	((data->store.table + data->store.qty_tbl - 1)->cmd + data->store.table->qty_cmd - 1)->token = clone;
 }

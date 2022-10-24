@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 17:27:29 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/22 13:11:43 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/24 12:56:14 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	add_token(t_data *data, char *token)
 {
-	if ((data->store.table->cmd + data->store.table->qty_cmd - 1)->qty_tkn == 0)
+	if (((data->store.table + data->store.qty_tbl - 1)->cmd + data->store.table->qty_cmd - 1)->qty_tkn == 0)
 		add_first_token(data, token);
 	else
 		add_another_token(data, token);
-	(data->store.table->cmd + data->store.table->qty_cmd - 1)->qty_tkn++;
+	((data->store.table + data->store.qty_tbl - 1)->cmd + data->store.table->qty_cmd - 1)->qty_tkn++;
 }
