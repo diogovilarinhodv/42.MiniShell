@@ -14,9 +14,16 @@
 
 void	execute(t_data *data)
 {
-	data->env.name = data->env.name;
-	//inicialize_pipes(data);
-	//process_execute(data);
-	//close_fds(data);
-	//wait_processes(data);
+	int	inc_table;
+
+	inc_table = 0;
+	while (inc_table < data->store.qty_tbl)
+	{
+		data->cur.table = (data->store.table + data->store.qty_tbl);
+		inicialize_pipes(data);
+		process_execute(data);
+		close_fds(data);
+		wait_processes(data);
+		inc_table++;
+	}
 }

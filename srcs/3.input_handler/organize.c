@@ -24,10 +24,6 @@ void	organize(t_data *data)
 		if (exist_token(data, pos_beg, pos_end) == END)
 			break ;
 		create_token(data, pos_beg, pos_end, &token);
-
-
-
-		
 		if (is_cmd_delimiter(token) == NO)
 		{
 			if (is_first_cmd(data) == YES)
@@ -48,5 +44,4 @@ void	organize(t_data *data)
 		}
 	}
 	testing_stuffs(data);
-	end_program(data, 0);
 }

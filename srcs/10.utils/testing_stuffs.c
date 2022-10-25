@@ -43,4 +43,5 @@ void	testing_stuffs(t_data *data)
 		}
 		inc_table++;
 	}
+	end_program(data, 0);
 }
