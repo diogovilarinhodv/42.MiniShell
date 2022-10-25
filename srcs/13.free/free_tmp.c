@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 12:02:08 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/22 13:10:39 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/24 18:56:23 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 void	free_tmp(t_data *data)
 {
 	int	inc;
+	int	inc2;
 
 	inc = 0;
+	inc2 = 0;
 	if (data->tmp.cmd != NULL)
 		data->tmp.cmd = NULL;
 	if (data->tmp.pid != NULL)
@@ -26,14 +28,18 @@ void	free_tmp(t_data *data)
 	}
 	if (data->tmp.fd != NULL)
 	{
-		while (inc < data->store.table->qty_cmd)
+		while (inc2 < data->store.qty_tbl)
 		{
-			if (*(data->tmp.fd + inc) != NULL)
+			while (inc < (data->store.table + inc2)->qty_cmd)
 			{
-				free(*(data->tmp.fd + inc));
-				*(data->tmp.fd + inc) = NULL;
+				if (*(data->tmp.fd + inc) != NULL)
+				{
+					free(*(data->tmp.fd + inc));
+					*(data->tmp.fd + inc) = NULL;
+				}
+				inc++;
 			}
-			inc++;
+			inc2++;
 		}
 		free(data->tmp.fd);
 		data->tmp.fd = NULL;

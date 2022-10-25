@@ -14,9 +14,9 @@
 
 void	add_token(t_data *data, char *token)
 {
-	if (((data->store.table + data->store.qty_tbl - 1)->cmd + data->store.table->qty_cmd - 1)->qty_tkn == 0)
+	if (((data->store.table + data->store.qty_tbl - 1)->cmd + (data->store.table + data->store.qty_tbl - 1)->qty_cmd - 1)->qty_tkn == 0)
 		add_first_token(data, token);
 	else
 		add_another_token(data, token);
-	((data->store.table + data->store.qty_tbl - 1)->cmd + data->store.table->qty_cmd - 1)->qty_tkn++;
+	((data->store.table + data->store.qty_tbl - 1)->cmd + (data->store.table + data->store.qty_tbl - 1)->qty_cmd - 1)->qty_tkn++;
 }

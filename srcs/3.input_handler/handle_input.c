@@ -18,6 +18,6 @@ void	handle_input(t_data *data)
 	inicialize_tmp(data);
 	organize(data);
 	execute(data);
-	free_table(data);
+	free_store(data);
 	free_tmp(data);
 }

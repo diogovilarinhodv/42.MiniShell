@@ -14,8 +14,8 @@
 
 void	add_first_cmd(t_data *data)
 {
-	data->store.table->qty_cmd = 1;
-	data->store.table->cmd = malloc(sizeof(t_cmd) * data->store.table->qty_cmd);
-	data->store.table->cmd->token = NULL;
-	data->store.table->cmd->qty_tkn = 0;
+	(data->store.table + data->store.qty_tbl - 1)->qty_cmd = 1;
+	(data->store.table + data->store.qty_tbl - 1)->cmd = malloc(sizeof(t_cmd) * (data->store.table + data->store.qty_tbl - 1)->qty_cmd);
+	(data->store.table + data->store.qty_tbl - 1)->cmd->token = NULL;
+	(data->store.table + data->store.qty_tbl - 1)->cmd->qty_tkn = 0;
 }

@@ -44,7 +44,9 @@ void	organize(t_data *data)
 				add_another_table(data);
 			else
 				add_another_cmd(data);
+			free(token);
 		}
 	}
-	//testing_stuffs(data);
+	testing_stuffs(data);
+	end_program(data, 0);
 }

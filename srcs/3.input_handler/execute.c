@@ -14,8 +14,9 @@
 
 void	execute(t_data *data)
 {
-	inicialize_pipes(data);
-	process_execute(data);
-	close_fds(data);
-	wait_processes(data);
+	data->env.name = data->env.name;
+	//inicialize_pipes(data);
+	//process_execute(data);
+	//close_fds(data);
+	//wait_processes(data);
 }

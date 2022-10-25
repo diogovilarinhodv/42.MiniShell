@@ -77,6 +77,17 @@ typedef struct s_tmp_vars
 
 }	t_tmp_vars;
 
+//		--------
+//		CURRENT
+//		--------
+typedef struct s_current
+{
+	t_table	*table;
+	t_cmd	*cmd;
+	char	**token;
+
+}	t_current;
+
 //     -----------     
 //        DATA         
 //     -----------     
@@ -84,6 +95,7 @@ typedef struct s_data
 {
 	t_input			input;
 	t_storage		store;
+	t_current		cur;
 	t_env_var		env;
 	t_tmp_vars		tmp;
 

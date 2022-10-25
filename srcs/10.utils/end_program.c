@@ -16,7 +16,7 @@ void	end_program(t_data *data, int status)
 {
 	free_env(data);
 	free_input(data);
-	free_table(data);
+	free_store(data);
 	free_tmp(data);
 	exit(status);
 }

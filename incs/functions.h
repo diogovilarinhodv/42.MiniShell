@@ -117,7 +117,7 @@ void	env_empty(void);
 // 13.FREE
 void	free_env(t_data *data);
 void	free_input(t_data *data);
-void	free_table(t_data *data);
+void	free_store(t_data *data);
 void	free_tmp(t_data *data);
 
 #endif
