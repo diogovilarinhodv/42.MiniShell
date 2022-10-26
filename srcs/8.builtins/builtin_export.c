@@ -26,11 +26,11 @@ static	char	*set_name_builtin_export(t_data *data, int *inc)
 {
 	char	*env_name;
 
-	while (*(*(data->tmp.cmd->token + 1) + *inc) != '=' && *(*(data->tmp.cmd->token + 1) + *inc) != '\0')
+	while (*(*(data->cur.cmd->token + 1) + *inc) != '=' && *(*(data->cur.cmd->token + 1) + *inc) != '\0')
 		(*inc)++;
-	if (*(*(data->tmp.cmd->token + 1) + *inc) == '\0')
+	if (*(*(data->cur.cmd->token + 1) + *inc) == '\0')
 		return (NULL);
-	env_name = ft_substr(*(data->tmp.cmd->token + 1) , 0, *inc);
+	env_name = ft_substr(*(data->cur.cmd->token + 1) , 0, *inc);
 	return (env_name);
 }
 
@@ -46,12 +46,12 @@ static	char	*set_value_builtin_export(t_data *data, int inc)
 	char	*env_value;
 	int		len;
 
-	len = ft_strlen(*(data->tmp.cmd->token + 1));
-	if (*(*(data->tmp.cmd->token + 1) + inc + 1) == '\"'
-		 && *(*(data->tmp.cmd->token + 1) + len - 1) == '\"')
-		env_value = ft_substr(*(data->tmp.cmd->token + 1), inc + 2, len - (inc + 3));
+	len = ft_strlen(*(data->cur.cmd->token + 1));
+	if (*(*(data->cur.cmd->token + 1) + inc + 1) == '\"'
+		 && *(*(data->cur.cmd->token + 1) + len - 1) == '\"')
+		env_value = ft_substr(*(data->cur.cmd->token + 1), inc + 2, len - (inc + 3));
 	else
-		env_value = ft_substr(*(data->tmp.cmd->token + 1), inc + 1, len - (inc + 1));
+		env_value = ft_substr(*(data->cur.cmd->token + 1), inc + 1, len - (inc + 1));
 	return (env_value);
 }
 

@@ -17,7 +17,7 @@ void	wait_processes(t_data *data)
 	int	inc;
 
 	inc = 0;
-	while (inc < data->store.table->qty_cmd)
+	while (inc < data->cur.table->qty_cmd)
 	{
 		waitpid(*(data->tmp.pid + inc), NULL, 0);
 		inc++;

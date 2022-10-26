@@ -14,11 +14,12 @@
 
 void	children_process(t_data *data)
 {
-	if (*(data->tmp.pid + data->tmp.idx) == 0)
+	if (*(data->tmp.pid + data->cur.idx_cmd) == 0)
 	{
-		data->tmp.cmd = (data->store.table->cmd + data->tmp.idx);
+		data->cur.cmd = (data->cur.table->cmd + data->cur.idx_cmd);
 		replace_tokens(data);
 		if (builtins(data) == NO)
 			non_builtin(data);
+		data->cur.cmd = NULL;
 	}
 }

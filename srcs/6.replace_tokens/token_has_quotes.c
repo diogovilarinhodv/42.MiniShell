@@ -16,10 +16,10 @@ int	token_has_quotes(t_data *data, int inc)
 {
 	int	len;
 
-	len = ft_strlen(*(data->tmp.cmd->token + inc));
-	if (*(*(data->tmp.cmd->token + inc)) == '"' && *(*(data->tmp.cmd->token + inc) + len - 1) == '"')
+	len = ft_strlen(*(data->cur.cmd->token + inc));
+	if (*(*(data->cur.cmd->token + inc)) == '"' && *(*(data->cur.cmd->token + inc) + len - 1) == '"')
 		return (YES);
-	if (*(*(data->tmp.cmd->token + inc)) == '\'' && *(*(data->tmp.cmd->token + inc) + len - 1) == '\'')
+	if (*(*(data->cur.cmd->token + inc)) == '\'' && *(*(data->cur.cmd->token + inc) + len - 1) == '\'')
 		return (YES);
 	return (NO);
 }

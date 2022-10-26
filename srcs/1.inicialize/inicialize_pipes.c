@@ -17,8 +17,8 @@ void	inicialize_pipes(t_data *data)
 	int	inc;
 
 	inc = 0;
-	data->tmp.fd = malloc(sizeof(int *) * data->store.table->qty_cmd);
-	while (inc < data->store.table->qty_cmd)
+	data->tmp.fd = malloc(sizeof(int *) * data->cur.table->qty_cmd);
+	while (inc < data->cur.table->qty_cmd)
 	{
 		*(data->tmp.fd + inc) = malloc(sizeof(int) * 2);
 		pipe(*(data->tmp.fd + inc));

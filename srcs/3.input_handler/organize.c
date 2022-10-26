@@ -12,6 +12,10 @@
 
 #include "../../incs/minishell.h"
 
+// deu error, verificar
+// ls ; wc | wc
+// ls ; cat filer | grep "bla" | wc | wc ; lol
+
 void	organize(t_data *data)
 {
 	int		pos_beg;
@@ -24,6 +28,7 @@ void	organize(t_data *data)
 		if (exist_token(data, pos_beg, pos_end) == END)
 			break ;
 		create_token(data, pos_beg, pos_end, &token);
+		printf("TOKEN - %s\n", token);
 		if (is_cmd_delimiter(token) == NO)
 		{
 			if (is_first_cmd(data) == YES)
@@ -43,5 +48,6 @@ void	organize(t_data *data)
 			free(token);
 		}
 	}
+	printf("YAH - %s\n", *(((data->store.table + 1)->cmd + 0)->token + 0));
 	testing_stuffs(data);
 }

@@ -23,6 +23,7 @@ void	add_another_table(t_data *data)
 	{
 		(clone + inc)->cmd = (data->store.table + inc)->cmd;
 		(clone + inc)->qty_cmd = (data->store.table + inc)->qty_cmd;
+		(clone + inc)->qty_pipes = (data->store.table + inc)->qty_pipes;
 		inc++;
 	}
 	(clone + inc)->cmd = NULL;

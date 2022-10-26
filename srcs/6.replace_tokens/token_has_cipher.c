@@ -14,7 +14,7 @@
 
 int token_has_cipher(t_data *data, int inc)
 {
-    if (*(*(data->tmp.cmd->token + inc)) == '$')
+    if (*(*(data->cur.cmd->token + inc)) == '$')
         return (YES);
     return (NO);
 }

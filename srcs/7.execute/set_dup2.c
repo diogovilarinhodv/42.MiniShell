@@ -14,18 +14,18 @@
 
 void	set_dup2(t_data *data)
 {
-	if (data->tmp.idx < data->store.table->qty_pipes && data->store.table->qty_pipes > 0 && data->tmp.idx == 0)
+	if (data->cur.idx_cmd < data->store.table->qty_pipes && data->store.table->qty_pipes > 0 && data->cur.idx_cmd == 0)
 	{
-		dup2(data->tmp.fd[data->tmp.idx][1], STDOUT_FILENO);
+		dup2(data->tmp.fd[data->cur.idx_cmd][1], STDOUT_FILENO);
 	}
-	else if (data->tmp.idx < data->store.table->qty_pipes && data->store.table->qty_pipes > 0)
+	else if (data->cur.idx_cmd < data->store.table->qty_pipes && data->store.table->qty_pipes > 0)
 	{
-		dup2(data->tmp.fd[data->tmp.idx - 1][0], STDIN_FILENO);
-		dup2(data->tmp.fd[data->tmp.idx][1], STDOUT_FILENO);
+		dup2(data->tmp.fd[data->cur.idx_cmd - 1][0], STDIN_FILENO);
+		dup2(data->tmp.fd[data->cur.idx_cmd][1], STDOUT_FILENO);
 	}
-	else if (data->tmp.idx == data->store.table->qty_pipes && data->store.table->qty_pipes > 0)
+	else if (data->cur.idx_cmd == data->store.table->qty_pipes && data->store.table->qty_pipes > 0)
 	{
-		dup2(data->tmp.fd[data->tmp.idx - 1][0], STDIN_FILENO);
+		dup2(data->tmp.fd[data->cur.idx_cmd - 1][0], STDIN_FILENO);
 	}
 	close_fds(data);
 }

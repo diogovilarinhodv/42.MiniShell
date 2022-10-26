@@ -14,5 +14,5 @@
 
 void	builtin_unset(t_data *data)
 {
-	unset_env(data, *(data->tmp.cmd->token + 1));
+	unset_env(data, *(data->cur.cmd->token + 1));
 }

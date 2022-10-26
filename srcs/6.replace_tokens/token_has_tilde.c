@@ -14,9 +14,9 @@
 
 int token_has_tilde(t_data *data, int inc)
 {
-    if (*(*(data->tmp.cmd->token + inc)) == '~')
+    if (*(*(data->cur.cmd->token + inc)) == '~')
         return (YES);
-    if (*(*(data->tmp.cmd->token + inc)) == '~' && *(*(data->tmp.cmd->token + inc) + 1) == '/')
+    if (*(*(data->cur.cmd->token + inc)) == '~' && *(*(data->cur.cmd->token + inc) + 1) == '/')
         return (YES);
     return (NO);
 }

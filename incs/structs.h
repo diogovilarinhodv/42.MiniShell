@@ -70,8 +70,6 @@ typedef struct s_storage
 //		--------
 typedef struct s_tmp_vars
 {
-	t_cmd			*cmd;
-	int				idx;
 	int				**fd;
 	int				*pid;
 
@@ -85,6 +83,7 @@ typedef struct s_current
 	t_table	*table;
 	t_cmd	*cmd;
 	char	**token;
+	int		idx_cmd;
 
 }	t_current;
 

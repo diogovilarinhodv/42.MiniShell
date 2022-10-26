@@ -17,7 +17,7 @@ void	replace_tokens(t_data *data)
     int     inc;
 
     inc = 0;
-    while(inc < data->tmp.cmd->qty_tkn)
+    while(inc < data->cur.cmd->qty_tkn)
     {
         if (token_has_cipher(data, inc) == YES)
             replace_env_var(data, inc);

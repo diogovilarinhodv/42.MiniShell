@@ -14,11 +14,12 @@
 
 void	process_execute(t_data *data)
 {
-	data->tmp.pid = malloc(sizeof(int) * data->store.table->qty_cmd);
-	while (data->tmp.idx < data->store.table->qty_cmd)
+	data->tmp.pid = malloc(sizeof(int) * data->cur.table->qty_cmd);
+	data->cur.idx_cmd = 0;
+	while (data->cur.idx_cmd < data->cur.table->qty_cmd)
 	{
-		*(data->tmp.pid + data->tmp.idx) = fork();
+		*(data->tmp.pid + data->cur.idx_cmd) = fork();
 		children_process(data);
-		data->tmp.idx++;
+		data->cur.idx_cmd++;
 	}
 }

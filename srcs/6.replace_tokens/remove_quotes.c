@@ -16,7 +16,7 @@ void	remove_quotes(t_data *data, int inc)
 {
 	char	*token;
 
-	token = ft_strndup((*(data->tmp.cmd->token + inc) + 1), ft_strlen(*(data->tmp.cmd->token + inc)) - 2);
-	free(*(data->tmp.cmd->token + inc));
-	*(data->tmp.cmd->token + inc) = token;
+	token = ft_strndup((*(data->cur.cmd->token + inc) + 1), ft_strlen(*(data->cur.cmd->token + inc)) - 2);
+	free(*(data->cur.cmd->token + inc));
+	*(data->cur.cmd->token + inc) = token;
 }

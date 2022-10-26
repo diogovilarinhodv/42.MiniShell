@@ -17,10 +17,7 @@ void	free_tmp(t_data *data)
 	int	inc;
 	int	inc2;
 
-	inc = 0;
 	inc2 = 0;
-	if (data->tmp.cmd != NULL)
-		data->tmp.cmd = NULL;
 	if (data->tmp.pid != NULL)
 	{
 		free(data->tmp.pid);
@@ -30,6 +27,7 @@ void	free_tmp(t_data *data)
 	{
 		while (inc2 < data->store.qty_tbl)
 		{
+			inc = 0;
 			while (inc < (data->store.table + inc2)->qty_cmd)
 			{
 				if (*(data->tmp.fd + inc) != NULL)
@@ -44,5 +42,5 @@ void	free_tmp(t_data *data)
 		free(data->tmp.fd);
 		data->tmp.fd = NULL;
 	}
-	data->tmp.idx = 0;
+	data->cur.idx_cmd = 0;
 }

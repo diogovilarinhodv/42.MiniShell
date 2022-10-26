@@ -21,7 +21,7 @@ void	replace_home_dir(t_data *data, int inc)
 	if (env_val != NULL)
 	{
         token = ft_strdup(env_val);
-        free(*(data->tmp.cmd->token + inc));
-        *(data->tmp.cmd->token + inc) = token;
+        free(*(data->cur.cmd->token + inc));
+        *(data->cur.cmd->token + inc) = token;
 	}
 }

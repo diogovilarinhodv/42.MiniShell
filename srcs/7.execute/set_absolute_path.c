@@ -16,10 +16,10 @@ void	set_absolute_path(t_data *data)
 {
 	char	*cmd;
 
-	if (!(ft_strncmp(*data->tmp.cmd->token, "/bin/", 5) == 0))
+	if (!(ft_strncmp(*data->cur.cmd->token, "/bin/", 5) == 0))
 	{
-		cmd = ft_strjoin("/bin/", *data->tmp.cmd->token);
-		free(*data->tmp.cmd->token);
-		*data->tmp.cmd->token = cmd;
+		cmd = ft_strjoin("/bin/", *data->cur.cmd->token);
+		free(*data->cur.cmd->token);
+		*data->cur.cmd->token = cmd;
 	}
 }

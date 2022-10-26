@@ -19,11 +19,13 @@ void	execute(t_data *data)
 	inc_table = 0;
 	while (inc_table < data->store.qty_tbl)
 	{
+		inicialize_tmp(data);
 		data->cur.table = (data->store.table + data->store.qty_tbl);
 		inicialize_pipes(data);
 		process_execute(data);
 		close_fds(data);
 		wait_processes(data);
+		free_tmp(data);
 		inc_table++;
 	}
 }

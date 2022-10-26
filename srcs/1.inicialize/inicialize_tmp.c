@@ -14,8 +14,6 @@
 
 void	inicialize_tmp(t_data *data)
 {
-	data->tmp.cmd = NULL;
-	data->tmp.idx = 0;
 	data->tmp.pid = NULL;
 	data->tmp.fd = NULL;
 }

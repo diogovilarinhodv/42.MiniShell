@@ -14,9 +14,9 @@
 
 static	int	has_newline_func(t_data *data, int *y)
 {
-	if (data->tmp.cmd->qty_tkn > 1)
+	if (data->cur.cmd->qty_tkn > 1)
 	{
-		if (ft_strcmp(*(data->tmp.cmd->token + 1), "-n") == 0)
+		if (ft_strcmp(*(data->cur.cmd->token + 1), "-n") == 0)
 		{
 			(*y)++;
 			return (NO);
@@ -32,10 +32,10 @@ void	builtin_echo(t_data *data)
 
 	y = 1;
 	has_newline = has_newline_func(data, &y);
-	while (y < data->tmp.cmd->qty_tkn)
+	while (y < data->cur.cmd->qty_tkn)
 	{
-		printf("%s", *(data->tmp.cmd->token + y));
-		if (y + 1 < data->tmp.cmd->qty_tkn)
+		printf("%s", *(data->cur.cmd->token + y));
+		if (y + 1 < data->cur.cmd->qty_tkn)
 			printf(" ");
 		y++;
 	}

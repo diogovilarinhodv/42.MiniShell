@@ -14,19 +14,19 @@
 
 int	builtins(t_data *data)
 {
-	if (ft_strcmp(*data->tmp.cmd->token, "echo") == 0)
+	if (ft_strcmp(*data->cur.cmd->token, "echo") == 0)
 		builtin_echo(data);
-	else if (ft_strcmp(*data->tmp.cmd->token, "cd") == 0)
+	else if (ft_strcmp(*data->cur.cmd->token, "cd") == 0)
 		builtin_cd(data);
-	else if (ft_strcmp(*data->tmp.cmd->token, "pwd") == 0)
+	else if (ft_strcmp(*data->cur.cmd->token, "pwd") == 0)
 		builtin_pwd(data);
-	else if (ft_strcmp(*data->tmp.cmd->token, "export") == 0)
+	else if (ft_strcmp(*data->cur.cmd->token, "export") == 0)
 		builtin_export(data);
-	else if (ft_strcmp(*data->tmp.cmd->token, "unset") == 0)
+	else if (ft_strcmp(*data->cur.cmd->token, "unset") == 0)
 		builtin_unset(data);
-	else if (ft_strcmp(*data->tmp.cmd->token, "env") == 0)
+	else if (ft_strcmp(*data->cur.cmd->token, "env") == 0)
 		builtin_env(data);
-	else if (ft_strcmp(*data->tmp.cmd->token, "exit") == 0)
+	else if (ft_strcmp(*data->cur.cmd->token, "exit") == 0)
 		end_program(data, SUCCESS);
 	else
 		return (NO);

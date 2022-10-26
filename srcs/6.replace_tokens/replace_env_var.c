@@ -18,7 +18,7 @@ void	replace_env_var(t_data *data, int inc)
 	char	*env_val;
     char	*token;
 
-	str = ft_strdup((*(data->tmp.cmd->token + inc) + 1));
+	str = ft_strdup((*(data->cur.cmd->token + inc) + 1));
 	env_val = get_env_value(data, str);
 	if (str != NULL)
 		free(str);
@@ -26,6 +26,6 @@ void	replace_env_var(t_data *data, int inc)
 		token = ft_strdup(env_val);
 	else
 		token = ft_strdup("");
-	free(*(data->tmp.cmd->token + inc));
-	*(data->tmp.cmd->token + inc) = token;
+	free(*(data->cur.cmd->token + inc));
+	*(data->cur.cmd->token + inc) = token;
 }

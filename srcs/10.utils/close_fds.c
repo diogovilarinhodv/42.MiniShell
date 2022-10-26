@@ -17,7 +17,7 @@ void	close_fds(t_data *data)
 	int	inc;
 
 	inc = 0;
-	while (inc < data->store.table->qty_cmd)
+	while (inc < data->cur.table->qty_cmd)
 	{
 		close(data->tmp.fd[inc][0]);
 		close(data->tmp.fd[inc][1]);

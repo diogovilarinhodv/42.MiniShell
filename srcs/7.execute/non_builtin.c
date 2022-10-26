@@ -18,6 +18,6 @@ void	non_builtin(t_data *data)
 {
 	set_absolute_path(data);
 	set_dup2(data);
-	if (execve(*data->tmp.cmd->token, data->tmp.cmd->token, NULL) == -1)
+	if (execve(*data->cur.cmd->token, data->cur.cmd->token, NULL) == -1)
 		kill(getpid(), SIGKILL);
 }
