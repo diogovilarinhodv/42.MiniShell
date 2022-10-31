@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   organize.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 17:18:01 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/30 23:24:05 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/31 12:44:47 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,5 @@ void	organize(t_data *data)
 			free(token);
 		}
 	}
-	printf("YAH - %s\n", *(((data->store.table + 1)->cmd + 0)->token + 0));
 	testing_stuffs(data);
 }

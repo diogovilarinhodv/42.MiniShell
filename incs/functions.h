@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 15:36:15 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/24 15:23:18 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/31 10:45:14 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,8 @@ void	close_fds(t_data *data);
 void	wait_processes(t_data *data);
 void	testing_stuffs(t_data *data);
 void	end_program(t_data *data, int status);
+void	set_cur(t_data *data);
+void	unset_cur(t_data *data);
 
 // 11.LIBFT
 size_t	ft_strlen(const char *s);
