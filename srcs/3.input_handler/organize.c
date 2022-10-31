@@ -6,16 +6,11 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 17:18:01 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/31 12:44:47 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/10/31 12:47:52 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
-
-// deu error, verificar, add_first_token arranjar maneira de simplificar linha de codigo, como no tenho estado a alterar no execute
-// ls ; cat filer | grep "bla" | wc | wc ; lol
-// ls ; cat filer | grep "bla" | wc 	-> memory leak
-// ls ; cat filer | grep "bla"			-> shows null in "bla"
 
 void	organize(t_data *data)
 {
@@ -29,7 +24,6 @@ void	organize(t_data *data)
 		if (exist_token(data, pos_beg, pos_end) == END)
 			break ;
 		create_token(data, pos_beg, pos_end, &token);
-		printf("TOKEN - %s\n", token);
 		if (is_cmd_delimiter(token) == NO)
 		{
 			if (is_first_cmd(data) == YES)
@@ -49,5 +43,5 @@ void	organize(t_data *data)
 			free(token);
 		}
 	}
-	testing_stuffs(data);
+	//testing_stuffs(data);
 }
