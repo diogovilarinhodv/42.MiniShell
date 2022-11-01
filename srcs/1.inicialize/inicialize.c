@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 14:19:50 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/24 13:57:18 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/11/01 11:38:57 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,4 @@ void	inicialize(t_data *data, int argc, char **argv, char **env)
 	inicialize_env(data, env);
 	inicialize_input(data);
 	inicialize_table(data);
-	inicialize_tmp(data);
 }

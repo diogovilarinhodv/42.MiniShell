@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 15:36:15 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/31 10:45:14 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/11/01 11:22:57 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,7 @@ void	inicialize(t_data *data, int argc, char **argv, char **env);
 void	inicialize_env(t_data *data, char **env);
 void	inicialize_table(t_data *data);
 void	inicialize_input(t_data *data);
-void	inicialize_tmp(t_data *data);
-void	inicialize_pipes(t_data *data);
+void	inicialize_fd(t_data *data);
 
 // 2.CHECKS_INPUT
 int     checks_input(t_data *data);
@@ -89,8 +88,8 @@ void	set_env(t_data *data, char *name, char *value);
 void	unset_env(t_data *data, char *name);
 
 // 10.UTILS
-void	close_fds(t_data *data);
-void	wait_processes(t_data *data);
+void	close_fd(t_data *data);
+void	process_wait(t_data *data);
 void	testing_stuffs(t_data *data);
 void	end_program(t_data *data, int status);
 void	set_cur(t_data *data);
@@ -114,6 +113,7 @@ void	env_empty(void);
 void	free_env(t_data *data);
 void	free_input(t_data *data);
 void	free_store(t_data *data);
-void	free_tmp(t_data *data);
+void	free_pid(t_data *data);
+void	free_fd(t_data *data);
 
 #endif

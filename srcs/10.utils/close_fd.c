@@ -6,13 +6,13 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 18:10:36 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/22 13:10:39 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/11/01 11:11:14 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-void	close_fds(t_data *data)
+void	close_fd(t_data *data)
 {
 	int	inc;
 

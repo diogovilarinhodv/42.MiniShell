@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_tmp.c                                         :+:      :+:    :+:   */
+/*   free_fd.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 12:02:08 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/24 18:56:23 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/11/01 11:23:56 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-void	free_tmp(t_data *data)
+void	free_fd(t_data *data)
 {
 	int	inc;
 	int	inc2;
 
 	inc2 = 0;
-	if (data->tmp.pid != NULL)
-	{
-		free(data->tmp.pid);
-		data->tmp.pid = NULL;
-	}
 	if (data->tmp.fd != NULL)
 	{
 		while (inc2 < data->store.qty_tbl)

@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 19:45:56 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/22 13:12:06 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/11/01 12:28:06 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,5 @@ void	set_dup2(t_data *data)
 	{
 		dup2(data->tmp.fd[data->cur.idx_cmd - 1][0], STDIN_FILENO);
 	}
-	close_fds(data);
+	close_fd(data);
 }
