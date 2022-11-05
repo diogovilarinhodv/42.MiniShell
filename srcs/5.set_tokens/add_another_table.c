@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 20:15:34 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/24 13:37:23 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/11/05 10:33:32 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void	add_another_table(t_data *data)
 	{
 		(clone + inc)->cmd = (data->store.table + inc)->cmd;
 		(clone + inc)->qty_cmd = (data->store.table + inc)->qty_cmd;
-		(clone + inc)->qty_pipes = (data->store.table + inc)->qty_pipes;
 		inc++;
 	}
 	(clone + inc)->cmd = NULL;

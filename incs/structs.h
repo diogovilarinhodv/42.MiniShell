@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 15:12:28 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/31 12:44:59 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/11/05 10:33:36 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ typedef struct s_table
 {
 	t_cmd			*cmd;
 	int				qty_cmd;
-	int				qty_pipes;
 
 }	t_table;
 
