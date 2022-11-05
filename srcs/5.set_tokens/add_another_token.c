@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   add_another_token.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 10:05:24 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/31 12:27:11 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/11/05 16:59:11 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,14 @@ void	add_another_token(t_data *data, char *token)
 	char	**clone;
 
 	inc = 0;
-	clone = malloc(sizeof(char **) * (data->cur.cmd->qty_tkn + 1));
+	clone = malloc(sizeof(char **) * (data->cur.cmd->qty_tkn + 2));
 	while (inc < data->cur.cmd->qty_tkn)
 	{
 		*(clone + inc) = *(data->cur.cmd->token + inc);
 		inc++;
 	}
 	*(clone + inc) = token;
+	*(clone + inc + 1) = NULL;
 	if (data->cur.cmd->token != NULL)
 		free(data->cur.cmd->token);
 	data->cur.cmd->token = clone;
