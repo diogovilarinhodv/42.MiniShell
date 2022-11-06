@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 15:36:15 by dpestana          #+#    #+#             */
-/*   Updated: 2022/11/01 11:22:57 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/11/06 12:01:54 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	replace_tokens(t_data *data);
 int		builtins(t_data *data);
 void	non_builtin(t_data *data);
 void	set_dup2(t_data *data);
-void	set_absolute_path(t_data *data);
+void	set_path(t_data *data);
 
 // 8.BUILTINS
 void	builtin_cd(t_data *data);

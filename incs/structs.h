@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 15:12:28 by dpestana          #+#    #+#             */
-/*   Updated: 2022/11/05 10:33:36 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/11/06 11:41:27 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ typedef struct s_cmd
 typedef struct s_table
 {
 	t_cmd			*cmd;
+	int				**fd;
+	int				*pid;
 	int				qty_cmd;
 
 }	t_table;
@@ -63,16 +65,6 @@ typedef struct s_storage
 	int				qty_tbl;
 
 }	t_storage;
-
-//		--------
-//		  TMP
-//		--------
-typedef struct s_tmp_vars
-{
-	int				**fd;
-	int				*pid;
-
-}	t_tmp_vars;
 
 //		--------
 //		CURRENT
@@ -94,7 +86,7 @@ typedef struct s_data
 	t_storage		store;
 	t_current		cur;
 	t_env_var		env;
-	t_tmp_vars		tmp;
+	int				exit_status;
 
 }	t_data;
 
