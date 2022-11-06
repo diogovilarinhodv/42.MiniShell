@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 19:45:56 by dpestana          #+#    #+#             */
-/*   Updated: 2022/11/05 21:24:15 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/11/05 21:31:42 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,4 @@ void	set_dup2(t_data *data)
 		printf("3.a\n");
 		dup2(data->tmp.fd[data->cur.idx_cmd - 1][0], STDIN_FILENO);
 	}
-	close(data->tmp.fd[data->cur.idx_cmd][0]);
-	close(data->tmp.fd[data->cur.idx_cmd][1]);
 }
