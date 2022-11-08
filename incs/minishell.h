@@ -13,6 +13,7 @@
 
 # include <dirent.h>
 # include <sys/wait.h>
+# include <sys/stat.h>
 # include <signal.h>
 # include <stdbool.h>
 
