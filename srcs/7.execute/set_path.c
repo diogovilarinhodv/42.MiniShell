@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_path.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 09:34:30 by dpestana          #+#    #+#             */
-/*   Updated: 2022/11/08 16:58:52 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/11/09 12:02:34 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static char	**split_str(char *str, char split_char)
 		{
 			if (*(str + inc) == split_char)
 			{
-				tmp = ft_strndup(*(str + beg), inc - beg);
+				tmp = ft_strndup((str + beg), inc - beg);
 				*(str_return + splits) = ft_strjoin(tmp, "/");
 				free(tmp);
 				beg = inc + 1;
@@ -85,7 +85,6 @@ static void	free_arr(char **arr)
 
 void	set_path(t_data *data)
 {
-	char	*cmd;
 	char	*path_env;
 	char	**path_env_splited;
 	int		inc;
@@ -93,10 +92,10 @@ void	set_path(t_data *data)
 	struct stat	statbuf;
 
 	path = NULL;
-	if (*data->cur.cmd->token == '/' || *data->cur.cmd->token == '.')
+	if (**data->cur.cmd->token == '/' || **data->cur.cmd->token == '.')
 		return ;
 	path_env = get_env_value(data, "PATH");
-	path_env_splited = split_str(path_env, ":");
+	path_env_splited = split_str(path_env, ':');
 	inc = 0;
 	while (*(path_env_splited + inc))
 	{

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   close_fds.c                                        :+:      :+:    :+:   */
+/*   close_fd.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 18:10:36 by dpestana          #+#    #+#             */
-/*   Updated: 2022/11/01 11:11:14 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/11/09 12:04:30 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	close_fd(t_data *data)
 	inc = 0;
 	while (inc < data->cur.table->qty_cmd)
 	{
-		close(data->tmp.fd[inc][0]);
-		close(data->tmp.fd[inc][1]);
+		close(data->store.table->fd[inc][0]);
+		close(data->store.table->fd[inc][1]);
 		inc++;
 	}
 }

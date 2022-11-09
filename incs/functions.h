@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 15:36:15 by dpestana          #+#    #+#             */
-/*   Updated: 2022/11/06 12:01:54 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/11/09 10:04:41 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,6 @@ void	env_empty(void);
 void	free_env(t_data *data);
 void	free_input(t_data *data);
 void	free_store(t_data *data);
-void	free_pid(t_data *data);
 void	free_fd(t_data *data);
 
 #endif

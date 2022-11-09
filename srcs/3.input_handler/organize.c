@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 17:18:01 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/31 12:47:52 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/11/09 13:33:27 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,4 @@ void	organize(t_data *data)
 			free(token);
 		}
 	}
-	//testing_stuffs(data);
 }

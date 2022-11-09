@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 10:04:23 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/22 13:11:43 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/11/09 13:38:47 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,8 @@ void	testing_stuffs(t_data *data)
 		}
 		inc_table++;
 	}
-	end_program(data, 0);
+	free_env(data);
+	free_input(data);
+	free_store(data);
+	exit(0);
 }

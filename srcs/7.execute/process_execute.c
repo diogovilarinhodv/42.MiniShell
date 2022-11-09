@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 18:15:10 by dpestana          #+#    #+#             */
-/*   Updated: 2022/11/06 11:48:16 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/11/09 12:00:03 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ void	process_execute(t_data *data)
 		replace_tokens(data);
 		def_stdin = dup(STDIN_FILENO);
 		def_stdout = dup(STDOUT_FILENO);
-		// set_pipes();
-		// set_redirects();
+		//set_redirects();
 		if (data->exit_status == SUCCESS && data->cur.cmd->qty_tkn > 0)
 		{
 			if (builtins(data) == NO)
