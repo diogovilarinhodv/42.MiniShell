@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 15:12:28 by dpestana          #+#    #+#             */
-/*   Updated: 2022/11/09 11:53:09 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/11/09 17:59:55 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,18 @@ typedef struct s_current
 
 }	t_current;
 
+//		--------
+//		REDIRECTIONS
+//		--------
+typedef struct s_redirect
+{
+	char	*destiny;
+	char	*type;
+	int		is_redirect;
+	int		qty_redirects;
+
+}	t_redirect;
+
 //     -----------     
 //        DATA         
 //     -----------     
@@ -85,6 +97,7 @@ typedef struct s_data
 	t_storage		store;
 	t_current		cur;
 	t_env_var		env;
+	t_redirect		*redirect;
 	int				exit_status;
 
 }	t_data;

@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 15:36:15 by dpestana          #+#    #+#             */
-/*   Updated: 2022/11/09 10:04:41 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/11/09 17:57:23 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ int		is_cmd_delimiter(char *token);
 int		is_table_delimiter(char *token);
 int		is_first_table(t_data *data);
 int		is_first_cmd(t_data *data);
+int		is_redirection(t_data *data, char *token);
+void	add_redirection(t_data *data, char *token);
 void	add_token(t_data *data, char *token);
 void	add_first_token(t_data *data, char *token);
 void	add_first_cmd(t_data *data);

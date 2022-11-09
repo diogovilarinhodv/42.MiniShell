@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   add_token.c                                        :+:      :+:    :+:   */
+/*   add_redirection.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/13 17:27:29 by dpestana          #+#    #+#             */
-/*   Updated: 2022/11/09 17:56:48 by dpestana         ###   ########.fr       */
+/*   Created: 2022/11/09 17:32:19 by dpestana          #+#    #+#             */
+/*   Updated: 2022/11/09 17:58:08 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-void	add_token(t_data *data, char *token)
+void	add_redirection(t_data *data, char *token)
 {
-	set_cur(data);
-	if (data->cur.cmd->qty_tkn == 0)
-		add_first_token(data, token);
-	else
-		add_another_token(data, token);
-	data->cur.cmd->qty_tkn++;
-	unset_cur(data);
-	if (data->redirect->is_redirect == YES)
-	{
-		data->redirect->destiny = token;
-		data->redirect->is_redirect = NO;
-	}
+	// malloc
+	// have to do if is the first or another, do in func
+	if (ft_strncmp(token, "<", 1) == 0)
+		data->redirect->type = ft_strdup("<");
+	else if (ft_strncmp(token, ">", 1) == 0)
+		data->redirect->type = ft_strdup(">");
+	else if (ft_strncmp(token, ">>", 2) == 0)
+		data->redirect->type = ft_strdup(">>");
+	data->redirect->is_redirect = YES;
+	free(token);
 }
