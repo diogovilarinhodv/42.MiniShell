@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 15:12:28 by dpestana          #+#    #+#             */
-/*   Updated: 2022/11/09 17:59:55 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/11/10 10:50:26 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,8 @@ typedef struct s_redirect
 {
 	char	*destiny;
 	char	*type;
-	int		is_redirect;
-	int		qty_redirects;
+	int		is;
+	int		qty;
 
 }	t_redirect;
 
