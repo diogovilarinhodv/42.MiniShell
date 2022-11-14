@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 15:12:28 by dpestana          #+#    #+#             */
-/*   Updated: 2022/11/10 10:50:26 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/11/14 01:26:33 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,10 +81,8 @@ typedef struct s_current
 //		--------
 typedef struct s_redirect
 {
-	char	*destiny;
-	char	*type;
-	int		is;
-	int		qty;
+	char	*token;
+	int		type;
 
 }	t_redirect;
 
@@ -98,6 +96,7 @@ typedef struct s_data
 	t_current		cur;
 	t_env_var		env;
 	t_redirect		*redirect;
+	int				is_reditect;
 	int				exit_status;
 
 }	t_data;

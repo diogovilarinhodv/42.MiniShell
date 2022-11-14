@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   process_execute.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 18:15:10 by dpestana          #+#    #+#             */
-/*   Updated: 2022/11/09 12:00:03 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/11/13 18:53:48 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
