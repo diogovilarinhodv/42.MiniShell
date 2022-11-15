@@ -19,15 +19,19 @@
 
 // MACROS
 
-# define SUCCESS        0
-# define FAIL           1
+# define SUCCESS       		0
+# define FAIL          		1
 
-# define NO				0
-# define YES			1
+# define NO					0
+# define YES				1
 
-# define CONTINUE		0
-# define END			1
+# define CONTINUE			0
+# define END				1
 
-# define NOT_FOUND		-1
+# define NOT_FOUND			-1
+
+# define LEFT_ARROW			1
+# define RIGHT_ARROW		2
+# define DOUBLE_RIGHT_ARROW	3
 
 #endif

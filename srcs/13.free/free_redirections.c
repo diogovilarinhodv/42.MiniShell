@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   inicialize.c                                       :+:      :+:    :+:   */
+/*   free_redirections.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/04 14:19:50 by dpestana          #+#    #+#             */
-/*   Updated: 2022/11/15 13:18:03 by dpestana         ###   ########.fr       */
+/*   Created: 2022/11/15 13:23:12 by dpestana          #+#    #+#             */
+/*   Updated: 2022/11/15 13:28:01 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-void	inicialize(t_data *data, int argc, char **argv, char **env)
+void	free_redirections(t_data *data)
 {
-	(void) argc;
-	(void) argv;
-	inicialize_env(data, env);
-	inicialize_input(data);
-	inicialize_table(data);
-	data->redirect.qty_red = 0;
-	data->redirect.is_red = NO;
-	data->exit_status = SUCCESS;
+	int	inc;
+
+	inc = 0;
+	if (data->redirect.red != NULL)
+	{
+		while (inc < data->redirect.qty_red)
+		{
+			free((data->redirect.red + inc)->token);
+			(data->redirect.red + inc)->token = NULL;
+			(data->redirect.red + inc)->type = NO;
+			inc++;
+		}
+		free(data->redirect.red);
+		data->redirect.red = NULL;
+	}
 }

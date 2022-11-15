@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   functions.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 15:36:15 by dpestana          #+#    #+#             */
-/*   Updated: 2022/11/09 17:57:23 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/11/15 13:30:51 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,18 @@ int		is_cmd_delimiter(char *token);
 int		is_table_delimiter(char *token);
 int		is_first_table(t_data *data);
 int		is_first_cmd(t_data *data);
-int		is_redirection(t_data *data, char *token);
-void	add_redirection(t_data *data, char *token);
+int		is_redirection(char *token);
+
+void	add_redirection_type(t_data *data, char *token);
+void	add_redirection_token(t_data *data, char *token);
 void	add_token(t_data *data, char *token);
+
+void	add_first_redirection(t_data *data);
 void	add_first_token(t_data *data, char *token);
 void	add_first_cmd(t_data *data);
 void	add_first_table(t_data *data);
+
+void	add_another_redirection(t_data *data);
 void	add_another_token(t_data *data, char *token);
 void	add_another_cmd(t_data *data);
 void	add_another_table(t_data *data);
@@ -116,5 +122,6 @@ void	free_env(t_data *data);
 void	free_input(t_data *data);
 void	free_store(t_data *data);
 void	free_fd(t_data *data);
+void	free_redirections(t_data *data);
 
 #endif

@@ -6,13 +6,13 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 17:31:06 by dpestana          #+#    #+#             */
-/*   Updated: 2022/11/13 18:46:55 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/11/15 13:30:07 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-int	is_redirection(t_data *data, char *token)
+int	is_redirection(char *token)
 {
 	if (ft_strcmp(token, "<") == 0)
 		return (YES);
