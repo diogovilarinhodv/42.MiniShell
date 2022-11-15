@@ -3,21 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   free_store.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 11:24:02 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/24 15:09:33 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/11/15 16:13:10 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
+
+static void	free_red(t_cmd *cmd)
+{
+	int	inc;
+
+	inc = 0;
+	if (cmd->red != NULL)
+	{
+		while (inc < cmd->qty_red)
+		{
+			free((cmd->red + inc)->token);
+			(cmd->red + inc)->token = NULL;
+			(cmd->red + inc)->type = NO;
+			inc++;
+		}
+		free(cmd->red);
+		cmd->red = NULL;
+	}
+}
 
 static void	free_cmd(t_cmd *cmd)
 {
 	int	inc_token;
 
 	inc_token = 0;
-	if (cmd->token!= NULL)
+	if (cmd->token != NULL)
 	{
 		while (inc_token < cmd->qty_tkn)
 		{
@@ -27,6 +46,7 @@ static void	free_cmd(t_cmd *cmd)
 		free(cmd->token);
 		cmd->token = NULL;
 	}
+	free_red(cmd);
 }
 
 static void	free_table(t_table *table)

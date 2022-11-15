@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 10:37:16 by dpestana          #+#    #+#             */
-/*   Updated: 2022/11/15 13:17:26 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/11/15 15:59:34 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	add_first_redirection(t_data *data)
 {
-	data->redirect.red = malloc(sizeof(t_red) * 1);
-	data->redirect.red->type = NO;
-	data->redirect.red->token = NULL;
-	data->redirect.is_red = YES;
-	data->redirect.qty_red = 1;
+	data->cur.cmd->red = malloc(sizeof(t_red) * 1);
+	data->cur.cmd->red->type = NO;
+	data->cur.cmd->red->token = NULL;
+	data->cur.cmd->is_red = YES;
+	data->cur.cmd->qty_red = 1;
 }

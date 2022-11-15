@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 17:18:01 by dpestana          #+#    #+#             */
-/*   Updated: 2022/11/15 13:31:13 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/11/15 15:57:49 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,14 @@ void	organize(t_data *data)
 					add_first_table(data);
 				add_first_cmd(data);
 			}
+			set_cur(data);
 			if (is_redirection(token) == YES)
 				add_redirection_type(data, token);
-			else if (data->redirect.is_red == YES)
+			else if (data->cur.cmd->is_red == YES)
 				add_redirection_token(data, token);
 			else
 				add_token(data, token);
+			unset_cur(data);
 		}
 		else
 		{

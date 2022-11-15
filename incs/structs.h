@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 15:12:28 by dpestana          #+#    #+#             */
-/*   Updated: 2022/11/15 13:09:16 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/11/15 15:55:10 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,16 @@ typedef struct s_input
 
 }	t_input;
 
+//		--------
+//		REDIRECT
+//		--------
+typedef struct s_red
+{
+	char	*token;
+	int		type;
+
+}	t_red;
+
 //     -----------     
 //        CMD        
 //     -----------   
@@ -41,6 +51,9 @@ typedef struct s_cmd
 {
 	char			**token;
 	int				qty_tkn;
+	t_red			*red;
+	int				is_red;
+	int				qty_red;
 
 }	t_cmd;
 
@@ -76,27 +89,6 @@ typedef struct s_current
 
 }	t_current;
 
-//		--------
-//		REDIRECTIONS
-//		--------
-typedef struct s_red
-{
-	char	*token;
-	int		type;
-
-}	t_red;
-
-//		--------
-//		REDIRECTS
-//		--------
-typedef struct s_redirect
-{
-	t_red			*red;
-	int				is_red;
-	int				qty_red;
-
-}	t_redirect;
-
 //     -----------     
 //        DATA         
 //     -----------     
@@ -106,7 +98,6 @@ typedef struct s_data
 	t_storage		store;
 	t_current		cur;
 	t_env_var		env;
-	t_redirect		redirect;
 	int				exit_status;
 
 }	t_data;

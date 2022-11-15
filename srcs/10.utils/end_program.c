@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 14:30:23 by dpestana          #+#    #+#             */
-/*   Updated: 2022/11/15 13:23:43 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/11/15 16:13:30 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,5 @@ void	end_program(t_data *data, int status)
 	free_input(data);
 	free_fd(data);
 	free_store(data);
-	free_redirections(data);
 	exit(status);
 }
