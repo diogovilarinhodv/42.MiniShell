@@ -3,33 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   set_redirects.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 10:18:53 by dpestana          #+#    #+#             */
-/*   Updated: 2022/11/09 11:59:58 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/11/15 17:58:03 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*#include "../../incs/minishell.h"
+#include "../../incs/minishell.h"
 
-static void has_redirects(char *type)
+void    open_file(t_data *data, t_redir *redir, int prev_fd, int flags, mode_t permissions)
 {
-    while ()
+    int file;
+
+    file = open(file_name, flags, permissions);
+    if (file == -1)
+        data->exit_status = 1;
+    else
     {
-        if (ft_strcmp(, type) == 0)
-			return (YES);
+        if (ft_strcmp(redir->type, "<") == 0)
+			dup2(file, STDIN_FILENO);
+
+		else if (ft_strcmp(redir->type, ">") == 0 || ft_strcmp(redir->type, ">>") == 0)
+			dup2(file, STDOUT_FILENO);
+			
+		close(file);
     }
-    return (NO);
 }
 
 void    set_redirects(t_data *data)
 {
-    if ()
-        return ;
-    if (data->cur.idx_cmd > 0 && )
-        dup2(data->cur.table->fd[data->cur.idx_cmd - 1][0], STDIN_FILENO);
-    if (data->cur.idx_cmd != (data->cur.table->qty_cmd - 1) && )
-        dup2(data->cur.table->fd[data->cur.idx_cmd][1], STDOUT_FILENO);
-    data->exit_status = EXIT_SUCCESS;
+    
 }
-*/
