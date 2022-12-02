@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   non_builtin.c                                      :+:      :+:    :+:   */
+/*   count_chr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/12 17:01:54 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/02 16:12:36 by dpestana         ###   ########.fr       */
+/*   Created: 2022/12/02 20:23:34 by dpestana          #+#    #+#             */
+/*   Updated: 2022/12/02 20:52:19 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
-// ping -c 5 google.com | grep rtt
-// cat filer | grep bla | wc
 
-void	non_builtin(t_data *data)
+int	count_chr(char *str, char c)
 {
-	int	pid;
+	int	inc;
+	int	count;
 
-	pid = fork();
-	if (pid == 0)
-		children_process(data);
+	inc = 0;
+	count = 0;
+	if (str == NULL)
+		return (count);
+	while (*(str + inc) != '\0')
+	{
+		if (*(str + inc) == c)
+			count++;
+		inc++;
+	}
+	return (count);
 }

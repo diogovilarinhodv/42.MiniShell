@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 15:36:15 by dpestana          #+#    #+#             */
-/*   Updated: 2022/11/15 16:09:15 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/12/02 22:29:13 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,12 @@ void	replace_tokens(t_data *data);
 int		builtins(t_data *data);
 void	non_builtin(t_data *data);
 void	set_dup2(t_data *data);
-void	set_path(t_data *data);
+
+// 8.PATH_HANDLER
+void	path_handler(t_data *data);
+int		is_correct_path(char *path);
+char	*get_path(t_data *data, char *str);
+void	set_path(t_data *data, char *path);
 
 // 8.BUILTINS
 void	builtin_cd(t_data *data);
@@ -97,6 +102,7 @@ void	unset_env(t_data *data, char *name);
 
 // 10.UTILS
 void	close_fd(t_data *data);
+int		count_chr(char *str, char c);
 void	process_wait(t_data *data);
 void	testing_stuffs(t_data *data);
 void	end_program(t_data *data, int status);
@@ -105,6 +111,7 @@ void	unset_cur(t_data *data);
 
 // 11.LIBFT
 size_t	ft_strlen(const char *s);
+char	*ft_strchr(char *str, char ch);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 int     ft_strcmp(char *s1, char *s2);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
@@ -122,5 +129,7 @@ void	free_env(t_data *data);
 void	free_input(t_data *data);
 void	free_store(t_data *data);
 void	free_fd(t_data *data);
+void	free_str(char **str);
+void	free_str_bidimensional(char ***str);
 
 #endif

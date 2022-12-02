@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   non_builtin.c                                      :+:      :+:    :+:   */
+/*   free_dual_str.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/12 17:01:54 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/02 16:12:36 by dpestana         ###   ########.fr       */
+/*   Created: 2022/12/02 20:11:15 by dpestana          #+#    #+#             */
+/*   Updated: 2022/12/02 20:19:08 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
-// ping -c 5 google.com | grep rtt
-// cat filer | grep bla | wc
 
-void	non_builtin(t_data *data)
+void	free_str_bidimensional(char ***str)
 {
-	int	pid;
+	int	inc;
 
-	pid = fork();
-	if (pid == 0)
-		children_process(data);
+	inc = 0;
+	if (*str != NULL)
+	{
+		while (*(*str + inc) != NULL)
+		{
+			free(*(*str + inc));
+			*(*str + inc) = NULL;
+			inc++;
+		}
+		free(*str);
+		*str = NULL;
+	}
 }

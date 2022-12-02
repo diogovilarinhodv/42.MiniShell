@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 18:07:09 by dpestana          #+#    #+#             */
-/*   Updated: 2022/11/09 16:29:52 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/12/02 21:55:56 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int	main(int argc, char **argv, char **env)
 	while (1)
 	{
 		data.input.line = readline(BCYN "➜  " BGRN "MiniShell:" RST);
-		//verifications(data);
 		add_history(data.input.line);
 		if (checks_input(&data) == SUCCESS)
 			handle_input(&data);

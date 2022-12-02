@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   non_builtin.c                                      :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/12 17:01:54 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/02 16:12:36 by dpestana         ###   ########.fr       */
+/*   Created: 2022/12/02 21:34:57 by dpestana          #+#    #+#             */
+/*   Updated: 2022/12/02 21:49:47 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
-// ping -c 5 google.com | grep rtt
-// cat filer | grep bla | wc
 
-void	non_builtin(t_data *data)
+char	*ft_strchr(char *str, char ch)
 {
-	int	pid;
+	int		inc;
 
-	pid = fork();
-	if (pid == 0)
-		children_process(data);
+	inc = 0;
+	if (str == NULL)
+		return (NULL);
+	if (*str == '\0')
+		return (NULL);
+	while (*(str + inc) != '\0')
+	{
+		if (*(str + inc) == ch)
+			return ((str + inc));
+		inc++;
+	}
+	return (NULL);
 }

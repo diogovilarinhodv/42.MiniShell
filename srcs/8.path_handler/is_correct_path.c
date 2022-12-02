@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   non_builtin.c                                      :+:      :+:    :+:   */
+/*   is_correct_path.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/12 17:01:54 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/02 16:12:36 by dpestana         ###   ########.fr       */
+/*   Created: 2022/12/02 20:45:39 by dpestana          #+#    #+#             */
+/*   Updated: 2022/12/02 22:36:22 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
-// ping -c 5 google.com | grep rtt
-// cat filer | grep bla | wc
 
-void	non_builtin(t_data *data)
+int	is_correct_path(char *path)
 {
-	int	pid;
+	struct stat	statbuf;
 
-	pid = fork();
-	if (pid == 0)
-		children_process(data);
+	if (stat(path, &statbuf) == EXIT_SUCCESS)
+		return (YES);
+	return (NO);
 }

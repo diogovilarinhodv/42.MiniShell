@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   non_builtin.c                                      :+:      :+:    :+:   */
+/*   set_path.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/12 17:01:54 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/02 16:12:36 by dpestana         ###   ########.fr       */
+/*   Created: 2022/12/02 20:47:38 by dpestana          #+#    #+#             */
+/*   Updated: 2022/12/02 21:51:45 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
-// ping -c 5 google.com | grep rtt
-// cat filer | grep bla | wc
 
-void	non_builtin(t_data *data)
+void	set_path(t_data *data, char *path)
 {
-	int	pid;
-
-	pid = fork();
-	if (pid == 0)
-		children_process(data);
+	if (path != NULL)
+	{
+		free(*data->cur.cmd->token);
+		*data->cur.cmd->token = path;
+	}
 }
