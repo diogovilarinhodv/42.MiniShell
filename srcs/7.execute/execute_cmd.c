@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_input.c                                     :+:      :+:    :+:   */
+/*   process_execute.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/20 18:27:18 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/02 16:12:59 by dpestana         ###   ########.fr       */
+/*   Created: 2022/10/12 18:15:10 by dpestana          #+#    #+#             */
+/*   Updated: 2022/12/04 20:20:29 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-void	handle_input(t_data *data)
+void	execute_cmd(t_data *data)
 {
-	inicialize_table(data);
-	organize(data);
-	//testing_stuffs(data);
-	execute(data);
-	free_store(data);
+	data->cur.idx_cmd = 0;
+	while (data->cur.idx_cmd < data->cur.table->qty_cmd)
+	{
+		data->cur.cmd = (data->cur.table->cmd + data->cur.idx_cmd);
+		replace_tokens(data);
+		//set_redirects();
+		if (builtins(data) == NO)
+			non_builtin(data);
+		data->cur.idx_cmd++;
+	}
 }

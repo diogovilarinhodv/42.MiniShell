@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 15:36:15 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/02 22:29:13 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/12/04 20:46:10 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,8 @@ void    remove_spaces_bysides(t_data *data);
 int		second_check(t_data *data);
 
 // 3.INPUT HANDLER
-void	handle_input(t_data *data);
-void	organize(t_data *data);
 void	execute(t_data *data);
+void	organize(t_data *data);
 
 // 4.TOKEN_CREATION
 void	get_tokens(t_data *data, int *pos_beg, int *pos_end);
@@ -71,14 +70,23 @@ void	replace_home_dir(t_data *data, int inc);
 int     token_has_quotes(t_data *data, int inc);
 void	remove_quotes(t_data *data, int inc);
 
-
 // 7.EXECUTES
-void	process_execute(t_data *data);
+void	execute_table(t_data *data);
+void	execute_cmd(t_data *data);
 void	children_process(t_data *data);
 void	replace_tokens(t_data *data);
 int		builtins(t_data *data);
 void	non_builtin(t_data *data);
+
+// 8.FILE_DESCRIPTORS
+void	close_fd(t_data *data);
+void	close_all_fd(t_data *data);
 void	set_dup2(t_data *data);
+int		is_only_one_cmd_fd(t_data *data);
+int		is_first_cmd_fd(t_data *data);
+int		is_middle_cmd_fd(t_data *data);
+int		is_last_cmd_fd(t_data *data);
+
 
 // 8.PATH_HANDLER
 void	path_handler(t_data *data);
@@ -101,9 +109,7 @@ void	set_env(t_data *data, char *name, char *value);
 void	unset_env(t_data *data, char *name);
 
 // 10.UTILS
-void	close_fd(t_data *data);
 int		count_chr(char *str, char c);
-void	process_wait(t_data *data);
 void	testing_stuffs(t_data *data);
 void	end_program(t_data *data, int status);
 void	set_cur(t_data *data);

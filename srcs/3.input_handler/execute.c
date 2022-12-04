@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   execute.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/18 16:56:20 by dpestana          #+#    #+#             */
-/*   Updated: 2022/11/09 13:38:13 by dpestana         ###   ########.fr       */
+/*   Created: 2022/07/20 18:27:18 by dpestana          #+#    #+#             */
+/*   Updated: 2022/12/04 20:28:58 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,8 @@
 
 void	execute(t_data *data)
 {
-	int	inc_table;
-
-	inc_table = 0;
-	while (inc_table < data->store.qty_tbl)
-	{
-		data->cur.table = (data->store.table + inc_table);
-		inicialize_fd(data);
-		process_execute(data);
-		close_fd(data);
-		free_fd(data);
-		inc_table++;
-	}
+	inicialize_table(data);
+	organize(data);
+	execute_table(data);
+	free_store(data);
 }

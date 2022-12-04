@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   children_process.c                                 :+:      :+:    :+:   */
+/*   is_only_one_cmd.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/12 19:24:06 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/04 20:17:54 by dpestana         ###   ########.fr       */
+/*   Created: 2022/12/04 20:27:02 by dpestana          #+#    #+#             */
+/*   Updated: 2022/12/04 20:46:30 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-void	children_process(t_data *data)
+int	is_only_one_cmd_fd(t_data *data)
 {
-	set_dup2(data);
-	close_all_fd(data);
-	path_handler(data);
-	if (execve(*data->cur.cmd->token, data->cur.cmd->token, NULL) == -1)
-		kill(getpid(), SIGKILL);
-	// remove if and kill, and put errors msgs and exit
+	if (data->store.table->qty_cmd == 1)
+		return (YES);
+	return (NO);
 }

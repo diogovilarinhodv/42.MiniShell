@@ -70,6 +70,7 @@ folders:
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/5.set_tokens
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/6.replace_tokens
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/7.execute
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/8.file_descriptors
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/8.path_handler
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/8.builtins
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/9.env_handler

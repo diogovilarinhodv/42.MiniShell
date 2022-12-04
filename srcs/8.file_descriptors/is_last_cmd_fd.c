@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   close_fd.c                                         :+:      :+:    :+:   */
+/*   is_last_cmd.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/12 18:10:36 by dpestana          #+#    #+#             */
-/*   Updated: 2022/11/09 12:04:30 by dpestana         ###   ########.fr       */
+/*   Created: 2022/12/04 20:28:21 by dpestana          #+#    #+#             */
+/*   Updated: 2022/12/04 20:46:41 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-void	close_fd(t_data *data)
+int	is_last_cmd_fd(t_data *data)
 {
-	int	inc;
-
-	inc = 0;
-	while (inc < data->cur.table->qty_cmd)
-	{
-		close(data->store.table->fd[inc][0]);
-		close(data->store.table->fd[inc][1]);
-		inc++;
-	}
+	if (data->cur.idx_cmd == (data->store.table->qty_cmd - 1))
+		return (YES);
+	return (NO);
 }

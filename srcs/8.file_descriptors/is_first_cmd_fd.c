@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   children_process.c                                 :+:      :+:    :+:   */
+/*   is_first_cmd_fd.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/12 19:24:06 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/04 20:17:54 by dpestana         ###   ########.fr       */
+/*   Created: 2022/12/04 20:27:27 by dpestana          #+#    #+#             */
+/*   Updated: 2022/12/04 20:48:13 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-void	children_process(t_data *data)
+int	is_first_cmd_fd(t_data *data)
 {
-	set_dup2(data);
-	close_all_fd(data);
-	path_handler(data);
-	if (execve(*data->cur.cmd->token, data->cur.cmd->token, NULL) == -1)
-		kill(getpid(), SIGKILL);
-	// remove if and kill, and put errors msgs and exit
+	if (data->cur.idx_cmd == 0)
+		return (YES);
+	return (NO);
 }

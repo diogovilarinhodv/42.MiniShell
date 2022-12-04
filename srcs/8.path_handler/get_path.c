@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 20:58:54 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/02 22:36:17 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/12/03 18:56:39 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*get_path(t_data *data, char *str)
 	while (end != NULL)
 	{
 		path = ft_strndup(beg, ft_strlen(beg) - ft_strlen(end));
-		tmp = ft_strjoin(path, "//");
+		tmp = ft_strjoin(path, "/");
 		free_str(&path);
 		path = ft_strjoin(tmp, *data->cur.cmd->token);
 		free_str(&tmp);
