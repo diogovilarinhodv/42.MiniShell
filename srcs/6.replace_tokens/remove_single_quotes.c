@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   remove_quotes.c                                    :+:      :+:    :+:   */
+/*   remove_single_quotes.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/16 11:01:08 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/17 11:22:52 by dpestana         ###   ########.fr       */
+/*   Created: 2022/12/07 23:04:22 by dpestana          #+#    #+#             */
+/*   Updated: 2022/12/09 21:26:11 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-void	remove_quotes(t_data *data, int inc)
+void	remove_single_quotes(t_data *data)
 {
 	char	*token;
 
-	token = ft_strndup((*(data->cur.cmd->token + inc) + 1), ft_strlen(*(data->cur.cmd->token + inc)) - 2);
-	free(*(data->cur.cmd->token + inc));
-	*(data->cur.cmd->token + inc) = token;
+	token = ft_strndup((data->cur.token + 1), ft_strlen(data->cur.token) - 2);
+	free(data->cur.token);
+	data->cur.token = token;
 }

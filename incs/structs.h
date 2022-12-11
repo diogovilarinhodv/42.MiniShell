@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 15:12:28 by dpestana          #+#    #+#             */
-/*   Updated: 2022/11/15 15:55:10 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/12/09 21:23:20 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ typedef struct s_current
 {
 	t_table	*table;
 	t_cmd	*cmd;
+	char	*token;
 	int		idx_cmd;
 
 }	t_current;

@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 11:24:02 by dpestana          #+#    #+#             */
-/*   Updated: 2022/11/15 16:13:10 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/12/09 21:13:50 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ static void	free_cmd(t_cmd *cmd)
 	{
 		while (inc_token < cmd->qty_tkn)
 		{
-			free(*(cmd->token + inc_token));
+			if (*(cmd->token + inc_token) != NULL)
+				free(*(cmd->token + inc_token));
 			inc_token++;
 		}
 		free(cmd->token);

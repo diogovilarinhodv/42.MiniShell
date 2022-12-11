@@ -9,6 +9,10 @@
 		"rltypedefs.h": "c",
 		"typeinfo": "c",
 		"unistd.h": "c",
-		"type_traits": "c"
-	}
+		"type_traits": "c",
+		"stdbool.h": "c",
+		"fcntl.h": "c",
+		"types.h": "c"
+	},
+	"editor.insertSpaces": false
 }

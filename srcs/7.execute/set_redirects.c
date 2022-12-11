@@ -6,34 +6,46 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 10:18:53 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/01 15:35:56 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/12/07 17:03:09 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
+
 #include "../../incs/minishell.h"
 
-void    open_file(t_data *data, t_redir *redir, int prev_fd, int flags, mode_t permissions)
+static int  open_file(char *filename, int type)
 {
-    int file;
+    int fd;
 
-    file = open(file_name, flags, permissions);
-    if (file == -1)
-        data->exit_status = 1;
-    else
+	if (type == LEFT_ARROW)
+	{
+		fd = open(filename, O_RDONLY, 0);
+		dup2(fd, STDIN_FILENO);
+	}
+	else if (type == RIGHT_ARROW)
+	{
+		fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC, 0666);
+		dup2(fd, STDOUT_FILENO);
+	}
+	else if (type == DOUBLE_RIGHT_ARROW)
+	{
+		fd = open(filename, O_WRONLY | O_CREAT | O_APPEND, 0666);
+		dup2(fd, STDOUT_FILENO);
+	}
+	close(fd);
+    return (fd);
+}
+
+void	set_redirects(t_data *data)
+{
+    int inc;
+
+    inc = 0;
+    if (data->cur.cmd->qty_red < 1)
+        return ;
+    while (inc < data->cur.cmd->qty_red)
     {
-        if (ft_strcmp(redir->type, "<") == 0)
-			dup2(file, STDIN_FILENO);
-
-		else if (ft_strcmp(redir->type, ">") == 0 || ft_strcmp(redir->type, ">>") == 0)
-			dup2(file, STDOUT_FILENO);
-			
-		close(file);
+		open_file((data->cur.cmd->red + inc)->token, (data->cur.cmd->red + inc)->type);
+		inc++;
     }
 }
-
-void    set_redirects(t_data *data)
-{
-    
-}
-*/

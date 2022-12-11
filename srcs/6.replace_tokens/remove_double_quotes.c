@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   token_has_tilde.c                                  :+:      :+:    :+:   */
+/*   remove_double_quotes.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/17 12:21:33 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/09 21:24:56 by dpestana         ###   ########.fr       */
+/*   Created: 2022/10/16 11:01:08 by dpestana          #+#    #+#             */
+/*   Updated: 2022/12/09 21:26:51 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-int token_has_tilde(t_data *data)
+void	remove_double_quotes(t_data *data)
 {
-    if (*data->cur.token == '~')
-        return (YES);
-    if (*data->cur.token == '~' && (*data->cur.token + 1) == '/')
-        return (YES);
-    return (NO);
+	char	*token;
+
+	token = ft_strndup((data->cur.token + 1), ft_strlen(data->cur.token) - 2);
+	free(data->cur.token);
+	data->cur.token = token;
 }

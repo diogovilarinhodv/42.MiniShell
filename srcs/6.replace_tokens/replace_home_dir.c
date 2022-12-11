@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   replace_home_dir.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 14:12:13 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/17 14:14:30 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/12/09 21:25:09 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-void	replace_home_dir(t_data *data, int inc)
+void	replace_home_dir(t_data *data)
 {
 	char	*env_val;
     char    *token;
@@ -21,7 +21,7 @@ void	replace_home_dir(t_data *data, int inc)
 	if (env_val != NULL)
 	{
         token = ft_strdup(env_val);
-        free(*(data->cur.cmd->token + inc));
-        *(data->cur.cmd->token + inc) = token;
+        free(data->cur.token);
+        data->cur.token = token;
 	}
 }

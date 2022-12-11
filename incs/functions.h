@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 15:36:15 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/04 20:46:10 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/12/09 21:08:43 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,18 +63,21 @@ void	add_another_table(t_data *data);
 
 
 // 6.REPLACE_TOKENS
-int     token_has_cipher(t_data *data, int inc);
-void	replace_env_var(t_data *data, int inc);
-int     token_has_tilde(t_data *data, int inc);
-void	replace_home_dir(t_data *data, int inc);
-int     token_has_quotes(t_data *data, int inc);
-void	remove_quotes(t_data *data, int inc);
+int     token_has_cipher(t_data *data);
+void	replace_env_var(t_data *data);
+int     token_has_tilde(t_data *data);
+void	replace_home_dir(t_data *data);
+int     token_has_double_quotes(t_data *data);
+int     token_has_single_quotes(t_data *data);
+void	remove_double_quotes(t_data *data);
+void	remove_single_quotes(t_data *data);
 
 // 7.EXECUTES
 void	execute_table(t_data *data);
 void	execute_cmd(t_data *data);
 void	children_process(t_data *data);
 void	replace_tokens(t_data *data);
+void	set_redirects(t_data *data);
 int		builtins(t_data *data);
 void	non_builtin(t_data *data);
 

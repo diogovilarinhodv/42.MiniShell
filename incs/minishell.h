@@ -12,10 +12,15 @@
 # include <readline/history.h>
 
 # include <dirent.h>
+# include <sys/types.h>
 # include <sys/wait.h>
 # include <sys/stat.h>
+# include <fcntl.h>
 # include <signal.h>
 # include <stdbool.h>
+
+
+
 
 // MACROS
 
