@@ -6,82 +6,85 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 12:09:47 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/10 17:18:51 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/12/11 23:40:48 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-static char	*search_env_val(t_data *data, char *str)
+static char	*get_new_token(t_data *data)
 {
-	int		inc;
-	char	*env_name;
-	char	*env_val;
-
-	inc = 0;
-	env_val = NULL;
-	while (*(str + inc) != '\0')
-	{
-		if (*(str + inc)  == ' ')
-		{
-			env_name = ft_strndup(str, inc);
-			env_val = get_env_value(data, env_name);
-			free(env_name);
-			return (env_val);
-		}
-		inc++;
-	}
-	env_name = ft_strndup(str, inc);
-	env_val = get_env_value(data, env_name);
-	free(env_name);
-	return (env_val);
-}
-
-static char	*search_dollar_signal(t_data *data)
-{
-	char	*clone;
-	char	*token;
-	char	*env_val;
 	int		inc_chr;
+	int		pos1;
+	int		str_one_pos;
+	char	*str_one;
+	char	*str_two;
+	char	*env_val;
+	char	*new_token;
+	char	*clone;
 
-	token = NULL;
+	new_token = NULL;
+	clone = NULL;
+	str_one = NULL;
+	str_two = NULL;
 	inc_chr = 0;
+	str_one_pos = 0;
 	while (*(data->cur.token + inc_chr) != '\0')
 	{
 		if (*(data->cur.token + inc_chr) == '$')
 		{
-			if (inc_chr > 0)
-				token = ft_strndup(data->cur.token, inc_chr);
-			env_val = search_env_val(data, (data->cur.token + inc_chr + 1));
+			if (inc_chr != str_one_pos)
+				str_one = ft_strndup((data->cur.token + str_one_pos), inc_chr - str_one_pos);
+			else
+				str_one = ft_strdup("");
+			inc_chr++;
+			pos1 = inc_chr;
+			while (*(data->cur.token + inc_chr) != '\0' && *(data->cur.token + inc_chr) != ' ' && *(data->cur.token + inc_chr) != '$')
+				inc_chr++;
+			str_two = ft_strndup((data->cur.token + pos1), inc_chr - pos1);
+			env_val = get_env_value(data, str_two);
 			if (env_val == NULL)
 			{
-				free_str(&token);
-				if (inc_chr == 0)
-					token = ft_strdup("");
-				return (token);
-			}
-			if (token != NULL)
-			{
-				clone = ft_strjoin(token, env_val);
-				free(token);
-				token = clone;
+				if (new_token != NULL)
+				{
+					clone = ft_strjoin(new_token, str_one);
+					free_str(&new_token);
+					new_token = clone;
+				}
+				else
+					new_token = ft_strdup(str_one);
 			}
 			else
-				token = ft_strdup(env_val);
-			inc_chr++;
-			env_val = (data->cur.token + inc_chr);
-			break ;
+			{
+				if (new_token != NULL)
+				{
+					clone = ft_strjoin(new_token, str_one);
+					free_str(&new_token);
+					new_token = clone;
+					clone = ft_strjoin(new_token, env_val);
+					free_str(&new_token);
+					new_token = clone;
+				}
+				else
+					new_token = ft_strjoin(str_one, env_val);
+			}
+			free_str(&str_one);
+			free_str(&str_two);
+			if (*(data->cur.token + inc_chr) == '\0')
+				break ;
+			str_one_pos = inc_chr;
+			inc_chr--;
 		}
 		inc_chr++;
 	}
-	return (token);
+	return (new_token);
 }
 
 void	replace_env_var(t_data *data)
 {
-    char	*token;
+    char	*new_token;
 	
-	token = search_dollar_signal(data);
+	new_token = get_new_token(data);
 	free(data->cur.token);
-	data->cur.token = token;
+	data->cur.token = new_token;
 }
