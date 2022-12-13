@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 18:42:00 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/05 13:03:16 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/12/13 04:27:52 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,24 @@ static void	sort_special_env_var(t_data *data)
 	}
 }
 
+static void	free_env_name(t_data *data)
+{
+	if (data->env.name != NULL)
+	{
+		free(data->env.name);
+		data->env.name = NULL;
+	}
+}
+
+static void	free_env_value(t_data *data)
+{
+	if (data->env.value != NULL)
+	{
+		free(data->env.value);
+		data->env.value = NULL;
+	}
+}
+
 static	void	realloc_set_env(t_data *data, char *name, char *value)
 {
 	int		inc;
@@ -52,16 +70,8 @@ static	void	realloc_set_env(t_data *data, char *name, char *value)
 	}
 	*(tmp_name + inc) = ft_strdup(name);
 	*(tmp_value + inc) = ft_strdup(value);
-	if (data->env.name != NULL)
-	{
-		free(data->env.name);
-		data->env.name = NULL;
-	}
-	if (data->env.value != NULL)
-	{
-		free(data->env.value);
-		data->env.value = NULL;
-	}
+	free_env_name(data);
+	free_env_value(data);
 	data->env.name = tmp_name;
 	data->env.value = tmp_value;
 }

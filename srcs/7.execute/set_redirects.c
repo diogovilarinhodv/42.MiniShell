@@ -6,16 +6,15 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 10:18:53 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/07 17:03:09 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/12/13 04:09:33 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "../../incs/minishell.h"
 
-static int  open_file(char *filename, int type)
+static int	open_file(char *filename, int type)
 {
-    int fd;
+	int	fd;
 
 	if (type == LEFT_ARROW)
 	{
@@ -33,19 +32,19 @@ static int  open_file(char *filename, int type)
 		dup2(fd, STDOUT_FILENO);
 	}
 	close(fd);
-    return (fd);
+	return (fd);
 }
 
 void	set_redirects(t_data *data)
 {
-    int inc;
+	int	inc;
 
-    inc = 0;
-    if (data->cur.cmd->qty_red < 1)
-        return ;
-    while (inc < data->cur.cmd->qty_red)
-    {
+	inc = 0;
+	if (data->cur.cmd->qty_red < 1)
+		return ;
+	while (inc < data->cur.cmd->qty_red)
+	{
 		open_file((data->cur.cmd->red + inc)->token, (data->cur.cmd->red + inc)->type);
 		inc++;
-    }
+	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   inicialize_env.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 18:27:08 by dpestana          #+#    #+#             */
-/*   Updated: 2022/09/23 11:12:42 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/12/13 03:53:05 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	set_env_lst(t_data *data, char **env)
 	int		inc;
 	int		len;
 	char	*str;
-	
+
 	inc = 0;
 	while (*(*(env + (data->env.qty - 1)) + inc) != '=')
 		inc++;
