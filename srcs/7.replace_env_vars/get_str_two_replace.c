@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   replace_env_var.c                                  :+:      :+:    :+:   */
+/*   get_str_two_replace.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/17 12:09:47 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/13 02:58:23 by dpestana         ###   ########.fr       */
+/*   Created: 2022/12/13 02:56:28 by dpestana          #+#    #+#             */
+/*   Updated: 2022/12/13 02:56:43 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-void	replace_env_var(t_data *data)
+char	*get_str_two_replace(t_data *data, int **inc_chr)
 {
-	char	*new_token;
+	int		pos;
+	char	*str_two;
+	char	*env_val;
 
-	new_token = new_tkn_replace(data);
-	free(data->cur.token);
-	data->cur.token = new_token;
+	pos = **inc_chr;
+	while (*(data->cur.token + **inc_chr) != '\0'
+		&& *(data->cur.token + **inc_chr) != ' '
+		&& *(data->cur.token + **inc_chr) != '$')
+		(**inc_chr)++;
+	str_two = ft_strndup((data->cur.token + pos), **inc_chr - pos);
+	env_val = get_env_value(data, str_two);
+	free_str(&str_two);
+	return (env_val);
 }

@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 15:36:15 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/09 21:08:43 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/12/13 02:54:46 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,15 @@ int     token_has_double_quotes(t_data *data);
 int     token_has_single_quotes(t_data *data);
 void	remove_double_quotes(t_data *data);
 void	remove_single_quotes(t_data *data);
+
+// 7.REPLACE_ENV_VARS
+char	*create_tkn_replace(char *str_one, char *str_two, char *new_token);
+char	*get_str_one_replace(t_data *data, int **inc_chr, int pos);
+char	*get_str_two_replace(t_data *data, int **inc_chr);
+char	*tkn_replace(t_data *data, int *inc_chr, int pos, char *new_tkn);
+char	*append_tkn_replace(t_data *data, int str_one_pos, char *token);
+char	*new_tkn_replace(t_data *data);
+
 
 // 7.EXECUTES
 void	execute_table(t_data *data);

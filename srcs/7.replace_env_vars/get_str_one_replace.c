@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   replace_env_var.c                                  :+:      :+:    :+:   */
+/*   get_str_one_replace.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/17 12:09:47 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/13 02:58:23 by dpestana         ###   ########.fr       */
+/*   Created: 2022/12/13 02:56:00 by dpestana          #+#    #+#             */
+/*   Updated: 2022/12/13 02:56:15 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-void	replace_env_var(t_data *data)
+char	*get_str_one_replace(t_data *data, int **inc_chr, int pos)
 {
-	char	*new_token;
+	char	*str_one;
 
-	new_token = new_tkn_replace(data);
-	free(data->cur.token);
-	data->cur.token = new_token;
+	if (**inc_chr != pos)
+		str_one = ft_strndup((data->cur.token + pos), **inc_chr - pos);
+	else
+		str_one = ft_strdup("");
+	(**inc_chr)++;
+	return (str_one);
 }
