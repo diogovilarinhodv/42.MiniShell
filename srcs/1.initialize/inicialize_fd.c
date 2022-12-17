@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   execute_table.c                                    :+:      :+:    :+:   */
+/*   inicialize_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/18 16:56:20 by dpestana          #+#    #+#             */
+/*   Created: 2022/10/12 18:06:13 by dpestana          #+#    #+#             */
 /*   Updated: 2022/12/14 02:05:28 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-void	execute_table(t_data *data)
+void	initialize_fd(t_data *data)
 {
-	int	inc_table;
+	int	inc;
 
-	inc_table = 0;
-	while (inc_table < data->store.qty_tbl)
+	inc = 0;
+	data->cur.table->fd = malloc(sizeof(int *) * data->cur.table->qty_cmd);
+	while (inc < data->cur.table->qty_cmd)
 	{
-		data->cur.table = (data->store.table + inc_table);
-		initialize_fd(data);
-		execute_cmd(data);
-		free_fd(data);
-		inc_table++;
+		*(data->cur.table->fd + inc) = malloc(sizeof(int) * 2);
+		pipe(*(data->cur.table->fd + inc));
+		inc++;
 	}
 }

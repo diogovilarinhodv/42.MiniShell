@@ -6,12 +6,30 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 15:12:28 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/09 21:23:20 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/12/17 04:02:38 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTS_H
 # define STRUCTS_H
+
+//     -----------     
+//        TERMS CAPS      
+//     -----------  
+typedef struct s_termcaps
+{
+	struct termios	old_term;
+	struct termios	new_term;
+	char			*buffer;
+	char			*keys_on;
+	char			*keys_off;
+	char			*up_arrow;
+	char			*down_arrow;
+	char			*backspace;
+	char			*del_line;
+	char			*set_cursor_begin;
+
+}	t_termcaps;
 
 //     -----------     
 //        ENV VAR         
@@ -90,6 +108,17 @@ typedef struct s_current
 
 }	t_current;
 
+//		--------
+//		HISTORY
+//		--------
+typedef struct s_history
+{
+	char	**str;
+	int		qty_str;
+	int		idx;
+
+}	t_history;
+
 //     -----------     
 //        DATA         
 //     -----------     
@@ -99,6 +128,8 @@ typedef struct s_data
 	t_storage		store;
 	t_current		cur;
 	t_env_var		env;
+	t_termcaps		termcaps;
+	t_history		hist;
 	int				exit_status;
 
 }	t_data;

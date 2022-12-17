@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   execute_table.c                                    :+:      :+:    :+:   */
+/*   ft_putint.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/18 16:56:20 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/14 02:05:28 by dpestana         ###   ########.fr       */
+/*   Created: 2022/12/16 23:08:14 by dpestana          #+#    #+#             */
+/*   Updated: 2022/12/16 23:08:25 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-void	execute_table(t_data *data)
+int	ft_putint(int c)
 {
-	int	inc_table;
-
-	inc_table = 0;
-	while (inc_table < data->store.qty_tbl)
-	{
-		data->cur.table = (data->store.table + inc_table);
-		initialize_fd(data);
-		execute_cmd(data);
-		free_fd(data);
-		inc_table++;
-	}
+	return (write(1, &c, 1));
 }

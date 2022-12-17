@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   execute_table.c                                    :+:      :+:    :+:   */
+/*   set_shlvl_env.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/18 16:56:20 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/14 02:05:28 by dpestana         ###   ########.fr       */
+/*   Created: 2022/12/16 23:15:34 by dpestana          #+#    #+#             */
+/*   Updated: 2022/12/16 23:16:19 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-void	execute_table(t_data *data)
+void	set_shlvl_env(t_data *data)
 {
-	int	inc_table;
+	char	*str_value;
+	int		int_value;
 
-	inc_table = 0;
-	while (inc_table < data->store.qty_tbl)
+	str_value = get_env_value(data, "SHLVL");
+	if (str_value == NULL)
+		set_env(data, "SHLVL", "1");
+	else
 	{
-		data->cur.table = (data->store.table + inc_table);
-		initialize_fd(data);
-		execute_cmd(data);
-		free_fd(data);
-		inc_table++;
+		int_value = ft_atoi(str_value);
+		int_value++;
+		str_value = ft_itoa(int_value);
+		if (str_value == NULL)
+			end_program(data, FAIL);
+		set_env(data, "SHLVL", str_value);
+		free(str_value);
+		str_value = NULL;
 	}
 }

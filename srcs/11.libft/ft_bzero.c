@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   execute_table.c                                    :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/18 16:56:20 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/14 02:05:28 by dpestana         ###   ########.fr       */
+/*   Created: 2022/12/16 22:56:58 by dpestana          #+#    #+#             */
+/*   Updated: 2022/12/16 22:57:25 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-void	execute_table(t_data *data)
+void	ft_bzero(void *s, size_t n)
 {
-	int	inc_table;
+	size_t			cnt;
+	unsigned char	*ps;
 
-	inc_table = 0;
-	while (inc_table < data->store.qty_tbl)
+	cnt = 0;
+	ps = (unsigned char *) s;
+	while (cnt < n)
 	{
-		data->cur.table = (data->store.table + inc_table);
-		initialize_fd(data);
-		execute_cmd(data);
-		free_fd(data);
-		inc_table++;
+		*(ps + cnt) = '\0';
+		cnt++;
 	}
 }

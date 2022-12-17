@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   execute_table.c                                    :+:      :+:    :+:   */
+/*   reset_line.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/18 16:56:20 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/14 02:05:28 by dpestana         ###   ########.fr       */
+/*   Created: 2022/12/16 22:58:56 by dpestana          #+#    #+#             */
+/*   Updated: 2022/12/17 04:13:57 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-void	execute_table(t_data *data)
+void	reset_line(t_data *data, char *buf, int *i)
 {
-	int	inc_table;
-
-	inc_table = 0;
-	while (inc_table < data->store.qty_tbl)
-	{
-		data->cur.table = (data->store.table + inc_table);
-		initialize_fd(data);
-		execute_cmd(data);
-		free_fd(data);
-		inc_table++;
-	}
+	write(STDOUT_FILENO, "^C\n", ft_strlen("^C\n"));
+	data->exit_status = EXIT_CMD_INTERRUPTED;
+	write_prompt(data);
+	ft_bzero(buf, BUFSIZ);
+	*i = 0;
 }

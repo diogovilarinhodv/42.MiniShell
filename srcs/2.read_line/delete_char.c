@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   inicialize.c                                       :+:      :+:    :+:   */
+/*   delete_char.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/04 14:19:50 by dpestana          #+#    #+#             */
-/*   Updated: 2022/11/15 16:05:56 by dpestana         ###   ########.fr       */
+/*   Created: 2022/12/16 23:01:36 by dpestana          #+#    #+#             */
+/*   Updated: 2022/12/16 23:09:24 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-void	inicialize(t_data *data, int argc, char **argv, char **env)
+void	delete_char(t_data *data, char *buf, int *i)
 {
-	(void) argc;
-	(void) argv;
-	inicialize_env(data, env);
-	inicialize_input(data);
-	inicialize_table(data);
-	data->exit_status = SUCCESS;
+	int	qty_to_dlt;
+
+	if (*i == 0 || ft_isascii(buf[*i - 1]))
+		qty_to_dlt = 1;
+	else
+		qty_to_dlt = 2;
+	ft_bzero(&buf[*i - qty_to_dlt], BUFSIZ - *i + qty_to_dlt);
+	tputs(data->termcaps.del_line, 1, ft_putint);
+	tputs(data->termcaps.set_cursor_begin, 1, ft_putint);
+	write_prompt(data);
+	*i = write(STDOUT_FILENO, buf, ft_strlen(buf));
 }

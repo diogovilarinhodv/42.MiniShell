@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   execute_table.c                                    :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/18 16:56:20 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/14 02:05:28 by dpestana         ###   ########.fr       */
+/*   Created: 2022/12/16 23:39:57 by dpestana          #+#    #+#             */
+/*   Updated: 2022/12/16 23:41:07 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-void	execute_table(t_data *data)
+char	*ft_strcpy(char *dest, const char *src)
 {
-	int	inc_table;
+	char	*beg_pos;
 
-	inc_table = 0;
-	while (inc_table < data->store.qty_tbl)
-	{
-		data->cur.table = (data->store.table + inc_table);
-		initialize_fd(data);
-		execute_cmd(data);
-		free_fd(data);
-		inc_table++;
-	}
+	beg_pos = dest;
+	while (*src)
+		*dest++ = *src++;
+	*dest = '\0';
+	return (beg_pos);
 }

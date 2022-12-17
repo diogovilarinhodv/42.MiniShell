@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   execute_table.c                                    :+:      :+:    :+:   */
+/*   inicialize_termcaps.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/18 16:56:20 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/14 02:05:28 by dpestana         ###   ########.fr       */
+/*   Created: 2022/12/14 01:49:37 by dpestana          #+#    #+#             */
+/*   Updated: 2022/12/16 23:18:20 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-void	execute_table(t_data *data)
+void	initialize_termcaps(t_data *data)
 {
-	int	inc_table;
+	char	*term_value;
+	char	*buffer;
 
-	inc_table = 0;
-	while (inc_table < data->store.qty_tbl)
-	{
-		data->cur.table = (data->store.table + inc_table);
-		initialize_fd(data);
-		execute_cmd(data);
-		free_fd(data);
-		inc_table++;
-	}
+	buffer = NULL;
+	if (tcgetattr(STDIN_FILENO, &data->termcaps.old_term) == -1)
+		end_program(data, FAIL);
+	term_value = get_env_value(data, "TERM");
+	if (term_value == NULL)
+		end_program(data, FAIL);
+	if (tgetent(buffer, term_value) < 1)
+		end_program(data, FAIL);
+	data->termcaps.buffer = buffer;
+	if (set_termcaps_config(data) == FAIL)
+		end_program(data, FAIL);
 }

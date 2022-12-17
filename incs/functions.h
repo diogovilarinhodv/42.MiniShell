@@ -6,19 +6,43 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 15:36:15 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/13 02:54:46 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/12/17 04:12:13 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FUNCTIONS_H
 # define FUNCTIONS_H
 
-// 1.INICIALIZE
-void	inicialize(t_data *data, int argc, char **argv, char **env);
-void	inicialize_env(t_data *data, char **env);
-void	inicialize_table(t_data *data);
-void	inicialize_input(t_data *data);
-void	inicialize_fd(t_data *data);
+void	turn_on_canonical(t_data *data);
+void	turn_off_canonical(t_data *data);
+
+// 1.INITIALIZE
+void	initialize(t_data *data, int argc, char **argv, char **env);
+void	initialize_env(t_data *data, char **env);
+void	initialize_table(t_data *data);
+void	initialize_input(t_data *data);
+void	initialize_fd(t_data *data);
+void	initialize_minishell(t_data *data);
+void	initialize_termcaps(t_data *data);
+void	initialize_history(t_data *data);
+void	catch_sigint(int signum);
+void	catch_sigquit(int signum);
+void	set_shlvl_env(t_data *data);
+int		set_termcaps_config(t_data *data);
+
+// 2.READ_LINE
+void	read_line(t_data *data);
+void	turn_on_canonical(t_data *data);
+void	turn_off_canonical(t_data *data);
+void	write_prompt(t_data *data);
+int		is_arrow_pressed(t_data *data, char *buf);
+int		is_ctrl(char c, int bytes_readed);
+char	*get_input_str(t_data *data, char *buf, int i);
+void	reset_line(t_data *data, char *buf, int *i);
+void	add_line_to_history(t_data *data);
+int		has_history(t_data *data);
+void	select_history_cmd(t_data *data, char *buf, int *i);
+void	delete_char(t_data *data, char *buf, int *i);
 
 // 2.CHECKS_INPUT
 int     checks_input(t_data *data);
@@ -137,6 +161,13 @@ char	*ft_strdup(const char *s);
 char	*ft_strndup(const char *s, int qty);
 char	*ft_strjoin(char const *s1, char const *s2);
 int		ft_isspace(int c);
+int		ft_atoi(const char *nptr);
+char	*ft_itoa(int n);
+void	ft_bzero(void *s, size_t n);
+int		ft_isascii(int c);
+int		ft_putint(int c);
+char	*ft_strcpy(char *dest, const char *src);
+int		ft_putstr(char *str);
 
 // 12.ERRORS
 void	invalid_input(t_data *data);

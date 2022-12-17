@@ -1,19 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   inicialize_input.c                                 :+:      :+:    :+:   */
+/*   inicialize_minishell.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/23 09:46:49 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/13 03:53:42 by dpestana         ###   ########.fr       */
+/*   Created: 2022/12/14 01:04:46 by dpestana          #+#    #+#             */
+/*   Updated: 2022/12/16 23:17:11 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-void	inicialize_input(t_data *data)
+void	initialize_minishell(t_data *data)
 {
-	data->input.line = NULL;
-	data->input.idx = 0;
+	if (isatty(STDIN_FILENO) == NO)
+		end_program(data, FAIL);
+	unset_env(data, "OLDPWD");
+	set_shlvl_env(data);
+	initialize_termcaps(data);
+	signal(SIGINT, catch_sigint);
+	signal(SIGQUIT, catch_sigquit);
 }

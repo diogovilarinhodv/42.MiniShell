@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   inicialize_table.c                                 :+:      :+:    :+:   */
+/*   is_arrow_pressed.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/22 11:21:05 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/13 03:53:57 by dpestana         ###   ########.fr       */
+/*   Created: 2022/12/15 17:03:28 by dpestana          #+#    #+#             */
+/*   Updated: 2022/12/15 17:35:19 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-void	inicialize_table(t_data *data)
+int	is_arrow_pressed(t_data *data, char *buf)
 {
-	data->store.table = NULL;
-	data->store.qty_tbl = 0;
+	if (ft_strcmp(data->termcaps.up_arrow, buf) == 0)
+		return (YES);
+	if (ft_strcmp(data->termcaps.down_arrow, buf) == 0)
+		return (YES);
+	return (NO);
 }

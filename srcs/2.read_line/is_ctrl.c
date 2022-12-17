@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   inicialize_fd.c                                    :+:      :+:    :+:   */
+/*   is_ctrl.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/12 18:06:13 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/13 03:53:16 by dpestana         ###   ########.fr       */
+/*   Created: 2022/12/15 17:37:04 by dpestana          #+#    #+#             */
+/*   Updated: 2022/12/16 22:55:39 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-void	inicialize_fd(t_data *data)
+int	is_ctrl(char c, int bytes_readed)
 {
-	int	inc;
-
-	inc = 0;
-	data->cur.table->fd = malloc(sizeof(int *) * data->cur.table->qty_cmd);
-	while (inc < data->cur.table->qty_cmd)
-	{
-		*(data->cur.table->fd + inc) = malloc(sizeof(int) * 2);
-		pipe(*(data->cur.table->fd + inc));
-		inc++;
-	}
+	if (bytes_readed != 1)
+		return (NO);
+	if (c == CTRL_C || c == CTRL_D || c == ENTER_KEY)
+		return (NO);
+	else if ((0 <= c && c <= 31) || c == 127)
+		return (YES);
+	return (NO);
 }

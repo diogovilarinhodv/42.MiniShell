@@ -8,7 +8,7 @@
 NAME						=	minishell
 
 # Compiler
-Compile						=	gcc -Wall -Wextra -Werror -fsanitize=address
+Compile						=	gcc -Wall -Wextra -Werror -fsanitize=address 
 
 # Flags for Compiler
 O_FLAG 						=	-o
@@ -63,8 +63,9 @@ all:				$(NAME)
 folders:				
 					$(CREATE_FOLDER) $(OBJ_FOLDER)
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/1.inicialize
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/1.initialize
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/2.checks_input
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/2.read_line
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/3.input_handler
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/4.token_creation
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/5.set_tokens
@@ -84,7 +85,7 @@ folders:
 # Build Project
 $(NAME): 			${OBJ_FILES}
 					${AR} ${LIB_FOLDER}/${LIB_FILE} ${OBJ_FILES}
-					${Compile} ${LIB_FOLDER}/${LIB_FILE} $(O_FLAG) $(NAME) -lreadline
+					${Compile} ${LIB_FOLDER}/${LIB_FILE} $(O_FLAG) $(NAME) -lreadline -lncurses -ltermcap
 
 # Norminette
 norm:

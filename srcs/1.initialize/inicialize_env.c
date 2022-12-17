@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 18:27:08 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/13 03:53:05 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/12/14 02:05:28 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	set_env_lst(t_data *data, char **env)
 	data->env.qty--;
 }
 
-void	inicialize_env(t_data *data, char **env)
+void	initialize_env(t_data *data, char **env)
 {
 	int	env_qty;
 

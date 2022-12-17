@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 14:30:23 by dpestana          #+#    #+#             */
-/*   Updated: 2022/11/15 16:13:30 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/12/14 03:13:40 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	end_program(t_data *data, int status)
 {
+	turn_on_canonical(data);
 	free_env(data);
 	free_input(data);
 	free_fd(data);
