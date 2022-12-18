@@ -38,19 +38,11 @@
 # include <sys/ioctl.h>
 # include <termios.h>
 
-
 # include "structs.h"
 # include "functions.h"
 # include "ansi_colors.h"
 
-
-
-
-
-
-
 // MACROS
-
 # define SUCCESS       		0
 # define FAIL          		1
 
@@ -66,6 +58,7 @@
 # define RIGHT_ARROW		2
 # define DOUBLE_RIGHT_ARROW	3
 
+# define BUFFER_SIZE 		BUFSIZ
 
 # ifdef unix
 #  define IS_LINUX 1

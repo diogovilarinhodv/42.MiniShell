@@ -64,22 +64,22 @@ folders:
 					$(CREATE_FOLDER) $(OBJ_FOLDER)
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/1.initialize
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/2.checks_input
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/2.read_line
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/3.input_handler
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/4.token_creation
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/5.set_tokens
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/6.replace_tokens
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/3.check_line
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/4.input_handler
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/5.token_creation
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/6.set_tokens
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/7.execute
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/7.replace_env_vars
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/8.file_descriptors
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/8.path_handler
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/8.builtins
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/9.env_handler
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/10.utils
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/11.libft
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/12.errors
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/13.free
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/8.replace_tokens
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/9.replace_env_vars
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/10.builtins
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/11.file_descriptors
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/12.path_handler
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/13.env_handler
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/14.utils
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/15.libft
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/16.errors
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/17.free
 					$(CREATE_FOLDER) $(LIB_FOLDER)
 
 # Build Project

@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 15:36:15 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/17 04:12:13 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/12/18 22:36:44 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,19 +35,26 @@ void	read_line(t_data *data);
 void	turn_on_canonical(t_data *data);
 void	turn_off_canonical(t_data *data);
 void	write_prompt(t_data *data);
-int		is_arrow_pressed(t_data *data, char *buf);
-int		is_ctrl(char c, int bytes_readed);
-char	*get_input_str(t_data *data, char *buf, int i);
-void	reset_line(t_data *data, char *buf, int *i);
+char	*get_input_str(t_data *data);
+void	reset_line(t_data *data);
 void	add_line_to_history(t_data *data);
 int		has_history(t_data *data);
-void	select_history_cmd(t_data *data, char *buf, int *i);
-void	delete_char(t_data *data, char *buf, int *i);
+void	select_history_cmd(t_data *data);
+void	delete_char(t_data *data);
+int		is_arrow(t_data *data);
+int		is_ctrl(t_data *data, int bytes_readed);
+int		is_ctrl_d(t_data *data);
+int		is_ctrl_c(t_data *data);
+int		is_backspace(t_data *data);
+int		is_down_arrow(t_data *data);
+int		is_up_arrow(t_data *data);
+void	execute_up_arrow(t_data *data);
+void	execute_down_arrow(t_data *data);
 
 // 2.CHECKS_INPUT
-int     checks_input(t_data *data);
+int		checks_input(t_data *data);
 int		first_check(t_data *data);
-void    remove_spaces_bysides(t_data *data);
+void	remove_spaces_bysides(t_data *data);
 int		second_check(t_data *data);
 
 // 3.INPUT HANDLER
@@ -57,12 +64,11 @@ void	organize(t_data *data);
 // 4.TOKEN_CREATION
 void	get_tokens(t_data *data, int *pos_beg, int *pos_end);
 void	get_token_pos_begin(t_data *data);
-int     is_quote(t_data *data);
-void    get_quote_pos_end(t_data *data);
+int		is_quote(t_data *data);
+void	get_quote_pos_end(t_data *data);
 void	get_token_pos_end(t_data *data);
 int		exist_token(t_data *data, int pos_beg, int pos_end);
 void	create_token(t_data *data, int pos_beg, int pos_end, char **token);
-
 
 // 5.SET_TOKENS
 int		is_cmd_delimiter(char *token);
@@ -85,14 +91,13 @@ void	add_another_token(t_data *data, char *token);
 void	add_another_cmd(t_data *data);
 void	add_another_table(t_data *data);
 
-
 // 6.REPLACE_TOKENS
-int     token_has_cipher(t_data *data);
+int		token_has_cipher(t_data *data);
 void	replace_env_var(t_data *data);
-int     token_has_tilde(t_data *data);
+int		token_has_tilde(t_data *data);
 void	replace_home_dir(t_data *data);
-int     token_has_double_quotes(t_data *data);
-int     token_has_single_quotes(t_data *data);
+int		token_has_double_quotes(t_data *data);
+int		token_has_single_quotes(t_data *data);
 void	remove_double_quotes(t_data *data);
 void	remove_single_quotes(t_data *data);
 
@@ -103,7 +108,6 @@ char	*get_str_two_replace(t_data *data, int **inc_chr);
 char	*tkn_replace(t_data *data, int *inc_chr, int pos, char *new_tkn);
 char	*append_tkn_replace(t_data *data, int str_one_pos, char *token);
 char	*new_tkn_replace(t_data *data);
-
 
 // 7.EXECUTES
 void	execute_table(t_data *data);
@@ -122,7 +126,6 @@ int		is_only_one_cmd_fd(t_data *data);
 int		is_first_cmd_fd(t_data *data);
 int		is_middle_cmd_fd(t_data *data);
 int		is_last_cmd_fd(t_data *data);
-
 
 // 8.PATH_HANDLER
 void	path_handler(t_data *data);
@@ -155,7 +158,7 @@ void	unset_cur(t_data *data);
 size_t	ft_strlen(const char *s);
 char	*ft_strchr(char *str, char ch);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
-int     ft_strcmp(char *s1, char *s2);
+int		ft_strcmp(char *s1, char *s2);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strdup(const char *s);
 char	*ft_strndup(const char *s, int qty);

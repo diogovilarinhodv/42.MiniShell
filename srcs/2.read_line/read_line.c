@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 16:55:34 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/17 04:10:31 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/12/18 23:03:37 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,31 +15,31 @@
 void	read_line(t_data *data)
 {
 	int		bytes_readed;
-	char	buf[BUFSIZ];
-	int		i;
 
-	i = 0;
-	ft_bzero(buf, BUFSIZ);
 	turn_off_canonical(data);
 	write_prompt(data);
-	data->hist.idx = 0;
-	while (ft_strchr(buf, '\n') == NULL)
+	data->hist.idx = data->hist.qty_str;
+	initialize_input(data);
+	while (ft_strchr(data->input.buf, '\n') == NULL)
 	{
-		bytes_readed = read(STDIN_FILENO, &buf[i], BUFSIZ - i);
-		if (is_arrow_pressed(data, &buf[i]))
-			select_history_cmd(data, buf, &i);
-		else if (ft_strcmp(&buf[i], data->termcaps.backspace) == 0)
-			delete_char(data, buf, &i);
-		else if (bytes_readed > 2 || is_ctrl(buf[i], bytes_readed))
-			ft_bzero(&buf[i], BUFSIZ - i);
-		else if (buf[i] == CTRL_C)
-			reset_line(data, buf, &i);
-		else if (buf[i] == CTRL_D)
+		bytes_readed = read(STDIN_FILENO, (data->input.buf + data->input.buf_idx), BUFSIZ - data->input.buf_idx);
+		if (is_arrow(data))
+			select_history_cmd(data);
+		else if (is_backspace(data) == YES)
+			delete_char(data);
+		else if (is_ctrl(data, bytes_readed) == YES)
+			ft_bzero((data->input.buf + data->input.buf_idx), BUFSIZ - data->input.buf_idx);
+		else if (is_ctrl_c(data) == YES)
+			reset_line(data);
+		else if (is_ctrl_d(data) == YES)
 			end_program(data, SUCCESS);
 		else
-			i += write(STDOUT_FILENO, &buf[i], bytes_readed);
+			data->input.buf_idx += write(STDOUT_FILENO, (data->input.buf + data->input.buf_idx), bytes_readed);
 	}
-	data->input.line = get_input_str(data, buf, i);
+	data->input.line = get_input_str(data);
+	if (data->input.line != NULL)
+		if (*data->input.line != '\0')
+			return ;
 	add_line_to_history(data);
 	add_history(data->input.line);
 }

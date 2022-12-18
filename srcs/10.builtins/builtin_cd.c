@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 16:56:20 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/05 17:38:47 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/12/18 13:51:20 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	builtin_cd(t_data *data)
 {
 	char	*env_value;
+	char	*new_pwd;
 	char	*pwd;
 
 	if (data->cur.cmd->qty_tkn == 2)
@@ -25,11 +26,14 @@ void	builtin_cd(t_data *data)
 		if (env_value != NULL)
 			chdir(env_value);
 	}
-	pwd = getcwd(NULL, 0);
-	if (pwd != NULL)
+	new_pwd = getcwd(NULL, 0);
+	if (new_pwd != NULL)
 	{
-		set_env(data, "PWD", pwd);
-		free(pwd);
-		pwd = NULL;
+		pwd = get_env_value(data, "PWD");
+		if (pwd != NULL)
+			set_env(data, "OLDPWD", pwd);
+		set_env(data, "PWD", new_pwd);
+		free(new_pwd);
+		new_pwd = NULL;
 	}
 }

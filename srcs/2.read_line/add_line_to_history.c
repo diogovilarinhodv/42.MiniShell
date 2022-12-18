@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 23:27:36 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/16 23:37:49 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/12/18 20:21:16 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,9 @@ void	add_line_to_history(t_data *data)
 			*(clone + inc) = *(data->hist.str + inc);
 			inc++;
 		}
-		*(clone + inc) = data->input.line;
+		*(clone + inc) = ft_strdup(data->input.line);;
 		free(data->hist.str);
 		data->hist.str = clone;
+		data->hist.qty_str++;
 	}
 }

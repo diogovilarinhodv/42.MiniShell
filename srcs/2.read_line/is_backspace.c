@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_input_str.c                                    :+:      :+:    :+:   */
+/*   is_backspace.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/15 17:39:35 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/18 18:14:46 by dpestana         ###   ########.fr       */
+/*   Created: 2022/12/18 18:29:57 by dpestana          #+#    #+#             */
+/*   Updated: 2022/12/18 18:31:29 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-char	*get_input_str(t_data *data)
+int	is_backspace(t_data *data)
 {
-	char	*input;
-
-	*(data->input.buf + data->input.buf_idx - 1) = '\0';
-	input = ft_strdup(data->input.buf);
-	if (input == NULL)
-		end_program(data, FAIL);
-	return (input);
+	if (ft_strcmp((data->input.buf + data->input.buf_idx), data->termcaps.backspace) == 0)
+		return (YES);
+	return (NO);
 }
