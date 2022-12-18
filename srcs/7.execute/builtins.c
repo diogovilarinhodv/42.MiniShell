@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtins.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 16:04:38 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/17 09:47:43 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/12/18 23:41:50 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,10 @@ int	builtins(t_data *data)
 	else if (ft_strcmp(*data->cur.cmd->token, "env") == 0)
 		builtin_env(data);
 	else if (ft_strcmp(*data->cur.cmd->token, "exit") == 0)
+	{
+		write(1, "exit\n", ft_strlen("exit\n"));
 		end_program(data, SUCCESS);
+	}
 	else
 		return (NO);
 	return (YES);

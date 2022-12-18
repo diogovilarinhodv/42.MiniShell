@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 18:48:56 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/07 22:57:16 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/12/18 23:23:58 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,11 @@ void	builtin_echo(t_data *data)
 	has_newline = has_newline_func(data, &y);
 	while (y < data->cur.cmd->qty_tkn)
 	{
-		printf("%s", *(data->cur.cmd->token + y));
+		write(STDOUT_FILENO, *(data->cur.cmd->token + y), ft_strlen(*(data->cur.cmd->token + y)));
 		if (y + 1 < data->cur.cmd->qty_tkn)
-			printf(" ");
+			write(STDOUT_FILENO, " ", 1);
 		y++;
 	}
 	if (has_newline == YES)
-		printf("\n");
+		write(STDOUT_FILENO, "\n", ft_strlen("\n"));
 }
