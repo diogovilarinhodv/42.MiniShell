@@ -73,6 +73,7 @@ folders:
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/8.replace_tokens
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/9.replace_env_vars
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/10.builtins
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/11.builtin_cd
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/11.file_descriptors
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/12.path_handler
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/13.env_handler

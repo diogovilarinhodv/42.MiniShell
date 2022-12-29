@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 18:41:17 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/13 04:12:05 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/12/29 01:00:52 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,17 @@ void	builtin_export(t_data *data)
 	inc = 0;
 	env_name = set_name_builtin_export(data, &inc);
 	if (env_name == NULL)
+	{
+		data->exit_status = EXIT_FAILURE;
 		return ;
+	}
 	env_value = set_value_builtin_export(data, inc);
 	if (env_value == NULL)
+	{
+		data->exit_status = EXIT_FAILURE;
 		return ;
+	}
 	set_env(data, env_name, env_value);
 	freedom_builtin_export(env_name, env_value);
+	data->exit_status = EXIT_SUCCESS;
 }

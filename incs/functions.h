@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 15:36:15 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/18 22:36:44 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/12/28 16:04:04 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,6 +117,8 @@ void	replace_tokens(t_data *data);
 void	set_redirects(t_data *data);
 int		builtins(t_data *data);
 void	non_builtin(t_data *data);
+void	set_env_var_full(t_data *data);
+void	unset_env_var_full(t_data *data);
 
 // 8.FILE_DESCRIPTORS
 void	close_fd(t_data *data);
@@ -140,6 +142,14 @@ void	builtin_env(t_data *data);
 void	builtin_echo(t_data *data);
 void	builtin_unset(t_data *data);
 void	builtin_export(t_data *data);
+void	builtin_history(t_data *data);
+
+// 11.BUILTIN_CD
+void	cd_execute_no_arg(t_data *data);
+void	cd_execute_one_arg(t_data *data);
+void	cd_arg(t_data *data);
+void	cd_back(t_data *data);
+void	cd_update_pwd_oldpwd(t_data *data);
 
 // 9.ENV_HANDLER
 char	*get_env_value(t_data *data, char *name);

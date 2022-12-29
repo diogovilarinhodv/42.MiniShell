@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 16:04:38 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/18 23:41:50 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/12/25 21:57:36 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int	builtins(t_data *data)
 {
+	set_dup2(data);
 	if (ft_strcmp(*data->cur.cmd->token, "echo") == 0)
 		builtin_echo(data);
 	else if (ft_strcmp(*data->cur.cmd->token, "cd") == 0)
@@ -26,6 +27,8 @@ int	builtins(t_data *data)
 		builtin_unset(data);
 	else if (ft_strcmp(*data->cur.cmd->token, "env") == 0)
 		builtin_env(data);
+	else if (ft_strcmp(*data->cur.cmd->token, "history") == 0)
+		builtin_history(data);
 	else if (ft_strcmp(*data->cur.cmd->token, "exit") == 0)
 	{
 		write(1, "exit\n", ft_strlen("exit\n"));

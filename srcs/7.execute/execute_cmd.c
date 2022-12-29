@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 18:15:10 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/13 04:07:47 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/12/20 13:41:40 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	execute_cmd(t_data *data)
 		set_redirects(data);
 		if (builtins(data) == NO)
 			non_builtin(data);
+		unset_env_var_full(data);
 		dup2(stored_stdin, STDIN_FILENO);
 		dup2(stored_stdout, STDOUT_FILENO);
 		close(stored_stdin);

@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 23:27:36 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/18 20:21:16 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/12/20 15:30:35 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void	add_line_to_history(t_data *data)
 	}
 	else
 	{
+		if (ft_strcmp(*(data->hist.str + data->hist.qty_str - 1), data->input.line) == 0)
+			return ;
 		inc = 0;
 		clone = malloc(sizeof(char *) * (data->hist.qty_str + 1));
 		while (inc < data->hist.qty_str)

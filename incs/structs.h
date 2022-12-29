@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 15:12:28 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/18 23:38:39 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/12/20 13:27:52 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef struct s_env_var
 {
 	char			**name;
 	char			**value;
+	char			**full;
 	int				qty;
 
 }	t_env_var;

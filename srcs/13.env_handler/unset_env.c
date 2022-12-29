@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 14:43:51 by dpestana          #+#    #+#             */
-/*   Updated: 2022/10/05 13:04:15 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/12/29 01:02:42 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,12 @@ void	unset_env(t_data *data, char *name)
 	int	idx;
 
 	idx = get_env_idx(data, name);
-	if (idx != NOT_FOUND)
+	if (idx == NOT_FOUND)
 	{
-		shorten_unset_env(data, idx);
-		realloc_unset_env(data);
+		data->exit_status = EXIT_FAILURE;
+		return ;
 	}
+	shorten_unset_env(data, idx);
+	realloc_unset_env(data);
+	data->exit_status = EXIT_SUCCESS;
 }

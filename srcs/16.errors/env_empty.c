@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 16:48:36 by dpestana          #+#    #+#             */
-/*   Updated: 2022/07/20 22:22:48 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/12/20 13:10:28 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void	env_empty(void)
 {
-	printf("Error\n");
+	write(STDOUT_FILENO, "Error\n", ft_strlen("Error\n"));
 	exit(1);
 }

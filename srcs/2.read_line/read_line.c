@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 16:55:34 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/18 23:11:19 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/12/20 15:28:01 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,4 @@ void	read_line(t_data *data)
 		if (*data->input.line == '\0')
 			return ;
 	add_line_to_history(data);
-	add_history(data->input.line);
 }

@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 18:48:56 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/18 23:23:58 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/12/28 14:12:41 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,5 @@ void	builtin_echo(t_data *data)
 	}
 	if (has_newline == YES)
 		write(STDOUT_FILENO, "\n", ft_strlen("\n"));
+	data->exit_status = EXIT_SUCCESS;
 }
