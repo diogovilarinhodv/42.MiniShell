@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 15:36:15 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/28 16:04:04 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/12/31 17:45:52 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -193,5 +193,6 @@ void	free_store(t_data *data);
 void	free_fd(t_data *data);
 void	free_str(char **str);
 void	free_str_bidimensional(char ***str);
+void	free_str_bd_src(char ***str);
 
 #endif

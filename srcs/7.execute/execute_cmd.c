@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 18:15:10 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/20 13:41:40 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/01/01 15:23:48 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	execute_cmd(t_data *data)
 	data->cur.idx_cmd = 0;
 	while (data->cur.idx_cmd < data->cur.table->qty_cmd)
 	{
+		if (data->exit_status == EXIT_FAILURE)
+			break ;
 		stored_stdin = dup(STDIN_FILENO);
 		stored_stdout = dup(STDOUT_FILENO);
 		data->cur.cmd = (data->cur.table->cmd + data->cur.idx_cmd);

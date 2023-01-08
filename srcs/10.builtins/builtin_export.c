@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 18:41:17 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/29 01:00:52 by dpestana         ###   ########.fr       */
+/*   Updated: 2022/12/31 18:19:27 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,20 +43,6 @@ static	char	*set_value_builtin_export(t_data *data, int inc)
 	return (env_value);
 }
 
-static	void	freedom_builtin_export(char *env_name, char *env_value)
-{
-	if (env_name != NULL)
-	{
-		free(env_name);
-		env_name = NULL;
-	}
-	if (env_value != NULL)
-	{
-		free(env_value);
-		env_value = NULL;
-	}
-}
-
 void	builtin_export(t_data *data)
 {
 	char	*env_name;
@@ -77,6 +63,7 @@ void	builtin_export(t_data *data)
 		return ;
 	}
 	set_env(data, env_name, env_value);
-	freedom_builtin_export(env_name, env_value);
+	free_str(&env_name);
+	free_str(&env_value);
 	data->exit_status = EXIT_SUCCESS;
 }
