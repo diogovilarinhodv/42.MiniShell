@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 15:36:15 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/31 17:45:52 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/01/15 10:07:23 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,9 +137,10 @@ void	set_path(t_data *data, char *path);
 
 // 8.BUILTINS
 void	builtin_cd(t_data *data);
-void	builtin_pwd(t_data *data);
 void	builtin_env(t_data *data);
+void	builtin_pwd(t_data *data);
 void	builtin_echo(t_data *data);
+void	builtin_exit(t_data *data);
 void	builtin_unset(t_data *data);
 void	builtin_export(t_data *data);
 void	builtin_history(t_data *data);
