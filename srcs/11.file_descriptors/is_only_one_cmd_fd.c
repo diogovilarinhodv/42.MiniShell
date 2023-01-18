@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_only_one_cmd.c                                  :+:      :+:    :+:   */
+/*   is_only_one_cmd_fd.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 20:27:02 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/04 20:46:30 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/01/18 22:37:37 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	is_only_one_cmd_fd(t_data *data)
 {
-	if (data->store.table->qty_cmd == 1)
+	if (data->cur.table->qty_cmd == 1)
 		return (YES);
 	return (NO);
 }

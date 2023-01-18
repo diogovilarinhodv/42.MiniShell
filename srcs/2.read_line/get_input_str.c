@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 17:39:35 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/18 18:14:46 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/01/16 09:19:38 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@ char	*get_input_str(t_data *data)
 	*(data->input.buf + data->input.buf_idx - 1) = '\0';
 	input = ft_strdup(data->input.buf);
 	if (input == NULL)
-		end_program(data, FAIL);
+	{
+		data->exit_status = FAIL;
+		end_program(data);
+	}
 	return (input);
 }

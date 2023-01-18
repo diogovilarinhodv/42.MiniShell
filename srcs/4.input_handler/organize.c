@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 17:18:01 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/13 04:00:17 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/01/18 19:46:56 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,12 @@ static char	*cmd_limiter_run(t_data *data, char *token)
 static char	*non_cmd_limiter_run(t_data *data, char *token)
 {
 	if (is_table_delimiter(token) == YES)
+	{
+		set_cur(data);
+		add_delimiter(data, token);
+		unset_cur(data);
 		add_another_table(data);
+	}
 	else
 		add_another_cmd(data);
 	free(token);

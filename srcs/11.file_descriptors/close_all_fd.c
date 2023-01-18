@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 18:10:36 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/13 04:12:31 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/01/18 22:21:53 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	close_all_fd(t_data *data)
 	inc = 0;
 	while (inc < data->cur.table->qty_cmd)
 	{
-		close(data->store.table->fd[inc][0]);
-		close(data->store.table->fd[inc][1]);
+		close(data->cur.table->fd[inc][0]);
+		close(data->cur.table->fd[inc][1]);
 		inc++;
 	}
 }

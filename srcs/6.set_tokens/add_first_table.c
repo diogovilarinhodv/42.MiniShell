@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 19:55:55 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/13 04:03:50 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/01/18 19:11:12 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,4 +18,5 @@ void	add_first_table(t_data *data)
 	data->store.qty_tbl++;
 	data->store.table->cmd = NULL;
 	data->store.table->qty_cmd = 0;
+	data->store.table->delimiter = DELIMITER_NULL;
 }

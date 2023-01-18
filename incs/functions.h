@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 15:36:15 by dpestana          #+#    #+#             */
-/*   Updated: 2023/01/15 10:07:23 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/01/18 22:11:51 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,8 @@ void	add_another_token(t_data *data, char *token);
 void	add_another_cmd(t_data *data);
 void	add_another_table(t_data *data);
 
+void	add_delimiter(t_data *data, char *token);
+
 // 6.REPLACE_TOKENS
 int		token_has_cipher(t_data *data);
 void	replace_env_var(t_data *data);
@@ -161,7 +163,7 @@ void	unset_env(t_data *data, char *name);
 // 10.UTILS
 int		count_chr(char *str, char c);
 void	testing_stuffs(t_data *data);
-void	end_program(t_data *data, int status);
+void	end_program(t_data *data);
 void	set_cur(t_data *data);
 void	unset_cur(t_data *data);
 
@@ -191,7 +193,7 @@ void	env_empty(void);
 void	free_env(t_data *data);
 void	free_input(t_data *data);
 void	free_store(t_data *data);
-void	free_fd(t_data *data);
+void	free_all_fd(t_data *data);
 void	free_str(char **str);
 void	free_str_bidimensional(char ***str);
 void	free_str_bd_src(char ***str);

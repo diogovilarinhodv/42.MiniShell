@@ -6,23 +6,45 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 16:56:20 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/14 02:05:28 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/01/18 22:14:07 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
+static void	free_fd(t_data *data, int inc_tbl)
+{
+	int	inc_fd;
+
+	if ((data->store.table + inc_tbl)->fd != NULL)
+	{
+		inc_fd = 0;
+		while (inc_fd < (data->store.table + inc_tbl)->qty_cmd)
+		{
+			if (*((data->store.table + inc_tbl)->fd + inc_fd) != NULL)
+				free(*((data->store.table + inc_tbl)->fd + inc_fd));
+			inc_fd++;
+		}
+		free((data->store.table + inc_tbl)->fd);
+		(data->store.table + inc_tbl)->fd = NULL;
+	}
+}
+
 void	execute_table(t_data *data)
 {
-	int	inc_table;
+	int	inc_tbl;
 
-	inc_table = 0;
-	while (inc_table < data->store.qty_tbl)
+	inc_tbl = 0;
+	while (inc_tbl < data->store.qty_tbl)
 	{
-		data->cur.table = (data->store.table + inc_table);
+		data->cur.table = (data->store.table + inc_tbl);
 		initialize_fd(data);
 		execute_cmd(data);
-		free_fd(data);
-		inc_table++;
+		free_fd(data, inc_tbl);
+		if ((data->store.table + inc_tbl)->delimiter == DELIMITER_AND && data->exit_status != EXIT_SUCCESS)
+			break ;
+		if ((data->store.table + inc_tbl)->delimiter == DELIMITER_OR && data->exit_status == EXIT_SUCCESS)
+			break ;
+		inc_tbl++;
 	}
 }

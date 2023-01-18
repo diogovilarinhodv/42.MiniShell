@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 15:12:28 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/20 13:27:52 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/01/18 19:02:25 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ typedef struct s_table
 	t_cmd			*cmd;
 	int				**fd;
 	int				qty_cmd;
+	int				delimiter;
 
 }	t_table;
 

@@ -58,6 +58,10 @@
 # define RIGHT_ARROW		2
 # define DOUBLE_RIGHT_ARROW	3
 
+# define DELIMITER_NULL		0
+# define DELIMITER_OR		1
+# define DELIMITER_AND		2
+
 # define BUFFER_SIZE 		BUFSIZ
 
 # ifdef unix

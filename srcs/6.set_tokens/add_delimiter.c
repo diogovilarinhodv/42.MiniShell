@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   invalid_input.c                                    :+:      :+:    :+:   */
+/*   add_delimiter.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/15 18:12:12 by dpestana          #+#    #+#             */
-/*   Updated: 2023/01/16 09:19:20 by dpestana         ###   ########.fr       */
+/*   Created: 2023/01/18 15:23:19 by dpestana          #+#    #+#             */
+/*   Updated: 2023/01/18 19:03:47 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-void	invalid_input(t_data *data)
+void	add_delimiter(t_data *data, char *token)
 {
-	write(STDOUT_FILENO, "Error\n", ft_strlen("Error\n"));
-	data->exit_status = FAIL;
-	end_program(data);
+	if (*token == ';')
+		data->cur.table->delimiter = DELIMITER_NULL;
+	else if (*token == '|' && *(token + 1) == '|')
+		data->cur.table->delimiter = DELIMITER_OR;
+	else if (*token == '&' && *(token + 1) == '&')
+		data->cur.table->delimiter = DELIMITER_AND;
 }

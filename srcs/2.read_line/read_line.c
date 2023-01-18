@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 16:55:34 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/20 15:28:01 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/01/16 09:20:57 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,10 @@ void	read_line(t_data *data)
 		else if (is_ctrl_c(data) == YES)
 			reset_line(data);
 		else if (is_ctrl_d(data) == YES)
-			end_program(data, SUCCESS);
+		{
+			data->exit_status = SUCCESS;
+			end_program(data);
+		}
 		else
 			data->input.buf_idx += write(STDOUT_FILENO, (data->input.buf + data->input.buf_idx), bytes_readed);
 	}

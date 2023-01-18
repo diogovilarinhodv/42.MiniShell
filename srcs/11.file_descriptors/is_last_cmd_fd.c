@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_last_cmd.c                                      :+:      :+:    :+:   */
+/*   is_last_cmd_fd.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 20:28:21 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/04 20:46:41 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/01/18 22:37:57 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	is_last_cmd_fd(t_data *data)
 {
-	if (data->cur.idx_cmd == (data->store.table->qty_cmd - 1))
+	if (data->cur.idx_cmd == (data->cur.table->qty_cmd - 1))
 		return (YES);
 	return (NO);
 }

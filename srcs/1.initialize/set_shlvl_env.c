@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 23:15:34 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/18 13:44:31 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/01/16 09:18:12 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,10 @@ void	set_shlvl_env(t_data *data)
 		int_value++;
 		str_value = ft_itoa(int_value);
 		if (str_value == NULL)
-			end_program(data, FAIL);
+		{
+			data->exit_status = FAIL;
+			end_program(data);
+		}
 		set_env(data, "SHLVL", str_value);
 		free(str_value);
 		str_value = NULL;

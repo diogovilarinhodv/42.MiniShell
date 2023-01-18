@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 18:07:09 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/15 17:10:15 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/01/16 09:15:03 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ int	main(int argc, char **argv, char **env)
 			execute(&data);
 		free_input(&data);
 	}
-	end_program(&data, SUCCESS);
+	end_program(&data);
 	return (0);
 }
