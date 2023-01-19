@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   cd_update_pwd_oldpwd.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 16:01:18 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/28 16:07:38 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/01/19 15:47:55 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../incs/minishell.h"
+#include "../../../incs/minishell.h"
 
 void	cd_update_pwd_oldpwd(t_data *data)
 {

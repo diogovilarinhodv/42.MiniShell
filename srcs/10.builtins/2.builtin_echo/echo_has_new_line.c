@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cd_execute_one_arg.c                               :+:      :+:    :+:   */
+/*   echo_has_new_line.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/28 15:59:51 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/28 16:00:02 by dpestana         ###   ########.fr       */
+/*   Created: 2023/01/19 16:45:18 by dpestana          #+#    #+#             */
+/*   Updated: 2023/01/19 16:46:31 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../incs/minishell.h"
+#include "../../../incs/minishell.h"
 
-void	cd_execute_one_arg(t_data *data)
+int	echo_has_new_line(t_data *data, int *y)
 {
-	if (ft_strcmp(*(data->cur.cmd->token + 1), "-") == 0)
-		cd_back(data);
-	else
-		cd_arg(data);
+	if (data->cur.cmd->qty_tkn > 1)
+	{
+		if (ft_strcmp(*(data->cur.cmd->token + 1), "-n") == 0)
+		{
+			(*y)++;
+			return (NO);
+		}
+	}
+	return (YES);
 }

@@ -3,27 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   builtin_echo.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 18:48:56 by dpestana          #+#    #+#             */
-/*   Updated: 2023/01/18 22:36:46 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/01/19 16:45:45 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
-
-static	int	has_newline_func(t_data *data, int *y)
-{
-	if (data->cur.cmd->qty_tkn > 1)
-	{
-		if (ft_strcmp(*(data->cur.cmd->token + 1), "-n") == 0)
-		{
-			(*y)++;
-			return (NO);
-		}
-	}
-	return (YES);
-}
 
 void	builtin_echo(t_data *data)
 {
@@ -31,7 +18,7 @@ void	builtin_echo(t_data *data)
 	int		y;
 
 	y = 1;
-	has_newline = has_newline_func(data, &y);
+	has_newline = echo_has_new_line(data, &y);
 	while (y < data->cur.cmd->qty_tkn)
 	{
 		write(STDOUT_FILENO, *(data->cur.cmd->token + y), ft_strlen(*(data->cur.cmd->token + y)));

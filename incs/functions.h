@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   functions.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 15:36:15 by dpestana          #+#    #+#             */
-/*   Updated: 2023/01/18 22:11:51 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/01/19 16:52:25 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,6 +153,13 @@ void	cd_execute_one_arg(t_data *data);
 void	cd_arg(t_data *data);
 void	cd_back(t_data *data);
 void	cd_update_pwd_oldpwd(t_data *data);
+
+// BUILTIN_ECHO
+int		echo_has_new_line(t_data *data, int *y);
+
+// BUILTIN_EXPORT
+char	*export_set_name(t_data *data, int *inc);
+char	*export_set_value(t_data *data, int inc);
 
 // 9.ENV_HANDLER
 char	*get_env_value(t_data *data, char *name);

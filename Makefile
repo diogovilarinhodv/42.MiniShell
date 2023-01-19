@@ -8,7 +8,7 @@
 NAME						=	minishell
 
 # Compiler
-Compile						=	gcc -Wall -Wextra -Werror -fsanitize=address 
+Compile						=	cc -Wall -Wextra -Werror -fsanitize=address 
 
 # Flags for Compiler
 O_FLAG 						=	-o
@@ -40,7 +40,7 @@ LIB_FOLDER					=	libs
 # 										FILES													#
 #################################################################################################
 
-SRC_FILES					=	$(wildcard *.c) $(wildcard srcs/*.c) $(wildcard srcs/*/*.c)
+SRC_FILES					=	$(wildcard *.c) $(wildcard srcs/*.c) $(wildcard srcs/*/*.c) $(wildcard srcs/*/*/*.c)
 
 OBJ_FILES					=	$(SRC_FILES:%.c=$(OBJ_FOLDER)/%.o) $(SRC_FILES:srcs/%.c=$(OBJ_FOLDER)/srcs/%.o)
 
@@ -73,7 +73,9 @@ folders:
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/8.replace_tokens
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/9.replace_env_vars
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/10.builtins
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/11.builtin_cd
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/10.builtins/1.builtin_cd
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/10.builtins/2.builtin_echo
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/10.builtins/3.builtin_export
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/11.file_descriptors
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/12.path_handler
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/13.env_handler
