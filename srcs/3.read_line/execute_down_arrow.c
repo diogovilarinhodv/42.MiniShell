@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   execute_down_arrow.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 22:35:09 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/18 22:37:07 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/03 17:26:03 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	execute_down_arrow(t_data *data)
 {
 	char	*input;
+	int		n;
 
 	if (data->hist.idx < data->hist.qty_str)
 		data->hist.idx++;
@@ -27,5 +28,6 @@ void	execute_down_arrow(t_data *data)
 	write_prompt(data);
 	ft_bzero(data->input.buf, BUFSIZ);
 	ft_strcpy(data->input.buf, input);
-	data->input.buf_idx = write(STDOUT_FILENO, data->input.buf, ft_strlen(data->input.buf));
+	n = write(STDOUT_FILENO, data->input.buf, ft_strlen(data->input.buf));
+	data->input.buf_idx = n;
 }

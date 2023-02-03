@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   add_first_token.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 10:04:47 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/13 04:03:52 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/03 17:44:56 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 
 void	add_first_token(t_data *data, char *token)
 {
-	data->cur.cmd->token = malloc(sizeof(char **) * (data->cur.cmd->qty_tkn + 2));
+	int	qty;
+
+	qty = (data->cur.cmd->qty_tkn + 2);
+	data->cur.cmd->token = malloc(sizeof(char **) * qty);
 	*data->cur.cmd->token = token;
 	*(data->cur.cmd->token + 1) = NULL;
 }

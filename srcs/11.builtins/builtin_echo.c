@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 18:48:56 by dpestana          #+#    #+#             */
-/*   Updated: 2023/01/19 16:45:45 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/03 17:49:17 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,14 @@ void	builtin_echo(t_data *data)
 {
 	int		has_newline;
 	int		y;
+	char	*str;
 
 	y = 1;
 	has_newline = echo_has_new_line(data, &y);
 	while (y < data->cur.cmd->qty_tkn)
 	{
-		write(STDOUT_FILENO, *(data->cur.cmd->token + y), ft_strlen(*(data->cur.cmd->token + y)));
+		str = *(data->cur.cmd->token + y);
+		write(STDOUT_FILENO, str, ft_strlen(str));
 		if (y + 1 < data->cur.cmd->qty_tkn)
 			write(STDOUT_FILENO, " ", 1);
 		y++;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_line.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 16:55:34 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/03 13:38:53 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/03 17:33:35 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,8 @@ void	read_line(t_data *data)
 	if (data->input.line == NULL)
 		if (*data->input.line == '\0')
 			return ;
-	add_line_to_history(data);
+	if (data->hist.str == NULL)
+		add_first_line_to_history(data);
+	else
+		add_other_line_to_history(data);
 }

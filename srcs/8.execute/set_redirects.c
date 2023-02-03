@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 10:18:53 by dpestana          #+#    #+#             */
-/*   Updated: 2023/01/19 15:53:49 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/03 17:52:22 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ static int	open_file(char *filename, int type)
 
 void	set_redirects(t_data *data)
 {
-	int	inc;
+	int		inc;
+	t_red	*cur_red;
 
 	inc = 0;
 	if (data->cur.cmd->qty_red < 1)
@@ -52,7 +53,8 @@ void	set_redirects(t_data *data)
 	}
 	while (inc < data->cur.cmd->qty_red)
 	{
-		if (open_file((data->cur.cmd->red + inc)->token, (data->cur.cmd->red + inc)->type) == -1)
+		cur_red = (data->cur.cmd->red + inc);
+		if (open_file(cur_red->token, cur_red->type) == -1)
 		{
 			data->exit_status = errno;
 			return ;

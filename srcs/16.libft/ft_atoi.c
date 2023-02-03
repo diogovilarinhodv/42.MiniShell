@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 01:12:03 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/14 01:28:23 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/03 15:44:36 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	is_negative(int cnt, const char *nptr)
 {
 	if (*(nptr + cnt) == '-'
-		 && ('0' <= *(nptr + (cnt + 1)) && *(nptr + (cnt + 1)) <= '9'))
+		&& ('0' <= *(nptr + (cnt + 1)) && *(nptr + (cnt + 1)) <= '9'))
 		return (1);
 	return (0);
 }
@@ -23,7 +23,7 @@ static int	is_negative(int cnt, const char *nptr)
 static int	is_invalid(int cnt, const char *nptr)
 {
 	if ((*(nptr + cnt) == '-' || *(nptr + cnt) == '+')
-		 && !('0' <= *(nptr + (cnt + 1)) && *(nptr + (cnt + 1)) <= '9'))
+		&& !('0' <= *(nptr + (cnt + 1)) && *(nptr + (cnt + 1)) <= '9'))
 		return (1);
 	return (0);
 }

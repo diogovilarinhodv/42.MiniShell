@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   execute_cmd.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 18:15:10 by dpestana          #+#    #+#             */
-/*   Updated: 2023/01/18 22:36:02 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/03 17:50:36 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	execute_cmd(t_data *data)
 {
-	int	stored_stdin;
-	int	stored_stdout;
+	int		stored_stdin;
+	int		stored_stdout;
 	char	*str_exit_status;
 
 	data->cur.idx_cmd = 0;

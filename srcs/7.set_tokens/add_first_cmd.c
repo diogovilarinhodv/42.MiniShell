@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   add_first_cmd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 19:46:53 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/13 04:03:45 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/03 17:45:08 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,11 @@
 
 void	add_first_cmd(t_data *data)
 {
+	int	qty;
+
 	set_cur(data);
-	data->cur.table->cmd = malloc(sizeof(t_cmd) * (data->cur.table->qty_cmd + 1));
+	qty = (data->cur.table->qty_cmd + 1);
+	data->cur.table->cmd = malloc(sizeof(t_cmd) * qty);
 	data->cur.table->qty_cmd++;
 	data->cur.table->cmd->token = NULL;
 	data->cur.table->cmd->qty_tkn = 0;

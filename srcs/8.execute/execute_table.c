@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   execute_table.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 16:56:20 by dpestana          #+#    #+#             */
-/*   Updated: 2023/01/18 22:14:07 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/03 17:51:17 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,11 @@ void	execute_table(t_data *data)
 		initialize_fd(data);
 		execute_cmd(data);
 		free_fd(data, inc_tbl);
-		if ((data->store.table + inc_tbl)->delimiter == DELIMITER_AND && data->exit_status != EXIT_SUCCESS)
+		if ((data->store.table + inc_tbl)->delimiter == DELIMITER_AND
+			&& data->exit_status != EXIT_SUCCESS)
 			break ;
-		if ((data->store.table + inc_tbl)->delimiter == DELIMITER_OR && data->exit_status == EXIT_SUCCESS)
+		if ((data->store.table + inc_tbl)->delimiter == DELIMITER_OR
+			&& data->exit_status == EXIT_SUCCESS)
 			break ;
 		inc_tbl++;
 	}

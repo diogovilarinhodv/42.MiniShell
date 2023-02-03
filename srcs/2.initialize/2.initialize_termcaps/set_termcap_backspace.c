@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_termcap_backspace.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 20:10:17 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/02 20:10:54 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/03 17:19:10 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

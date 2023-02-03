@@ -6,18 +6,23 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 15:36:15 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/03 15:35:47 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/03 17:38:50 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FUNCTIONS_H
 # define FUNCTIONS_H
 
+void	izkatka(t_data *data);
+int		izkatka2(t_data *data);
+
+
 void	turn_on_canonical(t_data *data);
 void	turn_off_canonical(t_data *data);
 
 // 1.CHECKS_ENV
 void	checks_env(char **env);
+
 // 1.CHECKS_ENV > 1.is_valid
 void	is_valid_env_var(char **env);
 void	is_valid_stdin_fd(void);
@@ -31,9 +36,11 @@ void	initialize_fd(t_data *data);
 void	initialize_termcaps(t_data *data);
 void	initialize_history(t_data *data);
 void	initialize_signals(t_data *data);
+
 // 2.INITIALIZE > 1.initialize_env
 void	set_env_lst(t_data *data, char **env);
 void	set_shlvl_env(t_data *data);
+
 // 2.INITIALIZE > 2.initialize_termcaps
 void	set_termcap_backspace(t_data *data);
 void	set_termcap_buffer(t_data *data);
@@ -44,6 +51,7 @@ void	set_termcap_keys_up_down(t_data *data);
 void	set_termcap_old_term(t_data *data);
 int		set_termcap_config(t_data *data);
 void	valid_termcap_config(t_data *data);
+
 // 2.INITIALIZE > 3.initialize_signals
 void	catch_sigint(int signum);
 void	catch_sigquit(int signum);
@@ -56,7 +64,8 @@ void	turn_off_canonical(t_data *data);
 void	write_prompt(t_data *data);
 char	*get_input_str(t_data *data);
 void	reset_line(t_data *data);
-void	add_line_to_history(t_data *data);
+void	add_first_line_to_history(t_data *data);
+void	add_other_line_to_history(t_data *data);
 int		has_history(t_data *data);
 void	select_history_cmd(t_data *data);
 void	delete_char(t_data *data);

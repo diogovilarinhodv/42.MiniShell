@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   delete_char.c                                      :+:      :+:    :+:   */
+/*   add_other_line_to_history.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/16 23:01:36 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/03 17:39:16 by dpestana         ###   ########.fr       */
+/*   Created: 2023/02/03 17:31:16 by dpestana          #+#    #+#             */
+/*   Updated: 2023/02/03 17:32:48 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-void	delete_char(t_data *data)
+void	add_other_line_to_history(t_data *data)
 {
-	int		n;
+	char	**clone;
+	int		inc;
 	char	*str;
 
-	if (data->input.buf_idx > 0)
-		data->input.buf_idx--;
-	str = (data->input.buf + data->input.buf_idx);
-	ft_bzero(str, BUFSIZ - data->input.buf_idx);
-	tputs(data->termcaps.del_line, 1, ft_putint);
-	tputs(data->termcaps.set_cursor_begin, 1, ft_putint);
-	write_prompt(data);
-	n = write(STDOUT_FILENO, data->input.buf, ft_strlen(data->input.buf));
-	data->input.buf_idx = n;
+	str = *(data->hist.str + data->hist.qty_str - 1);
+	if (ft_strcmp(str, data->input.line) == 0)
+		return ;
+	inc = 0;
+	clone = malloc(sizeof(char *) * (data->hist.qty_str + 1));
+	while (inc < data->hist.qty_str)
+	{
+		*(clone + inc) = *(data->hist.str + inc);
+		inc++;
+	}
+	*(clone + inc) = ft_strdup(data->input.line);
+	free(data->hist.str);
+	data->hist.str = clone;
+	data->hist.qty_str++;
 }
