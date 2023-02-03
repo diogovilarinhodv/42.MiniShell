@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   end_program.c                                      :+:      :+:    :+:   */
+/*   free_termcaps.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/22 14:30:23 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/03 21:26:42 by dpestana         ###   ########.fr       */
+/*   Created: 2023/02/03 19:28:36 by dpestana          #+#    #+#             */
+/*   Updated: 2023/02/03 22:55:14 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-void	end_program(t_data *data, int exit_status)
+void	free_termcaps(t_data *data)
 {
-	data->exit_status = exit_status;
-	if (tcsetattr(STDIN_FILENO, TCSANOW, &data->termcaps.old_term) == -1)
-		data->exit_status = FAIL;
-	free_env(data);
-	free_input(data);
-	free_all_fd(data);
-	free_store(data);
-	free_termcaps(data);
-	exit(data->exit_status);
+	free_str(&data->termcaps.buffer);
+	if (data->termcaps.backspace != NULL && !IS_LINUX)
+		free_str(&data->termcaps.backspace);
 }

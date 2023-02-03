@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   functions.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 15:36:15 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/03 17:38:50 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/03 21:28:51 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -229,6 +229,7 @@ void	env_empty(void);
 void	free_env(t_data *data);
 void	free_input(t_data *data);
 void	free_store(t_data *data);
+void	free_termcaps(t_data *data);
 void	free_all_fd(t_data *data);
 void	free_str(char **str);
 void	free_str_bidimensional(char ***str);
