@@ -1,29 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_ctrl.c                                          :+:      :+:    :+:   */
+/*   is_up_arrow.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/15 17:37:04 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/18 18:36:51 by dpestana         ###   ########.fr       */
+/*   Created: 2022/12/18 20:42:08 by dpestana          #+#    #+#             */
+/*   Updated: 2023/02/02 22:59:22 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../incs/minishell.h"
+#include "../../../incs/minishell.h"
 
-int	is_ctrl(t_data *data, int bytes_readed)
+int	is_up_arrow(t_data *data)
 {
-	char	ch;
-
-	ch = *(data->input.buf + data->input.buf_idx);
-	if (bytes_readed > 2)
-		return (YES);
-	else if (bytes_readed != 1)
-		return (NO);
-	else if (ch == CTRL_C || ch == CTRL_D || ch == ENTER_KEY)
-		return (NO);
-	else if ((0 <= ch && ch <= 31) || ch == 127)
+	if (ft_strcmp(data->termcaps.up_arrow, (data->input.buf + data->input.buf_idx)) == 0)
 		return (YES);
 	return (NO);
 }

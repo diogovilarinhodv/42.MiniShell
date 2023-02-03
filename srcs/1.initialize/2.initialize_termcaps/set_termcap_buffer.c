@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_arrow.c                                         :+:      :+:    :+:   */
+/*   set_termcap_buffer.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/15 17:03:28 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/18 20:27:47 by dpestana         ###   ########.fr       */
+/*   Created: 2023/02/02 20:02:27 by dpestana          #+#    #+#             */
+/*   Updated: 2023/02/03 13:46:10 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../incs/minishell.h"
+#include "../../../incs/minishell.h"
 
-int	is_arrow(t_data *data)
+void	set_termcap_buffer(t_data *data)
 {
-	if (ft_strcmp(data->termcaps.up_arrow, (data->input.buf + data->input.buf_idx)) == 0)
-		return (YES);
-	if (ft_strcmp(data->termcaps.down_arrow, (data->input.buf + data->input.buf_idx)) == 0)
-		return (YES);
-	return (NO);
+	char	*term_val;
+
+	term_val = get_env_value(data, "TERM");
+	if (term_val == NULL)
+		end_program(data, FAIL);
+	if (tgetent(data->termcaps.buffer, term_val) < 1)
+		end_program(data, FAIL);
 }

@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 18:12:12 by dpestana          #+#    #+#             */
-/*   Updated: 2023/01/16 09:19:20 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/03 13:46:47 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,5 @@
 void	invalid_input(t_data *data)
 {
 	write(STDOUT_FILENO, "Error\n", ft_strlen("Error\n"));
-	data->exit_status = FAIL;
-	end_program(data);
+	end_program(data, FAIL);
 }

@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_up_arrow.c                                      :+:      :+:    :+:   */
+/*   set_termcap_cursor.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/18 20:42:08 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/18 20:43:12 by dpestana         ###   ########.fr       */
+/*   Created: 2023/02/02 20:21:07 by dpestana          #+#    #+#             */
+/*   Updated: 2023/02/02 20:21:36 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../incs/minishell.h"
+#include "../../../incs/minishell.h"
 
-int	is_up_arrow(t_data *data)
+void	set_termcap_cursor(t_data *data)
 {
-	if (ft_strcmp(data->termcaps.up_arrow, (data->input.buf + data->input.buf_idx)) == 0)
-		return (YES);
-	return (NO);
+	data->termcaps.set_cursor_begin = tgetstr("cr", &data->termcaps.buffer);
 }

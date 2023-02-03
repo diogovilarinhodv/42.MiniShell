@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   inicialize_minishell.c                             :+:      :+:    :+:   */
+/*   set_termcap_keys_on_off.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/14 01:04:46 by dpestana          #+#    #+#             */
-/*   Updated: 2023/01/16 09:16:17 by dpestana         ###   ########.fr       */
+/*   Created: 2023/02/02 20:11:50 by dpestana          #+#    #+#             */
+/*   Updated: 2023/02/02 20:12:25 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../incs/minishell.h"
+#include "../../../incs/minishell.h"
 
-void	initialize_minishell(t_data *data)
+void	set_termcap_keys_on_off(t_data *data)
 {
-	if (isatty(STDIN_FILENO) == NO)
-	{
-		data->exit_status = FAIL;
-		end_program(data);
-	}
-	unset_env(data, "OLDPWD");
-	set_shlvl_env(data);
-	initialize_termcaps(data);
-	signal(SIGINT, catch_sigint);
-	signal(SIGQUIT, catch_sigquit);
+	data->termcaps.keys_on = tgetstr("ks", &data->termcaps.buffer);
+	if (data->termcaps.keys_on)
+		tputs(data->termcaps.keys_on, 1, ft_putint);
+	data->termcaps.keys_off = tgetstr("ke", &data->termcaps.buffer);
 }

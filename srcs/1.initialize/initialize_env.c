@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_line.c                                        :+:      :+:    :+:   */
+/*   initialize_env.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/15 16:55:34 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/03 13:38:53 by dpestana         ###   ########.fr       */
+/*   Created: 2023/02/02 19:12:09 by dpestana          #+#    #+#             */
+/*   Updated: 2023/02/02 20:00:05 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-void	read_line(t_data *data)
+void	initialize_env(t_data *data, char **env)
 {
-	int		bytes_readed;
+	int	env_qty;
 
-	turn_off_canonical(data);
-	write_prompt(data);
-	data->hist.idx = data->hist.qty_str;
-	initialize_input(data);
-	while (ft_strchr(data->input.buf, '\n') == NULL)
-		read_char(data, &bytes_readed);
-	data->input.line = get_input_str(data);
-	if (data->input.line == NULL)
-		if (*data->input.line == '\0')
-			return ;
-	add_line_to_history(data);
+	data->env.qty = 0;
+	while (*(env + data->env.qty) != NULL)
+		data->env.qty++;
+	env_qty = data->env.qty;
+	data->env.name = malloc(sizeof(char **) * data->env.qty);
+	data->env.value = malloc(sizeof(char **) * data->env.qty);
+	while (data->env.qty > 0)
+		set_env_lst(data, env);
+	data->env.qty = env_qty;
+	data->env.full = NULL;
+	unset_env(data, "OLDPWD");
+	set_shlvl_env(data);
 }

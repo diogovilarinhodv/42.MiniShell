@@ -6,11 +6,11 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 23:15:34 by dpestana          #+#    #+#             */
-/*   Updated: 2023/01/16 09:18:12 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/03 13:45:49 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../incs/minishell.h"
+#include "../../../incs/minishell.h"
 
 void	set_shlvl_env(t_data *data)
 {
@@ -26,10 +26,7 @@ void	set_shlvl_env(t_data *data)
 		int_value++;
 		str_value = ft_itoa(int_value);
 		if (str_value == NULL)
-		{
-			data->exit_status = FAIL;
-			end_program(data);
-		}
+			end_program(data, FAIL);
 		set_env(data, "SHLVL", str_value);
 		free(str_value);
 		str_value = NULL;

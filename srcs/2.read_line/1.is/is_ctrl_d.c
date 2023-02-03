@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   env_empty.c                                        :+:      :+:    :+:   */
+/*   is_ctrl_d.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/18 16:48:36 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/20 13:10:28 by dpestana         ###   ########.fr       */
+/*   Created: 2022/12/18 17:25:54 by dpestana          #+#    #+#             */
+/*   Updated: 2023/02/02 22:59:14 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../incs/minishell.h"
+#include "../../../incs/minishell.h"
 
-void	env_empty(void)
+int	is_ctrl_d(t_data *data)
 {
-	write(STDOUT_FILENO, "Error\n", ft_strlen("Error\n"));
-	exit(1);
+	if (*(data->input.buf + data->input.buf_idx) == CTRL_D)
+		return (YES);
+	return (NO);
 }

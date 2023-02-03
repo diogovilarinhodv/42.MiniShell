@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_ctrl_d.c                                        :+:      :+:    :+:   */
+/*   is_valid_env_var.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/18 17:25:54 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/18 17:26:06 by dpestana         ###   ########.fr       */
+/*   Created: 2023/02/02 19:40:25 by dpestana          #+#    #+#             */
+/*   Updated: 2023/02/02 19:45:27 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../incs/minishell.h"
+#include "../../../incs/minishell.h"
 
-int	is_ctrl_d(t_data *data)
+void	is_valid_env_var(char **env)
 {
-	if (*(data->input.buf + data->input.buf_idx) == CTRL_D)
-		return (YES);
-	return (NO);
+	if (env == NULL)
+	{
+		write(STDOUT_FILENO, "Error\n", ft_strlen("Error\n"));
+		exit(1);
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 16:58:20 by dpestana          #+#    #+#             */
-/*   Updated: 2023/01/16 09:20:30 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/03 13:47:07 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,5 @@ void	turn_off_canonical(t_data *data)
 	data->termcaps.new_term.c_cc[VMIN] = 1;
 	data->termcaps.new_term.c_cc[VTIME] = 0;
 	if (tcsetattr(STDIN_FILENO, TCSANOW, &data->termcaps.new_term) == -1)
-	{
-		data->exit_status = FAIL;
-		end_program(data);
-	}
+		end_program(data, FAIL);
 }

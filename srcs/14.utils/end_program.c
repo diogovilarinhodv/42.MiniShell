@@ -6,15 +6,17 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 14:30:23 by dpestana          #+#    #+#             */
-/*   Updated: 2023/01/18 22:11:55 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/03 13:43:03 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-void	end_program(t_data *data)
+void	end_program(t_data *data, int exit_status)
 {
-	turn_on_canonical(data);
+	data->exit_status = exit_status;
+	if (tcsetattr(STDIN_FILENO, TCSANOW, &data->termcaps.old_term) == -1)
+		data->exit_status = FAIL;
 	free_env(data);
 	free_input(data);
 	free_all_fd(data);

@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_ctrl_c.c                                        :+:      :+:    :+:   */
+/*   is_backspace.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/18 17:24:17 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/18 17:25:51 by dpestana         ###   ########.fr       */
+/*   Created: 2022/12/18 18:29:57 by dpestana          #+#    #+#             */
+/*   Updated: 2023/02/02 22:59:08 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../incs/minishell.h"
+#include "../../../incs/minishell.h"
 
-int	is_ctrl_c(t_data *data)
+int	is_backspace(t_data *data)
 {
-	if (*(data->input.buf + data->input.buf_idx) == CTRL_C)
+	if (ft_strcmp((data->input.buf + data->input.buf_idx), data->termcaps.backspace) == 0)
 		return (YES);
 	return (NO);
 }

@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   signal_catch_sigint.c                              :+:      :+:    :+:   */
+/*   is_ctrl.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/16 23:12:54 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/16 23:13:13 by dpestana         ###   ########.fr       */
+/*   Created: 2022/12/15 17:37:04 by dpestana          #+#    #+#             */
+/*   Updated: 2023/02/02 22:59:17 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../incs/minishell.h"
+#include "../../../incs/minishell.h"
 
-void	catch_sigint(int signum)
+int	is_ctrl(t_data *data, int bytes_readed)
 {
-	(void)signum;
-	write(1, "\n", ft_strlen("\n"));
+	char	ch;
+
+	ch = *(data->input.buf + data->input.buf_idx);
+	if (bytes_readed > 2)
+		return (YES);
+	else if (bytes_readed != 1)
+		return (NO);
+	else if (ch == CTRL_C || ch == CTRL_D || ch == ENTER_KEY)
+		return (NO);
+	else if ((0 <= ch && ch <= 31) || ch == 127)
+		return (YES);
+	return (NO);
 }

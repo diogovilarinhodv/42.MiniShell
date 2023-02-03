@@ -1,30 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_line.c                                        :+:      :+:    :+:   */
+/*   initialize_signals.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/15 16:55:34 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/03 13:38:53 by dpestana         ###   ########.fr       */
+/*   Created: 2023/02/02 22:46:09 by dpestana          #+#    #+#             */
+/*   Updated: 2023/02/02 22:56:27 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-void	read_line(t_data *data)
+void	initialize_signals(t_data *data);
 {
-	int		bytes_readed;
-
-	turn_off_canonical(data);
-	write_prompt(data);
-	data->hist.idx = data->hist.qty_str;
-	initialize_input(data);
-	while (ft_strchr(data->input.buf, '\n') == NULL)
-		read_char(data, &bytes_readed);
-	data->input.line = get_input_str(data);
-	if (data->input.line == NULL)
-		if (*data->input.line == '\0')
-			return ;
-	add_line_to_history(data);
+	signal(SIGINT, catch_sigint);
+	signal(SIGQUIT, catch_sigquit);
+	data->exit_status = SUCCESS;
 }

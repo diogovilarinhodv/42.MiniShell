@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_input_str.c                                    :+:      :+:    :+:   */
+/*   signal_catch_sigint.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/15 17:39:35 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/03 13:46:55 by dpestana         ###   ########.fr       */
+/*   Created: 2022/12/16 23:12:54 by dpestana          #+#    #+#             */
+/*   Updated: 2023/02/02 19:31:01 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../incs/minishell.h"
+#include "../../../incs/minishell.h"
 
-char	*get_input_str(t_data *data)
+void	catch_sigint(int signum)
 {
-	char	*input;
-
-	*(data->input.buf + data->input.buf_idx - 1) = '\0';
-	input = ft_strdup(data->input.buf);
-	if (input == NULL)
-		end_program(data, FAIL);
-	return (input);
+	(void)signum;
+	write(1, "\n", ft_strlen("\n"));
 }

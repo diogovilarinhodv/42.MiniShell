@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   inicialize.c                                       :+:      :+:    :+:   */
+/*   is_down_arrow.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/04 14:19:50 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/20 13:49:32 by dpestana         ###   ########.fr       */
+/*   Created: 2022/12/18 20:43:42 by dpestana          #+#    #+#             */
+/*   Updated: 2023/02/02 22:59:20 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../incs/minishell.h"
+#include "../../../incs/minishell.h"
 
-void	initialize(t_data *data, int argc, char **argv, char **env)
+int	is_down_arrow(t_data *data)
 {
-	(void) argc;
-	(void) argv;
-	initialize_env(data, env);
-	data->env.full = NULL;
-	initialize_table(data);
-	initialize_history(data);
-	initialize_minishell(data);
-	data->exit_status = SUCCESS;
+	if (ft_strcmp(data->termcaps.down_arrow, (data->input.buf + data->input.buf_idx)) == 0)
+		return (YES);
+	return (NO);
 }

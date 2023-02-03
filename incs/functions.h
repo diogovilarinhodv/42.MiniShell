@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   functions.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 15:36:15 by dpestana          #+#    #+#             */
-/*   Updated: 2023/01/19 16:52:25 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/03 13:43:58 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,7 +170,7 @@ void	unset_env(t_data *data, char *name);
 // 10.UTILS
 int		count_chr(char *str, char c);
 void	testing_stuffs(t_data *data);
-void	end_program(t_data *data);
+void	end_program(t_data *data, int exit_status);
 void	set_cur(t_data *data);
 void	unset_cur(t_data *data);
 

@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_down_arrow.c                                    :+:      :+:    :+:   */
+/*   set_termcap_old_term.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/18 20:43:42 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/18 20:45:15 by dpestana         ###   ########.fr       */
+/*   Created: 2023/02/02 19:56:43 by dpestana          #+#    #+#             */
+/*   Updated: 2023/02/03 13:46:22 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../incs/minishell.h"
+#include "../../../incs/minishell.h"
 
-int	is_down_arrow(t_data *data)
+void	set_termcap_old_term(t_data *data)
 {
-	if (ft_strcmp(data->termcaps.down_arrow, (data->input.buf + data->input.buf_idx)) == 0)
-		return (YES);
-	return (NO);
+	if (tcgetattr(STDIN_FILENO, &data->termcaps.old_term) == -1)
+		end_program(data, FAIL);
 }

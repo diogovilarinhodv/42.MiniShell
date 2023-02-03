@@ -6,11 +6,11 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 23:13:49 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/20 13:09:46 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/02 19:31:04 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../incs/minishell.h"
+#include "../../../incs/minishell.h"
 
 void	catch_sigquit(int signum)
 {
