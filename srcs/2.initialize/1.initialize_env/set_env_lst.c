@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   set_env_lst.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 18:27:08 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/02 19:12:44 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/03 15:28:31 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../incs/minishell.h"
 
-static void	set_env_lst(t_data *data, char **env)
+void	set_env_lst(t_data *data, char **env)
 {
 	int		inc;
 	int		len;

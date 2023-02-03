@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   initialize_signals.c                               :+:      :+:    :+:   */
+/*   checks_input.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/02 22:46:09 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/02 22:56:27 by dpestana         ###   ########.fr       */
+/*   Created: 2022/10/11 15:40:44 by dpestana          #+#    #+#             */
+/*   Updated: 2023/02/03 15:14:14 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-void	initialize_signals(t_data *data);
+int	checks_input(t_data *data)
 {
-	signal(SIGINT, catch_sigint);
-	signal(SIGQUIT, catch_sigquit);
-	data->exit_status = SUCCESS;
+	if (first_check(data) == FAIL)
+		return (FAIL);
+	remove_spaces_bysides(data);
+	if (second_check(data) == FAIL)
+		return (FAIL);
+	return (SUCCESS);
 }

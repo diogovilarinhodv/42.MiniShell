@@ -63,26 +63,32 @@ all:				$(NAME)
 folders:				
 					$(CREATE_FOLDER) $(OBJ_FOLDER)
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/1.initialize
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/2.read_line
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/3.check_line
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/4.input_handler
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/5.token_creation
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/6.set_tokens
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/7.execute
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/8.replace_tokens
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/9.replace_env_vars
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/10.builtins
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/10.builtins/1.builtin_cd
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/10.builtins/2.builtin_echo
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/10.builtins/3.builtin_export
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/11.file_descriptors
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/12.path_handler
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/13.env_handler
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/14.utils
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/15.libft
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/16.errors
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/17.free
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/1.checks_env
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/1.checks_env/1.is_valid
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/2.initialize
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/2.initialize/1.initialize_env
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/2.initialize/2.initialize_termcaps
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/2.initialize/3.initialize_signals
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/3.read_line
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/3.read_line/1.is
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/4.check_line
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/5.input_handler
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/6.token_creation
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/7.set_tokens
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/8.execute
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/9.replace_tokens
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/10.replace_env_vars
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/11.builtins
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/11.builtins/1.builtin_cd
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/11.builtins/2.builtin_echo
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/11.builtins/3.builtin_export
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/12.file_descriptors
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/13.path_handler
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/14.env_handler
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/15.utils
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/16.libft
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/17.errors
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/18.free
 					$(CREATE_FOLDER) $(LIB_FOLDER)
 
 # Build Project
