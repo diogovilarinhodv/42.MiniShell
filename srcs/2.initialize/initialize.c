@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initialize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 14:19:50 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/02 22:56:51 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/04 18:06:07 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,5 @@ void	initialize(t_data *data, int argc, char **argv, char **env)
 	initialize_history(data);
 	initialize_termcaps(data);
 	initialize_signals(data);
+	data->exit_status = SUCCESS;
 }

@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   initialize_signals.c                               :+:      :+:    :+:   */
+/*   shlvl_env_increase.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/02 22:46:09 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/04 18:06:04 by dpestana         ###   ########.fr       */
+/*   Created: 2023/02/04 17:54:12 by dpestana          #+#    #+#             */
+/*   Updated: 2023/02/04 18:00:48 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../incs/minishell.h"
+#include "../../../incs/minishell.h"
 
-void	initialize_signals(t_data *data)
+void	shlvl_env_increase(t_data *data, char *str_shlvl_value)
 {
-	signal(SIGINT, catch_sigint);
-	signal(SIGQUIT, catch_sigquit);
+	int		int_shlvl_value;
+
+	int_shlvl_value = ft_atoi(str_shlvl_value);
+	int_shlvl_value++;
+	str_shlvl_value = ft_itoa(int_shlvl_value);
+	if (str_shlvl_value == NULL)
+		end_program(data, FAIL);
+	set_env(data, "SHLVL", str_shlvl_value);
+	free_str(&str_shlvl_value);
 }

@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 15:36:15 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/04 17:10:01 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/04 18:03:02 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,9 @@ char	*set_env_lst_get_value_idx(t_data *data, char *env_var);
 char	*set_env_lst_get_value(t_data *data, char *env_var);
 void	set_env_lst_set_qty(t_data *data, char **env);
 void	set_env_lst(t_data *data, char **env);
-void	set_shlvl_env(t_data *data);
+
+void	shlvl_env_default_config(t_data *data);
+void	shlvl_env_increase(t_data *data, char *str_shlvl_value);
 
 // 2.INITIALIZE > 2.initialize_termcaps
 void	set_termcap_backspace(t_data *data);
