@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   inicialize_input.c                                 :+:      :+:    :+:   */
+/*   initialize_input.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 09:46:49 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/18 19:25:56 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/04 17:12:51 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	initialize_input(t_data *data)
 {
 	data->input.line = NULL;
 	data->input.idx = 0;
-	data->input.buf = malloc(sizeof(char) * BUFFER_SIZE);
+	data->input.buf = malloc(sizeof(char) * BUFSIZ);
 	ft_bzero(data->input.buf, BUFSIZ);
 	data->input.buf_idx = 0;
 }

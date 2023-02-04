@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 15:44:01 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/03 15:44:01 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/04 17:12:56 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,6 @@
 # define DELIMITER_NULL		0
 # define DELIMITER_OR		1
 # define DELIMITER_AND		2
-
-# define BUFFER_SIZE 		BUFSIZ
 
 # ifdef unix
 #  define IS_LINUX 1
