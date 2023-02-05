@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   initialize.c                                       :+:      :+:    :+:   */
+/*   5.input_handler.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/04 14:19:50 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/05 12:04:42 by dpestana         ###   ########.fr       */
+/*   Created: 2023/02/05 20:10:32 by dpestana          #+#    #+#             */
+/*   Updated: 2023/02/05 20:10:52 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../incs/minishell.h"
+#ifndef INPUT_HANDLER_H
+# define INPUT_HANDLER_H
 
-void	initialize(t_data *data, int argc, char **argv, char **env)
-{
-	(void) argc;
-	(void) argv;
-	initialize_env(data, env);
-	initialize_table(data);
-	initialize_history(data);
-	initialize_termcaps(data);
-	initialize_signals();
-	data->exit_status = SUCCESS;
-}
+// 5.INPUT HANDLER
+void	execute(t_data *data);
+void	organize(t_data *data);
+
+#endif

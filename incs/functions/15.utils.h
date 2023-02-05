@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   initialize.c                                       :+:      :+:    :+:   */
+/*   15.utils.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/04 14:19:50 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/05 12:04:42 by dpestana         ###   ########.fr       */
+/*   Created: 2023/02/05 20:15:22 by dpestana          #+#    #+#             */
+/*   Updated: 2023/02/05 20:15:36 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../incs/minishell.h"
+#ifndef UTILS_H
+# define UTILS_H
 
-void	initialize(t_data *data, int argc, char **argv, char **env)
-{
-	(void) argc;
-	(void) argv;
-	initialize_env(data, env);
-	initialize_table(data);
-	initialize_history(data);
-	initialize_termcaps(data);
-	initialize_signals();
-	data->exit_status = SUCCESS;
-}
+// 15.UTILS
+int		count_chr(char *str, char c);
+void	testing_stuffs(t_data *data);
+void	end_program(t_data *data, int exit_status);
+void	set_cur(t_data *data);
+void	unset_cur(t_data *data);
+void	turn_on_canonical(t_data *data);
+void	turn_off_canonical(t_data *data);
+
+#endif

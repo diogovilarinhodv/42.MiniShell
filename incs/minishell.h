@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 15:44:01 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/04 17:12:56 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/05 20:01:37 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,13 @@
 # include <sys/ioctl.h>
 # include <termios.h>
 
+// STRUCTS
 # include "structs.h"
+
+// FUNCTIONS
 # include "functions.h"
+
+// ANSI COLORS
 # include "ansi_colors.h"
 
 // MACROS

@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   initialize.c                                       :+:      :+:    :+:   */
+/*   1.checks_env.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/04 14:19:50 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/05 12:04:42 by dpestana         ###   ########.fr       */
+/*   Created: 2023/02/05 20:07:51 by dpestana          #+#    #+#             */
+/*   Updated: 2023/02/05 20:08:32 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../incs/minishell.h"
+#ifndef CHECKS_ENV_H
+# define CHECKS_ENV_H
 
-void	initialize(t_data *data, int argc, char **argv, char **env)
-{
-	(void) argc;
-	(void) argv;
-	initialize_env(data, env);
-	initialize_table(data);
-	initialize_history(data);
-	initialize_termcaps(data);
-	initialize_signals();
-	data->exit_status = SUCCESS;
-}
+// 1.CHECKS_ENV
+void	checks_env(char **env);
+
+// 1.CHECKS_ENV > 1.is_valid
+void	is_valid_env_var(char **env);
+void	is_valid_stdin_fd(void);
+
+#endif

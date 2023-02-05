@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   initialize.c                                       :+:      :+:    :+:   */
+/*   4.check_line.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/04 14:19:50 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/05 12:04:42 by dpestana         ###   ########.fr       */
+/*   Created: 2023/02/05 20:10:08 by dpestana          #+#    #+#             */
+/*   Updated: 2023/02/05 20:10:24 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../incs/minishell.h"
+#ifndef CHECKS_LINE_H
+# define CHECKS_LINE_H
 
-void	initialize(t_data *data, int argc, char **argv, char **env)
-{
-	(void) argc;
-	(void) argv;
-	initialize_env(data, env);
-	initialize_table(data);
-	initialize_history(data);
-	initialize_termcaps(data);
-	initialize_signals();
-	data->exit_status = SUCCESS;
-}
+// 4.CHECKS_LINE
+int		checks_input(t_data *data);
+int		first_check(t_data *data);
+void	remove_spaces_bysides(t_data *data);
+int		second_check(t_data *data);
+
+#endif

@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   initialize.c                                       :+:      :+:    :+:   */
+/*   12.file_descriptors.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/04 14:19:50 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/05 12:04:42 by dpestana         ###   ########.fr       */
+/*   Created: 2023/02/05 20:14:04 by dpestana          #+#    #+#             */
+/*   Updated: 2023/02/05 20:14:22 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../incs/minishell.h"
+#ifndef FILE_DESCRIPTORS_H
+# define FILE_DESCRIPTORS_H
 
-void	initialize(t_data *data, int argc, char **argv, char **env)
-{
-	(void) argc;
-	(void) argv;
-	initialize_env(data, env);
-	initialize_table(data);
-	initialize_history(data);
-	initialize_termcaps(data);
-	initialize_signals();
-	data->exit_status = SUCCESS;
-}
+// 12.FILE_DESCRIPTORS
+void	close_fd(t_data *data);
+void	close_all_fd(t_data *data);
+void	set_dup2(t_data *data);
+int		is_only_one_cmd_fd(t_data *data);
+int		is_first_cmd_fd(t_data *data);
+int		is_middle_cmd_fd(t_data *data);
+int		is_last_cmd_fd(t_data *data);
+
+#endif

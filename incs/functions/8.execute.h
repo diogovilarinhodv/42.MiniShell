@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   initialize.c                                       :+:      :+:    :+:   */
+/*   8.execute.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/04 14:19:50 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/05 12:04:42 by dpestana         ###   ########.fr       */
+/*   Created: 2023/02/05 20:12:06 by dpestana          #+#    #+#             */
+/*   Updated: 2023/02/05 20:12:28 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../incs/minishell.h"
+#ifndef EXECUTE_H
+# define EXECUTE_H
 
-void	initialize(t_data *data, int argc, char **argv, char **env)
-{
-	(void) argc;
-	(void) argv;
-	initialize_env(data, env);
-	initialize_table(data);
-	initialize_history(data);
-	initialize_termcaps(data);
-	initialize_signals();
-	data->exit_status = SUCCESS;
-}
+// 8.EXECUTE
+void	execute_table(t_data *data);
+void	execute_cmd(t_data *data);
+void	children_process(t_data *data);
+void	replace_tokens(t_data *data);
+void	set_redirects(t_data *data);
+int		builtins(t_data *data);
+void	non_builtin(t_data *data);
+void	set_env_var_full(t_data *data);
+void	unset_env_var_full(t_data *data);
+
+#endif
