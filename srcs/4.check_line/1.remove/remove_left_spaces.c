@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   remove_left_spaces.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/15 18:07:09 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/06 18:16:05 by dpestana         ###   ########.fr       */
+/*   Created: 2023/02/06 17:56:27 by dpestana          #+#    #+#             */
+/*   Updated: 2023/02/06 18:04:57 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/minishell.h"
+#include "../../../incs/minishell.h"
 
-int	main(int argc, char **argv, char **env)
+void	remove_left_spaces(t_data *data)
 {
-	t_data	data;
+	int		inc;
+	char	*clone;
 
-	checks_env(env);
-	initialize(&data, argc, argv, env);
-	while (1)
+	inc = 0;
+	while (*(data->input.line + inc) != '\0')
 	{
-		read_line(&data);
-		if (checks_input(&data) == SUCCESS)
-			running(&data);
-		free_input(&data);
+		if (ft_isspace(*(data->input.line + inc)) == 0)
+			break ;
+		inc++;
 	}
-	end_program(&data, SUCCESS);
-	return (0);
+	clone = ft_strdup(data->input.line + inc);
+	if (clone == NULL)
+		end_program(data, FAIL);
+	free(data->input.line);
+	data->input.line = clone;
 }

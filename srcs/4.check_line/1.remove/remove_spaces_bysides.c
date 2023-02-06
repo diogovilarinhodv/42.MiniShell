@@ -1,30 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   remove_spaces_bysides.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/15 18:07:09 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/06 18:16:05 by dpestana         ###   ########.fr       */
+/*   Created: 2022/10/11 15:41:30 by dpestana          #+#    #+#             */
+/*   Updated: 2023/02/06 17:57:46 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/minishell.h"
+#include "../../../incs/minishell.h"
 
-int	main(int argc, char **argv, char **env)
+void	remove_spaces_bysides(t_data *data)
 {
-	t_data	data;
-
-	checks_env(env);
-	initialize(&data, argc, argv, env);
-	while (1)
-	{
-		read_line(&data);
-		if (checks_input(&data) == SUCCESS)
-			running(&data);
-		free_input(&data);
-	}
-	end_program(&data, SUCCESS);
-	return (0);
+	remove_left_spaces(data);
+	remove_right_spaces(data);
 }

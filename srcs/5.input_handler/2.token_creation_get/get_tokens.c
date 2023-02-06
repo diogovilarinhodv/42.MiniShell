@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   get_tokens.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/15 18:07:09 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/06 18:16:05 by dpestana         ###   ########.fr       */
+/*   Created: 2022/10/13 11:13:53 by dpestana          #+#    #+#             */
+/*   Updated: 2023/02/06 18:35:39 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/minishell.h"
+#include "../../../incs/minishell.h"
 
-int	main(int argc, char **argv, char **env)
+void	get_tokens(t_data *data, int *pos_beg, int *pos_end)
 {
-	t_data	data;
-
-	checks_env(env);
-	initialize(&data, argc, argv, env);
-	while (1)
-	{
-		read_line(&data);
-		if (checks_input(&data) == SUCCESS)
-			running(&data);
-		free_input(&data);
-	}
-	end_program(&data, SUCCESS);
-	return (0);
+	get_token_pos_begin(data);
+	*pos_beg = data->input.idx;
+	if (is_quote(data) == YES)
+		get_quote_pos_end(data);
+	else
+		get_token_pos_end(data);
+	*pos_end = data->input.idx;
+	if (*(data->input.line + data->input.idx) != '\0')
+		data->input.idx++;
 }

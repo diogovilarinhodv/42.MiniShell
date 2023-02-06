@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   running.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/15 18:07:09 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/06 18:16:05 by dpestana         ###   ########.fr       */
+/*   Created: 2022/06/19 17:18:01 by dpestana          #+#    #+#             */
+/*   Updated: 2023/02/06 18:17:10 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/minishell.h"
+#include "../../incs/minishell.h"
 
-int	main(int argc, char **argv, char **env)
+void	running(t_data *data)
 {
-	t_data	data;
-
-	checks_env(env);
-	initialize(&data, argc, argv, env);
-	while (1)
-	{
-		read_line(&data);
-		if (checks_input(&data) == SUCCESS)
-			running(&data);
-		free_input(&data);
-	}
-	end_program(&data, SUCCESS);
-	return (0);
+	turn_on_canonical(data);
+	initialize_table(data);
+	organize(data);
+	execute_table(data);
+	free_store(data);
 }

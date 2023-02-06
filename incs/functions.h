@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 15:36:15 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/06 16:13:56 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/06 18:37:10 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@
 # include "functions/c.read_line.h"
 # include "functions/d.check_line.h"
 # include "functions/e.input_handler.h"
-# include "functions/f.token_creation.h"
-# include "functions/g.set_tokens.h"
 # include "functions/h.execute.h"
 # include "functions/i.replace_tokens.h"
 # include "functions/j.replace_env_vars.h"

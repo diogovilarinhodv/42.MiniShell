@@ -75,9 +75,16 @@ folders:
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/3.read_line/3.history
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/3.read_line/4.input
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/4.check_line
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/4.check_line/1.remove
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/5.input_handler
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/6.token_creation
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/7.set_tokens
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/5.input_handler/1.token_creation
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/5.input_handler/2.token_creation_get
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/5.input_handler/3.set_tokens
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/5.input_handler/4.set_tokens_is
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/5.input_handler/5.set_tokens_add_table
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/5.input_handler/6.set_tokens_add_cmd
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/5.input_handler/7.set_tokens_add_token
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/5.input_handler/8.set_tokens_add_redirections
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/8.execute
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/9.replace_tokens
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/10.replace_env_vars

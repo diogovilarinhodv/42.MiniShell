@@ -3,48 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   organize.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/19 17:18:01 by dpestana          #+#    #+#             */
-/*   Updated: 2023/01/18 19:46:56 by dpestana         ###   ########.fr       */
+/*   Created: 2023/02/06 18:16:25 by dpestana          #+#    #+#             */
+/*   Updated: 2023/02/06 18:17:29 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
-
-static char	*cmd_limiter_run(t_data *data, char *token)
-{
-	if (is_first_cmd(data) == YES)
-	{
-		if (is_first_table(data) == YES)
-			add_first_table(data);
-		add_first_cmd(data);
-	}
-	set_cur(data);
-	if (is_redirection(token) == YES)
-		add_redirection_type(data, token);
-	else if (data->cur.cmd->is_red == YES)
-		add_redirection_token(data, token);
-	else
-		add_token(data, token);
-	unset_cur(data);
-	return (token);
-}
-
-static char	*non_cmd_limiter_run(t_data *data, char *token)
-{
-	if (is_table_delimiter(token) == YES)
-	{
-		set_cur(data);
-		add_delimiter(data, token);
-		unset_cur(data);
-		add_another_table(data);
-	}
-	else
-		add_another_cmd(data);
-	free(token);
-	return (token);
-}
 
 void	organize(t_data *data)
 {
