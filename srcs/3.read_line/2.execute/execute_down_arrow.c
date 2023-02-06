@@ -6,11 +6,11 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 22:35:09 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/03 17:26:03 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/06 17:50:33 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../incs/minishell.h"
+#include "../../../incs/minishell.h"
 
 void	execute_down_arrow(t_data *data)
 {

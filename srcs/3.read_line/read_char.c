@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 13:37:23 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/03 17:38:34 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/06 17:43:51 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	read_char(t_data *data, int *bytes_readed)
 	if (is_arrow(data))
 		select_history_cmd(data);
 	else if (is_backspace(data) == YES)
-		delete_char(data);
+		execute_delete_char(data);
 	else if (is_ctrl(data, *bytes_readed) == YES)
 		ft_bzero(str, BUFSIZ - data->input.buf_idx);
 	else if (is_ctrl_c(data) == YES)

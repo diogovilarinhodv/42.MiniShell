@@ -6,11 +6,11 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 23:38:16 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/03 17:42:20 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/06 17:50:53 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../incs/minishell.h"
+#include "../../../incs/minishell.h"
 
 void	select_history_cmd(t_data *data)
 {

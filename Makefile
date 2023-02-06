@@ -71,6 +71,9 @@ folders:
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/2.initialize/3.initialize_signals
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/3.read_line
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/3.read_line/1.is
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/3.read_line/2.execute
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/3.read_line/3.history
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/3.read_line/4.input
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/4.check_line
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/5.input_handler
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/6.token_creation

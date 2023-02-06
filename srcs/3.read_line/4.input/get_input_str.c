@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_line.c                                        :+:      :+:    :+:   */
+/*   get_input_str.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/15 16:55:34 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/06 17:30:20 by dpestana         ###   ########.fr       */
+/*   Created: 2022/12/15 17:39:35 by dpestana          #+#    #+#             */
+/*   Updated: 2023/02/06 17:51:01 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../incs/minishell.h"
+#include "../../../incs/minishell.h"
 
-void	read_line(t_data *data)
+char	*get_input_str(t_data *data)
 {
-	int		bytes_readed;
+	char	*input;
 
-	turn_off_canonical(data);
-	write_prompt(data);
-	set_history_idx(data);
-	initialize_input(data);
-	while (ft_strchr(data->input.buf, '\n') == NULL)
-		read_char(data, &bytes_readed);
-	if (set_input_line(data) == FAIL)
-		return ;
-	add_line_to_history(data);
+	*(data->input.buf + data->input.buf_idx - 1) = '\0';
+	input = ft_strdup(data->input.buf);
+	if (input == NULL)
+		end_program(data, FAIL);
+	return (input);
 }

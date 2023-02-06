@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 18:15:10 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/06 16:53:55 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/06 17:16:07 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,7 @@ void	execute_cmd(t_data *data)
 		save_std_fd(&stdin_saved, &stdout_saved);
 		replace_tokens(data);
 		set_redirects(data);
-		if (data->exit_status == EXIT_SUCCESS)
-			if (builtins(data) == NO)
-				non_builtin(data);
+		execute_token(data);
 		unset_env_var_full(data);
 		close_std_fd(&stdin_saved, &stdout_saved);
 		set_last_cmd_env(data);

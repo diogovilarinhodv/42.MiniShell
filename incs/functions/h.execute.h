@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 20:12:06 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/06 16:55:22 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/06 17:53:13 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ void	save_std_fd(int *stdin_saved, int *stdout_saved);
 void	close_std_fd(int *stdin_saved, int *stdout_saved);
 void	set_exit_status_env(t_data *data);
 void	set_last_cmd_env(t_data *data);
-
+void	execute_token(t_data *data);
 
 #endif
