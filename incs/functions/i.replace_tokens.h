@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   9.replace_tokens.h                                 :+:      :+:    :+:   */
+/*   i.replace_tokens.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 20:12:34 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/05 20:12:57 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/06 16:15:34 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef REPLACE_TOKENS_H
-# define REPLACE_TOKENS_H
+#ifndef I_REPLACE_TOKENS_H
+# define I_REPLACE_TOKENS_H
 
 // 9.REPLACE_TOKENS
 int		token_has_cipher(t_data *data);

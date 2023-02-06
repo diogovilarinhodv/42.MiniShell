@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   10.replace_env_vars.h                              :+:      :+:    :+:   */
+/*   j.replace_env_vars.h                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 20:13:04 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/05 20:13:25 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/06 16:15:29 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef REPLACE_ENV_VARS_H
-# define REPLACE_ENV_VARS_H
+#ifndef J_REPLACE_ENV_VARS_H
+# define J_REPLACE_ENV_VARS_H
 
 // 10.REPLACE_ENV_VARS
 char	*create_tkn_replace(char *str_one, char *str_two, char *new_token);

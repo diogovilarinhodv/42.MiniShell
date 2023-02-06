@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   4.check_line.h                                     :+:      :+:    :+:   */
+/*   close_std_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/05 20:10:08 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/05 20:10:24 by dpestana         ###   ########.fr       */
+/*   Created: 2023/02/06 16:43:44 by dpestana          #+#    #+#             */
+/*   Updated: 2023/02/06 16:44:38 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKS_LINE_H
-# define CHECKS_LINE_H
+#include "../../incs/minishell.h"
 
-// 4.CHECKS_LINE
-int		checks_input(t_data *data);
-int		first_check(t_data *data);
-void	remove_spaces_bysides(t_data *data);
-int		second_check(t_data *data);
-
-#endif
+void	close_std_fd(int *stdin_saved, int *stdout_saved)
+{
+	dup2(*stdin_saved, STDIN_FILENO);
+	dup2(*stdout_saved, STDOUT_FILENO);
+	close(*stdin_saved);
+	close(*stdout_saved);
+}

@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   6.token_creation.h                                 :+:      :+:    :+:   */
+/*   f.token_creation.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 20:11:01 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/05 20:11:23 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/06 16:15:50 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TOKEN_CREATION_H
-# define TOKEN_CREATION_H
+#ifndef F_TOKEN_CREATION_H
+# define F_TOKEN_CREATION_H
 
 // 6.TOKEN_CREATION
 void	get_tokens(t_data *data, int *pos_beg, int *pos_end);

@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   5.input_handler.h                                  :+:      :+:    :+:   */
+/*   save_std_fd.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/05 20:10:32 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/05 20:10:52 by dpestana         ###   ########.fr       */
+/*   Created: 2023/02/06 16:33:59 by dpestana          #+#    #+#             */
+/*   Updated: 2023/02/06 16:44:40 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INPUT_HANDLER_H
-# define INPUT_HANDLER_H
+#include "../../incs/minishell.h"
 
-// 5.INPUT HANDLER
-void	execute(t_data *data);
-void	organize(t_data *data);
-
-#endif
+void	save_std_fd(int *stdin_saved, int *stdout_saved)
+{
+	*stdin_saved = dup(STDIN_FILENO);
+	*stdout_saved = dup(STDOUT_FILENO);
+}

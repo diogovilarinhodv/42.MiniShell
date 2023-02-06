@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   2.initialize.h                                     :+:      :+:    :+:   */
+/*   b.initialize.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 20:08:54 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/06 14:46:45 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/06 16:16:16 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INITIALIZE_H
-# define INITIALIZE_H
+#ifndef B_INITIALIZE_H
+# define B_INITIALIZE_H
 
 // 2.INITIALIZE
 void	initialize(t_data *data, int argc, char **argv, char **env);

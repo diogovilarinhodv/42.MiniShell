@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   16.libft.h                                         :+:      :+:    :+:   */
+/*   p.libft.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 20:15:43 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/05 20:15:57 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/06 16:14:44 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#ifndef P_LIBFT_H
+# define P_LIBFT_H
 
 // 16.LIBFT
 size_t	ft_strlen(const char *s);

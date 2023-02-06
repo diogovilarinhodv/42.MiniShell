@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   11.builtins.h                                      :+:      :+:    :+:   */
+/*   k.builtins.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 20:13:36 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/05 20:13:55 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/06 16:15:23 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUILTINS_H
-# define BUILTINS_H
+#ifndef K_BUILTINS_H
+# define K_BUILTINS_H
 
 // 11.BUILTINS
 void	builtin_cd(t_data *data);

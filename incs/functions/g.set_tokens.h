@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   7.set_tokens.h                                     :+:      :+:    :+:   */
+/*   g.set_tokens.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 20:11:41 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/05 20:12:02 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/06 16:15:44 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SET_TOKENS_H
-# define SET_TOKENS_H
+#ifndef G_SET_TOKENS_H
+# define G_SET_TOKENS_H
 
 // 7.SET_TOKENS
 int		is_cmd_delimiter(char *token);

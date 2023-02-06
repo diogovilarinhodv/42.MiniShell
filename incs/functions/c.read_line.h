@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   3.read_line.h                                      :+:      :+:    :+:   */
+/*   c.read_line.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 20:09:45 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/06 14:47:53 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/06 16:16:10 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef READ_LINE_H
-# define READ_LINE_H
+#ifndef C_READ_LINE_H
+# define C_READ_LINE_H
 
 // 3.READ_LINE
 void	read_line(t_data *data);
