@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_termcap_buffer.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 20:02:27 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/03 17:03:14 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/06 14:17:15 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

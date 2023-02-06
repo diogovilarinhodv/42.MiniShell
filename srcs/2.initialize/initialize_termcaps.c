@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initialize_termcaps.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 01:49:37 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/03 17:03:58 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/06 14:17:22 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
