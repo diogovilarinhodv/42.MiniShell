@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_all_fd.c                                      :+:      :+:    :+:   */
+/*   free_table_all_fd.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 12:02:08 by dpestana          #+#    #+#             */
-/*   Updated: 2023/01/18 22:12:06 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/07 08:33:09 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-void	free_all_fd(t_data *data)
+void	free_table_all_fd(t_data *data)
 {
 	int	inc_tbl;
 	int	inc_fd;
