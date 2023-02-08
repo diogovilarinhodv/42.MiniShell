@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checks_input.c                                     :+:      :+:    :+:   */
+/*   has_char_at_begin.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/11 15:40:44 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/08 17:04:47 by dpestana         ###   ########.fr       */
+/*   Created: 2023/02/08 13:06:23 by dpestana          #+#    #+#             */
+/*   Updated: 2023/02/08 14:34:08 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../incs/minishell.h"
+#include "../../../incs/minishell.h"
 
-int	checks_input(t_data *data)
+int	has_char_at_begin(t_data *data, char c)
 {
-	if (is_line_empty(data) == YES)
-		return (FAIL);
-	remove_spaces_bysides(data);
-	if (is_line_empty(data) == YES)
-		return (FAIL);
-	if (checks_unexpected_token(data) == FAIL)
-		return (FAIL);
-	if (checks_invalid_token(data) == FAIL)
-		return (FAIL);
-	return (SUCCESS);
+	if (*data->input.line == c)
+	{
+		write(STDOUT_FILENO, "Error: invalid char!\n", ft_strlen("Error: invalid char!\n"));
+		return (YES);
+	}
+	return (NO);
 }

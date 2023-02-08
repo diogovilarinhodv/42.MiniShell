@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checks_input.c                                     :+:      :+:    :+:   */
+/*   jump_quotes.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/11 15:40:44 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/08 17:04:47 by dpestana         ###   ########.fr       */
+/*   Created: 2023/02/08 15:33:33 by dpestana          #+#    #+#             */
+/*   Updated: 2023/02/08 15:44:57 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-int	checks_input(t_data *data)
+void	jump_quotes(char *str, int *inc)
 {
-	if (is_line_empty(data) == YES)
-		return (FAIL);
-	remove_spaces_bysides(data);
-	if (is_line_empty(data) == YES)
-		return (FAIL);
-	if (checks_unexpected_token(data) == FAIL)
-		return (FAIL);
-	if (checks_invalid_token(data) == FAIL)
-		return (FAIL);
-	return (SUCCESS);
+	while (*(str + (*inc)) == '"' || *(str + (*inc)) == '\'')
+	{
+		if (*(str + (*inc)) == '"')
+		{
+			(*inc)++;
+			while (*(str + (*inc)) == '"')
+				(*inc)++;
+		}
+		if (*(str + (*inc)) == '\'')
+		{
+			(*inc)++;
+			while (*(str + (*inc)) == '\'')
+				(*inc)++;
+		}
+	}
 }

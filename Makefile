@@ -75,7 +75,10 @@ folders:
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/3.read_line/3.history
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/3.read_line/4.input
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/4.check_line
-					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/4.check_line/1.remove
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/4.check_line/1.is
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/4.check_line/2.remove
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/4.check_line/3.checks_unexpected_token
+					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/4.check_line/4.checks_invalid_token
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/5.input_handler
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/5.input_handler/1.token_creation
 					$(CREATE_FOLDER) $(OBJ_FOLDER)/$(SRC_FOLDER)/5.input_handler/2.token_creation_get

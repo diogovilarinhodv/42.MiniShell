@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   first_check.c                                      :+:      :+:    :+:   */
+/*   is_line_empty.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 19:36:49 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/13 03:55:12 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/08 13:55:04 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../incs/minishell.h"
+#include "../../../incs/minishell.h"
 
-int	first_check(t_data *data)
+int	is_line_empty(t_data *data)
 {
 	if (data->input.line == NULL)
-		return (FAIL);
+		return (YES);
 	if (*data->input.line == '\0')
-		return (FAIL);
-	return (SUCCESS);
+		return (YES);
+	return (NO);
 }

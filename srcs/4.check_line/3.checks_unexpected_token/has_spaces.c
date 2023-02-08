@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checks_input.c                                     :+:      :+:    :+:   */
+/*   has_spaces.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/11 15:40:44 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/08 17:04:47 by dpestana         ###   ########.fr       */
+/*   Created: 2023/02/08 13:29:39 by dpestana          #+#    #+#             */
+/*   Updated: 2023/02/08 17:11:02 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../incs/minishell.h"
+#include "../../../incs/minishell.h"
 
-int	checks_input(t_data *data)
+int	has_spaces(t_data *data)
 {
-	if (is_line_empty(data) == YES)
+	if (space_between_char(data, '|') == YES)
 		return (FAIL);
-	remove_spaces_bysides(data);
-	if (is_line_empty(data) == YES)
-		return (FAIL);
-	if (checks_unexpected_token(data) == FAIL)
-		return (FAIL);
-	if (checks_invalid_token(data) == FAIL)
+	if (space_between_char(data, '>') == YES)
 		return (FAIL);
 	return (SUCCESS);
 }

@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 20:15:22 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/06 17:46:39 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/08 16:33:41 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,7 @@ void	set_cur(t_data *data);
 void	unset_cur(t_data *data);
 void	turn_on_canonical(t_data *data);
 void	turn_off_canonical(t_data *data);
+void	jump_quotes(char *str, int *inc);
+char	*get_str_without_spaces(char *str);
 
 #endif

@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checks_input.c                                     :+:      :+:    :+:   */
+/*   checks_sequences.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/11 15:40:44 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/08 17:04:47 by dpestana         ###   ########.fr       */
+/*   Created: 2023/02/08 13:28:18 by dpestana          #+#    #+#             */
+/*   Updated: 2023/02/08 17:07:27 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../incs/minishell.h"
+#include "../../../incs/minishell.h"
 
-int	checks_input(t_data *data)
+int	checks_sequences(t_data *data)
 {
-	if (is_line_empty(data) == YES)
+	if (has_forbidden_sequence(data, ";;") == YES)
 		return (FAIL);
-	remove_spaces_bysides(data);
-	if (is_line_empty(data) == YES)
+	if (has_forbidden_sequence(data, "|;") == YES)
 		return (FAIL);
-	if (checks_unexpected_token(data) == FAIL)
+	if (has_forbidden_sequence(data, "&;") == YES)
 		return (FAIL);
-	if (checks_invalid_token(data) == FAIL)
+	if (has_forbidden_sequence(data, ";|") == YES)
+		return (FAIL);
+	if (has_forbidden_sequence(data, ";&") == YES)
+		return (FAIL);
+	if (has_forbidden_sequence(data, ">>>") == YES)
 		return (FAIL);
 	return (SUCCESS);
 }

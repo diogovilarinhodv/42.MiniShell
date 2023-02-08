@@ -1,27 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checks_input.c                                     :+:      :+:    :+:   */
+/*   get_str_without_spaces.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/11 15:40:44 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/08 17:04:47 by dpestana         ###   ########.fr       */
+/*   Created: 2023/02/08 16:18:55 by dpestana          #+#    #+#             */
+/*   Updated: 2023/02/08 16:33:33 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-int	checks_input(t_data *data)
+char	*get_str_without_spaces(char *str)
 {
-	if (is_line_empty(data) == YES)
-		return (FAIL);
-	remove_spaces_bysides(data);
-	if (is_line_empty(data) == YES)
-		return (FAIL);
-	if (checks_unexpected_token(data) == FAIL)
-		return (FAIL);
-	if (checks_invalid_token(data) == FAIL)
-		return (FAIL);
-	return (SUCCESS);
+	int		inc;
+	int		pos;
+	char	*tmp_str;
+	char	*new_str;
+
+	inc = 0;
+	pos = 0;
+	tmp_str = malloc(sizeof(char) * ft_strlen(str));
+	while (*(str + inc) == '\0')
+	{
+		while (*(str + inc) == ' ')
+			inc++;
+		*(tmp_str + pos) = *(str + inc);
+		inc++;
+		pos++;
+	}
+	*(tmp_str + pos) = '\0';
+	new_str = ft_strdup(tmp_str);
+	free_str(&tmp_str);
+	return (new_str);
 }
