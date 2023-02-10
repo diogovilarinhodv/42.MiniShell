@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 13:37:23 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/06 17:43:51 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/10 15:55:32 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ void	read_char(t_data *data, int *bytes_readed)
 		reset_line(data);
 	else if (is_ctrl_d(data) == YES)
 		end_program(data, SUCCESS);
+	else if (is_tab(data) == YES)
+		execute_tab(data);
 	else
 		data->input.buf_idx += write(STDOUT_FILENO, str, *bytes_readed);
 }

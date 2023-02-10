@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 18:15:10 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/06 18:18:34 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/10 15:20:25 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	execute_cmd(t_data *data)
 		data->cur.cmd = (data->cur.table->cmd + data->cur.idx_cmd);
 		save_std_fd(&stdin_saved, &stdout_saved);
 		replace_tokens(data);
+		replace_redirects(data);
 		set_redirects(data);
 		execute(data);
 		unset_env_var_full(data);

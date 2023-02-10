@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 20:09:45 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/06 17:48:54 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/10 15:57:14 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,13 @@ int		is_ctrl_c(t_data *data);
 int		is_backspace(t_data *data);
 int		is_down_arrow(t_data *data);
 int		is_up_arrow(t_data *data);
+int		is_tab(t_data *data);
 
 // 3.READ_LINE > 2.execute
 void	execute_delete_char(t_data *data);
 void	execute_up_arrow(t_data *data);
 void	execute_down_arrow(t_data *data);
+void	execute_tab(t_data *data);
 
 // 3.READ_LINE > 3.history
 void	add_line_to_history(t_data *data);

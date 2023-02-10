@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 15:44:01 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/05 20:01:37 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/10 15:54:40 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@
 
 # define CTRL_D 4
 # define CTRL_C 3
+# define TAB_KEY 9
 # define ENTER_KEY 10
 # define CTRL_B 28
 

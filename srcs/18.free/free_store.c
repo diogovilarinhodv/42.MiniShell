@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 11:24:02 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/10 14:59:14 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/10 15:18:18 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ static void	free_red(t_cmd *cmd)
 		free(cmd->red);
 		cmd->red = NULL;
 	}
+	cmd->qty_red = 0;
+	cmd->is_red = 0;
 }
 
 static void	free_cmd(t_cmd *cmd)
@@ -48,6 +50,7 @@ static void	free_cmd(t_cmd *cmd)
 		cmd->token = NULL;
 	}
 	free_red(cmd);
+	cmd->qty_tkn = 0;
 }
 
 static void	free_table(t_table *table)
@@ -65,6 +68,8 @@ static void	free_table(t_table *table)
 		free(table->cmd);
 		table->cmd = NULL;
 	}
+	table->qty_cmd = 0;
+	table->delimiter = 0;
 }
 
 void	free_store(t_data *data)

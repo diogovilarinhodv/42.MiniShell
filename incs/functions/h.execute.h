@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   h.execute.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 20:12:06 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/07 08:41:27 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/10 15:26:02 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	execute_cmd(t_data *data);
 void	execute(t_data *data);
 int		exit_table(t_data *data, int inc_tbl);
 void	children_process(t_data *data);
+void	replace_redirects(t_data *data);
 void	replace_tokens(t_data *data);
 void	set_redirects(t_data *data);
 int		builtins(t_data *data);
