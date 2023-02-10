@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_store.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 11:24:02 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/09 21:13:50 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/10 14:59:14 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,4 +82,5 @@ void	free_store(t_data *data)
 		free(data->store.table);
 		data->store.table = NULL;
 	}
+	data->store.qty_tbl = 0;
 }

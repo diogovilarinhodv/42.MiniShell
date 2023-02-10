@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_table_all_fd.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 12:02:08 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/07 08:33:09 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/10 14:54:52 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
