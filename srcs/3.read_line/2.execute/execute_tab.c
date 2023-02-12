@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 15:55:44 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/10 16:01:30 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/12 13:10:31 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ void	execute_tab(t_data *data)
 	tputs(data->termcaps.del_line, 1, ft_putint);
 	tputs(data->termcaps.set_cursor_begin, 1, ft_putint);
 	write_prompt(data);
-	n = write(STDOUT_FILENO, data->input.buf, ft_strlen(data->input.buf));
+	n = write_str(data->input.buf);
 	data->input.buf_idx = n;
 }

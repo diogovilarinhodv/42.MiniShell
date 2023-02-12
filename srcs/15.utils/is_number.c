@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   has_char_at_end.c                                  :+:      :+:    :+:   */
+/*   is_number.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/08 13:06:52 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/12 13:03:36 by dpestana         ###   ########.fr       */
+/*   Created: 2023/02/12 13:49:50 by dpestana          #+#    #+#             */
+/*   Updated: 2023/02/12 13:51:50 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../incs/minishell.h"
+#include "../../incs/minishell.h"
 
-int	has_char_at_end(t_data *data, char c)
+int	is_number(char *str)
 {
-	int	input_len;
+	int	inc;
 
-	input_len = ft_strlen(data->input.line);
-	if (*(data->input.line + (input_len - 1)) == c)
+	inc = 0;
+	while (*(str + inc) != '\0')
 	{
-		write_str("Error: invalid char!\n");
-		return (YES);
+		if (*(str + inc) < '0' || *(str + inc) > '9')
+			return (NO);
+		inc++;
 	}
-	return (NO);
+	return (YES);
 }

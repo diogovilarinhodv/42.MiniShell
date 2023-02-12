@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 14:22:40 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/03 17:48:09 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/12 13:05:02 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ void	builtin_env(t_data *data)
 	{
 		name = *(data->env.name + inc);
 		val = *(data->env.value + inc);
-		write(STDOUT_FILENO, name, ft_strlen(name));
-		write(STDOUT_FILENO, "=", ft_strlen("="));
-		write(STDOUT_FILENO, val, ft_strlen(val));
-		write(STDOUT_FILENO, "\n", ft_strlen("\n"));
+		write_str(name);
+		write_str("=");
+		write_str(val);
+		write_str("\n");
 		inc++;
 	}
 }

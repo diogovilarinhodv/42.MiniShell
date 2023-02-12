@@ -1,34 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   builtin_echo.c                                     :+:      :+:    :+:   */
+/*   execve_error.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/27 18:48:56 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/12 13:04:36 by dpestana         ###   ########.fr       */
+/*   Created: 2023/02/12 17:35:04 by dpestana          #+#    #+#             */
+/*   Updated: 2023/02/12 17:41:05 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-void	builtin_echo(t_data *data)
+void	execve_error(t_data *data)
 {
-	int		has_newline;
-	int		y;
-	char	*str;
-
-	y = 1;
-	has_newline = echo_has_new_line(data, &y);
-	while (y < data->cur.cmd->qty_tkn)
+	if (errno == EACCES)
 	{
-		str = *(data->cur.cmd->token + y);
-		write_str(str);
-		if (y + 1 < data->cur.cmd->qty_tkn)
-			write_str(" ");
-		y++;
-	}
-	if (has_newline == YES)
+		write_str("Permission denied\n");
+		write_str(*data->cur.cmd->token);
 		write_str("\n");
-	data->exit_status = EXIT_SUCCESS;
+	}
+	else if (errno == ENOENT
+		&& ft_strcmp(*data->cur.cmd->token, "exit") != 0)
+	{
+		write_str("Command not found: ");
+		write_str(*data->cur.cmd->token);
+		write_str("\n");
+	}
+	if (errno == EACCES)
+		exit(EXIT_CMD_INTERRUPTED);
+	else if (errno == ENOENT)
+		exit(EXIT_CMD_NOT_FOUND);
+	kill(getpid(), SIGKILL);
 }

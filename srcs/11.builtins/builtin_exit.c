@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtin_exit.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 10:05:50 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/03 13:46:31 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/12 17:34:15 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,24 @@
 
 void	builtin_exit(t_data *data)
 {
-	write(1, "exit\n", ft_strlen("exit\n"));
+	char	*str_error;
+	char	*tmp;
+
+	str_error = NULL;
+	tmp = NULL;
+	write_str("exit\n");
+	if (data->cur.cmd->qty_tkn > 1)
+	{
+		if (is_number(*(data->cur.cmd->token + 1)) == NO)
+		{
+			tmp = ft_strjoin("exit: ", *(data->cur.cmd->token + 1));
+			str_error = ft_strjoin(tmp, ": numeric argument required\n");
+			write_str(str_error);
+			free_str(&tmp);
+			free_str(&str_error);
+		}
+		else if (data->cur.cmd->qty_tkn > 2)
+			write_str("exit: too many arguments\n");
+	}
 	end_program(data, SUCCESS);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   invalid_input.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 18:12:12 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/03 13:46:47 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/12 13:06:39 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void	invalid_input(t_data *data)
 {
-	write(STDOUT_FILENO, "Error\n", ft_strlen("Error\n"));
+	write_str("Error\n");
 	end_program(data, FAIL);
 }

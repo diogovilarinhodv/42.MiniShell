@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 13:08:11 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/08 17:24:48 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/12 13:03:54 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	invalid_token(t_data *data, char *tkn)
 		has = ft_strncmp((data->input.line + inc), tkn, ft_strlen(tkn));
 		if (has == 0)
 		{
-			write(STDOUT_FILENO, "Error: not supported!\n", ft_strlen("Error: not supported!\n"));
+			write_str("Error: not supported!\n");
 			return (FAIL);
 		}
 		inc++;

@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 13:05:52 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/08 17:09:12 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/12 13:03:45 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	has_open_quotes(t_data *data)
 	}
 	if (double_quotes_open || single_quotes_open)
 	{
-		write(STDOUT_FILENO, "Error: open quotes!\n", ft_strlen("Error: open quotes!\n"));
+		write_str("Error: open quotes!\n");
 		return (YES);
 	}
 	return (NO);

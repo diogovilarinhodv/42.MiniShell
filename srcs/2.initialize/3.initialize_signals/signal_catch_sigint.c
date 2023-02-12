@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   signal_catch_sigint.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 23:12:54 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/02 19:31:01 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/12 13:06:55 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 void	catch_sigint(int signum)
 {
 	(void)signum;
-	write(1, "\n", ft_strlen("\n"));
+	write_str("\n");
 }

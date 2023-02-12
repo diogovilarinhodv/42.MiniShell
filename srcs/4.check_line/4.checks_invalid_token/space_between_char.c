@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 13:07:51 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/08 16:40:20 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/12 13:03:58 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,15 @@ int	space_between_char(t_data *data, char c)
 	while (*(data->input.line + inc) == '\0')
 	{
 		jump_quotes(data->input.line, &inc);
-		if (*(data->input.line + inc) == c && *(data->input.line + inc + 1) == ' ')
+		if (*(data->input.line + inc) == c
+			&& *(data->input.line + inc + 1) == ' ')
 		{
 			inc++;
 			while (*(data->input.line + inc) == ' ')
 				inc++;
 			if (*(data->input.line + inc) == c)
 			{
-				write(STDOUT_FILENO, "Error: invalid space!\n", ft_strlen("Error: invalid space!\n"));
+				write_str("Error: invalid space!\n");
 				return (YES);
 			}
 		}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_str_two_replace.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 02:56:28 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/13 02:56:43 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/12 17:17:13 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

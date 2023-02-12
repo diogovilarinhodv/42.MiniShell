@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 23:01:36 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/06 17:50:16 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/12 13:10:54 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ void	execute_delete_char(t_data *data)
 	tputs(data->termcaps.del_line, 1, ft_putint);
 	tputs(data->termcaps.set_cursor_begin, 1, ft_putint);
 	write_prompt(data);
-	n = write(STDOUT_FILENO, data->input.buf, ft_strlen(data->input.buf));
+	n = write_str(data->input.buf);
 	data->input.buf_idx = n;
 }

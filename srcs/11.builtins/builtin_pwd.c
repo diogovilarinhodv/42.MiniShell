@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtin_pwd.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 17:02:27 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/28 16:33:58 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/12 13:05:44 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ void	builtin_pwd(t_data *data)
 	pwd_val = get_env_value(data, "PWD");
 	if (pwd_val == NULL)
 		return ;
-	write(STDOUT_FILENO, pwd_val, ft_strlen(pwd_val));
-	write(STDOUT_FILENO, "\n", ft_strlen("\n"));
+	write_str(pwd_val);
+	write_str("\n");
 }

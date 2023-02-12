@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 19:40:25 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/03 17:19:32 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/12 13:03:23 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	is_valid_env_var(char **env)
 {
 	if (env == NULL)
 	{
-		write(STDOUT_FILENO, "Error\n", ft_strlen("Error\n"));
+		write_str("Error\n");
 		exit(1);
 	}
 }

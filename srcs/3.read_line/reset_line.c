@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reset_line.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 22:58:56 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/18 18:05:50 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/12 13:07:46 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	reset_line(t_data *data)
 {
-	write(STDOUT_FILENO, "^C\n", ft_strlen("^C\n"));
+	write_str("^C\n");
 	data->exit_status = EXIT_CMD_INTERRUPTED;
 	write_prompt(data);
 	ft_bzero(data->input.buf, BUFSIZ);
