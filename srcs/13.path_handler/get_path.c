@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_path.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 20:58:54 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/13 12:41:29 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/13 15:51:08 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,27 +42,27 @@ char	*get_path(t_data *data, char *full_path)
 {
 	int		inc;
 	int		last_pos;
-	char	*path;
+	char	*new_path;
 
-	inc = 0;
+	inc = -1;
 	last_pos = 0;
-	while (*(full_path + inc) != '\0')
+	while (*(full_path + ++inc) != '\0')
 	{
 		if (*(full_path + inc) == ':')
 		{
-			path = build_path(data, full_path, last_pos, inc);
-			if (is_correct_path(path) == YES)
-				return (path);
-			free_str(&path);
+			new_path = build_path(data, full_path, last_pos, inc);
+			if (is_correct_path(new_path) == YES)
+				return (new_path);
+			free_str(&new_path);
 			last_pos = inc + 1;
 		}
-		inc++;
 	}
 	if (inc > last_pos)
 	{
-		path = build_path(data, full_path, last_pos, inc);
-		if (is_correct_path(path) == YES)
-			return (path);
+		new_path = build_path(data, full_path, last_pos, inc);
+		if (is_correct_path(new_path) == YES)
+			return (new_path);
+		free_str(&new_path);
 	}
 	return (NULL);
 }
