@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   children_process.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 19:24:06 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/12 17:35:58 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/12 22:38:02 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	children_process(t_data *data)
 	close_all_fd(data);
 	path_handler(data);
 	set_env_var_full(data);
+	printf("%s\n", *data->cur.cmd->token);
 	if (execve(*data->cur.cmd->token, data->cur.cmd->token, *env) == -1)
 		execve_error(data);
 }

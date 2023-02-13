@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_char.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 13:37:23 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/10 15:55:32 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/12 21:30:32 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,10 @@ void	read_char(t_data *data, int *bytes_readed)
 	else if (is_ctrl_c(data) == YES)
 		reset_line(data);
 	else if (is_ctrl_d(data) == YES)
-		end_program(data, SUCCESS);
+	{
+		if (data->input.buf_idx < 1)
+			end_program(data, SUCCESS);
+	}
 	else if (is_tab(data) == YES)
 		execute_tab(data);
 	else

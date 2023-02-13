@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtin_env.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 14:22:40 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/12 13:05:02 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/12 21:56:41 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	builtin_env(t_data *data)
 	inc = 0;
 	if (data->env.qty == 0)
 		data->exit_status = EXIT_FAILURE;
+	set_last_cmd_env(data);
 	while (inc < data->env.qty)
 	{
 		name = *(data->env.name + inc);
