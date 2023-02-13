@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   replace_tokens.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 10:11:59 by dpestana          #+#    #+#             */
-/*   Updated: 2023/01/15 10:48:32 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/13 16:41:49 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,21 @@ void	replace_tokens(t_data *data)
 		data->cur.token = *(data->cur.cmd->token + inc_tkn);
 		if (token_has_tilde(data) == YES)
 			replace_home_dir(data);
-		else if (token_has_single_quotes(data) == YES)
-			remove_single_quotes(data);
-		else
+		if (token_has_single_quotes(data) == YES)
 		{
-			if (token_has_double_quotes(data) == YES)
+			while (token_has_single_quotes(data) == YES)
+				remove_single_quotes(data);
+		}
+		else if (token_has_double_quotes(data) == YES)
+		{
+			while (token_has_double_quotes(data) == YES)
 				remove_double_quotes(data);
 			if (token_has_cipher(data) == YES)
 				replace_env_var(data);
 		}
+		else
+			if (token_has_cipher(data) == YES)
+				replace_env_var(data);
 		*(data->cur.cmd->token + inc_tkn) = data->cur.token;
 		inc_tkn++;
 	}
