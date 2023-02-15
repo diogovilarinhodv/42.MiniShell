@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 15:44:01 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/10 15:54:40 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/15 15:12:59 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,6 @@
 # include <unistd.h>    			// read, write & usleep
 # include <stdlib.h>    			// malloc, free & exit
 # include <stdio.h>					// printf
-
-# include <readline/readline.h>
-# include <readline/history.h>
 
 # include <stdbool.h>
 # include <term.h>

@@ -6,11 +6,32 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 10:11:59 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/13 16:41:49 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/15 15:18:38 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
+
+static void	replace_tokens_quotes(t_data *data)
+{
+	if (token_has_tilde(data) == YES)
+		replace_home_dir(data);
+	if (token_has_single_quotes(data) == YES)
+	{
+		while (token_has_single_quotes(data) == YES)
+			remove_single_quotes(data);
+	}
+	else if (token_has_double_quotes(data) == YES)
+	{
+		while (token_has_double_quotes(data) == YES)
+			remove_double_quotes(data);
+		if (token_has_cipher(data) == YES)
+			replace_env_var(data);
+	}
+	else
+		if (token_has_cipher(data) == YES)
+			replace_env_var(data);
+}
 
 void	replace_tokens(t_data *data)
 {
@@ -20,23 +41,7 @@ void	replace_tokens(t_data *data)
 	while (inc_tkn < data->cur.cmd->qty_tkn)
 	{
 		data->cur.token = *(data->cur.cmd->token + inc_tkn);
-		if (token_has_tilde(data) == YES)
-			replace_home_dir(data);
-		if (token_has_single_quotes(data) == YES)
-		{
-			while (token_has_single_quotes(data) == YES)
-				remove_single_quotes(data);
-		}
-		else if (token_has_double_quotes(data) == YES)
-		{
-			while (token_has_double_quotes(data) == YES)
-				remove_double_quotes(data);
-			if (token_has_cipher(data) == YES)
-				replace_env_var(data);
-		}
-		else
-			if (token_has_cipher(data) == YES)
-				replace_env_var(data);
+		replace_tokens_quotes(data);
 		*(data->cur.cmd->token + inc_tkn) = data->cur.token;
 		inc_tkn++;
 	}
