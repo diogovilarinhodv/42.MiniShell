@@ -6,11 +6,29 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 14:30:23 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/07 08:32:55 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/18 23:26:38 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
+
+static void	free_history(t_data *data)
+{
+	int	inc;
+
+	inc = 0;
+	if (data->hist.str != NULL)
+	{
+		while (inc < data->hist.qty_str)
+		{
+			free(*(data->hist.str + inc));
+			*(data->hist.str + inc) = NULL;
+			inc++;	
+		}
+		free(data->hist.str);
+		data->hist.str = NULL;
+	}
+}
 
 void	end_program(t_data *data, int exit_status)
 {
@@ -22,5 +40,6 @@ void	end_program(t_data *data, int exit_status)
 	free_table_all_fd(data);
 	free_store(data);
 	free_termcaps(data);
+	free_history(data);
 	exit(data->exit_status);
 }
