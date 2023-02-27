@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 14:30:23 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/18 23:26:38 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/27 23:09:16 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	free_history(t_data *data)
 		{
 			free(*(data->hist.str + inc));
 			*(data->hist.str + inc) = NULL;
-			inc++;	
+			inc++;
 		}
 		free(data->hist.str);
 		data->hist.str = NULL;
