@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cd_update_pwd_oldpwd.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 16:01:18 by dpestana          #+#    #+#             */
-/*   Updated: 2023/01/19 15:47:55 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/02/27 12:33:45 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	cd_update_pwd_oldpwd(t_data *data)
 	new_pwd = getcwd(NULL, 0);
 	if (new_pwd == NULL)
 	{
+		write_str("Error\n");
 		data->exit_status = EXIT_FAILURE;
 		return ;
 	}
@@ -28,6 +29,7 @@ void	cd_update_pwd_oldpwd(t_data *data)
 	{
 		free(new_pwd);
 		new_pwd = NULL;
+		write_str("Error\n");
 		data->exit_status = EXIT_FAILURE;
 		return ;
 	}
