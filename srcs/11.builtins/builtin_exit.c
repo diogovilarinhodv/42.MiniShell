@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 10:05:50 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/12 17:34:15 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/01 15:46:42 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,8 @@ void	builtin_exit(t_data *data)
 		else if (data->cur.cmd->qty_tkn > 2)
 			write_str("exit: too many arguments\n");
 	}
+	(*new_exit_status()).new_value = ft_strdup(*(data->cur.cmd->token + 1));
+	printf("builtin_exit: %s\n", new_exit_status()->new_value);
+	data->exit_status = ft_atoi(*(data->cur.cmd->token + 1));
 	end_program(data, SUCCESS);
 }

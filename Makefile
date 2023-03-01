@@ -8,7 +8,7 @@
 NAME						=	minishell
 
 # Compiler
-Compile						=	cc -Wall -Wextra -Werror -fsanitize=address
+Compile						=	cc -Wall -Wextra -Werror
 
 # Flags for Compiler
 O_FLAG 						=	-o
@@ -215,6 +215,7 @@ SOURCE						= srcs/1.checks_env/1.is_valid/is_valid_env_var.c \
 								srcs/15.utils/is_number.c \
 								srcs/15.utils/jump_quotes.c \
 								srcs/15.utils/write_str.c \
+								srcs/15.utils/new_exit_status.c \
 								srcs/16.libft/ft_atoi.c \
 								srcs/16.libft/ft_bzero.c \
 								srcs/16.libft/ft_isascii.c \

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   children_process.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 19:24:06 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/18 23:27:18 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/01 15:22:15 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

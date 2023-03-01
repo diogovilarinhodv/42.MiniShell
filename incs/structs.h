@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 15:12:28 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/10 15:25:16 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/01 14:55:01 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,6 +123,13 @@ typedef struct s_history
 	int		idx;
 
 }	t_history;
+
+typedef struct s_new_exit_status
+{
+	int				is_ms;
+	char			*new_value;
+
+}	t_new_exit_status;
 
 //     -----------     
 //        DATA         
