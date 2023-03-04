@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 15:33:33 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/08 15:44:57 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/04 14:08:49 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,19 @@
 
 void	jump_quotes(char *str, int *inc)
 {
-	while (*(str + (*inc)) == '"' || *(str + (*inc)) == '\'')
+	while ((*(str + (*inc)) == '"' || *(str + (*inc)) == '\'')
+		&& *(str + (*inc)) != '\0')
 	{
 		if (*(str + (*inc)) == '"')
 		{
 			(*inc)++;
-			while (*(str + (*inc)) == '"')
+			while (*(str + (*inc)) != '"' && *(str + (*inc)) != '\0')
 				(*inc)++;
 		}
 		if (*(str + (*inc)) == '\'')
 		{
 			(*inc)++;
-			while (*(str + (*inc)) == '\'')
+			while (*(str + (*inc)) != '\'' && *(str + (*inc)) != '\0')
 				(*inc)++;
 		}
 	}
