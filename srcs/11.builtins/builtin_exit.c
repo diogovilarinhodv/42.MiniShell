@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 10:05:50 by dpestana          #+#    #+#             */
-/*   Updated: 2023/03/03 15:56:16 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/04 13:48:33 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ void	builtin_exit(t_data *data)
 			return ;
 		}
 		data->exit_status = ft_atoi(*(data->cur.cmd->token + 1));
-		while (data->exit_status < 256)
-			data->exit_status /= 255;
 	}
 	end_program(data, data->exit_status);
 }
