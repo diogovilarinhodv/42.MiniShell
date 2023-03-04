@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 10:18:53 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/03 17:52:22 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/04 17:13:10 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,12 @@ static int	open_file(char *filename, int type)
 		fd = open(filename, O_WRONLY | O_CREAT | O_APPEND, 0666);
 		if (fd != -1)
 			dup2(fd, STDOUT_FILENO);
+	}
+	else if (type == DOUBLE_LEFT_ARROW)
+	{
+		fd = open("tmp_file", O_RDONLY, 0666);
+		if (fd != -1)
+			dup2(fd, STDIN_FILENO);
 	}
 	if (fd != -1)
 		close(fd);

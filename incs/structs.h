@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 15:12:28 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/10 15:25:16 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/04 15:06:22 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ typedef struct s_cmd
 	char			**token;
 	int				qty_tkn;
 	t_red			*red;
+	int				is_heredoc;
 	int				is_red;
 	int				qty_red;
 

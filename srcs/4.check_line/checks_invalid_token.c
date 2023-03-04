@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 13:05:21 by dpestana          #+#    #+#             */
-/*   Updated: 2023/03/03 17:51:28 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/04 15:29:05 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ static int	invalid_or(t_data *data, char *seq)
 
 int	checks_invalid_token(t_data *data)
 {
-	if (invalid_token(data, "<<") == FAIL)
-		return (FAIL);
 	if (invalid_token(data, "*") == FAIL)
 		return (FAIL);
 	if (invalid_token(data, "\\") == FAIL)

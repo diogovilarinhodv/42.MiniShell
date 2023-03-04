@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 17:32:19 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/06 18:36:39 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/04 14:36:20 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,7 @@ void	add_redirection_type(t_data *data, char *token)
 		cur_red->type = RIGHT_ARROW;
 	else if (ft_strcmp(token, ">>") == 0)
 		cur_red->type = DOUBLE_RIGHT_ARROW;
+	else if (ft_strcmp(token, "<<") == 0)
+		cur_red->type = DOUBLE_LEFT_ARROW;
 	free(token);
 }

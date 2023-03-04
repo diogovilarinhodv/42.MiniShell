@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 17:31:06 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/06 18:35:59 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/04 14:43:54 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	is_redirection(char *token)
 	else if (ft_strcmp(token, ">") == 0)
 		return (YES);
 	else if (ft_strcmp(token, ">>") == 0)
+		return (YES);
+	else if (ft_strcmp(token, "<<") == 0)
 		return (YES);
 	return (NO);
 }

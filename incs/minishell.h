@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 15:44:01 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/15 15:12:59 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/04 14:42:33 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@
 # define LEFT_ARROW			1
 # define RIGHT_ARROW		2
 # define DOUBLE_RIGHT_ARROW	3
+# define DOUBLE_LEFT_ARROW	4
 
 # define DELIMITER_NULL		0
 # define DELIMITER_OR		1
