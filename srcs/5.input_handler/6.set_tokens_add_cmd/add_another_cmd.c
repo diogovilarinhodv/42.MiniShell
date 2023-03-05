@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 19:48:18 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/06 18:36:12 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/05 14:49:16 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	add_another_cmd(t_data *data)
 	int		inc;
 	t_cmd	*clone;
 
-	set_cur(data);
 	inc = 0;
 	clone = malloc(sizeof(t_cmd) * (data->cur.table->qty_cmd + 1));
 	while (inc < data->cur.table->qty_cmd)
@@ -34,9 +33,9 @@ void	add_another_cmd(t_data *data)
 	(clone + inc)->is_red = NO;
 	(clone + inc)->qty_red = 0;
 	(clone + inc)->red = NULL;
+	(clone + inc)->is_heredoc = NO;
 	if (data->cur.table->cmd != NULL)
 		free(data->cur.table->cmd);
 	data->cur.table->cmd = clone;
 	data->cur.table->qty_cmd++;
-	unset_cur(data);
 }

@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   children_process.c                                 :+:      :+:    :+:   */
+/*   is_heredoc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/12 19:24:06 by dpestana          #+#    #+#             */
-/*   Updated: 2023/03/05 16:57:20 by dpestana         ###   ########.fr       */
+/*   Created: 2023/03/05 14:23:57 by dpestana          #+#    #+#             */
+/*   Updated: 2023/03/05 14:24:17 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../incs/minishell.h"
+#include "../../../incs/minishell.h"
 
-void	children_process(t_data *data)
+int	is_heredoc(t_data *data)
 {
-	char	***env;
-
-	env = &data->env.full;
-	set_dup2(data);
-	signal(SIGINT, SIG_DFL);
-	close_all_fd(data);
-	path_handler(data);
-	set_env_var_full(data);
-	printf("normal: %s %s\n", *data->cur.cmd->token, *(data->cur.cmd->token + 1));
-	if (execve(*data->cur.cmd->token, data->cur.cmd->token, *env) == -1)
-		execve_error(data);
+	if (data->cur.cmd->is_heredoc == YES)
+		return (YES);
+	return (NO);
 }

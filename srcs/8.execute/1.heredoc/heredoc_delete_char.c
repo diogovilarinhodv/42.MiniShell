@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   non_cmd_limiter_run.c                              :+:      :+:    :+:   */
+/*   heredoc_delete_char.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/06 18:12:42 by dpestana          #+#    #+#             */
-/*   Updated: 2023/03/05 14:48:54 by dpestana         ###   ########.fr       */
+/*   Created: 2023/03/05 16:32:36 by dpestana          #+#    #+#             */
+/*   Updated: 2023/03/05 16:33:16 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../incs/minishell.h"
 
-char	*non_cmd_limiter_run(t_data *data, char *token)
+void	heredoc_delete_char(t_data *data)
 {
-	if (is_table_delimiter(token) == YES)
-	{
-		set_cur(data);
-		add_delimiter(data, token);
-		unset_cur(data);
-		add_another_table(data);
-	}
-	else
-	{
-		set_cur(data);
-		add_another_cmd(data);
-		unset_cur(data);
-	}
-	free(token);
-	return (token);
+	int		n;
+	char	*str;
+
+	if (data->input.buf_idx > 0)
+		data->input.buf_idx--;
+	str = (data->input.buf + data->input.buf_idx);
+	ft_bzero(str, BUFSIZ - data->input.buf_idx);
+	tputs(data->termcaps.del_line, 1, ft_putint);
+	tputs(data->termcaps.set_cursor_begin, 1, ft_putint);
+	ft_putstr("> ");
+	n = write_str(data->input.buf);
+	data->input.buf_idx = n;
 }

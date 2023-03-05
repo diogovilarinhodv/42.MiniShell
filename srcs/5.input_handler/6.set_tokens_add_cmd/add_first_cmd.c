@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 19:46:53 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/06 18:36:15 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/05 14:02:38 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,6 @@ void	add_first_cmd(t_data *data)
 	data->cur.table->cmd->is_red = NO;
 	data->cur.table->cmd->qty_red = 0;
 	data->cur.table->cmd->red = NULL;
+	data->cur.table->cmd->is_heredoc = NO;
 	unset_cur(data);
 }

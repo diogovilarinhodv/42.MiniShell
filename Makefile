@@ -143,6 +143,21 @@ SOURCE						= srcs/1.checks_env/1.is_valid/is_valid_env_var.c \
 								srcs/5.input_handler/8.set_tokens_add_redirections/add_redirection_type.c \
 								srcs/5.input_handler/organize.c \
 								srcs/5.input_handler/running.c \
+								srcs/8.execute/1.heredoc/heredoc_delete.c \
+								srcs/8.execute/1.heredoc/heredoc_execute.c \
+								srcs/8.execute/1.heredoc/heredoc_read_char.c \
+								srcs/8.execute/1.heredoc/is_heredoc.c \
+								srcs/8.execute/1.heredoc/heredoc_write_on_file.c \
+								srcs/8.execute/1.heredoc/is_heredoc_terminator_str.c \
+								srcs/8.execute/1.heredoc/heredoc_reset_line.c \
+								srcs/8.execute/1.heredoc/heredoc_ctrl_c.c \
+								srcs/8.execute/1.heredoc/heredoc_ctrl_d.c \
+								srcs/8.execute/1.heredoc/heredoc_delete_char.c \
+								srcs/8.execute/2.file_open/file_open.c \
+								srcs/8.execute/2.file_open/file_open_double_right_arrow.c \
+								srcs/8.execute/2.file_open/file_open_double_left_arrow.c \
+								srcs/8.execute/2.file_open/file_open_left_arrow.c \
+								srcs/8.execute/2.file_open/file_open_right_arrow.c \
 								srcs/8.execute/builtins.c \
 								srcs/8.execute/children_process.c \
 								srcs/8.execute/close_std_fd.c \

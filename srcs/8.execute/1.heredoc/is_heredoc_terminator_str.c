@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   children_process.c                                 :+:      :+:    :+:   */
+/*   is_heredoc_terminator_str.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/12 19:24:06 by dpestana          #+#    #+#             */
-/*   Updated: 2023/03/05 16:57:20 by dpestana         ###   ########.fr       */
+/*   Created: 2023/03/05 14:52:23 by dpestana          #+#    #+#             */
+/*   Updated: 2023/03/05 14:55:14 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../incs/minishell.h"
+#include "../../../incs/minishell.h"
 
-void	children_process(t_data *data)
+int	is_heredoc_terminator_str(t_data *data)
 {
-	char	***env;
-
-	env = &data->env.full;
-	set_dup2(data);
-	signal(SIGINT, SIG_DFL);
-	close_all_fd(data);
-	path_handler(data);
-	set_env_var_full(data);
-	printf("normal: %s %s\n", *data->cur.cmd->token, *(data->cur.cmd->token + 1));
-	if (execve(*data->cur.cmd->token, data->cur.cmd->token, *env) == -1)
-		execve_error(data);
+	*(data->input.buf + data->input.buf_idx - 1) = '\0';
+	if (ft_strcmp(data->input.buf, data->cur.cmd->red->token) == 0)
+		return (YES);
+	*(data->input.buf + data->input.buf_idx - 1) = '\n';
+	*(data->input.buf + data->input.buf_idx) = '\0';
+	return (NO);
 }

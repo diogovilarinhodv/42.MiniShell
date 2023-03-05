@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   children_process.c                                 :+:      :+:    :+:   */
+/*   file_open_double_left_arrow.c                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/12 19:24:06 by dpestana          #+#    #+#             */
-/*   Updated: 2023/03/05 16:57:20 by dpestana         ###   ########.fr       */
+/*   Created: 2023/03/05 14:38:25 by dpestana          #+#    #+#             */
+/*   Updated: 2023/03/05 14:44:33 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../incs/minishell.h"
+#include "../../../incs/minishell.h"
 
-void	children_process(t_data *data)
+void	file_open_double_left_arrow(char *filename, int type, int *fd)
 {
-	char	***env;
-
-	env = &data->env.full;
-	set_dup2(data);
-	signal(SIGINT, SIG_DFL);
-	close_all_fd(data);
-	path_handler(data);
-	set_env_var_full(data);
-	printf("normal: %s %s\n", *data->cur.cmd->token, *(data->cur.cmd->token + 1));
-	if (execve(*data->cur.cmd->token, data->cur.cmd->token, *env) == -1)
-		execve_error(data);
+	*fd = open("tmp_file", O_RDONLY, 0666);
+	if (*fd != -1)
+		dup2(*fd, STDIN_FILENO);
 }

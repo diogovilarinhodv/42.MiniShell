@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 17:32:19 by dpestana          #+#    #+#             */
-/*   Updated: 2023/03/04 14:36:20 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/05 13:52:33 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@ void	add_redirection_type(t_data *data, char *token)
 	else if (ft_strcmp(token, ">>") == 0)
 		cur_red->type = DOUBLE_RIGHT_ARROW;
 	else if (ft_strcmp(token, "<<") == 0)
+	{
 		cur_red->type = DOUBLE_LEFT_ARROW;
+		data->cur.cmd->is_heredoc = YES;
+	}
 	free(token);
 }
