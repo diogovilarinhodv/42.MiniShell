@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 17:01:54 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/13 14:55:14 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/06 14:18:31 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,8 @@
 
 void	non_builtin(t_data *data)
 {
-	int	pid;
-	int	wait_status;
-
-	pid = fork();
-	wait_status = 0;
-	if (pid == 0)
+	data->cur.cmd->pid = fork();
+	if (data->cur.cmd->pid == 0)
 		children_process(data);
 	close_fd(data);
-	waitpid(pid, &wait_status, 0);
-	if (WIFEXITED(wait_status))
-		data->exit_status = WEXITSTATUS(wait_status);
-	else if (WIFSIGNALED(wait_status))
-		data->exit_status = WTERMSIG(wait_status);
 }

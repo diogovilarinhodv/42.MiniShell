@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 20:12:06 by dpestana          #+#    #+#             */
-/*   Updated: 2023/03/05 16:33:59 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/06 14:34:33 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void	close_std_fd(int *stdin_saved, int *stdout_saved);
 void	set_exit_status_env(t_data *data);
 void	set_last_cmd_env(t_data *data);
 void	execve_error(t_data *data);
+void	wait_child_pids(t_data *data);
 
 // 8.EXECUTE > 1.heredoc
 int		is_heredoc(t_data *data);

@@ -6,11 +6,25 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 19:48:18 by dpestana          #+#    #+#             */
-/*   Updated: 2023/03/05 14:49:16 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/06 16:30:28 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../incs/minishell.h"
+
+static t_cmd	inicialize_new_cmd(void)
+{
+	t_cmd	cmd;
+
+	cmd.token = NULL;
+	cmd.qty_tkn = 0;
+	cmd.is_red = NO;
+	cmd.qty_red = 0;
+	cmd.red = NULL;
+	cmd.is_heredoc = NO;
+	cmd.pid = 0;
+	return (cmd);
+}
 
 void	add_another_cmd(t_data *data)
 {
@@ -26,14 +40,11 @@ void	add_another_cmd(t_data *data)
 		(clone + inc)->is_red = (data->cur.table->cmd + inc)->is_red;
 		(clone + inc)->qty_red = (data->cur.table->cmd + inc)->qty_red;
 		(clone + inc)->red = (data->cur.table->cmd + inc)->red;
+		(clone + inc)->is_heredoc = (data->cur.table->cmd + inc)->is_heredoc;
+		(clone + inc)->pid = (data->cur.table->cmd + inc)->pid;
 		inc++;
 	}
-	(clone + inc)->token = NULL;
-	(clone + inc)->qty_tkn = 0;
-	(clone + inc)->is_red = NO;
-	(clone + inc)->qty_red = 0;
-	(clone + inc)->red = NULL;
-	(clone + inc)->is_heredoc = NO;
+	*(clone + inc) = inicialize_new_cmd();
 	if (data->cur.table->cmd != NULL)
 		free(data->cur.table->cmd);
 	data->cur.table->cmd = clone;

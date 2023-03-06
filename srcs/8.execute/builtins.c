@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtins.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 16:04:38 by dpestana          #+#    #+#             */
-/*   Updated: 2023/01/18 22:38:35 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/06 16:05:36 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int	builtins(t_data *data)
 {
-	set_dup2(data);
 	if (ft_strcmp(*data->cur.cmd->token, "echo") == 0)
 		builtin_echo(data);
 	else if (ft_strcmp(*data->cur.cmd->token, "cd") == 0)

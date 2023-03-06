@@ -175,6 +175,7 @@ SOURCE						= srcs/1.checks_env/1.is_valid/is_valid_env_var.c \
 								srcs/8.execute/set_last_cmd_env.c \
 								srcs/8.execute/set_redirects.c \
 								srcs/8.execute/unset_env_var_full.c \
+								srcs/8.execute/wait_child_pids.c \
 								srcs/9.replace_tokens/remove_double_quotes.c \
 								srcs/9.replace_tokens/remove_single_quotes.c \
 								srcs/9.replace_tokens/replace_env_var.c \
