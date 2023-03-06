@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   heredoc_delete.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 14:22:53 by dpestana          #+#    #+#             */
-/*   Updated: 2023/03/05 17:19:40 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/05 20:56:00 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,10 @@ void	delete_heredoc(t_data *data)
 	char	**args;
 
 	data->cur.cmd->is_heredoc = NO;
-	args = malloc(sizeof(char *) * 2);
+	args = malloc(sizeof(char *) * 3);
 	*args = ft_strdup("/usr/bin/rm");
 	*(args + 1) = ft_strdup("tmp_file");
+	*(args + 2) = NULL;
 	wait_status = 0;
 	pid = fork();
 	if (pid == 0)
@@ -32,7 +33,6 @@ void	delete_heredoc(t_data *data)
 	}
 	close_fd(data);
 	waitpid(pid, &wait_status, 0);
-	printf("heredoc: %s %s\n", *args, *(args + 1));
 	free(*(args + 1));
 	free(*args);
 	free(args);
