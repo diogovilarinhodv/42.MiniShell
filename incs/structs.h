@@ -6,12 +6,21 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 15:12:28 by dpestana          #+#    #+#             */
-/*   Updated: 2023/03/06 14:09:57 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/07 17:04:14 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTS_H
 # define STRUCTS_H
+
+//		--------
+//		  NES
+//		--------
+typedef struct s_nes
+{
+	int			val;
+
+}	t_nes;
 
 //     -----------     
 //        TERMS CAPS      
