@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 10:05:50 by dpestana          #+#    #+#             */
-/*   Updated: 2023/03/08 15:10:39 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/08 18:16:02 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ static void	is_number_builtin_exit(t_data *data)
 	write_str(str_error);
 	free_str(&tmp);
 	free_str(&str_error);
+	data->exit_status = EXIT_GENERAL_ERROR;
 }
 
 void	builtin_exit(t_data *data)
@@ -34,10 +35,11 @@ void	builtin_exit(t_data *data)
 		else if (data->cur.cmd->qty_tkn > 2)
 		{
 			write_str("exit: too many arguments\n");
-			data->exit_status = FAIL;
+			data->exit_status = EXIT_FAILURE;
 			return ;
 		}
-		data->exit_status = ft_atoi(*(data->cur.cmd->token + 1));
+		else
+			data->exit_status = ft_atoi(*(data->cur.cmd->token + 1));
 	}
 	end_program(data, data->exit_status);
 }
