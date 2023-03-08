@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 15:12:28 by dpestana          #+#    #+#             */
-/*   Updated: 2023/03/07 17:04:14 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/08 15:19:14 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ typedef struct s_cmd
 	int				is_red;
 	int				qty_red;
 	int				pid;
+	int				is_builtin;
 
 }	t_cmd;
 

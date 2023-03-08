@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:33:19 by dpestana          #+#    #+#             */
-/*   Updated: 2023/03/07 17:18:19 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/08 15:23:06 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,14 @@ void	wait_child_pids(t_data *data)
 	{
 		wait_status = 0;
 		data->cur.cmd = (data->cur.table->cmd + data->cur.idx_cmd);
-		waitpid(data->cur.cmd->pid, &wait_status, 0);
-		if (WIFEXITED(wait_status))
-			data->exit_status = WEXITSTATUS(wait_status);
-		else if (WIFSIGNALED(wait_status))
-			data->exit_status = WTERMSIG(wait_status);
+		if (data->cur.cmd->is_builtin == NO)
+		{
+			waitpid(data->cur.cmd->pid, &wait_status, 0);
+			if (WIFEXITED(wait_status))
+				data->exit_status = WEXITSTATUS(wait_status);
+			else if (WIFSIGNALED(wait_status))
+				data->exit_status = WTERMSIG(wait_status);
+		}
 		data->cur.idx_cmd++;
 	}
 }

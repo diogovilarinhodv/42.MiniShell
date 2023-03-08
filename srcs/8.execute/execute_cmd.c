@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 18:15:10 by dpestana          #+#    #+#             */
-/*   Updated: 2023/03/07 17:16:53 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/08 15:12:12 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ void	execute_cmd(t_data *data)
 		data->cur.cmd = (data->cur.table->cmd + data->cur.idx_cmd);
 		save_std_fd(&stdin_saved, &stdout_saved);
 		replace_tokens(data);
-		replace_redirects(data);
+		if (is_heredoc(data) == NO)
+			replace_redirects(data);
 		if (is_heredoc(data) == YES)
 			execute_heredoc(data);
 		set_dup2(data);
