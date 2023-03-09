@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtin_exit.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 10:05:50 by dpestana          #+#    #+#             */
-/*   Updated: 2023/03/08 18:16:02 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/09 00:01:45 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,30 @@ static void	is_number_builtin_exit(t_data *data)
 	data->exit_status = EXIT_GENERAL_ERROR;
 }
 
+static int	is_long_long_int(t_data *data)
+{
+	int	len;
+
+	len = ft_strlen(*(data->cur.cmd->token + 1));
+	if (**(data->cur.cmd->token + 1) == '-')
+	{
+		if (len > 20)
+			return (YES);
+		else if (len == 20)
+			if (ft_strcmp("-9223372036854775809", *(data->cur.cmd->token + 1)) <= 0)
+				return (YES);
+	}
+	else
+	{
+		if (len > 19)
+			return (YES);
+		else if (len == 19)
+			if (ft_strcmp("9223372036854775808", *(data->cur.cmd->token + 1)) <= 0)
+				return (YES);
+	}
+	return (NO);
+}
+
 void	builtin_exit(t_data *data)
 {
 	write_str("exit\n");
@@ -39,7 +63,17 @@ void	builtin_exit(t_data *data)
 			return ;
 		}
 		else
-			data->exit_status = ft_atoi(*(data->cur.cmd->token + 1));
+		{
+			if(is_long_long_int(data) == YES)
+			{
+				write_str("exit: ");
+				write_str(*(data->cur.cmd->token + 1));
+				write_str(": numeric argument required\n");
+				data->exit_status = EXIT_GENERAL_ERROR;
+			}
+			else
+				data->exit_status = ft_atoi(*(data->cur.cmd->token + 1));
+		}
 	}
 	end_program(data, data->exit_status);
 }
