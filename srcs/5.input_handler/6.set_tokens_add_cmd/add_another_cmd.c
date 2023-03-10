@@ -24,6 +24,7 @@ static t_cmd	inicialize_new_cmd(void)
 	cmd.is_heredoc = NO;
 	cmd.pid = 0;
 	cmd.is_builtin = NO;
+	cmd.not_execute_heredoc = NO;
 	return (cmd);
 }
 
@@ -44,6 +45,7 @@ void	add_another_cmd(t_data *data)
 		(clone + inc)->is_heredoc = (data->cur.table->cmd + inc)->is_heredoc;
 		(clone + inc)->pid = (data->cur.table->cmd + inc)->pid;
 		(clone + inc)->is_builtin = (data->cur.table->cmd + inc)->is_builtin;
+		(clone + inc)->not_execute_heredoc = (data->cur.table->cmd + inc)->not_execute_heredoc;
 		inc++;
 	}
 	*(clone + inc) = inicialize_new_cmd();

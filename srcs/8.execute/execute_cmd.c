@@ -27,14 +27,17 @@ void	execute_cmd(t_data *data)
 			replace_redirects(data);
 		if (is_heredoc(data) == YES)
 			execute_heredoc(data);
-		set_dup2(data);
-		set_redirects(data);
-		execute(data);
-		if (is_heredoc(data) == YES)
-			delete_heredoc(data);
-		unset_env_var_full(data);
+		if (data->cur.cmd->not_execute_heredoc == NO)
+		{
+			set_dup2(data);
+			set_redirects(data);
+			execute(data);
+			if (is_heredoc(data) == YES)
+				delete_heredoc(data);
+			unset_env_var_full(data);
+			set_last_cmd_env(data);
+		}
 		close_std_fd(&stdin_saved, &stdout_saved);
-		set_last_cmd_env(data);
 		data->cur.idx_cmd++;
 	}
 	wait_child_pids(data);

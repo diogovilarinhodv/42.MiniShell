@@ -21,7 +21,7 @@ void	wait_child_pids(t_data *data)
 	{
 		wait_status = 0;
 		data->cur.cmd = (data->cur.table->cmd + data->cur.idx_cmd);
-		if (data->cur.cmd->is_builtin == NO)
+		if (data->cur.cmd->is_builtin == NO && data->cur.cmd->not_execute_heredoc == NO)
 		{
 			waitpid(data->cur.cmd->pid, &wait_status, 0);
 			if (WIFEXITED(wait_status))

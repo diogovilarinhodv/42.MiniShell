@@ -88,6 +88,7 @@ typedef struct s_cmd
 	int				qty_red;
 	int				pid;
 	int				is_builtin;
+	int				not_execute_heredoc;
 
 }	t_cmd;
 

@@ -18,4 +18,5 @@ void	heredoc_ctrl_c(t_data *data, int **fd)
 	turn_on_canonical(data);
 	close(**fd);
 	delete_heredoc(data);
+	data->cur.cmd->not_execute_heredoc = YES;
 }

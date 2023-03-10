@@ -28,5 +28,6 @@ void	add_first_cmd(t_data *data)
 	data->cur.table->cmd->is_heredoc = NO;
 	data->cur.table->cmd->pid = 0;
 	data->cur.table->cmd->is_builtin = NO;
+	data->cur.table->cmd->not_execute_heredoc = NO;
 	unset_cur(data);
 }
