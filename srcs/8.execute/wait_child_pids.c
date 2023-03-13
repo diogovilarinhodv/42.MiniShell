@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wait_child_pids.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:33:19 by dpestana          #+#    #+#             */
-/*   Updated: 2023/03/08 15:23:06 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/12 23:48:28 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	wait_child_pids(t_data *data)
 	{
 		wait_status = 0;
 		data->cur.cmd = (data->cur.table->cmd + data->cur.idx_cmd);
-		if (data->cur.cmd->is_builtin == NO && data->cur.cmd->not_execute_heredoc == NO)
+		if (data->cur.cmd->is_builtin == NO && data->cur.cmd->no_exec_heredoc == NO)
 		{
 			waitpid(data->cur.cmd->pid, &wait_status, 0);
 			if (WIFEXITED(wait_status))

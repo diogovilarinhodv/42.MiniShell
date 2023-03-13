@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   heredoc_read_char.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 14:24:32 by dpestana          #+#    #+#             */
-/*   Updated: 2023/03/05 16:33:07 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/12 23:54:00 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,10 @@ int	read_char_heredoc(t_data *data, int *bytes_readed, int *fd)
 		return (END);
 	}
 	else if (is_ctrl_d(data) == YES)
-		heredoc_ctrl_d(data, &fd);
+	{
+		if (data->input.buf_idx < 1)
+			return (heredoc_ctrl_d(data, &fd));
+	}
 	else if (is_tab(data) == YES)
 		execute_tab(data);
 	else

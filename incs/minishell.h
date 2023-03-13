@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 15:44:01 by dpestana          #+#    #+#             */
-/*   Updated: 2023/03/04 14:42:33 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/12 14:16:52 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@
 # define CTRL_B 28
 
 # define EXIT_GENERAL_ERROR 2
+# define EXIT_CMD_IS_DIRECTORY 126
 # define EXIT_CMD_NOT_FOUND 127
 # define EXIT_CMD_INTERRUPTED 130
 # define EXIT_ERROR_FORMAT 258

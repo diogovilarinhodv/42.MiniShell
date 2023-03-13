@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   heredoc_ctrl_c.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 15:31:22 by dpestana          #+#    #+#             */
-/*   Updated: 2023/03/06 16:14:21 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/12 23:48:30 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,5 @@ void	heredoc_ctrl_c(t_data *data, int **fd)
 	turn_on_canonical(data);
 	close(**fd);
 	delete_heredoc(data);
-	data->cur.cmd->not_execute_heredoc = YES;
+	data->cur.cmd->no_exec_heredoc = YES;
 }

@@ -3,22 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   heredoc_ctrl_d.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 15:28:09 by dpestana          #+#    #+#             */
-/*   Updated: 2023/03/05 16:29:52 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/12 23:53:14 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../incs/minishell.h"
 
-void	heredoc_ctrl_d(t_data *data, int **fd)
+int	heredoc_ctrl_d(t_data *data, int **fd)
 {
-	if (data->input.buf_idx < 1)
-	{
-		turn_on_canonical(data);
-		close(**fd);
-		delete_heredoc(data);
-		end_program(data, SUCCESS);
-	}
+	write_str("warning: here-document delimited by end-of-file (wanted \'");
+	write_str(data->cur.cmd->red->token);
+	write_str("\')\n");
+	data->exit_status = EXIT_SUCCESS;
+	set_exit_status_env(data);
+	ft_bzero(data->input.buf, BUFSIZ);
+	data->input.buf_idx = 0;
+	turn_on_canonical(data);
+	close(**fd);
+	return (END);
 }

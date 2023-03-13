@@ -3,14 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   execute_cmd.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 18:15:10 by dpestana          #+#    #+#             */
-/*   Updated: 2023/03/08 15:12:12 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/12 23:50:22 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
+
+static void	execute_cmd_cycle(t_data *data)
+{
+	replace_tokens(data);
+	if (is_heredoc(data) == NO)
+		replace_redirects(data);
+	if (is_heredoc(data) == YES)
+		execute_heredoc(data);
+	if (data->cur.cmd->no_exec_heredoc == NO)
+	{
+		set_dup2(data);
+		set_redirects(data);
+		if (data->cur.cmd->token != NULL)
+		{
+			execute(data);
+			unset_env_var_full(data);
+			set_last_cmd_env(data);
+		}
+		if (is_heredoc(data) == YES)
+			delete_heredoc(data);
+	}
+}
 
 void	execute_cmd(t_data *data)
 {
@@ -22,21 +44,7 @@ void	execute_cmd(t_data *data)
 	{
 		data->cur.cmd = (data->cur.table->cmd + data->cur.idx_cmd);
 		save_std_fd(&stdin_saved, &stdout_saved);
-		replace_tokens(data);
-		if (is_heredoc(data) == NO)
-			replace_redirects(data);
-		if (is_heredoc(data) == YES)
-			execute_heredoc(data);
-		if (data->cur.cmd->not_execute_heredoc == NO)
-		{
-			set_dup2(data);
-			set_redirects(data);
-			execute(data);
-			if (is_heredoc(data) == YES)
-				delete_heredoc(data);
-			unset_env_var_full(data);
-			set_last_cmd_env(data);
-		}
+		execute_cmd_cycle(data);
 		close_std_fd(&stdin_saved, &stdout_saved);
 		data->cur.idx_cmd++;
 	}

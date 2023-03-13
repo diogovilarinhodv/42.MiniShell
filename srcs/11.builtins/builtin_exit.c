@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 10:05:50 by dpestana          #+#    #+#             */
-/*   Updated: 2023/03/09 00:01:45 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/12 23:46:33 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	builtin_exit(t_data *data)
 		}
 		else
 		{
-			if(is_long_long_int(data) == YES)
+			if (is_long_long_int(data) == YES)
 			{
 				write_str("exit: ");
 				write_str(*(data->cur.cmd->token + 1));

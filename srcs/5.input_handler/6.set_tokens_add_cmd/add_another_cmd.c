@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   add_another_cmd.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 19:48:18 by dpestana          #+#    #+#             */
-/*   Updated: 2023/03/08 15:20:34 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/12 23:48:18 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static t_cmd	inicialize_new_cmd(void)
 	cmd.is_heredoc = NO;
 	cmd.pid = 0;
 	cmd.is_builtin = NO;
-	cmd.not_execute_heredoc = NO;
+	cmd.no_exec_heredoc = NO;
 	return (cmd);
 }
 
@@ -45,7 +45,7 @@ void	add_another_cmd(t_data *data)
 		(clone + inc)->is_heredoc = (data->cur.table->cmd + inc)->is_heredoc;
 		(clone + inc)->pid = (data->cur.table->cmd + inc)->pid;
 		(clone + inc)->is_builtin = (data->cur.table->cmd + inc)->is_builtin;
-		(clone + inc)->not_execute_heredoc = (data->cur.table->cmd + inc)->not_execute_heredoc;
+		(clone + inc)->no_exec_heredoc = (data->cur.table->cmd + inc)->no_exec_heredoc;
 		inc++;
 	}
 	*(clone + inc) = inicialize_new_cmd();
