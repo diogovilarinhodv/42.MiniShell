@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   replace_tokens.c                                   :+:      :+:    :+:   */
+/*   replace_tokens_on_cmd.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 10:11:59 by dpestana          #+#    #+#             */
-/*   Updated: 2023/03/14 09:29:32 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/14 10:51:06 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../incs/minishell.h"
+#include "../../../incs/minishell.h"
 
 /*
 static void	replace_tokens_quotes(t_data *data)
@@ -35,7 +35,7 @@ static void	replace_tokens_quotes(t_data *data)
 }
 */
 
-void	replace_tokens(t_data *data)
+void	replace_tokens_on_cmd(t_data *data)
 {
 	int	inc_tkn;
 
@@ -43,7 +43,7 @@ void	replace_tokens(t_data *data)
 	while (inc_tkn < data->cur.cmd->qty_tkn)
 	{
 		data->cur.token = *(data->cur.cmd->token + inc_tkn);
-		replace_tokens_quotes(data);
+		replace_token(data);
 		*(data->cur.cmd->token + inc_tkn) = data->cur.token;
 		inc_tkn++;
 	}

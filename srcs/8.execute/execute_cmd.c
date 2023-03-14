@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   execute_cmd.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 18:15:10 by dpestana          #+#    #+#             */
-/*   Updated: 2023/03/13 10:25:52 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/14 09:47:53 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	execute_cmd_cycle(t_data *data)
 {
-	replace_tokens(data);
+	replace_tokens_on_cmd(data);
 	if (is_heredoc(data) == NO)
 		replace_redirects(data);
 	if (is_heredoc(data) == YES)
