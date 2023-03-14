@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_cipher_env_name.c                              :+:      :+:    :+:   */
+/*   get_first_str_part.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 10:21:00 by dpestana          #+#    #+#             */
-/*   Updated: 2023/03/14 11:15:59 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/14 13:34:11 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ char	*get_first_str_part(t_data *data)
 	{
 		if (env_value != NULL)
 			env_value = ft_strjoin(bef_cipher_str, env_value);
+		else if (bef_cipher_str != NULL)
+			env_value = ft_strdup(bef_cipher_str);
 		free_str(&bef_cipher_str);
 	}
 	return (env_value);

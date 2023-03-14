@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 20:12:06 by dpestana          #+#    #+#             */
-/*   Updated: 2023/03/14 10:50:16 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/14 13:52:57 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,10 @@ int		is_double_quote(t_data *data);
 int		is_letter(t_data *data);
 void	push_one_char(t_data *data, int idx);
 void	replace_cipher(t_data *data);
+void	replace_single_quotes(t_data *data);
 void	replace_double_quotes(t_data *data);
 void	replace_token(t_data *data);
 void	replace_tokens_on_cmd(t_data *data);
+int		is_single_quote(t_data *data);
 
 #endif

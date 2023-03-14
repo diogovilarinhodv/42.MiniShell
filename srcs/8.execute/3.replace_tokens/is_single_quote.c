@@ -1,33 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   replace_token.c                                    :+:      :+:    :+:   */
+/*   is_single_quote.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/14 09:28:43 by dpestana          #+#    #+#             */
-/*   Updated: 2023/03/14 13:50:32 by dpestana         ###   ########.fr       */
+/*   Created: 2023/03/14 13:49:33 by dpestana          #+#    #+#             */
+/*   Updated: 2023/03/14 13:50:09 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../incs/minishell.h"
 
-void	replace_token(t_data *data)
+int	is_single_quote(t_data *data)
 {
-	data->cur.idx_chr = 0;
-	while (*(data->cur.token + data->cur.idx_chr) != '\0')
-	{
-		if (is_single_quote(data) == YES)
-			replace_single_quotes(data);
-		else if (is_double_quote(data) == YES)
-			replace_double_quotes(data);
-		else
-		{
-			if (is_cipher(data) == YES)
-				replace_cipher(data);
-			else
-				data->cur.idx_chr++;
-		}
-	}
-	data->cur.idx_chr = 0;
+	if (*(data->cur.token + data->cur.idx_chr) == '\'')
+		return (YES);
+	return (NO);
 }
