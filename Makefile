@@ -158,6 +158,11 @@ SOURCE						= srcs/1.checks_env/1.is_valid/is_valid_env_var.c \
 								srcs/8.execute/2.file_open/file_open_double_left_arrow.c \
 								srcs/8.execute/2.file_open/file_open_left_arrow.c \
 								srcs/8.execute/2.file_open/file_open_right_arrow.c \
+								srcs/8.execute/3.replace_tokens/replace_tokens_quotes.c \
+								srcs/8.execute/3.replace_tokens/push_one_char.c \
+								srcs/8.execute/3.replace_tokens/replace_double_quotes.c \
+								srcs/8.execute/3.replace_tokens/is_double_quote.c \
+								srcs/8.execute/3.replace_tokens/is_cipher.c \
 								srcs/8.execute/builtins.c \
 								srcs/8.execute/children_process.c \
 								srcs/8.execute/close_std_fd.c \

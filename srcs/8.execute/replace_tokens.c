@@ -3,52 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   replace_tokens.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 10:11:59 by dpestana          #+#    #+#             */
-/*   Updated: 2023/03/14 00:01:39 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/14 09:29:32 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/minishell.h"
 
-static void	push_one_char(t_data *data, int inc)
-{
-	while (*(data->cur.token + inc) != '\0')
-	{
-		*(data->cur.token + inc) = *(data->cur.token + inc + 1);
-		inc++;
-	}
-}
-
-static void	replace_tokens_quotes(t_data *data)
-{
-	int		inc;
-	int		len;
-	char	*new_tkn;
-
-	inc = 0;
-	while (*(data->cur.token + inc) != '\0')
-	{
-		if (*(data->cur.token + inc) == '"')
-		{
-			push_one_char(data, inc);
-			while (*(data->cur.token + inc) != '"')
-			{
-				if (*(data->cur.token + inc) == '$')
-				{
-					
-				}
-				inc++;
-			}
-			push_one_char(data, inc);
-		}
-		inc++;
-	}
-	new_tkn = ft_strdup(data->cur.token);
-	free(data->cur.token);
-	data->cur.token = new_tkn;
-}
 /*
 static void	replace_tokens_quotes(t_data *data)
 {
