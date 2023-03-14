@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 11:13:53 by dpestana          #+#    #+#             */
-/*   Updated: 2023/03/13 12:05:18 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/13 12:09:46 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	get_tokens(t_data *data, int *pos_beg, int *pos_end)
 	*pos_beg = data->input.idx;
 	if (is_quote(data) == YES)
 		get_quote_pos_end(data);
-	else if (is_that_char(*(data->input.line + *pos_beg)) == NO)
+	if (is_that_char(*(data->input.line + *pos_beg)) == NO)
 		get_token_pos_end(data);
 	else
 		get_token_pos_end_special(data);
