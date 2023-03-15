@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   h.execute.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 20:12:06 by dpestana          #+#    #+#             */
-/*   Updated: 2023/03/14 13:52:57 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/15 04:07:10 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,7 @@ void	replace_double_quotes(t_data *data);
 void	replace_token(t_data *data);
 void	replace_tokens_on_cmd(t_data *data);
 int		is_single_quote(t_data *data);
+int		is_tilde(t_data *data);
+void	replace_tilde(t_data *data);
 
 #endif

@@ -3,37 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   replace_tokens_on_cmd.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 10:11:59 by dpestana          #+#    #+#             */
-/*   Updated: 2023/03/14 10:51:06 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/15 04:29:38 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../incs/minishell.h"
-
-/*
-static void	replace_tokens_quotes(t_data *data)
-{
-	if (token_has_tilde(data) == YES)
-		replace_home_dir(data);
-	if (token_has_single_quotes(data) == YES)
-	{
-		while (token_has_single_quotes(data) == YES)
-			remove_single_quotes(data);
-	}
-	else if (token_has_double_quotes(data) == YES)
-	{
-		while (token_has_double_quotes(data) == YES)
-			remove_double_quotes(data);
-		if (token_has_cipher(data) == YES)
-			replace_env_var(data);
-	}
-	else
-		if (token_has_cipher(data) == YES)
-			replace_env_var(data);
-}
-*/
 
 void	replace_tokens_on_cmd(t_data *data)
 {
