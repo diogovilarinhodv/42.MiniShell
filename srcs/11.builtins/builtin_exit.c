@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtin_exit.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 10:05:50 by dpestana          #+#    #+#             */
-/*   Updated: 2023/03/12 23:46:33 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/15 13:55:10 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ static int	is_long_long_int(t_data *data)
 		if (len > 20)
 			return (YES);
 		else if (len == 20)
-			if (ft_strcmp("-9223372036854775809", *(data->cur.cmd->token + 1)) <= 0)
+			if (ft_strcmp("-9223372036854775809",
+					*(data->cur.cmd->token + 1)) <= 0)
 				return (YES);
 	}
 	else
@@ -43,7 +44,8 @@ static int	is_long_long_int(t_data *data)
 		if (len > 19)
 			return (YES);
 		else if (len == 19)
-			if (ft_strcmp("9223372036854775808", *(data->cur.cmd->token + 1)) <= 0)
+			if (ft_strcmp("9223372036854775808",
+					*(data->cur.cmd->token + 1)) <= 0)
 				return (YES);
 	}
 	return (NO);

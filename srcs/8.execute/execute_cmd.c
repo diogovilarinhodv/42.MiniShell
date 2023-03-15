@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 18:15:10 by dpestana          #+#    #+#             */
-/*   Updated: 2023/03/14 09:47:53 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/15 13:56:18 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	execute_cmd_cycle(t_data *data)
 		replace_redirects(data);
 	if (is_heredoc(data) == YES)
 		execute_heredoc(data);
-	if (data->cur.cmd->no_exec_heredoc == NO)
+	if (data->cur.cmd->exec_hd == NO)
 	{
 		set_dup2(data);
 		set_redirects(data);

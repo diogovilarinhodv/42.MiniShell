@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_first_str_part.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 10:21:00 by dpestana          #+#    #+#             */
-/*   Updated: 2023/03/15 13:02:57 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/15 14:10:55 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,17 @@ char	*get_first_str_part(t_data *data)
 		bef_cipher_str = ft_strndup(data->cur.token, data->cur.idx_chr);
 	data->cur.idx_chr++;
 	beg_pos = data->cur.idx_chr;
-	while (is_letter(data) == YES)
+	if (*(data->cur.token + data->cur.idx_chr) == '?')
 		data->cur.idx_chr++;
+	else
+		while (is_letter(data) == YES)
+			data->cur.idx_chr++;
 	if (beg_pos == data->cur.idx_chr && data->cur.idx_chr == 0)
 		return (NULL);
 	else if (beg_pos == data->cur.idx_chr && data->cur.idx_chr > 0)
 		return (bef_cipher_str);
-	env_name = ft_strndup((data->cur.token + beg_pos), data->cur.idx_chr - beg_pos);
+	env_name = ft_strndup((data->cur.token + beg_pos),
+			data->cur.idx_chr - beg_pos);
 	env_value = get_env_value(data, env_name);
 	free_str(&env_name);
 	env_value = set_env_value(data, env_value, bef_cipher_str);
