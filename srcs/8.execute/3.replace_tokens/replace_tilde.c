@@ -6,11 +6,23 @@
 /*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 03:42:51 by dpestana          #+#    #+#             */
-/*   Updated: 2023/03/15 04:36:08 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/15 13:00:16 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../incs/minishell.h"
+
+static char	*set_new_tkn(t_data *data, char *env_val)
+{
+	char	*new_tkn;
+
+	if (*(data->cur.token + data->cur.idx_chr + 1) == '\0')
+		new_tkn = ft_strdup(env_val);
+	else
+		new_tkn = ft_strjoin(env_val,
+				(data->cur.token + data->cur.idx_chr + 1));
+	return (new_tkn);
+}
 
 void	replace_tilde(t_data *data)
 {
@@ -28,11 +40,7 @@ void	replace_tilde(t_data *data)
 		if (bef_tilde_str != NULL)
 			env_val = ft_strjoin(bef_tilde_str, env_val);
 		len = ft_strlen(env_val);
-		if (*(data->cur.token + data->cur.idx_chr + 1) == '\0')
-			new_tkn = ft_strdup(env_val);
-		else
-			new_tkn = ft_strjoin(env_val,
-					(data->cur.token + data->cur.idx_chr + 1));
+		new_tkn = set_new_tkn(data, env_val);
 		free_str(&data->cur.token);
 		data->cur.token = new_tkn;
 		if (bef_tilde_str != NULL)
