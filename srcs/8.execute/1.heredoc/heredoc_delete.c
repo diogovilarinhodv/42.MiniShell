@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   heredoc_delete.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 14:22:53 by dpestana          #+#    #+#             */
-/*   Updated: 2023/03/05 20:56:00 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/21 15:04:52 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	delete_heredoc(t_data *data)
 	{
 		close_all_fd(data);
 		if (execve(*args, args, NULL) == -1)
-			kill(getpid(), SIGKILL);
+			exit(EXIT_FAILURE);
 	}
 	close_fd(data);
 	waitpid(pid, &wait_status, 0);

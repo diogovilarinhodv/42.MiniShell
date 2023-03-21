@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   execve_error.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 17:35:04 by dpestana          #+#    #+#             */
-/*   Updated: 2023/03/13 00:08:32 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/21 15:05:03 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,5 @@ void	execve_error(t_data *data)
 	}
 	else if (errno == ENOENT)
 		exec_enoent_error(data);
-	kill(getpid(), SIGKILL);
+	exit(EXIT_FAILURE);
 }

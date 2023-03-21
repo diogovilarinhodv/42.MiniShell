@@ -218,6 +218,12 @@ SOURCE						= srcs/1.checks_env/1.is_valid/is_valid_env_var.c \
 								srcs/11.builtins/2.builtin_echo/echo_has_new_line.c \
 								srcs/11.builtins/3.builtin_export/export_set_name.c \
 								srcs/11.builtins/3.builtin_export/export_set_value.c \
+								srcs/11.builtins/3.builtin_export/set_env_sorted.c \
+								srcs/11.builtins/3.builtin_export/sort_export_no_args.c \
+								srcs/11.builtins/3.builtin_export/free_clone_env.c \
+								srcs/11.builtins/3.builtin_export/builtin_export_no_args.c \
+								srcs/11.builtins/3.builtin_export/clone_env.c \
+								srcs/11.builtins/3.builtin_export/builtin_export_with_arg.c \
 								srcs/12.file_descriptors/close_all_fd.c \
 								srcs/12.file_descriptors/close_fd.c \
 								srcs/12.file_descriptors/is_first_cmd_fd.c \

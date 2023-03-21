@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   builtin_export.c                                   :+:      :+:    :+:   */
+/*   free_clone_env.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/23 18:41:17 by dpestana          #+#    #+#             */
-/*   Updated: 2023/03/21 17:18:58 by dpestana         ###   ########.fr       */
+/*   Created: 2023/03/21 16:58:44 by dpestana          #+#    #+#             */
+/*   Updated: 2023/03/21 16:59:08 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../incs/minishell.h"
+#include "../../../incs/minishell.h"
 
-void	builtin_export(t_data *data)
+void	free_clone_env(t_env_var env_sorted)
 {
-	if (data->cur.cmd->qty_tkn == 1)
-		builtin_export_no_args(data);
-	else
-		builtin_export_with_arg(data);
+	int	inc;
+
+	inc = 0;
+	while (inc < env_sorted.qty)
+	{
+		free_str((env_sorted.name + inc));
+		free_str((env_sorted.value + inc));
+		inc++;
+	}
+	free_str_bd_src(&env_sorted.name);
+	free_str_bd_src(&env_sorted.value);
 }
