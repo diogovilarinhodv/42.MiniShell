@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 15:12:28 by dpestana          #+#    #+#             */
-/*   Updated: 2023/03/21 17:05:57 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/23 13:32:59 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,6 +149,8 @@ typedef struct s_data
 	t_env_var		env;
 	t_termcaps		termcaps;
 	t_history		hist;
+	int				stdin_saved;
+	int				stdout_saved;
 	int				exit_status;
 
 }	t_data;

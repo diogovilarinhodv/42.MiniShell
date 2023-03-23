@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 10:05:50 by dpestana          #+#    #+#             */
-/*   Updated: 2023/03/15 13:55:10 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/23 14:18:01 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,14 @@ static int	is_long_long_int(t_data *data)
 	return (NO);
 }
 
+static void	is_long_long_int_error(t_data *data)
+{
+	write_str("exit: ");
+	write_str(*(data->cur.cmd->token + 1));
+	write_str(": numeric argument required\n");
+	data->exit_status = EXIT_GENERAL_ERROR;
+}
+
 void	builtin_exit(t_data *data)
 {
 	write_str("exit\n");
@@ -67,15 +75,12 @@ void	builtin_exit(t_data *data)
 		else
 		{
 			if (is_long_long_int(data) == YES)
-			{
-				write_str("exit: ");
-				write_str(*(data->cur.cmd->token + 1));
-				write_str(": numeric argument required\n");
-				data->exit_status = EXIT_GENERAL_ERROR;
-			}
+				is_long_long_int_error(data);
 			else
 				data->exit_status = ft_atoi(*(data->cur.cmd->token + 1));
 		}
 	}
+	close_std_fd(data);
+	close_fd(data);
 	end_program(data, data->exit_status);
 }

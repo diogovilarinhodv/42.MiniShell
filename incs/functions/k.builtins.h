@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 20:13:36 by dpestana          #+#    #+#             */
-/*   Updated: 2023/03/21 17:33:43 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/23 14:18:28 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void		cd_back(t_data *data);
 void		cd_update_pwd_oldpwd(t_data *data);
 
 // 11.BUILTINS > 2.BUILTIN_ECHO
-int		echo_has_new_line(t_data *data, int *y);
+int			echo_has_new_line(t_data *data, int *y);
 
 // 11.BUILTINS > 3.BUILTIN_EXPORT
 char		*export_set_name(t_data *data, int *inc);

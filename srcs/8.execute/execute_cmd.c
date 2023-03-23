@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 18:15:10 by dpestana          #+#    #+#             */
-/*   Updated: 2023/03/15 13:56:18 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/23 13:33:20 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,16 +36,13 @@ static void	execute_cmd_cycle(t_data *data)
 
 void	execute_cmd(t_data *data)
 {
-	int		stdin_saved;
-	int		stdout_saved;
-
 	data->cur.idx_cmd = 0;
 	while (data->cur.idx_cmd < data->cur.table->qty_cmd)
 	{
 		data->cur.cmd = (data->cur.table->cmd + data->cur.idx_cmd);
-		save_std_fd(&stdin_saved, &stdout_saved);
+		save_std_fd(data);
 		execute_cmd_cycle(data);
-		close_std_fd(&stdin_saved, &stdout_saved);
+		close_std_fd(data);
 		data->cur.idx_cmd++;
 	}
 	wait_child_pids(data);

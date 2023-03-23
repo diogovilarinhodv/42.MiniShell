@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 20:12:06 by dpestana          #+#    #+#             */
-/*   Updated: 2023/03/21 16:59:44 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/23 13:36:12 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ int		builtins(t_data *data);
 void	non_builtin(t_data *data);
 void	set_env_var_full(t_data *data);
 void	unset_env_var_full(t_data *data);
-void	save_std_fd(int *stdin_saved, int *stdout_saved);
-void	close_std_fd(int *stdin_saved, int *stdout_saved);
+void	save_std_fd(t_data *data);
+void	close_std_fd(t_data *data);
 void	set_exit_status_env(t_data *data);
 void	set_last_cmd_env(t_data *data);
 void	execve_error(t_data *data);
