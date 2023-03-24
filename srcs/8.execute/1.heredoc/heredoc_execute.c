@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 14:25:30 by dpestana          #+#    #+#             */
-/*   Updated: 2023/03/05 16:28:49 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/24 14:13:03 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	execute_heredoc(t_data *data)
 
 	free_input(data);
 	fd = open("tmp_file", O_WRONLY | O_CREAT | O_APPEND, 0666);
-	out = dup(STDOUT_FILENO);
+	data->out_hd = dup(STDOUT_FILENO);
 	while (1)
 	{
 		ft_putstr("> ");
@@ -32,7 +32,7 @@ void	execute_heredoc(t_data *data)
 		turn_on_canonical(data);
 		if (is_heredoc_terminator_str(data) == YES)
 			break ;
-		heredoc_write_on_file(data, &fd, &out);
+		heredoc_write_on_file(data, &fd);
 	}
 	free_input(data);
 	close(fd);

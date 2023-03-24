@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 20:12:06 by dpestana          #+#    #+#             */
-/*   Updated: 2023/03/23 13:36:12 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/24 14:13:11 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	execute_heredoc(t_data *data);
 int		read_char_heredoc(t_data *data, int *bytes_readed, int *fd);
 void	delete_heredoc(t_data *data);
 int		is_heredoc_terminator_str(t_data *data);
-void	heredoc_write_on_file(t_data *data, int *fd, int *out);
+void	heredoc_write_on_file(t_data *data, int *fd);
 void	heredoc_reset_line(t_data *data);
 void	heredoc_ctrl_c(t_data *data, int **fd);
 int		heredoc_ctrl_d(t_data *data, int **fd);

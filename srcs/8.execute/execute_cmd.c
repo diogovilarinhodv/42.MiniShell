@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 18:15:10 by dpestana          #+#    #+#             */
-/*   Updated: 2023/03/23 13:33:20 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/24 14:12:15 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,11 @@ static void	execute_cmd_cycle(t_data *data)
 			set_last_cmd_env(data);
 		}
 		if (is_heredoc(data) == YES)
+		{
 			delete_heredoc(data);
-	}
+			close(data->out_hd);
+		}
+	}	
 }
 
 void	execute_cmd(t_data *data)

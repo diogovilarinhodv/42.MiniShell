@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 14:22:53 by dpestana          #+#    #+#             */
-/*   Updated: 2023/03/21 15:04:52 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/24 14:11:39 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	delete_heredoc(t_data *data)
 	if (pid == 0)
 	{
 		close_all_fd(data);
+		close(data->out_hd);
 		if (execve(*args, args, NULL) == -1)
 			exit(EXIT_FAILURE);
 	}
