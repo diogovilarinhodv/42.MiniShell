@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   unset_env.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 14:43:51 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/31 17:52:54 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/24 12:24:29 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,7 @@ void	unset_env(t_data *data, char *name)
 
 	idx = get_env_idx(data, name);
 	if (idx == NOT_FOUND)
-	{
-		data->exit_status = EXIT_FAILURE;
 		return ;
-	}
 	shorten_unset_env(data, idx);
 	realloc_unset_env(data);
 	data->exit_status = EXIT_SUCCESS;
