@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 17:00:12 by dpestana          #+#    #+#             */
-/*   Updated: 2023/03/21 17:00:56 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/24 12:15:23 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,11 @@ void	builtin_export_no_args(t_data *data)
 	{
 		write_str("declare -x ");
 		write_str(*(env_sorted.name + inc));
-		write_str("=");
-		write_str(*(env_sorted.value + inc));
+		if (ft_strcmp(*(env_sorted.value + inc), "") != 0)
+		{
+			write_str("=");
+			write_str(*(env_sorted.value + inc));
+		}
 		write_str("\n");
 		inc++;
 	}

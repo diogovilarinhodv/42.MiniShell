@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_env.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 18:42:00 by dpestana          #+#    #+#             */
-/*   Updated: 2022/12/31 18:14:40 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/24 12:05:18 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,10 @@ static	void	realloc_set_env(t_data *data, char *name, char *value)
 		inc++;
 	}
 	*(tmp_name + inc) = ft_strdup(name);
-	*(tmp_value + inc) = ft_strdup(value);
+	if (value != NULL)
+		*(tmp_value + inc) = ft_strdup(value);
+	else
+		*(tmp_value + inc) = ft_strdup("");
 	free_str_bd_src(&data->env.name);
 	free_str_bd_src(&data->env.value);
 	data->env.name = tmp_name;
@@ -66,7 +69,10 @@ void	set_env(t_data *data, char *name, char *value)
 	if (idx != NOT_FOUND)
 	{
 		free_str((data->env.value + idx));
-		*(data->env.value + idx) = ft_strdup(value);
+		if (value != NULL)
+			*(data->env.value + idx) = ft_strdup(value);
+		else
+			*(data->env.value + idx) = ft_strdup("");
 		return ;
 	}
 	data->env.qty++;
