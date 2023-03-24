@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:33:19 by dpestana          #+#    #+#             */
-/*   Updated: 2023/03/15 13:56:18 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/24 11:04:47 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,7 @@ void	wait_child_pids(t_data *data)
 			else if (WIFSIGNALED(wait_status))
 			{
 				data->exit_status = WTERMSIG(wait_status) + 128;
-				if (data->exit_status == 130)
-					write_str("\n");
-				else if (data->exit_status == 131)
+				if (data->exit_status == 131)
 					write_str("Quit (core dumped)\n");
 			}
 		}
