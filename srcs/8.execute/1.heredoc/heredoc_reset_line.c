@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   heredoc_reset_line.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 15:25:08 by dpestana          #+#    #+#             */
-/*   Updated: 2023/03/09 00:46:05 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/23 15:04:41 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
