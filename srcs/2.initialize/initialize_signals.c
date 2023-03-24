@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initialize_signals.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpestana <dpestana@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 22:46:09 by dpestana          #+#    #+#             */
-/*   Updated: 2023/02/05 12:03:57 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/24 11:14:47 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

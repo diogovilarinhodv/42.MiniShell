@@ -6,7 +6,7 @@
 /*   By: dpestana <dpestana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 17:35:04 by dpestana          #+#    #+#             */
-/*   Updated: 2023/03/23 15:18:52 by dpestana         ###   ########.fr       */
+/*   Updated: 2023/03/24 11:53:35 by dpestana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,17 @@ static void	exec_enoent_error(t_data *data)
 			write_str("\n");
 		}
 	}
-	exit(EXIT_CMD_NOT_FOUND);
+	unset_env_var_full(data);
+	end_program(data, EXIT_CMD_NOT_FOUND);
 }
 
-static void	write_error(char *msg, char *str, int n)
+static void	write_error(t_data *data, char *msg, char *str, int n)
 {
 	write_str(str);
 	write_str(msg);
 	write_str("\n");
-	exit(n);
+	unset_env_var_full(data);
+	end_program(data, n);
 }
 
 void	execve_error(t_data *data)
@@ -53,20 +55,21 @@ void	execve_error(t_data *data)
 	if (errno == EACCES)
 	{
 		if (**data->cur.cmd->token == '\0')
-			write_error(": Command not found", str, EXIT_CMD_NOT_FOUND);
+			write_error(data, ": Command not found", str, EXIT_CMD_NOT_FOUND);
 		lstat(*data->cur.cmd->token, &buf);
 		if (S_ISDIR(buf.st_mode))
-			write_error(": Is a directory", str, EXIT_CMD_IS_DIRECTORY);
+			write_error(data, ": Is a directory", str, EXIT_CMD_IS_DIRECTORY);
 		dir = opendir(*data->cur.cmd->token);
 		if (dir)
 		{
 			closedir(dir);
-			write_error(": Is a directory", str, EXIT_CMD_IS_DIRECTORY);
+			write_error(data, ": Is a directory", str, EXIT_CMD_IS_DIRECTORY);
 		}
 		else
-			write_error(": Permission denied", str, EXIT_CMD_INTERRUPTED);
+			write_error(data, ": Permission denied", str, EXIT_CMD_INTERRUPTED);
 	}
 	else if (errno == ENOENT)
 		exec_enoent_error(data);
-	exit(EXIT_FAILURE);
+	unset_env_var_full(data);
+	end_program(data, EXIT_FAILURE);
 }
